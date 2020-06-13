@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "pidgin",
     "public": "build",
     "ignore": [
       "firebase.json",
