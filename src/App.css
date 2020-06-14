@@ -119,7 +119,7 @@ body,html{
   font-weight: 600;
   letter-spacing: 3px;
 }
-Link{
+Link Link:active Link:visited{
 	-webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
@@ -129,6 +129,7 @@ Link{
 								  supported by Chrome, Edge, Opera and Firefox */
 		text-decoration: none;
 }
+
 a{text-decoration: none;}
 a:visited {text-decoration: none;} /* Visited link    */
 a:hover {text-decoration: none;}   /* Mouse over link */

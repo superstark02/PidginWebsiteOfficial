@@ -4,10 +4,11 @@ import Categories from './Categories';
 import Footer from './Footer';
 import { FaSearch } from 'react-icons/fa';
 import AppBar from './AppBar';
+import MyList from './List';
 
 function Home() {
   return (
-    <div className="App">
+    <div className="App" >
       <AppBar/>
       <div class="pimg2" style={{background:'#282e34',opacity:'1',display:'flex',alignItems:'center'}} >
         <div class="ptext" style={{top:'20%',color:'white',position:'relative'}}>
@@ -39,8 +40,8 @@ function Home() {
 
       </div>
 
-      <div class="section section-dark" style={{backgroundColor:'white'}} >
-        
+      <div class="section section-dark" style={{backgroundColor:'white',display:'flex',justifyContent:'space-around',minHeight:'100%'}} >
+        <MyList/>
       </div>
 
       <div class="pimg1">
