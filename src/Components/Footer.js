@@ -3,6 +3,7 @@ import './categories.css'
 import image from '../Images/footer.jpg'
 import { FaInstagram, FaWhatsapp, FaFacebook} from 'react-icons/fa';
 import { Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 export default class Footer extends React.Component {
     render() {
@@ -25,7 +26,9 @@ export default class Footer extends React.Component {
                             <div>Increase your market.</div>
                             <div>Reach to potential learners.</div>
                             <div>Showcase your awards and merits.</div>
-                            <Button color='secondary' variant='outlined' style={{marginTop:'30px'}} >TEAM UP</Button>
+                            <Link to='' >
+                                <Button color='secondary' variant='outlined' style={{marginTop:'30px'}} >TEAM UP</Button>
+                            </Link>
                         </div>
                         <div>
                             <img alt='s' width='400px' src={image}/>
