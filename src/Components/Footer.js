@@ -14,10 +14,10 @@ export default class Footer extends React.Component {
                         <div className='footerHeading' >
                             Pidgin
                         </div>
-                        <div style={{fontSize:'50px'}} >
-                            <FaInstagram style={{margin:'10px'}} />
-                            <FaWhatsapp style={{margin:'10px'}} />
-                            <FaFacebook style={{margin:'10px'}} />
+                        <div style={{fontSize:'50px',color:'black'}} >
+                            <a href='https://www.instagram.com/pidgin2020/' ><FaInstagram style={{margin:'10px'}} color='black' /></a>
+                            <a href='https://wa.me/919910197196' ><FaWhatsapp style={{margin:'10px'}} color='black' /></a>
+                            <a href='https://www.facebook.com/Pidgin-104215741310224/' ><FaFacebook color='black' style={{margin:'10px'}} /></a>
                         </div>
                     </div>
                     <div style={{display:'flex'}} >
@@ -26,7 +26,7 @@ export default class Footer extends React.Component {
                             <div>Increase your market.</div>
                             <div>Reach to potential learners.</div>
                             <div>Showcase your awards and merits.</div>
-                            <Link to='' >
+                            <Link to='/classesAdd' >
                                 <Button color='secondary' variant='outlined' style={{marginTop:'30px'}} >TEAM UP</Button>
                             </Link>
                         </div>

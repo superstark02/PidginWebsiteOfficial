@@ -38,7 +38,7 @@ export default class MyList extends React.Component {
                         this.state.item &&
                         this.state.item.map(item => {
                             return (
-                                <div className='item' >
+                                <div className='items' >
                                     <div style={{ width: '100%' }} >
                                         <Carousel
                                             slidesPerPage={1}
