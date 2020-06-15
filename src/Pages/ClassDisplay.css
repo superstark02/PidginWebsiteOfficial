@@ -1,0 +1,113 @@
+.carouselContainer {
+    display: flex;
+    overflow-x: scroll;
+    width: 100%;
+    background-color: #E6E6E6;
+}
+
+.overlayContainer {
+    position: relative;
+    max-width: 100%;
+    background-color: #E6E6E6;
+}
+
+.overlayBlack {
+    position: absolute;
+    top: 0;
+    background-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0));
+    height: 50px;
+    max-width: 100%;
+    width: 100%;
+    opacity: 1;
+    color: white;
+}
+
+.displayTitle {
+    margin: 10px 10px;
+    max-width: 100%;
+    font-weight: 600;
+    color: #043540;
+    align-self: center;
+    font-size: 16px;
+    display: flex;
+}
+
+.mapIcon {
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.displaySubtitle {
+    margin: 0px 10px;
+    max-width: 100%;
+    font-weight: 300;
+    font-size: small;
+    height: auto;
+}
+
+.classCard {
+    border-radius: 5px;
+    height: 180px;
+    width: 140px;
+    background-color: white;
+    margin: 20px 10px;
+    text-align: center;
+    border-radius: 20px 0px 20px 0px;
+    font-size: 15px;
+    font-weight: 300;
+    padding: 10px 10px;
+}
+
+.width_ {
+    width: 100px;
+    margin: 0px 10px;
+}
+
+.displaySubtitle2 {
+    margin: 10px 0px 0px 10px;
+    max-width: 100%;
+    font-weight: 500;
+    font-size: small;
+    display: flex;
+}
+
+.qualifications {
+    margin: 0px 10px;
+    max-width: 100%;
+    font-weight: 300;
+    font-size: small;
+    color: #043540;
+}
+
+.courseItem {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 10px 10px 0px 10px;
+    font-family: FiraSans;
+}
+
+.displayAge {
+    background-color: #58f73b;
+    padding: 5px;
+    width: auto;
+    color: white;
+    font-size: 10px;
+    border-radius: 3px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.displayType {
+    background-color: #f83b82;
+    margin-left: 10px;
+    padding: 5px;
+    width: auto;
+    white-space: nowrap;
+    color: white;
+    font-size: 10px;
+    border-radius: 3px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
