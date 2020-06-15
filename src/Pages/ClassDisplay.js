@@ -12,6 +12,11 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { Link } from 'react-router-dom';
 import './ClassDisplay.css'
+import Carousel from '@brainhubeu/react-carousel';
+import '@brainhubeu/react-carousel/lib/style.css';
+import { Dialog, DialogTitle, DialogContent } from '@material-ui/core';
+import logo from '../Images/app_bg.png'
+import store from "../Images/store.png";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -56,10 +61,6 @@ var online;
 
 class ClassDisplay extends React.Component {
 
-  openAnyActivity = (phone, url) => {
-    window.Android.openAnyActivity(phone, url);
-  }
-
   state = {
     name: null,
     images: null,
@@ -100,67 +101,6 @@ class ClassDisplay extends React.Component {
     loading: false,
   }
 
-  constructor() {
-    super();
-    this.state = {
-      open: false
-    }
-
-    this.handleAdd = this.handleAdd.bind(this)
-    this.handleClose = this.handleClose.bind(this)
-    this.myFunction = this.myFunction.bind(this)
-    this.handleCart = this.handleCart.bind(this)
-    this.openAnyActivity = this.openAnyActivity.bind(this)
-  }
-
-  handleAdd = (courseId, title, price, image) => {
-    this.setState({ open: true, dialogCourseId: courseId, dialogTitle: title, courseFees: price, image: image })
-  }
-  handleClose = () => {
-    this.setState({ open: false })
-  }
-
-  handleChange = (event, newValue) => {
-    this.setState({ value: newValue });
-  };
-
-
-
-  handleTrial = (event) => {
-    this.setState({ trial: event.target.value })
-  }
-  handleIndividual = (event) => {
-    this.setState({ individual: event.target.value })
-  }
-  handleTime = (event) => {
-    this.setState({ time: event.target.value })
-  }
-  handleOnline = (event) => {
-    this.setState({ online: event.target.value })
-  }
-
-  handleCart = (name, fees, online, timing, individual, trial, image) => {
-    if (this.state.signed != null) {
-      rdb.ref().child("Users").child(this.state.signed).child("Cart").child(name).set({
-        name: name,
-        price: fees,
-        online: online,
-        timing: timing,
-        individual: individual,
-        trial: trial,
-        image: image,
-      })
-      this.setState({ showCart: true })
-    }
-    else {
-      window.Android.verification();
-    }
-    this.setState({ open: false })
-  }
-
-  myFunction = (docId) => {
-    window.Android.openAnySubActivity(this.state.id, docId, "https://pidgin-ds.web.app/course")
-  }
   componentDidMount() {
     name = this.props.match.params.id;
     this.setState({ id: name })
@@ -274,31 +214,26 @@ class ClassDisplay extends React.Component {
     }
 
     return (
-      <div>
-        <div className='responsive' style={{width:'70%'}}>
-          <div style={{ backgroundColor: 'white', position: 'absolute', zIndex: '300', maxWidth: '100%', width: '100%' }}>
-            <div class='overlayContainer'>
-
-              <div class='carouselContainer' style={{ height: '250px' }} >
-                {
-                  this.state.images &&
-                  this.state.images.map(image => {
-                    if (image == null) {
+      <div style={{ display: 'flex', justifyContent: 'space-around' }} >
+        <div className='responsive' style={{ maxWidth: '60%' }} >
+          <div>
+            <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around' }} >
+              <div style={{ width: '70%' }} >
+                <Carousel
+                  slidesPerPage={1}
+                  arrows
+                  infinite
+                  animationSpeed={1000}
+                >
+                  {
+                    this.state.images &&
+                    this.state.images.map(item => {
                       return (
-                        <Skeleton variant="rect" width={210} height={250} />
+                        <img alt={item.item} src={item.item} height='250px' />
                       )
-                    }
-                    else {
-                      return (
-                        <div class="w3-animate-zoom"><img src={image.item} height='250px' width='auto' class='imageCarousel' /></div>
-                      )
-                    }
-                  })
-                }
-              </div>
-
-              <div class='overlayBlack' >
-                <div onClick={this.props.history.goBack}><ArrowBackIcon fontSize='10px' style={{ margin: '15px' }} /></div>
+                    })
+                  }
+                </Carousel>
               </div>
             </div>
             <div>
@@ -325,19 +260,6 @@ class ClassDisplay extends React.Component {
 
               </div>
               <Divider />
-            </div>
-            <div class='carouselContainer'>
-              {
-                this.state.offers &&
-                this.state.offers.map(offers => {
-                  return (
-                    <div class='offers' style={{ backgroundColor: '#FFFF' }}>
-                      <div style={{ marginLeft: '30px' }} >{offers.title}</div>
-                      <div style={{ marginLeft: '30px', marginTop: '5px', whiteSpace: 'normal', fontSize: '10px' }} >{offers.detail}</div>
-                    </div>
-                  )
-                })
-              }
             </div>
 
             <List subheader={<li />}>
@@ -463,6 +385,7 @@ class ClassDisplay extends React.Component {
             <div style={{ height: '60px' }} />
           </div>
         </div>
+
         <div className='mobile' >
           <div style={{ backgroundColor: 'white', position: 'absolute', zIndex: '300', maxWidth: '100%', width: '100%' }}>
             <div class='overlayContainer'>
@@ -573,31 +496,20 @@ class ClassDisplay extends React.Component {
                     this.state.courses &&
                     this.state.courses.map(course => {
                       return (
-                        <ListItem button style={{ padding: '0px 15px' }} >
-                          <Link
-                            to={{
-                              pathname: '/course',
-                              state: {
-                                classId: this.state.id,
-                                courseId: course.id,
-                                phone: this.state.signed
-                              }
-                            }}
-                          >
-                            <div style={{ display: 'flex', margin: '10px 0px', width: '100%' }} >
-                              <div>
-                                <img src={course.image} width='70px' height='70px' style={{ borderRadius: '10px' }} />
-                              </div>
-                              <div style={{ marginLeft: '10px', width: '100%' }}>
-                                <div style={{ color: '#043540', fontFamily: 'FiraSans', fontSize: '13px', maxWidth: '90%' }} >{course.title}</div>
-                                <div style={{ color: 'grey', fontSize: '11px' }}>&#8377; {course.price}</div>
-                                <Divider />
-                                <div style={{ fontSize: '8px', fontFamily: 'sans-serif' }} >
-                                  More Details <i class="fa fa-chevron-right" style={{ fontSize: '5px', marginTop: '10px' }}></i>
-                                </div>
+                        <ListItem button style={{ padding: '0px 15px' }}>
+                          <div style={{ display: 'flex', margin: '10px 0px', width: '100%' }} onClick={() => { this.setState({ showCart: true }) }} >
+                            <div>
+                              <img src={course.image} width='70px' height='70px' style={{ borderRadius: '10px' }} />
+                            </div>
+                            <div style={{ marginLeft: '10px', width: '100%' }}>
+                              <div style={{ color: '#043540', fontFamily: 'FiraSans', fontSize: '13px', maxWidth: '90%' }} >{course.title}</div>
+                              <div style={{ color: 'grey', fontSize: '11px' }}>&#8377; {course.price}</div>
+                              <Divider />
+                              <div style={{ fontSize: '8px', fontFamily: 'sans-serif' }} >
+                                More Details <i class="fa fa-chevron-right" style={{ fontSize: '5px', marginTop: '10px' }}></i>
                               </div>
                             </div>
-                          </Link>
+                          </div>
                         </ListItem>
                       )
                     })
@@ -651,6 +563,27 @@ class ClassDisplay extends React.Component {
             <div style={{ height: '60px' }} />
           </div>
         </div>
+        <Dialog
+          open={this.state.showCart}
+          onClose={()=>{this.setState({showCart:false})}}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle></DialogTitle>
+          <DialogContent>
+            <div>
+                <div>
+                  <img src={logo} alt="s" width='200px' />
+                </div>
+                <div style={{textAlign:'center'}} >
+                  Download the app form more details.
+                </div>
+                <div >
+                  <img alt="s" src={store} width='200px' />
+                </div>
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
     )
   }

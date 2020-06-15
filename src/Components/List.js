@@ -39,17 +39,8 @@ export default class MyList extends React.Component {
                         this.state.item.map(item => {
                             return (
                                 <div className='items' >
-                                    <div style={{ width: '100%' }} >
-                                        <Carousel
-                                            slidesPerPage={1}
-                                            arrows
-                                            infinite
-                                            animationSpeed={1000}
-                                        >
-                                            <img alt={item.name} src={item.i1} height='150px' />
-                                            <img alt={item.name} src={item.i2} height='150px' />
-                                            <img alt={item.name} src={item.i3} height='150px' />
-                                        </Carousel>
+                                    <div style={{ width: '100%',height:'200px'}} >
+                                        <img src={item.i1} height='200px' alt='s'/>
                                     </div>
                                     
                                     <div style={{ textAlign: 'left' }} >

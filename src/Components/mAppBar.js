@@ -18,6 +18,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import ContactPhoneOutlinedIcon from '@material-ui/icons/ContactPhoneOutlined';
+import store from '../Images/store.png'
 
 function HideOnScroll(props) {
     const { children, window } = props;
@@ -78,14 +79,19 @@ export default function MappBar(props) {
             onClick={toggleDrawer(anchor, false)}
             onKeyDown={toggleDrawer(anchor, false)}
         >
-            <List>
-                {['About Us', 'Contact Us'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InfoOutlinedIcon /> : <ContactPhoneOutlinedIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
+            <a href='https://play.google.com/store/apps/details?id=com.ds.pidgin' ><img alt='s' src={store} width='100%' /></a>
+            <div style={{padding:'0px 15px'}} >
+                <List>
+                    <ListItem button >
+                        <ListItemIcon>{<InfoOutlinedIcon />}</ListItemIcon>
+                        <ListItemText primary='About Us' />
                     </ListItem>
-                ))}
-            </List>
+                    <ListItem button >
+                        <ListItemIcon>{<ContactPhoneOutlinedIcon />}</ListItemIcon>
+                        <ListItemText primary='Contact Us' />
+                    </ListItem>
+                </List>
+            </div>
         </div>
     );
 

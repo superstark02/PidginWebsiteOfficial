@@ -147,3 +147,7 @@ a:active {text-decoration: none;}
     display: contents;
   }
 }
+
+td{
+  font-size: 13px;
+}
