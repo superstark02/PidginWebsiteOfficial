@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -52,7 +53,7 @@ const useStyles = makeStyles({
     },
 });
 
-export default function MappBar(props) {
+function MappBar(props) {
 
     const classes = useStyles();
     const [state, setState] = React.useState({
@@ -101,7 +102,7 @@ export default function MappBar(props) {
             <HideOnScroll {...props}>
                 <AppBar>
                     <Toolbar style={{ backgroundColor: 'white', color: 'black', display: 'flex', justifyContent: 'space-between', alignContent: 'center' }} >
-                        <Typography variant="h6"><img src={logo} width='50px' style={{ marginTop: '10px' }} /></Typography>
+                        <Typography variant="h6"><img alt="s" src={logo} width='50px' style={{ marginTop: '10px' }} /></Typography>
                         <IconButton onClick={toggleDrawer('right', true)} color="inherit"><MenuRoundedIcon /></IconButton>
                         <Drawer anchor={'right'} open={state['right']} onClose={toggleDrawer('right', false)}>
                             {list('right')}
@@ -113,3 +114,4 @@ export default function MappBar(props) {
         </React.Fragment>
     );
 }
+export default MappBar;

@@ -13,10 +13,10 @@ export default class App extends React.Component {
       <Router>
         <Switch>
           <Route path='/class/:id' exact component={ClassDisplay} />
-          <Route path='/about' exact component={About} />
+          <Route path='/about' exact component={About}/>
           <Route path='/classesAdd' exact component={EnrollmentForm}/>
           <Route path='/search' exact component={SearchView} />
-          <Route path='/' exact component={Home} />
+          <Route path='/' exact component={Home}/>
         </Switch>
       </Router>
     );
