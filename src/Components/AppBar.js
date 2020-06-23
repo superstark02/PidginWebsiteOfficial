@@ -30,8 +30,8 @@ export default function AppBar(props) {
                 <div className='appBar' >
                     <div><img src={logo} width='50px' style={{ marginLeft: '70px' }} alt='no' /></div>
                     <div style={{ marginRight: '40px' }} >
-                        <Link to='/about' >
-                            <button className='sideBut' >About Us</button></Link>
+                        <a href='/pages/content/about.html'>
+                            <button className='sideBut' >About Us</button></a>
                         <button className='sideBut' >Contact Us</button>
                     </div>
                 </div>

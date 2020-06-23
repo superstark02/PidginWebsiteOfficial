@@ -5,11 +5,12 @@ import Footer from './Footer';
 import { FaSearch } from 'react-icons/fa';
 import AppBar from './AppBar';
 import MyList from './List';
-import { Link } from 'react-router-dom';
+import { Link, BrowserRouter as Router } from 'react-router-dom';
 import MappBar from './mAppBar';
 import MCategories from './mCategories'
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import MyListItem from './MList';
+import ReactDOM from 'react-dom';
 
 function Home() {
   return (
