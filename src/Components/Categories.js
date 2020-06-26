@@ -2,7 +2,7 @@ import React from 'react'
 import './categories.css'
 import {db} from '../firebase'
 import {FaChevronCircleRight } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, BrowserRouter as Router } from 'react-router-dom';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
@@ -36,8 +36,9 @@ class Categories extends React.Component{
         }
       
         return(
+            <Router>
             <div className='para' > 
-                <div style={{boxShadow:'0px 0px 20px #fd7c98',padding:'10px'}}>
+                <div style={{boxShadow:'0px 0px 20px #fd7c98',padding:'10px',width:'500px'}}>
                     <div style={{width:"500px"}} >
                     <GridList cellHeight={110} style={{padding:'10px',backgroundColor:'transparent'}} cols={3}>      
                         {   this.state.images&&
@@ -62,6 +63,7 @@ class Categories extends React.Component{
                     </div>
                 </div>
             </div>
+            </Router>
         )
     }
 }

@@ -3,7 +3,7 @@ import { db } from '../firebase'
 import './List.css'
 import Carousel from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
-import { Link } from 'react-router-dom';
+import { Link, BrowserRouter as Router } from 'react-router-dom';
 
 export default class MyList extends React.Component {
 
@@ -29,6 +29,7 @@ export default class MyList extends React.Component {
 
     render() {
         return (
+            <Router>
             <div className='list' >
                 <div className='ribbon' >
                     Found {this.state.length} Pidgin classes around you.
@@ -62,6 +63,7 @@ export default class MyList extends React.Component {
                     }
                 </div>
             </div>
+            </Router>
         )
     }
 }

@@ -3,6 +3,9 @@
 
 <head>
   <meta charset="utf-8" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
@@ -15,50 +18,51 @@
     -->
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-  <script src="../src/Components/AppBar.js"></script>
-  <script src="../src/Components/Home.js"></script>
-  <script src="../src/App.css"></script>
+  <link rel="stylesheet" href="app.css" />
+  
   <title> Pidgin | Join Classes and Courses Online | New Delhi</title>
 </head>
 
 <body>
-  <div id="root"></div>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-
-  <div class="responsive" >
-    <div style="padding: 20px;text-align: center;" >Pidgin</div>
-
-    <h3>Type Of Courses Offered</h3>
-    <ul>
-      <li><a href="./courses/women.html" >Only For Women</a></li>
-      <li><a href="./courses/kids.html" >For Kids</a></li>
-      <li><a href="./courses/certificate.html" >Certificate Courses</a></li>
-      <li><a href="./courses/onlnine.html" >Online Courses</a></li>
-      <li>
-        <a href="" >Offline Courses</a>
-        <ul>
-          <li><a href="" >Home Tutor</a></li>
-          <li><a href="" >Institutes</a></li>
-        </ul>
-      </li>
-    </ul>
-
-    <h3>Top Categories</h3>
-    <ul>
-      <li><a href="" >Cooking</a></li>
-      <li><a href="" >French</a></li>
-      <li><a href="" >Abacus</a></li>
-      <li><a href="" >CBSE Boards</a></li>
-    </ul>
-
-    <h3>Other Categories</h3>
-    <ul>
-      <li><a href="" >Maths</a></li>
-      <li><a href="" >Physics</a></li>
-      <li><a href="" >Science</a></li>
-    </ul>
-
+  <noscript>You need to enable JavaScript to run this website.</noscript>
+  
+  <div class="appBar" >
+    <div>
+      <img alt="logo" style="margin-left: 50px;margin-top: 10px;" src="./Images/app_bg.png" width="70px">
+    </div>
+    <div>
+      <a href="./pages/aboutUs.html" ><button class="sideBut" >About Us</button></a>
+      <a href="./pages/contactUs.html" ><button class="sideBut" >Contact Us</button></a>
+    </div>
   </div>
+
+  <div class="wrap" >
+    <div class="container" >
+      <div class="about" >
+        <h2 style="letter-spacing: 2px;font-size: 30px;" >ABOUT US</h2>
+        <p>
+          Text goes here.....
+        </p>
+        <a>
+          <div class="wrap" >
+            <div class="search">
+              Search classes, courses, subjects..
+            </div>
+          </div>
+        </a>
+      </div>
+      <div style="width: 600px;height: 500px;display: flex;justify-content: space-around;align-items: center;" class="categories"  >
+        <div id="categories" ></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" >
+    <div style="width: 1200px;" >
+      <div id="list" ></div>
+    </div>
+  </div>
+
 </body>
 
 </html>

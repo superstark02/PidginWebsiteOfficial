@@ -3,8 +3,7 @@ import logo from '../Images/app_bg.png'
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import ReactDOM from 'react-dom';
+import '../App.css'
 
 function HideOnScroll(props) {
     const { children, window } = props;
@@ -28,9 +27,9 @@ export default function AppBar(props) {
         <div>
             <HideOnScroll {...props}>
                 <div className='appBar' >
-                    <div><img src={logo} width='50px' style={{ marginLeft: '70px' }} alt='no' /></div>
+                    <div><img src={logo} width='50px' style={{ marginLeft: '70px',marginTop:'5px' }} alt='no' /></div>
                     <div style={{ marginRight: '40px' }} >
-                        <a href='/pages/content/about.html'>
+                        <a href='/pages/aboutUs.html'>
                             <button className='sideBut' >About Us</button></a>
                         <button className='sideBut' >Contact Us</button>
                     </div>
@@ -39,3 +38,5 @@ export default function AppBar(props) {
         </div>
     )
 }
+
+
