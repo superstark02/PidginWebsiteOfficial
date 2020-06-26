@@ -13,6 +13,7 @@ body{
     justify-content: space-between; 
     box-shadow: 0px 0px 10px;
     margin: 0;
+    z-index: 2;
 }
 .sideBut{
     border: none;
@@ -53,6 +54,7 @@ body{
     border-radius: 10px;
     width: 400px;
     padding: 10px;
+    cursor: pointer;
 }
 .categories{
     background-image: url(./Images/bg2.jpg);

@@ -1,0 +1,19 @@
+.title{
+    border: solid 2px #043345;
+    padding: 10px; 
+    text-align: center; 
+    width: fit-content;
+    box-shadow: 5px 5px 0px #00b6c7;
+    background-color: transparent;
+}
+.para{
+    width: 1200px;
+    box-shadow: 0px 0px 20px #00ff99;
+    padding: 20px;
+    border-radius: 50px 0px 50px 0px;
+}
+li{
+    margin: 20px;
+    font-size: 20px;
+    list-style: none;
+}
