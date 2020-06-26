@@ -1,7 +1,8 @@
 import React from 'react'
 import { db } from '../firebase'
 import './List.css'
-import { Link, BrowserRouter as Router} from 'react-router-dom';
+import { Link, BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import ClassDisplay from './Class';
 
 export default class MyList extends React.Component {
 
@@ -45,7 +46,7 @@ export default class MyList extends React.Component {
                                     <div style={{ textAlign: 'left' }} >
                                         <Link to={{
                                             pathname: '/class/'+item.id,
-                                        }} >
+                                        }}>
                                             <div className='heading' >{item.name}</div>
                                             <div style={{ fontSize: '13px', lineHeight: 'normal',margin:'15px 0px',color:'grey'}} >{item.address}</div>
                                         </Link>
@@ -61,6 +62,9 @@ export default class MyList extends React.Component {
                     }
                 </div>
             </div>
+                <Switch>
+                    <Route exact path="/class/:id" component={ClassDisplay} ></Route>
+                </Switch>
             </Router>
         )
     }
