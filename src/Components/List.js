@@ -1,9 +1,7 @@
 import React from 'react'
 import { db } from '../firebase'
 import './List.css'
-import Carousel from '@brainhubeu/react-carousel';
-import '@brainhubeu/react-carousel/lib/style.css';
-import { Link, BrowserRouter as Router } from 'react-router-dom';
+import { Link, BrowserRouter as Router} from 'react-router-dom';
 
 export default class MyList extends React.Component {
 
@@ -34,7 +32,7 @@ export default class MyList extends React.Component {
                 <div className='ribbon' >
                     Found {this.state.length} Pidgin classes around you.
                 </div>
-                <div style={{ display: 'flex', maxWidth: '100%', flexWrap: 'wrap' }} >
+                <div style={{ display: 'flex', maxWidth: '100%', flexWrap: 'wrap',justifyContent:'space-around'}} >
                     {
                         this.state.item &&
                         this.state.item.map(item => {

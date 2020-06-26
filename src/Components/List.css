@@ -1,6 +1,5 @@
 .list{
-    width: 80%;
-    padding: 20px;
+    width: 1200px;
 }
 .items{
     width: 300px;
@@ -10,7 +9,6 @@
     margin: 10px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0px 0px 20px;
     justify-content: space-between;
 }
 .items:hover{
@@ -28,12 +26,13 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .ribbon{
-    width: 100%;
+    width: 1180px;
     padding: 20px;
     color: white;
     background-color: #04BFBF;
     box-shadow: 0px 0px 10px #04BFBF;
     text-align: left;
+    padding-right: 0px;
 }
 .detail{
     font-size: 13px;
