@@ -10,6 +10,7 @@ export default class ClassDisplay extends React.Component {
         address: null,
         type: null,
         age: null,
+        images:null,
     }
     componentDidMount() {
         var id = this.props.match.params.id
@@ -33,11 +34,21 @@ export default class ClassDisplay extends React.Component {
             this.setState({ age: age })
         })
 
+        const images = db.collection("Classes").doc(id).collection("Images")
+        images.get().then(snapshot=>{
+            const item = []
+            snapshot.forEach(doc=>{
+                const data = doc.data()
+                item.push(data)
+            })
+            this.setState({images:item})
+        })
 
     }
+
     render() {
         return (
-            <React.Fragment>
+            <div>
                 <div className="desktop" >
                     <div className="overlay" >
                         <div class="appBar">
@@ -46,12 +57,19 @@ export default class ClassDisplay extends React.Component {
                             </div>
                         </div>
 
-                        <div style={{ width: "1200px", marginTop: '100px' }} >
-                            <div style={{display:'flex'}} >
-                                <div style={{ width: '800px', height: '300px',backgroundColor:'grey' }} >
-
+                        <div style={{ width: "1200px", marginTop: '100px'}} >
+                            <div style={{ display: 'flex' }} >
+                                <div style={{ width: '800px', height: '310px',display:'flex',overflowX:'scroll'}} >
+                                    {
+                                        this.state.images&&
+                                        this.state.images.map(item=>{
+                                            return(
+                                                <img alt="s" src={item.item} style={{margin:'10px'}} height="300px"/>
+                                            )
+                                        })
+                                    }
                                 </div>
-                                <div style={{width:'400px',height:'300px',display:'flex',justifyContent:'space-evenly',flexWrap:'wrap',padding:'20px'}} >
+                                <div style={{ width: '400px', height: '330px', display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap', padding: '20px' }} >
                                     <div className="cell" > Online </div>
                                     <div className="cell" > Online </div>
                                     <div className="cell" > Online </div>
@@ -60,15 +78,15 @@ export default class ClassDisplay extends React.Component {
                                     <div className="cell" > Online </div>
                                 </div>
                             </div>
-                            <h1>Name {this.state.name}</h1>
+                            <h1>{this.state.name}</h1>
                             <p className="address" >
                                 {this.state.address}
                             </p>
                             <div style={{ display: 'flex' }} >
-                                <p className="type" >
+                                <p className="type1" >
                                     {this.state.type}
                                 </p>
-                                <p className="type" >
+                                <p className="type1" >
                                     Age: {this.state.age}+
                                 </p>
                             </div>
@@ -92,7 +110,7 @@ export default class ClassDisplay extends React.Component {
                         </div>
                     </div>
                 </div>
-            </React.Fragment>
+            </div>
         )
     }
 }

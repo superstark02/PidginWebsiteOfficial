@@ -38,7 +38,7 @@ class Categories extends React.Component{
         return(
             <Router>
             <div className='para' > 
-                <div style={{boxShadow:'0px 0px 20px #fd7c98',padding:'10px',width:'500px'}}>
+                <div style={{boxShadow:'0px 0px 20px #fd7c98',width:'500px'}}>
                     <div style={{width:"500px"}} >
                     <GridList cellHeight={110} style={{padding:'10px',backgroundColor:'transparent'}} cols={3}>      
                         {   this.state.images&&

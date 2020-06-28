@@ -1,8 +1,7 @@
 import React from 'react'
 import { db } from '../firebase'
 import './List.css'
-import { Link, BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import ClassDisplay from './Class';
+import { Link} from 'react-router-dom';
 
 export default class MyList extends React.Component {
 
@@ -28,7 +27,6 @@ export default class MyList extends React.Component {
 
     render() {
         return (
-            <Router>
             <div className='list' >
                 <div className='ribbon' >
                     Found {this.state.length} Pidgin classes around you.
@@ -62,10 +60,6 @@ export default class MyList extends React.Component {
                     }
                 </div>
             </div>
-                <Switch>
-                    <Route exact path="/class/:id" component={ClassDisplay} ></Route>
-                </Switch>
-            </Router>
         )
     }
 }

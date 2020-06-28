@@ -5,7 +5,7 @@ import { db } from '../firebase'
 import ButtonBase from '@material-ui/core/ButtonBase/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import Skeleton from '@material-ui/lab/Skeleton';
-import { FaThumbsUp, FaDownload, } from 'react-icons/fa'
+import { FaDownload, } from 'react-icons/fa'
 import './MList.css'
 import Box from '@material-ui/core/Box';
 
@@ -66,12 +66,12 @@ class MyListItem extends React.Component {
                                         }} >
                                             <div class='showImage'>
                                                 {this.state.i1 ? (
-                                                    <div class='alternateImg' ><img src={item.i1} height='200px' style={{ marginRight: '2px' }}></img></div>
+                                                    <div class='alternateImg' ><img alt="s" src={item.i1} height='200px' style={{ marginRight: '2px' }}></img></div>
                                                 ) : (
                                                         <div><Skeleton variant="rect" width="100%" height={200} /></div>
                                                     )}
-                                                <img src={item.i2} height='200px' style={{ marginRight: '2px' }}></img>
-                                                <img src={item.i3} height='200px' style={{ marginRight: '2px' }}></img>
+                                                <img alt="s" src={item.i2} height='200px' style={{ marginRight: '2px' }}></img>
+                                                <img alt="s" src={item.i3} height='200px' style={{ marginRight: '2px' }}></img>
                                             </div>
 
                                             <div style={{ display: 'flex', position: 'absolute', zIndex: '50' }} >

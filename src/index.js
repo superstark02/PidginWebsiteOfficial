@@ -1,22 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Categories from './Components/Categories'
 import * as serviceWorker from './serviceWorker';
-import MyList from './Components/List';
+import App from './App'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Categories/>
+    <App/>
   </React.StrictMode>,
-  document.getElementById('categories')
-);
-
-ReactDOM.render(
-  <React.StrictMode>
-    <MyList/>
-  </React.StrictMode>,
-  document.getElementById('list')
+  document.getElementById('root')
 );
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

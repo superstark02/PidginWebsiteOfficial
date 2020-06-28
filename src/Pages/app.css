@@ -36,6 +36,7 @@ body{
 .container{
     margin-top: 80px;
     width: 1200px;
+    max-width: 1200px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -57,6 +58,13 @@ body{
     cursor: pointer;
 }
 .categories{
-    background-image: url(./Images/bg2.jpg);
     background-attachment: fixed;
+}
+@media only screen and (max-width:650px) {
+    .desktop{
+      display: none;
+    }
+    .mobile{
+      display: block;
+    }
 }

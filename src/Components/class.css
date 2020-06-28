@@ -1,14 +1,6 @@
 .overlay{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    z-index: 6;
-    background-color: white;
     display: flex;
     justify-content: space-evenly;
-    height: 1500px;
 }
 .appBar{
     position: fixed;
@@ -30,8 +22,9 @@ h1{
 .address{
     margin: 5px;
     color: grey;
+    width: 600px;
 }
-.type{
+.type1{
     color: #00b6c7;
     border: solid 1px #00b6c7;
     border-radius: 5px;
