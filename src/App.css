@@ -129,3 +129,63 @@ a:active {text-decoration: none;}
 td{
   font-size: 13px;
 }
+.home-container{
+  height: 400px;
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+
+.flip-box {
+  background-color: transparent;
+  width: 250px;
+  height: 250px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 20px;
+}
+.flip-box-front{
+  overflow: hidden;
+  border: solid 1px grey;
+}
+
+.flip-box-back {
+  transform: rotateY(180deg);
+  padding: 0px 20px;
+  text-align: center;
+  border: solid 1px grey;
+  background-color: white;
+}
+.home-overlay{
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  border-radius:0px 0px 20px 20px;
+  bottom: 0;
+}
