@@ -14,7 +14,7 @@ export default class Options extends React.Component {
 
                     <div className="options-card" >
                         <div className="options-overlay" >
-                            Online
+                            Classes Near You
                         </div>
                         <div>
                             <img alt="s" src={near} width="100%" ></img>
@@ -23,7 +23,7 @@ export default class Options extends React.Component {
 
                     <div className="options-card" >
                         <div className="options-overlay" >
-                            Online
+                            Online Classes
                         </div>
                         <div>
                             <img alt="s" src={online} width="100%" ></img>
@@ -32,7 +32,7 @@ export default class Options extends React.Component {
 
                     <div className="options-card" >
                         <div className="options-overlay" >
-                            Online
+                            Individual Classes
                         </div>
                         <div>
                             <img alt="s" src={astro} width="100%" ></img>
@@ -41,7 +41,7 @@ export default class Options extends React.Component {
 
                     <div className="options-card" >
                         <div className="options-overlay" >
-                            Online
+                            Classes Only For Women
                         </div>
                         <div>
                             <img alt="s" src={women} width="100%" ></img>
@@ -50,7 +50,7 @@ export default class Options extends React.Component {
 
                     <div className="options-card" >
                         <div className="options-overlay" >
-                            Online
+                            Unable To Find A Course?
                         </div>
                         <div>
                             <img alt="s" src={find} width="100%" ></img>
