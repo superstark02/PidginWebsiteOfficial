@@ -57,14 +57,7 @@ body{
   background-color: #202020;
   text-align: center;
 }
-.search{
-  background-color: white;
-  color: grey;
-  border-radius: 10px;
-  width: 400px;
-  padding: 10px;
-  cursor: pointer;
-}
+
 .categories{
   background-attachment: fixed;
   background-image: url(./Images/bg2.jpg);
@@ -92,17 +85,15 @@ body{
 }
 
 
-.search{
+.search-home{
   padding: 10px;
-  border: solid 1px grey;
-  font-size: 15px;
   letter-spacing: normal;
-  width: 60%;
-  border-radius: 10px;
+  width: 80%;
   text-align: left;
   cursor: pointer;
   background-color: white;
-  color: black;
+  color: grey;
+  box-shadow: 5px 5px 0px #00b6c7;
 }
 
 Link Link:active Link:visited{
@@ -130,7 +121,7 @@ td{
   font-size: 13px;
 }
 .home-container{
-  height: 400px;
+  height: 300px;
   width: 1200px;
   display: flex;
   align-items: center;

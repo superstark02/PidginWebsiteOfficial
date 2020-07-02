@@ -11,6 +11,7 @@ import women from './Images/women.jpg'
 import astro from './Images/astronaut.jpg'
 import find from './Images/find.jpg'
 import Options from './Components/mOptions'
+import TopPicks from './Components/TopPicks'
 
 export default class Home extends React.Component {
     render() {
@@ -32,13 +33,23 @@ export default class Home extends React.Component {
                     <div className="wrap">
                         <div className="container">
                             <div className="about">
-                                <h2 style={{ letterSpacing: "2px", fontSize: "30px" }}>ABOUT US</h2>
+                                <h2 style={{ letterSpacing: "2px", fontSize: "30px" }}>PIDGIN</h2>
                                 <p>
-                                    Text goes here.....
+                                    We have put all the courses, tuition and <br /> other hobby classes on this website.
                                 </p>
+                                <p>
+                                    Browse through hundreds of courses and <br /> find the right one for you and low cost.
+                                </p>
+                                <p>
+                                    Filter the search results results according to your needs.
+                                </p>
+                                <p>
+                                    Get a trial class for free.
+                                </p>
+
                                 <Link to="/pidgin/search" >
-                                    <div className="wrap">
-                                        <div className="search">
+                                    <div className="wrap" style={{height:'40%'}} >
+                                        <div className="search-home">
                                             Search classes, courses, subjects..
                                         </div>
                                     </div>
@@ -63,7 +74,7 @@ export default class Home extends React.Component {
                                     </div>
                                     <div className="flip-box-back" >
                                         <h2>Online</h2>
-                                        Browse through hundreds of institutes which 
+                                        Browse through hundreds of institutes which
                                         provides online as well as offline classes.
                                     </div>
                                 </div>
@@ -80,8 +91,8 @@ export default class Home extends React.Component {
                                     <div className="flip-box-back" >
                                         <h2>Only For Women</h2>
                                         Find classes which are only for women.
-                                        Institutes 
-                                        
+                                        Institutes
+
                                     </div>
                                 </div>
                             </div>
@@ -122,8 +133,10 @@ export default class Home extends React.Component {
                         </div>
                     </div>
 
+                    <TopPicks/>
+
                     <div className="wrap">
-                        <div style={{ width: '1200px',paddingBottom:'200px' }}>
+                        <div style={{ width: '1200px', paddingBottom: '200px' }}>
                             <MyList />
                         </div>
                     </div>
@@ -140,7 +153,7 @@ export default class Home extends React.Component {
                         </Link>
                     </div>
                     <MCategories />
-                    <Options/>
+                    <Options />
                 </div>
                 <div>
                     <Footer />

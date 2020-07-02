@@ -154,7 +154,7 @@ export default class Search extends React.Component {
                                                                 <h4 style={{ marginBottom: '0px' }} >{item.name}</h4>
                                                                 <div className="search-type" >
                                                                     {item.type} | Age: {item.age}+
-                                                </div>
+                                                                </div>
                                                             </div>
 
                                                             <div className="search-fees" >
