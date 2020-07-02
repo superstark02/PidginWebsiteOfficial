@@ -22,7 +22,7 @@ export default class AboutUs extends React.Component {
                         <div style={{width: '50%', textAlign: 'center'}}>
                             <h2>ABOUT US</h2>
                             <p>
-                                Some more text....
+                                This is how we work.
                             </p>
                         </div>
                         <div style={{width: '50%'}}>

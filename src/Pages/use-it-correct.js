@@ -15,6 +15,7 @@ export default class Courses extends React.Component {
                             <a href="/pidgin/courses"><button className="sideBut">Courses</button></a>
                             <a href="/pidgin/about-us"><button className="sideBut">About Us</button></a>
                             <a href="/pidgin/contact-us"><button className="sideBut">Contact Us</button></a>
+                            <a href="/pidgin/help"><button className="sideBut">Help</button></a>
                         </div>
                     </div>
 
@@ -22,7 +23,7 @@ export default class Courses extends React.Component {
                         <div style={{width: '50%', textAlign: 'center'}}>
                             <h2>How To Use Pidgin App</h2>
                             <p>
-                                Some more text....
+                                This page tells you how to use the app.
                             </p>
                         </div>
                         <div style={{width: '50%'}}>

@@ -1,0 +1,78 @@
+import React from 'react'
+import './app.css'
+import Footer from '../Components/Footer'
+import image from '../Images/help.jpg'
+import { FaPhone } from 'react-icons/fa'
+import { TextField, Button } from '@material-ui/core'
+
+export default class Help extends React.Component {
+    render() {
+        return (
+            <React.Fragment>
+                <div className="desktop" >
+                    <div className="appBar">
+                        <div>
+                            <a href='/' ><img alt="logo" style={{ marginLeft: '50px', marginTop: '10px' }} src="../Images/app_bg.png" width="70px" /></a>
+                        </div>
+                        <div>
+                            <a href="/pidgin/courses"><button className="sideBut">Courses</button></a>
+                            <a href="/pidgin/about-us"><button className="sideBut">About Us</button></a>
+                            <a href="/pidgin/contact-us"><button className="sideBut">Contact Us</button></a>
+                            <a href="/pidgin/contact-us"><button className="sideBut">Help</button></a>
+                        </div>
+                    </div>
+
+                    <div className="wrap" style={{marginTop: '100px'}}>
+                        <div style={{width: '50%', textAlign: 'center'}}>
+                            <h2>HELP</h2>
+                            <p>
+                                We are here to help you.<br></br>
+                                Report all your problems here.
+                            </p>
+                        </div>
+                        <div style={{width: '50%'}}>
+                            <img alt='s' src="../Images/app_bg.png" width="50%" />
+                        </div>
+                    </div>
+
+                    <div className="wrap">
+                        <div className="para" style={{width:'1200px'}} >
+                            <img src={image} alt="s"/>
+                        </div>
+                        <div className="wrap" style={{flexDirection:'column'}} >
+                            <div style={{textAlign:'center'}} >
+                                Got any issues with payment or Refund? <br/>
+                                Or not satified with service? <br/>
+                                Please tell us:<br></br>
+                                <h2>Helpline Numbers</h2>
+                                <table>
+                                    <tr>
+                                        <td><FaPhone/></td>
+                                        <td>+91 99101 97196</td>
+                                    </tr>
+                                    <tr>
+                                        <td><FaPhone/></td>
+                                        <td>+91 97184 10831</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div className="wrap" >
+                                <div style={{marginTop:'100px'}} >
+                                    <h2>FeedBack Section</h2>
+                                    <div>
+                                        <TextField variant="outlined" color="primary" placeholder="Help Us Improve.." multiline style={{width:'500px'}} />
+                                    </div>
+                                    <div className="wrap" style={{marginTop:'30px'}} >
+                                        <Button variant="contained" color="primary" >SUBMIT</Button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <Footer />
+                </div>
+            </React.Fragment>
+        )
+    }
+}

@@ -25,6 +25,7 @@ export default class Home extends React.Component {
                             <a href="/pidgin/courses"><button class="sideBut">Courses</button></a>
                             <a href="/pidgin/about-us"><button class="sideBut">About Us</button></a>
                             <a href="/pidgin/contact-us"><button class="sideBut">Contact Us</button></a>
+                            <a href="/pidgin/help"><button className="sideBut">Help</button></a>
                         </div>
                     </div>
 
@@ -122,7 +123,7 @@ export default class Home extends React.Component {
                     </div>
 
                     <div className="wrap">
-                        <div style={{ width: '1200px' }}>
+                        <div style={{ width: '1200px',paddingBottom:'200px' }}>
                             <MyList />
                         </div>
                     </div>

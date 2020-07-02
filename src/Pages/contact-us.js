@@ -1,6 +1,7 @@
 import React from 'react'
 import './app.css'
 import Footer from '../Components/Footer'
+import { FaWhatsapp, FaEnvelope, FaFacebook, FaInstagram } from 'react-icons/fa'
 
 export default class ContactUs extends React.Component {
     render() {
@@ -15,22 +16,24 @@ export default class ContactUs extends React.Component {
                             <a href="/pidgin/courses"><button className="sideBut">Courses</button></a>
                             <a href="/pidgin/about-us"><button className="sideBut">About Us</button></a>
                             <a href="/pidgin/contact-us"><button className="sideBut">Contact Us</button></a>
+                            <a href="/pidgin/help"><button className="sideBut">Help</button></a>
                         </div>
                     </div>
 
-                    <div class="wrap" style={{marginTop: '100px'}}>
-                        <div style={{width: '50%', textAlign: 'center'}}>
+                    <div class="wrap" style={{ marginTop: '100px' }}>
+                        <div style={{ width: '50%', textAlign: 'center' }}>
                             <h2>CONTACT US</h2>
                             <p>
-                                Some more text....
+                                If you are a teacher and want to join us.<br></br>
+                                Then this page is for you.
                             </p>
                         </div>
-                        <div style={{width: '50%'}}>
+                        <div style={{ width: '50%' }}>
                             <img alt="s" src="../Images/app_bg.png" width="50%" />
                         </div>
                     </div>
 
-                    <div class="wrap">
+                    <div class="wrap" style={{ marginBottom: '100px' }} >
                         <div class="para">
 
                             <div class="wrap">
@@ -54,15 +57,10 @@ export default class ContactUs extends React.Component {
 
                             <div class="wrap">
                                 <div>
-                                    <h2 class="title">Want to work with us?</h2>
-                                    <h3>We are looking for:</h3>
+                                    <h2 class="title">We offer you :</h2>
                                     <p>
                                         <ul>
-                                            <li>Website developer: front end, javascript.</li>
-                                            <li>Website developer: backend, php, express.</li>
-                                            <li>Content writer.</li>
-                                            <li>App developer: android, iOS.</li>
-                                            <li>Image Editor.</li>
+                                            <li>List the packages and be supportive here...</li>
                                         </ul>
                                     </p>
                                 </div>
@@ -71,7 +69,21 @@ export default class ContactUs extends React.Component {
                                 </div>
                             </div>
 
+
+                            <div style={{ textAlign: 'center',marginTop:'100px' }} >
+                                <h2>How to join?</h2>
+                                <div>Message us on any of these..</div>
+                                <div style={{color:'black',fontSize:'40px'}} >
+                                    <a href="mailto:ds.techin@gmail.com" ><FaEnvelope style={{ margin: '10px' }} color='black' /></a>
+                                    <a href="https://wa.me/919910197196" ><FaWhatsapp style={{ margin: '10px' }} color='black' /></a>
+                                    <a href="https://www.facebook.com/Pidgin-104215741310224/" ><FaFacebook style={{ margin: '10px' }} color='black' /></a>
+                                    <a href="https://www.instagram.com/pidgin2020/" ><FaInstagram style={{ margin: '10px' }} color='black' /></a>
+                                </div>
+                                And we will contact you.
+                            </div>
+
                         </div>
+
                     </div>
 
                     <Footer />

@@ -12,14 +12,16 @@ export default class Options extends React.Component {
             <React.Fragment>
                 <div className="option-container" >
 
-                    <div className="options-card" >
-                        <div className="options-overlay" >
-                            Classes Near You
+                    <a href='/pidgin/search' >
+                        <div className="options-card" >
+                            <div className="options-overlay" >
+                                Classes Near You
+                            </div>
+                            <div>
+                                <img alt="s" src={near} width="100%" ></img>
+                            </div>
                         </div>
-                        <div>
-                            <img alt="s" src={near} width="100%" ></img>
-                        </div>
-                    </div>
+                    </a>
 
                     <div className="options-card" >
                         <div className="options-overlay" >

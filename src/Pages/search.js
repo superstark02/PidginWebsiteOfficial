@@ -5,6 +5,7 @@ import MappBar from '../Components/mAppBar'
 import { db } from '../firebase'
 import { Link } from 'react-router-dom'
 import { FaUser, FaGlobe, FaFemale, FaUserAstronaut, FaUsers } from 'react-icons/fa'
+import SearchView from './mSearch'
 
 export default class Search extends React.Component {
     state = {
@@ -40,6 +41,7 @@ export default class Search extends React.Component {
                             <a href="/pidgin/courses"><button className="sideBut">Courses</button></a>
                             <a href="/pidgin/about-us"><button className="sideBut">About Us</button></a>
                             <a href="/pidgin/contact-us"><button className="sideBut">Contact Us</button></a>
+                            <a href="/pidgin/help"><button className="sideBut">Help</button></a>
                         </div>
                     </div>
                     <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around', paddingBottom: '100px', flexDirection: 'column', alignItems: 'center' }}>
@@ -171,8 +173,9 @@ export default class Search extends React.Component {
                 </div>
                 <div className="mobile" >
                     <MappBar/>
-                    <Footer />
+                    <SearchView/>
                 </div>
+                <Footer/>
             </div >
         )
     }

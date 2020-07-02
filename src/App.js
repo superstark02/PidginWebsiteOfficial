@@ -7,6 +7,7 @@ import ClassDisplay from './Components/Class';
 import ContactUs from './Pages/contact-us'
 import Courses from './Pages/use-it-correct';
 import Search from './Pages/search';
+import Help from './Pages/Help';
 
 export default class App extends React.Component {
   render() {
@@ -16,6 +17,7 @@ export default class App extends React.Component {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/pidgin/about-us' component={AboutUs} />
+            <Route exact path='/pidgin/help' component={Help} />
             <Route exact path='/pidgin/contact-us' component={ContactUs} />
             <Route exact path='/pidgin/courses' component={Courses} />
             <Route exact path='/pidgin/search' component={Search} />

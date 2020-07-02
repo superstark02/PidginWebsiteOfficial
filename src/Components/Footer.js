@@ -27,7 +27,7 @@ export default class Footer extends React.Component {
                                     <div>Increase your market.</div>
                                     <div>Reach href potential learners.</div>
                                     <div>Showcase your awards and merits.</div>
-                                    <a href='/classesAdd' >
+                                    <a href='/pidgin/contact-us'  >
                                         <Button color='secondary' variant='outlined' style={{ marginTop: '30px' }} >TEAM UP</Button>
                                     </a>
                                 </div>
@@ -49,7 +49,7 @@ export default class Footer extends React.Component {
                                 <img alt="s" src={image} width="100%" ></img>
                             </div>
                             <div>
-                                <a href='/classesAdd' >
+                                <a href='/pidgin/contact-us' >
                                     <Button color='secondary' variant='outlined' style={{ marginTop: '30px' }} >TEAM UP</Button>
                                 </a>
                             </div>
