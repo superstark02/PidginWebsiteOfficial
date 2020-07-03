@@ -58,8 +58,6 @@ export default class Options extends React.Component {
                             <img alt="s" src={find} width="100%" ></img>
                         </div>
                     </div>
-
-
                 </div>
             </React.Fragment>
         )

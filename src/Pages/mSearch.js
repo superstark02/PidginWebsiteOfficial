@@ -267,7 +267,7 @@ class SearchView extends React.Component{
         }
 
         return(
-            <div style={{position:'absolute',zIndex:'200',minHeight:'800px',backgroundColor:'white',width:'100%'}}>
+            <div style={{backgroundColor:'white',width:'100%'}}>
                 <div style={{display:'flex', padding:'0px 5px',maxWidth:'100%'}}>
                     <input placeholder={"Search classes, subjects, gyms..."} class='searchInput' value={this.state.search}
                     onChange={this.updateSearch.bind(this)} onSubmit={this.updateSearch.bind(this)}  />

@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
-import { IconButton } from '@material-ui/core';
+import { IconButton, Divider } from '@material-ui/core';
 import logo from '../Images/app_bg.png';
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
 import clsx from 'clsx';
@@ -19,6 +19,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import ContactPhoneOutlinedIcon from '@material-ui/icons/ContactPhoneOutlined';
 import store from '../Images/store.png'
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+import ViewCarouselOutlinedIcon from '@material-ui/icons/ViewCarouselOutlined';
+import ContactSupportOutlinedIcon from '@material-ui/icons/ContactSupportOutlined';
 
 function HideOnScroll(props) {
     const { children, window } = props;
@@ -83,12 +86,25 @@ function MappBar(props) {
             <div style={{padding:'0px 15px'}} >
                 <List>
                     <ListItem button >
+                        <ListItemIcon>{<HomeOutlinedIcon />}</ListItemIcon>
+                        <a href="/" ><ListItemText primary='Home' style={{color:'grey'}} /></a>
+                    </ListItem>
+                    <ListItem button >
+                        <ListItemIcon>{<ViewCarouselOutlinedIcon/>}</ListItemIcon>
+                        <a href="/pidgin/courses" ><ListItemText primary='How To Use' style={{color:'grey'}}  /></a>
+                    </ListItem>
+                    <ListItem button >
+                        <ListItemIcon>{<ContactSupportOutlinedIcon />}</ListItemIcon>
+                        <a href="/pidgin/help" ><ListItemText primary='Help' style={{color:'grey'}}  /></a>
+                    </ListItem>
+                    <Divider/>
+                    <ListItem button >
                         <ListItemIcon>{<InfoOutlinedIcon />}</ListItemIcon>
-                        <ListItemText primary='About Us' />
+                        <a href="/pidgin/about-us" ><ListItemText primary='About Us' style={{color:'grey'}}  /></a>
                     </ListItem>
                     <ListItem button >
                         <ListItemIcon>{<ContactPhoneOutlinedIcon />}</ListItemIcon>
-                        <ListItemText primary='Contact Us' />
+                        <a href="/pidgin/contact-us" ><ListItemText primary='Contact Us' style={{color:'grey'}}  /></a>
                     </ListItem>
                 </List>
             </div>
