@@ -9,7 +9,7 @@ export default class Courses extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className="desktop" >
+                <div className="desktop" style={{backgroundColor:'white'}} >
                     <MyAppBar/>
 
                     <div class="wrap" style={{ marginTop: '100px' }}>

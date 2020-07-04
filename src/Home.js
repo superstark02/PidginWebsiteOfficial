@@ -65,7 +65,7 @@ export default class Home extends React.Component {
                             <Link to={{
                                 pathname:'/pidgin/search',
                                 state:{
-                                    online:true,
+                                    type:'online',
                                     name:"Online Classes available :"
                                 }
                             }} >    
@@ -89,7 +89,7 @@ export default class Home extends React.Component {
                             <Link to={{
                                 pathname:'/pidgin/search',
                                 state:{
-                                    women:true,
+                                    type:'women',
                                     name:"Classes For Women Only:"
                                 }
                             }} >
@@ -114,7 +114,7 @@ export default class Home extends React.Component {
                             <Link to={{
                                 pathname:'/pidgin/search',
                                 state:{
-                                    individual:true,
+                                    type:'individual',
                                     name:"Individual Classes and Courses :"
                                 }
                             }} >

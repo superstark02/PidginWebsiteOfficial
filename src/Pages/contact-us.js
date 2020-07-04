@@ -10,7 +10,7 @@ export default class ContactUs extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className="desktop" >
+                <div className="desktop" style={{backgroundColor:'white'}} >
                     <MyAppBar/>
 
                     <div class="wrap" style={{ marginTop: '100px' }}>

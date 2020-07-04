@@ -95,3 +95,8 @@ a:active {text-decoration: none;}
     border: 1px solid #f50057;
     border-radius: 5px;
 }
+.sub-title-list{
+    font-size: 10px;
+    color: rgb(150, 150, 150);
+    margin-top: 10px;
+}

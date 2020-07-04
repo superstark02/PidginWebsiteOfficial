@@ -4,9 +4,8 @@ import Footer from '../Components/Footer'
 import MappBar from '../Components/mAppBar'
 import { db } from '../firebase'
 import { Link } from 'react-router-dom'
-import { FaGlobe, FaFemale, FaUserAstronaut } from 'react-icons/fa'
 import SearchView from './mSearch'
-import { Button } from '@material-ui/core'
+import { Button, Divider } from '@material-ui/core'
 import MyAppBar from '../Components/AppBar'
 import Chip from '@material-ui/core/Chip';
 import DoneIcon from '@material-ui/icons/Done';
@@ -24,9 +23,6 @@ export default class Search extends React.Component {
         minAge: null,
         features: null,
         search: null,
-        online: null,
-        women: null,
-        individual: null
     }
 
     componentDidMount() {
@@ -55,6 +51,7 @@ export default class Search extends React.Component {
         this.setState({ minPrice: 10000000 })
         this.setState({ minAge: 100 })
         this.setState({ type: null })
+
     }
 
     setAge = (age) => {
@@ -70,14 +67,6 @@ export default class Search extends React.Component {
         fees = null
         type = null
         filteredClass = this.state.classes
-        if (this.props.location.state.name !== null && this.state.classes !== null) {
-            filteredClass = this.state.classes.filter(
-                item =>
-                    item.women === this.props.location.state.women ||
-                    item.individual === this.props.location.state.individual ||
-                    item.online === this.props.location.state.online
-            )
-        }
 
         if (this.props.location.state.name === null && this.state.classes !== null) {
             if (this.state.type === null) {
@@ -98,40 +87,69 @@ export default class Search extends React.Component {
             }
         }
 
-        if(this.state.minAge!==100){
-            age = <Chip 
-                label = {this.state.minAge+"+ years"}
-                color = "secondary"
-                icon = {<DoneIcon/>}
-                size = "small"
-                variant = "outlined"
-                style = {{marginTop:'-5px',marginBottom:'5px'}}
-                onDelete = {()=>{this.setState({minAge:100})}}
+        if (this.state.search !== null) {
+            filteredClass = this.state.classes.filter(
+                item =>
+                    item.type.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
+                    item.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+            )
+        }
+
+        if (this.state.minAge !== 100) {
+            age = <Chip
+                label={this.state.minAge + "+ years"}
+                color="secondary"
+                icon={<DoneIcon />}
+                size="small"
+                variant="outlined"
+                style={{ marginTop: '-5px', marginBottom: '5px' }}
+                onDelete={() => { this.setState({ minAge: 100 }) }}
             />
         }
 
-        if(this.state.minPrice!==10000000){
-            fees = <Chip 
-                label = {this.state.minPrice}
-                color = "secondary"
-                icon = {<DoneIcon/>}
-                size = "small"
-                variant = "outlined"
-                style = {{marginTop:'-5px',marginBottom:'5px'}}
-                onDelete = {()=>{this.setState({minPrice:10000000})}}
+        if (this.state.minPrice !== 10000000) {
+            fees = <Chip
+                label={this.state.minPrice}
+                color="secondary"
+                icon={<DoneIcon />}
+                size="small"
+                variant="outlined"
+                style={{ marginTop: '-5px', marginBottom: '5px' }}
+                onDelete={() => { this.setState({ minPrice: 10000000 }) }}
             />
         }
 
-        if(this.state.type!==null){
-            type = <Chip 
-            label = {this.state.type}
-            color = "secondary"
-            icon = {<DoneIcon/>}
-            size = "small"
-            variant = "outlined"
-            style = {{marginTop:'-5px',marginBottom:'5px'}}
-            onDelete = {()=>{this.setState({type:null})}}
-        />
+        if (this.state.type !== null) {
+            type = <Chip
+                label={this.state.type}
+                color="secondary"
+                icon={<DoneIcon />}
+                size="small"
+                variant="outlined"
+                style={{ marginTop: '-5px', marginBottom: '5px' }}
+                onDelete={() => { this.setState({ type: null }) }}
+            />
+        }
+
+        if(this.props.location.state.type === 'women' && this.state.classes !== null){
+            filteredClass = this.state.classes.filter(
+                item =>
+                    item.women === true
+            )
+        }
+
+        if(this.props.location.state.type === 'individual' && this.state.classes !== null){
+            filteredClass = this.state.classes.filter(
+                item =>
+                    item.individual === true
+            )
+        }
+
+        if(this.props.location.state.type === 'online' && this.state.classes !== null){
+            filteredClass = this.state.classes.filter(
+                item =>
+                    item.online === true
+            )
         }
 
         return (
@@ -139,24 +157,11 @@ export default class Search extends React.Component {
                 <div className="desktop">
                     <MyAppBar />
                     <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around', paddingBottom: '100px', flexDirection: 'column', alignItems: 'center' }}>
-                        <input className='search-search' placeholder='Search classes, tuition, courses...' >
+                        <input className='search-search' placeholder='Search classes, tuition, courses...' onChange={(e) => { this.setState({ search: e.target.value }) }} >
                         </input>
                         <div className="body" >
                             <div className="filter" >
                                 <h4>Filters</h4>
-
-                                <div className="filter-list-head" >
-                                    Features
-                            </div>
-                                <div className='filter-list-item' >
-                                    <FaGlobe /> Online
-                            </div>
-                                <div className='filter-list-item' >
-                                    <FaFemale /> Only For Women
-                            </div>
-                                <div className='filter-list-item' >
-                                    <FaUserAstronaut /> Individual Classes
-                            </div>
 
                                 <div className="filter-list-head" >
                                     Age
@@ -215,11 +220,55 @@ export default class Search extends React.Component {
                                     Type
                             </div>
                                 {type}
-                                <div className='filter-list-item' onClick={()=>{this.setState({type:"music"})}} >
+
+                                <div className="sub-title-list" >
+                                    Hobby
+                            </div>
+                            <Divider/>
+                                <div className='filter-list-item' onClick={() => { this.setState({ type: "music" }) }} >
                                     Music
                             </div>
-                                <div className='filter-list-item' onClick={()=>{this.setState({type:"cooking"})}} >
+                                <div className='filter-list-item' onClick={() => { this.setState({ type: "cooking" }) }} >
                                     Cooking
+                            </div>
+                            <div className='filter-list-item' onClick={() => { this.setState({ type: "dance" }) }} >
+                                    Dance
+                            </div>
+
+                            <div className="sub-title-list" >
+                                    Science
+                            </div>
+                            <Divider/>
+                                <div className='filter-list-item' onClick={() => { this.setState({ type: "science" }) }} >
+                                    Science
+                            </div>
+                                <div className='filter-list-item' onClick={() => { this.setState({ type: "maths" }) }} >
+                                    Maths
+                            </div>
+                                <div className='filter-list-item' onClick={() => { this.setState({ type: "physics" }) }} >
+                                    Physics
+                            </div>
+                                <div className='filter-list-item' onClick={() => { this.setState({ type: "chemistry" }) }} >
+                                    Chemistry
+                            </div>
+
+                            <div className="sub-title-list" >
+                                    Courses
+                            </div>
+                            <Divider/>
+                                <div className='filter-list-item' onClick={() => { this.setState({ type: "painting" }) }} >
+                                    Painting
+                            </div>
+                            <div className='filter-list-item' onClick={() => { this.setState({ type: "sketching" }) }} >
+                                    Sketching
+                            </div>
+
+                            <div className="sub-title-list" >
+                                    Language
+                            </div>
+                            <Divider/>
+                                <div className='filter-list-item' onClick={() => { this.setState({ type: "japenese" }) }} >
+                                    Japenese
                             </div>
 
                                 <Button disableElevation variant="contained" color="secondary" style={{ fontSize: '10px', marginTop: '20px' }} onClick={this.clearFilter} >
