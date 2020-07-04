@@ -4,16 +4,37 @@ import Footer from '../Components/Footer'
 import MappBar from '../Components/mAppBar'
 import { db } from '../firebase'
 import { Link } from 'react-router-dom'
-import { FaUser, FaGlobe, FaFemale, FaUserAstronaut, FaUsers } from 'react-icons/fa'
+import { FaGlobe, FaFemale, FaUserAstronaut } from 'react-icons/fa'
 import SearchView from './mSearch'
+import { Button } from '@material-ui/core'
+import MyAppBar from '../Components/AppBar'
+import Chip from '@material-ui/core/Chip';
+import DoneIcon from '@material-ui/icons/Done';
+
+var filteredClass = null
+var age = null
+var fees = null
+var type = null
 
 export default class Search extends React.Component {
     state = {
         type: null,
         classes: null,
+        minPrice: null,
+        minAge: null,
+        features: null,
+        search: null,
+        online: null,
+        women: null,
+        individual: null
     }
 
     componentDidMount() {
+        var type = this.props.location.state.type
+        this.setState({ type: type })
+
+        this.clearFilter()
+
         const data = db.collection('Classes');
         data.get()
             .then(snapshot => {
@@ -24,26 +45,99 @@ export default class Search extends React.Component {
                 })
                 this.setState({ classes: classes })
             })
-        if (this.props.location.type != null) {
-            this.setState({ search: this.props.location.type })
+
+        if (this.props.location.state.search != null) {
+            this.setState({ search: this.props.location.state.search })
         }
     }
 
+    clearFilter = () => {
+        this.setState({ minPrice: 10000000 })
+        this.setState({ minAge: 100 })
+        this.setState({ type: null })
+    }
+
+    setAge = (age) => {
+        this.setState({ minAge: age })
+    }
+
+    setPrice = (price) => {
+        this.setState({ minPrice: price })
+    }
+
     render() {
+        age = null
+        fees = null
+        type = null
+        filteredClass = this.state.classes
+        if (this.props.location.state.name !== null && this.state.classes !== null) {
+            filteredClass = this.state.classes.filter(
+                item =>
+                    item.women === this.props.location.state.women ||
+                    item.individual === this.props.location.state.individual ||
+                    item.online === this.props.location.state.online
+            )
+        }
+
+        if (this.props.location.state.name === null && this.state.classes !== null) {
+            if (this.state.type === null) {
+                filteredClass = this.state.classes.filter(
+                    item =>
+                        item.fees < this.state.minPrice &&
+                        item.age < this.state.minAge
+                )
+            }
+
+            if (this.state.type !== null) {
+                filteredClass = this.state.classes.filter(
+                    item =>
+                        item.fees < this.state.minPrice &&
+                        item.age < this.state.minAge &&
+                        item.type.toLowerCase().indexOf(this.state.type.toLowerCase()) !== -1
+                )
+            }
+        }
+
+        if(this.state.minAge!==100){
+            age = <Chip 
+                label = {this.state.minAge+"+ years"}
+                color = "secondary"
+                icon = {<DoneIcon/>}
+                size = "small"
+                variant = "outlined"
+                style = {{marginTop:'-5px',marginBottom:'5px'}}
+                onDelete = {()=>{this.setState({minAge:100})}}
+            />
+        }
+
+        if(this.state.minPrice!==10000000){
+            fees = <Chip 
+                label = {this.state.minPrice}
+                color = "secondary"
+                icon = {<DoneIcon/>}
+                size = "small"
+                variant = "outlined"
+                style = {{marginTop:'-5px',marginBottom:'5px'}}
+                onDelete = {()=>{this.setState({minPrice:10000000})}}
+            />
+        }
+
+        if(this.state.type!==null){
+            type = <Chip 
+            label = {this.state.type}
+            color = "secondary"
+            icon = {<DoneIcon/>}
+            size = "small"
+            variant = "outlined"
+            style = {{marginTop:'-5px',marginBottom:'5px'}}
+            onDelete = {()=>{this.setState({type:null})}}
+        />
+        }
+
         return (
             <div style={{ backgroundColor: '#f3f3f3' }} >
-                <div className="desktop" >
-                    <div className="appBar">
-                        <div>
-                            <a href='/' ><img alt="logo" style={{ marginLeft: '50px', marginTop: '10px' }} src="../Images/app_bg.png" width="70px" /></a>
-                        </div>
-                        <div>
-                            <a href="/pidgin/courses"><button className="sideBut">Courses</button></a>
-                            <a href="/pidgin/about-us"><button className="sideBut">About Us</button></a>
-                            <a href="/pidgin/contact-us"><button className="sideBut">Contact Us</button></a>
-                            <a href="/pidgin/help"><button className="sideBut">Help</button></a>
-                        </div>
-                    </div>
+                <div className="desktop">
+                    <MyAppBar />
                     <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around', paddingBottom: '100px', flexDirection: 'column', alignItems: 'center' }}>
                         <input className='search-search' placeholder='Search classes, tuition, courses...' >
                         </input>
@@ -55,9 +149,6 @@ export default class Search extends React.Component {
                                     Features
                             </div>
                                 <div className='filter-list-item' >
-                                    <FaUser /> Offline
-                            </div>
-                                <div className='filter-list-item' >
                                     <FaGlobe /> Online
                             </div>
                                 <div className='filter-list-item' >
@@ -66,29 +157,27 @@ export default class Search extends React.Component {
                                 <div className='filter-list-item' >
                                     <FaUserAstronaut /> Individual Classes
                             </div>
-                                <div className='filter-list-item' >
-                                    <FaUsers /> Group Classes
-                            </div>
 
                                 <div className="filter-list-head" >
                                     Age
                             </div>
-                                <div className='filter-list-item' >
+                                {age}
+                                <div className='filter-list-item' onClick={() => { this.setAge(5) }} >
                                     5+ years
                             </div>
-                                <div className='filter-list-item' >
+                                <div className='filter-list-item' onClick={() => { this.setAge(10) }} >
                                     10+ years
                             </div>
-                                <div className='filter-list-item' >
+                                <div className='filter-list-item' onClick={() => { this.setAge(13) }} >
                                     13+ years
                             </div>
-                                <div className='filter-list-item' >
+                                <div className='filter-list-item' onClick={() => { this.setAge(16) }} >
                                     16+ years
                             </div>
-                                <div className='filter-list-item' >
+                                <div className='filter-list-item' onClick={() => { this.setAge(20) }} >
                                     20+ years
                             </div>
-                                <div className='filter-list-item' >
+                                <div className='filter-list-item' onClick={() => { this.setAge(100) }} >
                                     Any
                             </div>
 
@@ -96,47 +185,54 @@ export default class Search extends React.Component {
                                 <div className="filter-list-head" >
                                     Price
                             </div>
-                                <div className='filter-list-item' >
+                                {fees}
+                                <div className='filter-list-item' onClick={() => { this.setPrice(1000) }} >
                                     &#8377;1000 +
                             </div>
-                                <div className='filter-list-item' >
+                                <div className='filter-list-item' onClick={() => { this.setPrice(2000) }} >
                                     &#8377;2000 +
                             </div>
-                                <div className='filter-list-item' >
+                                <div className='filter-list-item' onClick={() => { this.setPrice(3000) }} >
                                     &#8377;3000 +
                             </div>
-                                <div className='filter-list-item' >
+                                <div className='filter-list-item' onClick={() => { this.setPrice(4000) }} >
                                     &#8377;4000 +
                             </div>
-                                <div className='filter-list-item' >
+                                <div className='filter-list-item' onClick={() => { this.setPrice(5000) }} >
                                     &#8377;5000 +
                             </div>
-                                <div className='filter-list-item' >
+                                <div className='filter-list-item' onClick={() => { this.setPrice(6000) }} >
                                     &#8377;6000 +
                             </div>
-                                <div className="filter-list-item" >
+                                <div className="filter-list-item" onClick={() => { this.setPrice(7000) }} >
                                     &#8377;7000 +
                             </div>
-                                <div className="filter-list-item" >
+                                <div className="filter-list-item" onClick={() => { this.setPrice(10000000) }} >
                                     Any
                             </div>
 
                                 <div className="filter-list-head" >
                                     Type
                             </div>
-                                <div className='filter-list-item' >
+                                {type}
+                                <div className='filter-list-item' onClick={()=>{this.setState({type:"music"})}} >
                                     Music
                             </div>
-                                <div className='filter-list-item' >
+                                <div className='filter-list-item' onClick={()=>{this.setState({type:"cooking"})}} >
                                     Cooking
                             </div>
 
+                                <Button disableElevation variant="contained" color="secondary" style={{ fontSize: '10px', marginTop: '20px' }} onClick={this.clearFilter} >
+                                    Clear Filters
+                            </Button>
+
                             </div>
                             <div>
+                                <h1>{this.props.location.state.name}</h1>
                                 <div className="search-list" >
                                     {
-                                        this.state.classes &&
-                                        this.state.classes.map(item => {
+                                        filteredClass &&
+                                        filteredClass.map(item => {
                                             return (
                                                 <Link to={'/class/' + item.id} >
                                                     <div className="card-search" >
@@ -172,10 +268,10 @@ export default class Search extends React.Component {
                     </div>
                 </div>
                 <div className="mobile" >
-                    <MappBar/>
-                    <SearchView/>
+                    <MappBar />
+                    <SearchView />
                 </div>
-                <Footer/>
+                <Footer />
             </div >
         )
     }

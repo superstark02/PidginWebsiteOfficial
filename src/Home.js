@@ -12,24 +12,15 @@ import astro from './Images/astronaut.jpg'
 import find from './Images/find.jpg'
 import Options from './Components/mOptions'
 import TopPicks from './Components/TopPicks'
+import MyAppBar from './Components/AppBar'
 
 export default class Home extends React.Component {
     render() {
         return (
             <div>
                 <div className="desktop" >
-                    <div className="appBar">
-                        <div>
-                            <a href='/' ><img alt="logo" style={{ marginLeft: '50px', marginTop: '10px' }} src="./Images/app_bg.png" width="70px" /></a>
-                        </div>
-                        <div>
-                            <a href="/pidgin/courses"><button class="sideBut">Courses</button></a>
-                            <a href="/pidgin/about-us"><button class="sideBut">About Us</button></a>
-                            <a href="/pidgin/contact-us"><button class="sideBut">Contact Us</button></a>
-                            <a href="/pidgin/help"><button className="sideBut">Help</button></a>
-                        </div>
-                    </div>
-
+                    <MyAppBar/>
+                    
                     <div className="wrap">
                         <div className="container">
                             <div className="about">
@@ -47,7 +38,13 @@ export default class Home extends React.Component {
                                     Get a trial class for free.
                                 </p>
 
-                                <Link to="/pidgin/search" >
+                                <Link to={{
+                                    pathname:"/pidgin/search",
+                                    state:{
+                                        name:null,
+                                        type:null
+                                    }
+                                }} >
                                     <div className="wrap" style={{height:'40%'}} >
                                         <div className="search-home">
                                             Search classes, courses, subjects..
@@ -64,6 +61,14 @@ export default class Home extends React.Component {
 
                     <div className="wrap" >
                         <div className="home-container" >
+
+                            <Link to={{
+                                pathname:'/pidgin/search',
+                                state:{
+                                    online:true,
+                                    name:"Online Classes available :"
+                                }
+                            }} >    
                             <div className="flip-box" >
                                 <div className="flip-box-inner" >
                                     <div className="flip-box-front" >
@@ -79,7 +84,15 @@ export default class Home extends React.Component {
                                     </div>
                                 </div>
                             </div>
+                            </Link>
 
+                            <Link to={{
+                                pathname:'/pidgin/search',
+                                state:{
+                                    women:true,
+                                    name:"Classes For Women Only:"
+                                }
+                            }} >
                             <div className="flip-box" >
                                 <div className="flip-box-inner" >
                                     <div className="flip-box-front" >
@@ -96,7 +109,15 @@ export default class Home extends React.Component {
                                     </div>
                                 </div>
                             </div>
-
+                            </Link>
+                            
+                            <Link to={{
+                                pathname:'/pidgin/search',
+                                state:{
+                                    individual:true,
+                                    name:"Individual Classes and Courses :"
+                                }
+                            }} >
                             <div className="flip-box" >
                                 <div className="flip-box-inner" >
                                     <div className="flip-box-front" >
@@ -113,7 +134,9 @@ export default class Home extends React.Component {
                                     </div>
                                 </div>
                             </div>
-
+                            </Link>
+                            
+                            <Link to="/find-my-class" >
                             <div className="flip-box" >
                                 <div className="flip-box-inner" >
                                     <div className="flip-box-front" >
@@ -129,6 +152,7 @@ export default class Home extends React.Component {
                                     </div>
                                 </div>
                             </div>
+                            </Link>
 
                         </div>
                     </div>

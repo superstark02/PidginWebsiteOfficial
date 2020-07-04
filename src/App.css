@@ -137,6 +137,7 @@ td{
   perspective: 1000px;
   border-radius: 20px;
   cursor: pointer;
+  color: #202020;
 }
 
 .flip-box-inner {

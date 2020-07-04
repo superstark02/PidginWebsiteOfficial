@@ -4,23 +4,14 @@ import Footer from '../Components/Footer'
 import { FaWhatsapp, FaEnvelope, FaFacebook, FaInstagram } from 'react-icons/fa'
 import MappBar from '../Components/mAppBar'
 import { Divider } from '@material-ui/core'
+import MyAppBar from '../Components/AppBar'
 
 export default class ContactUs extends React.Component {
     render() {
         return (
             <React.Fragment>
                 <div className="desktop" >
-                    <div className="appBar">
-                        <div>
-                            <a href='/' ><img alt="logo" style={{ marginLeft: '50px', marginTop: '10px' }} src="../Images/app_bg.png" width="70px" /></a>
-                        </div>
-                        <div>
-                            <a href="/pidgin/courses"><button className="sideBut">Courses</button></a>
-                            <a href="/pidgin/about-us"><button className="sideBut">About Us</button></a>
-                            <a href="/pidgin/contact-us"><button className="sideBut">Contact Us</button></a>
-                            <a href="/pidgin/help"><button className="sideBut">Help</button></a>
-                        </div>
-                    </div>
+                    <MyAppBar/>
 
                     <div class="wrap" style={{ marginTop: '100px' }}>
                         <div style={{ width: '50%', textAlign: 'center' }}>

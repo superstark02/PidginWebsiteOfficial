@@ -1,6 +1,7 @@
 import React from 'react'
 import './app.css'
 import Footer from '../Components/Footer'
+import MyAppBar from '../Components/AppBar'
 import MappBar from '../Components/mAppBar'
 import { Divider } from '@material-ui/core'
 
@@ -9,16 +10,7 @@ export default class AboutUs extends React.Component {
         return (
             <React.Fragment>
                 <div className="desktop" >
-                    <div className="appBar">
-                        <div>
-                            <a href='/' ><img alt="logo" style={{ marginLeft: '50px', marginTop: '10px' }} src="../Images/app_bg.png" width="70px" /></a>
-                        </div>
-                        <div>
-                            <a href="/pidgin/courses"><button className="sideBut">Courses</button></a>
-                            <a href="/pidgin/about-us"><button className="sideBut">About Us</button></a>
-                            <a href="/pidgin/contact-us"><button className="sideBut">Contact Us</button></a>
-                        </div>
-                    </div>
+                    <MyAppBar/>
 
                     <div className="wrap" style={{ marginTop: '100px' }}>
                         <div style={{ width: '50%', textAlign: 'center' }}>
