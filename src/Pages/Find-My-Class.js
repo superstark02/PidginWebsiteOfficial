@@ -44,7 +44,7 @@ export default class FindMyClass extends React.Component {
                                             <RadioGroup aria-label="gender" name="gender1" onChange={this.handleChange}>
                                                 <FormControlLabel value="online" control={<Radio color="primary" />} label="Online" />
                                                 <FormControlLabel value="offline" control={<Radio color="primary" />} label="Offline" />
-                                                <FormControlLabel value="both" control={<Radio color="primary" />} label="Other" />
+                                                <FormControlLabel value="both" control={<Radio color="primary" />} label="Any" />
                                             </RadioGroup>
                                         </FormControl>
                                     </div>

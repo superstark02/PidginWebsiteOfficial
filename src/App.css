@@ -131,8 +131,8 @@ td{
 
 .flip-box {
   background-color: transparent;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   border: 1px solid #f1f1f1;
   perspective: 1000px;
   border-radius: 20px;
@@ -172,6 +172,7 @@ td{
   text-align: center;
   border: solid 1px grey;
   background-color: white;
+  font-size: 12px;
 }
 .home-overlay{
   width: 100%;

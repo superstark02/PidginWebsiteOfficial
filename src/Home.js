@@ -10,6 +10,7 @@ import online from './Images/online.jpg'
 import women from './Images/women.jpg'
 import astro from './Images/astronaut.jpg'
 import find from './Images/find.jpg'
+import near from './Images/near.jpg'
 import Options from './Components/mOptions'
 import TopPicks from './Components/TopPicks'
 import MyAppBar from './Components/AppBar'
@@ -65,6 +66,30 @@ export default class Home extends React.Component {
                             <Link to={{
                                 pathname:'/pidgin/search',
                                 state:{
+                                    type:null,
+                                    name:null
+                                }
+                            }} >
+                            <div className="flip-box" >
+                                <div className="flip-box-inner" >
+                                    <div className="flip-box-front" >
+                                        <div className="home-overlay" >
+                                            Near You
+                                        </div>
+                                        <img alt="s" src={near} height="200px" />
+                                    </div>
+                                    <div className="flip-box-back" >
+                                        <h2>Near You</h2>
+                                        Find classes and the courses
+                                        you want near you.
+                                     </div>
+                                </div>
+                            </div>
+                            </Link>
+                            
+                            <Link to={{
+                                pathname:'/pidgin/search',
+                                state:{
                                     type:'online',
                                     name:"Online Classes available :"
                                 }
@@ -75,7 +100,7 @@ export default class Home extends React.Component {
                                         <div className="home-overlay" >
                                             Online Classes
                                         </div>
-                                        <img alt="s" src={online} height="250px" />
+                                        <img alt="s" src={online} height="200px" />
                                     </div>
                                     <div className="flip-box-back" >
                                         <h2>Online</h2>
@@ -99,14 +124,14 @@ export default class Home extends React.Component {
                                         <div className="home-overlay" >
                                             Classes Only For Women
                                         </div>
-                                        <img alt="s" src={women} height="250px" />
+                                        <img alt="s" src={women} height="200px" />
                                     </div>
                                     <div className="flip-box-back" >
                                         <h2>Only For Women</h2>
-                                        Find classes which are only for women.
-                                        Institutes
-
-                                    </div>
+                                        Find classes which are only for women. <br/>
+                                        That is, only women are allowed<br/>
+                                        to take part in the courses.
+                                     </div>
                                 </div>
                             </div>
                             </Link>
@@ -124,7 +149,7 @@ export default class Home extends React.Component {
                                         <div className="home-overlay" >
                                             Individual Classes
                                         </div>
-                                        <img alt="s" src={astro} height="250px" />
+                                        <img alt="s" src={astro} height="200px" />
                                     </div>
                                     <div className="flip-box-back" >
                                         <h2>Individual Classes</h2>
@@ -143,7 +168,7 @@ export default class Home extends React.Component {
                                         <div className="home-overlay" >
                                             Unable to find?
                                         </div>
-                                        <img alt="s" src={find} height="250px" />
+                                        <img alt="s" src={find} height="200px" />
                                     </div>
                                     <div className="flip-box-back" >
                                         <h2>Unable to find?</h2>

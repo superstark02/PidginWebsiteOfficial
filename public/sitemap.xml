@@ -9,27 +9,47 @@
 
 <url>
   <loc>https://pidgin.online/</loc>
-  <lastmod>2020-06-24T03:38:24+00:00</lastmod>
+  <lastmod>2020-07-04T12:13:43+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://pidgin.online/courses/women.html</loc>
-  <lastmod>2020-06-24T03:38:24+00:00</lastmod>
+  <loc>https://pidgin.online/pages/useItCorrect.html</loc>
+  <lastmod>2020-07-04T12:13:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://pidgin.online/courses/kids.html</loc>
-  <lastmod>2020-06-24T03:38:24+00:00</lastmod>
+  <loc>https://pidgin.online/pages/aboutUs.html</loc>
+  <lastmod>2020-07-04T12:13:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://pidgin.online/pages/contactUs.html</loc>
+  <lastmod>2020-07-04T12:13:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://pidgin.online/courses/certificate.html</loc>
-  <lastmod>2020-06-24T03:38:24+00:00</lastmod>
+  <lastmod>2020-07-04T12:13:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://pidgin.online/courses/kids.html</loc>
+  <lastmod>2020-07-04T12:13:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://pidgin.online/courses/onlnine.html</loc>
-  <lastmod>2020-06-24T03:38:24+00:00</lastmod>
+  <lastmod>2020-07-04T12:13:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://pidgin.online/courses/women.html</loc>
+  <lastmod>2020-07-04T12:13:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://pidgin.online/pages/tags.html</loc>
+  <lastmod>2020-07-04T12:13:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 
