@@ -13,6 +13,14 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 var screen = null
 var tick = null
 
+
+function check (items,item){
+    if(items.indexOf(item) > -1){
+        return false
+    }
+    return true
+}
+
 export default class ClassDisplay extends React.Component {
     state = {
         id: null,
@@ -28,7 +36,7 @@ export default class ClassDisplay extends React.Component {
         cart_dialog:false,
 
         item_mode:"Offline",
-        item_type:null,
+        item_type:"Group",
 
         cart:[],
         cart_item:null,
@@ -135,8 +143,18 @@ export default class ClassDisplay extends React.Component {
     }
 
     addToCart = () => {
-        this.state.cart.push(this.state.cart_item)
-        this.setState({cart_item:null})
+        if(check(this.state.cart,this.state.cart_item)){
+            this.state.cart.push(this.state.cart_item)
+            this.setState({cart_item:null})
+        }
+        this.handleClose()
+    }
+
+    remove = (items,item) => {
+        var index = items.indexOf(item)
+        if(index > -1){
+            items.splice(index,1)
+        }
     }
 
     render() {
@@ -169,7 +187,7 @@ export default class ClassDisplay extends React.Component {
                                                 <div>
                                                     {item.title}
                                                 </div>
-                                                <div className="class-button" style={{width:"fit-content",color:"#f05f7f"}} >
+                                                <div className="class-button" style={{width:"fit-content",color:"#f05f7f"}} onClick={()=>{this.remove(this.state.cart,item)}} >
                                                     - DELETE
                                                 </div>
                                             </div>
