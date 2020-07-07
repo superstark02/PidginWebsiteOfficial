@@ -3,7 +3,6 @@ import './search.css'
 import Footer from '../Components/Footer'
 import MappBar from '../Components/mAppBar'
 import { db } from '../firebase'
-import { Link } from 'react-router-dom'
 import SearchView from './mSearch'
 import { Button, Divider } from '@material-ui/core'
 import MyAppBar from '../Components/AppBar'
@@ -168,22 +167,22 @@ export default class Search extends React.Component {
                             </div>
                                 {age}
                                 <div className='filter-list-item' onClick={() => { this.setAge(5) }} >
-                                    5+ years
+                                    Below 5 years
                             </div>
                                 <div className='filter-list-item' onClick={() => { this.setAge(10) }} >
-                                    10+ years
+                                    Below 10 years
                             </div>
                                 <div className='filter-list-item' onClick={() => { this.setAge(13) }} >
-                                    13+ years
+                                    Below 13 years
                             </div>
                                 <div className='filter-list-item' onClick={() => { this.setAge(16) }} >
-                                    16+ years
+                                    Below 16 years
                             </div>
                                 <div className='filter-list-item' onClick={() => { this.setAge(20) }} >
-                                    20+ years
+                                    Below 20 years
                             </div>
                                 <div className='filter-list-item' onClick={() => { this.setAge(100) }} >
-                                    Any
+                                     Any
                             </div>
 
 
@@ -192,25 +191,25 @@ export default class Search extends React.Component {
                             </div>
                                 {fees}
                                 <div className='filter-list-item' onClick={() => { this.setPrice(1000) }} >
-                                    &#8377;1000 +
+                                    From &#8377;1000
                             </div>
                                 <div className='filter-list-item' onClick={() => { this.setPrice(2000) }} >
-                                    &#8377;2000 +
+                                    From &#8377;2000
                             </div>
                                 <div className='filter-list-item' onClick={() => { this.setPrice(3000) }} >
-                                    &#8377;3000 +
+                                    From &#8377;3000
                             </div>
                                 <div className='filter-list-item' onClick={() => { this.setPrice(4000) }} >
-                                    &#8377;4000 +
+                                    From &#8377;4000
                             </div>
                                 <div className='filter-list-item' onClick={() => { this.setPrice(5000) }} >
-                                    &#8377;5000 +
+                                    From &#8377;5000
                             </div>
                                 <div className='filter-list-item' onClick={() => { this.setPrice(6000) }} >
-                                    &#8377;6000 +
+                                    From &#8377;6000
                             </div>
                                 <div className="filter-list-item" onClick={() => { this.setPrice(7000) }} >
-                                    &#8377;7000 +
+                                    From &#8377;7000
                             </div>
                                 <div className="filter-list-item" onClick={() => { this.setPrice(10000000) }} >
                                     Any
@@ -283,7 +282,7 @@ export default class Search extends React.Component {
                                         filteredClass &&
                                         filteredClass.map(item => {
                                             return (
-                                                <Link to={'/class/' + item.id} >
+                                                <a href={'/class/' + item.id} >
                                                     <div className="card-search" >
                                                         <div style={{ overflowY: 'hidden', overflowX: 'hidden', width: '150px', maxHeight: '200px' }} >
                                                             {
@@ -307,7 +306,7 @@ export default class Search extends React.Component {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </Link>
+                                                </a>
                                             )
                                         })
                                     }

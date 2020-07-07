@@ -71,9 +71,6 @@ h1{
     cursor: pointer;
     font-weight: 600;
 }
-.class-button:hover{
-    box-shadow: 0px 0px 5px #cacaca;
-}
 
 .dialog{
     margin-top: 10px;
@@ -130,4 +127,13 @@ h1{
     text-align: center;
     cursor: pointer;
     border-radius: 0px 0px 5px 5px;
+}
+.class-save-button{
+    width: 327px;
+    padding: 10px;
+    color: #00b6c7;
+    text-align: center;
+    cursor: pointer;
+    margin: 10px 0px;
+    border: 1px solid #00b6c7;
 }

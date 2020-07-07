@@ -9,6 +9,7 @@ import Courses from './Pages/use-it-correct';
 import Search from './Pages/search';
 import Help from './Pages/Help';
 import FindMyClass from './Pages/Find-My-Class';
+import Login from './Log/login';
 
 export default class App extends React.Component {
   render() {
@@ -23,6 +24,7 @@ export default class App extends React.Component {
             <Route exact path='/pidgin/contact-us' component={ContactUs} />
             <Route exact path='/pidgin/courses' component={Courses} />
             <Route exact path='/pidgin/search' component={Search} />
+            <Route exact path='/pidgin/login' component={Login} />
             <Route exact path='/class/:id' component={ClassDisplay} />
           </Switch>
         </Router>

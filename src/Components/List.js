@@ -1,7 +1,6 @@
 import React from 'react'
 import { db } from '../firebase'
 import './List.css'
-import { Link } from 'react-router-dom';
 
 export default class MyList extends React.Component {
 
@@ -36,6 +35,7 @@ export default class MyList extends React.Component {
                         this.state.item &&
                         this.state.item.map(item => {
                             return (
+                                <a href={"/class/"+item.id} style={{color:"inherit"}} >
                                 <div className='items' >
                                     <div style={{ overflow:"hidden", width: '100%', maxHeight: '200px' }} >
                                         {
@@ -48,12 +48,8 @@ export default class MyList extends React.Component {
                                     </div>
 
                                     <div style={{ textAlign: 'left' }} >
-                                        <Link to={{
-                                            pathname: '/class/' + item.id,
-                                        }}>
                                             <div className='heading' >{item.name}</div>
                                             <div style={{ fontSize: '13px', lineHeight: 'normal', margin: '15px 0px', color: 'grey' }} >{item.address}</div>
-                                        </Link>
                                         <div className='fees' >Staring Fees: {item.fees}</div>
                                     </div>
                                     <div style={{ display: 'flex', justifyContent: 'space-between', border: 'solid 1px grey', padding: '10px', marginTop: '15px' }} >
@@ -61,6 +57,7 @@ export default class MyList extends React.Component {
                                         <div className='detail' >Age: {item.age}+</div>
                                     </div>
                                 </div>
+                                </a>
                             )
                         })
                     }
