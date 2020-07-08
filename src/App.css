@@ -79,6 +79,8 @@ body{
   border-bottom: solid white 3px;
   cursor: pointer;
   outline: none;
+  font-size: 15px;
+  margin: 0px 15px;
 }
 .sideBut:hover{
   border-bottom: solid black 3px;

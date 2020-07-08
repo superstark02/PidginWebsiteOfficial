@@ -10,6 +10,7 @@ import Search from './Pages/search';
 import Help from './Pages/Help';
 import FindMyClass from './Pages/Find-My-Class';
 import Login from './Log/login';
+import Payment from './Pages/payment';
 
 export default class App extends React.Component {
   render() {
@@ -25,6 +26,7 @@ export default class App extends React.Component {
             <Route exact path='/pidgin/courses' component={Courses} />
             <Route exact path='/pidgin/search' component={Search} />
             <Route exact path='/pidgin/login' component={Login} />
+            <Route exact path='/pidgin/payment' component={Payment} />
             <Route exact path='/class/:id' component={ClassDisplay} />
           </Switch>
         </Router>

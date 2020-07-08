@@ -173,7 +173,7 @@ export default class ClassDisplay extends React.Component {
                         <div className="grad" >
                             Your Cart
                         </div>
-                        <div style={{padding:"10px",border:"solid 1px grey",borderTop:"none",minHeight:"500px",borderRadius:"0px 0px 10px 10px",display:"flex",flexDirection:"column",justifyContent:"space-between"}} >
+                        <div style={{padding:"10px",border:"solid 1px grey",borderTop:"none",minHeight:"60vh",borderRadius:"0px 0px 10px 10px",display:"flex",flexDirection:"column",justifyContent:"space-between"}} >
                             <div>
                             {   
                                 this.state.cart&&
