@@ -9,13 +9,14 @@ import Dialog from '@material-ui/core/Dialog';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import alternate from '../Images/alt-image.jpg'
 
 var screen = null
 var tick = null
 
 
-function check (items,item){
-    if(items.indexOf(item) > -1){
+function check(items, item) {
+    if (items.indexOf(item) > -1) {
         return false
     }
     return true
@@ -33,13 +34,19 @@ export default class ClassDisplay extends React.Component {
         courses: null,
         faculty: null,
         note: null,
-        cart_dialog:false,
+        cart_dialog: false,
 
-        item_mode:"Offline",
-        item_type:"Group",
+        time: null,
+        online: null,
+        individual: null,
+        group: null,
+        women: null,
 
-        cart:[],
-        cart_item:null,
+        item_mode: "Offline",
+        item_type: "Group",
+
+        cart: [],
+        cart_item: null,
     }
     componentDidMount() {
         var id = this.props.match.params.id
@@ -51,16 +58,33 @@ export default class ClassDisplay extends React.Component {
             var address
             var type
             var age
+            var time
+            var online
+            var individual
+            var group
+            var women
 
             name = snapshot.get('name')
             address = snapshot.get('address')
             type = snapshot.get('type')
             age = snapshot.get('age')
 
+            time = snapshot.get('time')
+            online = snapshot.get('online')
+            individual = snapshot.get('individual')
+            group = snapshot.get('group')
+            women = snapshot.get('women')
+
             this.setState({ name: name })
             this.setState({ address: address })
             this.setState({ type: type })
             this.setState({ age: age })
+
+            this.setState({ time: time })
+            this.setState({ online: online })
+            this.setState({ individual: individual })
+            this.setState({ group: group })
+            this.setState({ women: women })
         })
 
         const images = db.collection("Classes").doc(id).collection("Images")
@@ -116,120 +140,132 @@ export default class ClassDisplay extends React.Component {
     }
 
     handleClose = () => {
-        this.setState({cart_dialog:false})
+        this.setState({ cart_dialog: false })
     }
 
     openCart = (item) => {
-        this.setState({cart_dialog:true})
-        this.setState({cart_item:item})
+        this.setState({ cart_dialog: true })
+        this.setState({ cart_item: item })
     }
 
     handleMode = () => {
-        if(this.state.item_mode==="Online"){
-            this.setState({item_mode:"Offline"})
+        if (this.state.item_mode === "Online") {
+            this.setState({ item_mode: "Offline" })
         }
-        else{
-            this.setState({item_mode:"Online"})
+        else {
+            this.setState({ item_mode: "Online" })
         }
     }
 
     handleType = () => {
-        if(this.state.item_type==="Group"){
-            this.setState({item_type:"Individual"})
+        if (this.state.item_type === "Group") {
+            this.setState({ item_type: "Individual" })
         }
-        else{
-            this.setState({item_type:"Group"})
+        else {
+            this.setState({ item_type: "Group" })
         }
     }
 
     addToCart = () => {
-        if(check(this.state.cart,this.state.cart_item)){
+        if (check(this.state.cart, this.state.cart_item)) {
             this.state.cart.push(this.state.cart_item)
-            this.setState({cart_item:null})
+            this.setState({ cart_item: null })
         }
         this.handleClose()
     }
 
-    remove = (items,item) => {
+    remove = (items, item) => {
         var index = items.indexOf(item)
-        if(index > -1){
-            items.splice(index,1)
+        if (index > -1) {
+            items.splice(index, 1)
         }
     }
 
     render() {
         screen = <div className="sticky" >
-                    <div className="grad" >
-                        Book Now
+            <div className="grad" >
+                Book Now
                     </div>
-                    <img src={step} width="350px" alt="s" />
-                  </div>
-        tick = <div style={{position:"absolute",bottom:"0",color:"#00d882",margin:"0px 5px"}} >
-                    <CheckCircleIcon color="#00d882" />
-                </div>
+            <img src={step} width="350px" alt="s" />
+        </div>
+        tick = <div style={{ position: "absolute", bottom: "0", color: "#00d882", margin: "0px 5px" }} >
+            <CheckCircleIcon color="#00d882" />
+        </div>
 
-        if(this.state.cart.length!==0){
+        if (this.state.cart.length !== 0) {
             screen = <div className="sticky" >
-                        <div className="grad" >
-                            Your Cart
+                <div className="grad" >
+                    Your Cart
                         </div>
-                        <div style={{padding:"10px",border:"solid 1px grey",borderTop:"none",minHeight:"60vh",borderRadius:"0px 0px 10px 10px",display:"flex",flexDirection:"column",justifyContent:"space-between"}} >
-                            <div>
-                            {   
-                                this.state.cart&&
-                                this.state.cart.map(item=>{
-                                    return(
-                                        <div className="cart-item" >
-                                            <div>
-                                                <img src={item.image} alt="s" width="100px" />
-                                            </div>
-                                            <div style={{width:"200px",marginLeft:"5px"}} >
-                                                <div>
-                                                    {item.title}
-                                                </div>
-                                                <div className="class-button" style={{width:"fit-content",color:"#f05f7f"}} onClick={()=>{this.remove(this.state.cart,item)}} >
-                                                    - DELETE
-                                                </div>
-                                            </div>
-                                            <div>
-                                                &#8377;{item.price}
-                                            </div>
-                                        </div>
-                                    )
-                                })
-                            }
-                            </div>
-                            <div>
-                                <div style={{display:"flex",justifyContent:"space-between",padding:"10px"}} >
-                                    <div>
-                                        <b>Total</b>
-                                    </div>
-                                    <div>
-                                        total price
-                                    </div>
-                                </div>
-                                <div className="class-checkout-button" >
-                                    CHECKOUT
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-        }
-
-        return (
-            <div>
-                <div className="desktop" style={{ paddingTop: "80px" }} >
-                    <MyAppBar />
-                    <div className="carousel" >
+                <div style={{ padding: "10px", border: "solid 1px grey", borderTop: "none", minHeight: "60vh", borderRadius: "0px 0px 10px 10px", display: "flex", flexDirection: "column", justifyContent: "space-between" }} >
+                    <div>
                         {
-                            this.state.images &&
-                            this.state.images.map(item => {
+                            this.state.cart &&
+                            this.state.cart.map(item => {
                                 return (
-                                    <div><img alt="s" src={item.item} className="imageCarousel" /></div>
+                                    <div className="cart-item" >
+                                        <div>
+                                            <img src={item.image} alt="s" width="100px" />
+                                        </div>
+                                        <div style={{ width: "200px", marginLeft: "5px" }} >
+                                            <div>
+                                                {item.title}
+                                            </div>
+                                            <div className="class-button" style={{ width: "fit-content", color: "#f05f7f" }} onClick={() => { this.remove(this.state.cart, item) }} >
+                                                - DELETE
+                                                </div>
+                                        </div>
+                                        <div>
+                                            &#8377;{item.price}
+                                        </div>
+                                    </div>
                                 )
                             })
                         }
                     </div>
+                    <div>
+                        <div style={{ display: "flex", justifyContent: "space-between", padding: "10px" }} >
+                            <div>
+                                <b>Total</b>
+                            </div>
+                            <div>
+                                total price
+                                    </div>
+                        </div>
+                        <div className="class-checkout-button" >
+                            CHECKOUT
+                                </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        return (
+            <div style={{ backgroundColor: "white" }} >
+                <div className="desktop" style={{ paddingTop: "80px", backgroundColor: "white" }} >
+                    <MyAppBar />
+
+                    {this.state.images === null ? (
+                        <div className="wrap" style={{ textAlign: 'center' }} >
+                            <div>
+                                <div><img alt="s" src={alternate} height="300px" /></div>
+                                <div>Online Classes Only</div>
+                            </div>
+                        </div>
+                    ) : (
+                            <div className="carousel" >
+                                {
+                                    this.state.images.map(item => {
+                                        if (item === null) {
+                                            return <div><h1>Hey</h1></div>
+                                        }
+                                        return <div><img alt="s" src={item.item} className="imageCarousel" /></div>
+                                    })
+                                }
+                            </div>
+                        )}
+
+
                     <div className="wrap" style={{ margin: "100px 0px" }} >
                         <div className="class-container" >
                             <div style={{ width: '600px' }} >
@@ -241,6 +277,46 @@ export default class ClassDisplay extends React.Component {
                                     <div className="type1" >{this.state.type}</div>
                                     <div className="type1" >Age: {this.state.age}+</div>
                                 </div>
+
+                                <div>
+                                    <h2>Features</h2>
+                                    <div className="wrap" >
+                                        <div style={{ display: 'flex', width: "100%", flexWrap: "wrap" }} >
+
+                                            {this.state.time ? (
+                                                <div className="class-feature" >{this.state.time}</div>
+                                            ) : (
+                                                    <div></div>
+                                                )}
+
+                                            {this.state.individual ? (
+                                                <div className="class-feature" >Individual</div>
+                                            ) : (
+                                                    <div></div>
+                                                )}
+
+                                            {this.state.online ? (
+                                                <div className="class-feature" >Online</div>
+                                            ) : (
+                                                    <div></div>
+                                                )}
+
+                                            {this.state.group ? (
+                                                <div className="class-feature" >Group</div>
+                                            ) : (
+                                                    <div></div>
+                                                )}
+
+                                            {this.state.women ? (
+                                                <div className="class-feature" >Women</div>
+                                            ) : (
+                                                    <div></div>
+                                                )}
+
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div>
                                     <h2>Eligibility</h2>
                                     <ul style={{ listStyle: "none" }} >
@@ -281,7 +357,7 @@ export default class ClassDisplay extends React.Component {
                                                                 Fees : &#8377;{item.price}
                                                             </div>
 
-                                                            <div className="class-button" onClick={()=>{this.openCart(item)}} >
+                                                            <div className="class-button" onClick={() => { this.openCart(item) }} >
                                                                 + ADD
                                                             </div>
                                                         </div>
@@ -333,77 +409,77 @@ export default class ClassDisplay extends React.Component {
                     <MappBar />
                 </div>
                 <Footer />
-                
+
                 <Dialog open={this.state.cart_dialog} onClose={this.handleClose} >
                     <div className="dialog" >
                         <div>
                             <p className="cart-heading" >Select the mode:</p>
                             <ToggleButtonGroup
-                             style={{display:"flex",justifyContent:"space-evenly",margin:"10px 0px"}}
-                             exclusive
-                             value={this.state.item_mode}
-                             onChange={this.handleMode}
-                              >
-                                <ToggleButton style={{padding:"0px"}} value="Online" >
+                                style={{ display: "flex", justifyContent: "space-evenly", margin: "10px 0px" }}
+                                exclusive
+                                value={this.state.item_mode}
+                                onChange={this.handleMode}
+                            >
+                                <ToggleButton style={{ padding: "0px" }} value="Online" >
                                     <div className="toggle-button online">
                                         <div className="button-overlay wrap" >
-                                            Online <br/>Classes
+                                            Online <br />Classes
                                         </div>
                                         {this.state.item_mode === "Online" ? (
                                             tick
-                                        ):(<div></div>)}
+                                        ) : (<div></div>)}
                                     </div>
                                 </ToggleButton>
-                                
-                                <ToggleButton style={{padding:"0px"}} value="Offline" >
+
+                                <ToggleButton style={{ padding: "0px" }} value="Offline" >
                                     <div className="toggle-button offline" >
                                         <div className="button-overlay wrap" >
-                                            Offline <br/>Classes
+                                            Offline <br />Classes
                                         </div>
                                         {this.state.item_mode === "Offline" ? (
                                             tick
-                                        ):(<div></div>)}
+                                        ) : (<div></div>)}
                                     </div>
                                 </ToggleButton>
                             </ToggleButtonGroup>
                         </div>
                         <div>
                             <p className="cart-heading" >Want to learn with group or solo:</p>
-                            <ToggleButtonGroup 
-                            exclusive
-                            value={this.state.item_type}
-                            onChange={this.handleType}
-                            style={{display:"flex",justifyContent:"space-evenly",margin:"10px 0px"}} >
-                                <ToggleButton style={{padding:"0px"}} value="Group" >
+                            <ToggleButtonGroup
+                                exclusive
+                                value={this.state.item_type}
+                                onChange={this.handleType}
+                                style={{ display: "flex", justifyContent: "space-evenly", margin: "10px 0px" }} >
+                                <ToggleButton style={{ padding: "0px" }} value="Group" >
                                     <div className="toggle-button group">
                                         <div className="button-overlay wrap" >
-                                            Group <br/>Classes
+                                            Group <br />Classes
                                         </div>
                                         {this.state.item_type === "Group" ? (
                                             tick
-                                        ):(<div></div>)}
+                                        ) : (<div></div>)}
                                     </div>
                                 </ToggleButton>
 
-                                <ToggleButton style={{padding:"0px"}} value="Individual" >
+                                <ToggleButton style={{ padding: "0px" }} value="Individual" >
                                     <div className="toggle-button individual" >
                                         <div className="button-overlay wrap" >
-                                            Individual <br/>Classes
+                                            Individual <br />Classes
                                         </div>
                                         {this.state.item_type === "Individual" ? (
                                             tick
-                                        ):(<div></div>)}
+                                        ) : (<div></div>)}
                                     </div>
                                 </ToggleButton>
 
                             </ToggleButtonGroup>
                         </div>
 
-                        <div style={{width:"100%",height:"150px",textAlign:"center"}} >
+                        <div style={{ width: "100%", height: "150px", textAlign: "center" }} >
                             Chose Dates
                         </div>
 
-                        <div className="class-button" onClick={this.addToCart} style={{textAlign:"center",padding:"20px",borderTop:"1px solid #00d882"}} >
+                        <div className="class-button" onClick={this.addToCart} style={{ textAlign: "center", padding: "20px", borderTop: "1px solid #00d882" }} >
                             ADD TO CART
                         </div>
                     </div>

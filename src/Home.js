@@ -21,7 +21,6 @@ export default class Home extends React.Component {
             <div>
                 <div className="desktop" >
                     <MyAppBar/>
-                    
                     <div className="wrap">
                         <div className="container">
                             <div className="about">

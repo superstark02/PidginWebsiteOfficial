@@ -13,7 +13,6 @@ export default class Login extends React.Component {
         firebase.auth().signInWithPopup(provider).then(function (result) {
             // The signed-in user info.
             //var user = result.user;
-            
         }).catch(function (error) {
             // Handle Errors here.
             var errorMessage = error.message;
@@ -39,13 +38,22 @@ export default class Login extends React.Component {
     }
 
     render() {
+        if (firebase.auth().currentUser) {
+            return (
+                <div>
+                    <div className="desktop" style={{backgroundColor:"red",height:"100vh",width:"100%"}} >  
+                        <MyAppBar />
+                    </div>
+                    <div className="mobile" >
+                        
+                    </div>
+                </div>
+            )
+        }
+
         return (
             <React.Fragment>
                 <MyAppBar />
-                <div className="wrap" style={{ marginTop: "100px" }}  >
-
-                </div>
-
             </React.Fragment>
         )
     }

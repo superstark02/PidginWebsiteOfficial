@@ -1,43 +1,73 @@
 import React from 'react'
-import Razorpay from 'razorpay'
+import logo from '../Images/app_bg.png'
+import firebase from '../firebase'
 
-export default class Payment extends React.Component {
+function loadScript(src) {
+    return new Promise(resolve => {
+        const script = document.createElement('script')
+        script.src = src
 
-    state = {
-        result: 0
-    }
+        script.onload = () => {
+            resolve(true)
+        }
 
-    handlePayment = () => {
-        var razorpay = new Razorpay({
-            key_id: 'rzp_test_2JULq3nja9oTFR',
-            key_secret:'0Gv2d9hBk455vOnHYxhRdlsR',
-              // logo, displayed in the payment processing popup
-            image: 'https://i.imgur.com/n5tjHFD.png',
-          });
+        script.onerror = () => {
+            resolve(false)
+        }
+        document.body.appendChild(script)
+    })
+}
 
-        var options = {
-            amount: 50000,  // amount in the smallest currency unit
-            currency: "INR",
-            receipt: "order_rcptid_11",
-            payment_capture: '0'
-          };
+export default function Payment() {
 
-        razorpay.orders.create(options, function(err,order){
-            console.log(order)
-            console.log(err)
+    async function displayRazorpay() {
+
+        const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js');
+
+        if(!res){
+            alert('Page not loaded. Are you online?');
+            return
+        }
+
+        var getData = firebase.functions().httpsCallable('payment');
+        getData({amount:1,receipt:'receipt'}).then(function(result){
+            const options = {
+                "key": "rzp_test_hTjjOef8p7eYTN", // Enter the Key ID generated from the Dashboard
+                "amount": result.data.amount, 
+                "currency": "INR",
+                "name": "Pidgin",
+                "description": "Test Transaction",
+                "image": logo,
+                "order_id": result.data.order_id,
+                "handler": function (response) {
+                    alert(response.razorpay_payment_id);
+                    alert(response.razorpay_order_id);
+                    alert(response.razorpay_signature)
+                },
+                "theme": {
+                    "color": "#51F086"
+                }
+            };
+
+            const paymentObject = new window.Razorpay(options)
+
+            paymentObject.open()
+        }).catch(function(error){
+            console.log(error)
         })
+
+        
     }
 
-    render() {
-        return (
-            <React.Fragment>
+    return (
+        <React.Fragment>
+            <div className='wrap' >
                 <div>
-                    <button onClick={this.handlePayment} className='call' >
+                    <button onClick={displayRazorpay} >
                         Pay
                     </button>
                 </div>
-                <div>{this.state.result}</div>
-            </React.Fragment>
-        )
-    }
+            </div>
+        </React.Fragment>
+    )
 }

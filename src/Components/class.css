@@ -137,3 +137,8 @@ h1{
     margin: 10px 0px;
     border: 1px solid #00b6c7;
 }
+.class-feature{
+    padding: 5px;
+    width: 50%;
+    margin: 10px 0px;
+}

@@ -3,7 +3,18 @@ import firebase from '../firebase'
 import './app-bar.css'
 
 export default class MyAppBar extends React.Component {
+
+    state = {
+        user:null
+    }
+
+    componentDidMount(){
+        const user = firebase.auth().currentUser
+        this.setState(user)
+    }
+
     render() {
+        var user = firebase.auth().currentUser
         return (
             <React.Fragment>
                 <div>
@@ -12,10 +23,10 @@ export default class MyAppBar extends React.Component {
                             <a href='/' ><img alt="logo" style={{ marginLeft: '50px', marginTop: '10px' }} src="../Images/app_bg.png" width="70px" /></a>
                         </div>
                         <div style={{display:'flex',alignItems:"center"}} >
-                            {firebase.auth().currentUser ? (
+                            {user ? (
                                 <a href="/pidgin/login" >
                                     <div className="account sideBut" >
-                                        <img src={firebase.auth().currentUser.photoURL} alt="user" width="30px" className="user-image" /> Account
+                                        <img src={user.photoURL} alt="user" width="30px" className="user-image" />
                                     </div>
                                 </a>
                             ):(
