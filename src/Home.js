@@ -13,14 +13,19 @@ import find from './Images/find.jpg'
 import near from './Images/near.jpg'
 import Options from './Components/mOptions'
 import TopPicks from './Components/TopPicks'
-import MyAppBar from './Components/AppBar'
 
-export default class Home extends React.Component {
+import { connect } from 'react-redux'
+import { addBasket } from './actions/add-action'
+
+
+class Home extends React.Component {
+    componentDidMount(){
+        console.log(this.props)
+    }
     render() {
         return (
             <div>
                 <div className="desktop" >
-                    <MyAppBar/>
                     <div className="wrap">
                         <div className="container">
                             <div className="about">
@@ -210,3 +215,5 @@ export default class Home extends React.Component {
         )
     }
 }
+
+export default connect(null, {addBasket} )(Home);

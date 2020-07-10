@@ -3,7 +3,6 @@ import './app.css'
 import Footer from '../Components/Footer'
 import MappBar from '../Components/mAppBar'
 import { Divider, TextField, Button } from '@material-ui/core'
-import MyAppBar from '../Components/AppBar'
 import image from "../Images/find-1.jpg"
 
 import Radio from '@material-ui/core/Radio';
@@ -22,7 +21,6 @@ export default class FindMyClass extends React.Component {
         return (
             <React.Fragment>
                 <div className="desktop">
-                    <MyAppBar />
                     <div style={{ marginTop: '150px', marginBottom: '100px' }} className="wrap" >
                         <div style={{ width: "70%", border: "solid 1px grey", height: '600px', borderRadius: '20px', backgroundColor: "white" }} >
                             <div style={{ textAlign: "center", padding: '20px' }} >

@@ -1,28 +1,20 @@
 import React from 'react'
-import { db } from '../firebase'
-import MyAppBar from './AppBar'
+import firebase,{ db} from '../firebase'
 import './class.css'
 import MappBar from './mAppBar'
 import Footer from './Footer'
-import step from '../Images/steps.png'
 import Dialog from '@material-ui/core/Dialog';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-import alternate from '../Images/alt-image.jpg'
 
-var screen = null
+import MyCart from '../Log/cart'
+import { connect } from 'react-redux'
+import { addBasket } from '../actions/add-action.js'
+
 var tick = null
 
-
-function check(items, item) {
-    if (items.indexOf(item) > -1) {
-        return false
-    }
-    return true
-}
-
-export default class ClassDisplay extends React.Component {
+class ClassDisplay extends React.Component {
     state = {
         id: null,
         name: null,
@@ -47,10 +39,17 @@ export default class ClassDisplay extends React.Component {
 
         cart: [],
         cart_item: null,
+
+        user:true,
     }
+
     componentDidMount() {
         var id = this.props.match.params.id
         this.setState({ id: id })
+
+        if(firebase.auth().currentUser){
+            this.setState({user:firebase.auth().currentUser})
+        }
 
         const data = db.collection("Classes").doc(id)
         data.get().then(snapshot => {
@@ -166,11 +165,8 @@ export default class ClassDisplay extends React.Component {
         }
     }
 
-    addToCart = () => {
-        if (check(this.state.cart, this.state.cart_item)) {
-            this.state.cart.push(this.state.cart_item)
-            this.setState({ cart_item: null })
-        }
+    addToCart = (item) => {
+        this.props.addBasket(item)
         this.handleClose()
     }
 
@@ -182,88 +178,22 @@ export default class ClassDisplay extends React.Component {
     }
 
     render() {
-        screen = <div className="sticky" >
-            <div className="grad" >
-                Book Now
-                    </div>
-            <img src={step} width="350px" alt="s" />
-        </div>
         tick = <div style={{ position: "absolute", bottom: "0", color: "#00d882", margin: "0px 5px" }} >
             <CheckCircleIcon color="#00d882" />
         </div>
 
-        if (this.state.cart.length !== 0) {
-            screen = <div className="sticky" >
-                <div className="grad" >
-                    Your Cart
-                        </div>
-                <div style={{ padding: "10px", border: "solid 1px grey", borderTop: "none", minHeight: "60vh", borderRadius: "0px 0px 10px 10px", display: "flex", flexDirection: "column", justifyContent: "space-between" }} >
-                    <div>
-                        {
-                            this.state.cart &&
-                            this.state.cart.map(item => {
-                                return (
-                                    <div className="cart-item" >
-                                        <div>
-                                            <img src={item.image} alt="s" width="100px" />
-                                        </div>
-                                        <div style={{ width: "200px", marginLeft: "5px" }} >
-                                            <div>
-                                                {item.title}
-                                            </div>
-                                            <div className="class-button" style={{ width: "fit-content", color: "#f05f7f" }} onClick={() => { this.remove(this.state.cart, item) }} >
-                                                - DELETE
-                                                </div>
-                                        </div>
-                                        <div>
-                                            &#8377;{item.price}
-                                        </div>
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
-                    <div>
-                        <div style={{ display: "flex", justifyContent: "space-between", padding: "10px" }} >
-                            <div>
-                                <b>Total</b>
-                            </div>
-                            <div>
-                                total price
-                                    </div>
-                        </div>
-                        <div className="class-checkout-button" >
-                            CHECKOUT
-                                </div>
-                    </div>
-                </div>
-            </div>
-        }
-
         return (
             <div style={{ backgroundColor: "white" }} >
                 <div className="desktop" style={{ paddingTop: "80px", backgroundColor: "white" }} >
-                    <MyAppBar />
 
-                    {this.state.images === null ? (
-                        <div className="wrap" style={{ textAlign: 'center' }} >
-                            <div>
-                                <div><img alt="s" src={alternate} height="300px" /></div>
-                                <div>Online Classes Only</div>
-                            </div>
-                        </div>
-                    ) : (
-                            <div className="carousel" >
-                                {
-                                    this.state.images.map(item => {
-                                        if (item === null) {
-                                            return <div><h1>Hey</h1></div>
-                                        }
-                                        return <div><img alt="s" src={item.item} className="imageCarousel" /></div>
-                                    })
-                                }
-                            </div>
-                        )}
+                    <div className="carousel" >
+                        {
+                            this.state.images&&
+                            this.state.images.map(item => {
+                                return <div><img alt="s" src={item.item} className="imageCarousel" /></div>
+                            })
+                        }
+                    </div>
 
 
                     <div className="wrap" style={{ margin: "100px 0px" }} >
@@ -399,7 +329,7 @@ export default class ClassDisplay extends React.Component {
                             </div>
 
                             <div style={{ width: '400px', alignItems: "start" }} className="wrap" >
-                                {screen}
+                                <MyCart/>
                             </div>
 
                         </div>
@@ -479,7 +409,7 @@ export default class ClassDisplay extends React.Component {
                             Chose Dates
                         </div>
 
-                        <div className="class-button" onClick={this.addToCart} style={{ textAlign: "center", padding: "20px", borderTop: "1px solid #00d882" }} >
+                        <div className="class-button" onClick={()=>this.addToCart(this.state.cart_item)} style={{ textAlign: "center", padding: "20px", borderTop: "1px solid #00d882" }} >
                             ADD TO CART
                         </div>
                     </div>
@@ -488,3 +418,9 @@ export default class ClassDisplay extends React.Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    basketProps: state.basketState
+})
+
+export default connect(mapStateToProps, {addBasket} )(ClassDisplay);

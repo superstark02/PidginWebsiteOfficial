@@ -1,5 +1,4 @@
 import React from 'react'
-import MyAppBar from '../Components/AppBar'
 import firebase, { db } from '../firebase'
 
 export default class Login extends React.Component {
@@ -41,8 +40,7 @@ export default class Login extends React.Component {
         if (firebase.auth().currentUser) {
             return (
                 <div>
-                    <div className="desktop" style={{backgroundColor:"red",height:"100vh",width:"100%"}} >  
-                        <MyAppBar />
+                    <div className="desktop" style={{backgroundColor:"red",height:"100vh",width:"100%"}} >
                     </div>
                     <div className="mobile" >
                         
@@ -53,7 +51,6 @@ export default class Login extends React.Component {
 
         return (
             <React.Fragment>
-                <MyAppBar />
             </React.Fragment>
         )
     }

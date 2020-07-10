@@ -3,15 +3,12 @@ import './app.css'
 import Footer from '../Components/Footer'
 import MappBar from '../Components/mAppBar'
 import { Divider } from '@material-ui/core'
-import MyAppBar from '../Components/AppBar'
 
 export default class Courses extends React.Component {
     render() {
         return (
             <React.Fragment>
                 <div className="desktop" style={{backgroundColor:'white'}} >
-                    <MyAppBar/>
-
                     <div class="wrap" style={{ marginTop: '100px' }}>
                         <div style={{ width: '50%', textAlign: 'center' }}>
                             <h2>How To Use Pidgin App</h2>

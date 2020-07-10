@@ -6,14 +6,12 @@ import { FaPhone } from 'react-icons/fa'
 import { TextField, Button } from '@material-ui/core'
 import MappBar from '../Components/mAppBar'
 import { Divider } from '@material-ui/core'
-import MyAppBar from '../Components/AppBar'
 
 export default class Help extends React.Component {
     render() {
         return (
             <React.Fragment>
                 <div className="desktop" >
-                    <MyAppBar/>
 
                     <div className="wrap" style={{ marginTop: '100px' }}>
                         <div style={{ width: '50%', textAlign: 'center' }}>

@@ -5,7 +5,6 @@ import MappBar from '../Components/mAppBar'
 import { db } from '../firebase'
 import SearchView from './mSearch'
 import { Button, Divider } from '@material-ui/core'
-import MyAppBar from '../Components/AppBar'
 import Chip from '@material-ui/core/Chip';
 import DoneIcon from '@material-ui/icons/Done';
 
@@ -154,7 +153,6 @@ export default class Search extends React.Component {
         return (
             <div style={{ backgroundColor: '#f3f3f3' }} >
                 <div className="desktop">
-                    <MyAppBar />
                     <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around', paddingBottom: '100px', flexDirection: 'column', alignItems: 'center' }}>
                         <input className='search-search' placeholder='Search classes, tuition, courses...' onChange={(e) => { this.setState({ search: e.target.value }) }} >
                         </input>
