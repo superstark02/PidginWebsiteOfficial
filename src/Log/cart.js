@@ -4,6 +4,7 @@ import '../Components/class.css'
 
 import { connect } from 'react-redux'
 import { getNumbers } from '../actions/get-action.js'
+import { deleteBasket } from '../actions/delete-action'
 
 class MyCart extends React.Component {
     state = {
@@ -42,7 +43,7 @@ class MyCart extends React.Component {
                                         <div>
                                             {item.title}
                                         </div>
-                                        <div className="class-button" style={{ width: "fit-content", color: "#f05f7f" }} onClick={() => { this.remove(this.state.cart, item) }} >
+                                        <div className="class-button" style={{ width: "fit-content", color: "#f05f7f" }} onClick={()=>{this.props.deleteBasket(item)}} >
                                             - DELETE
                                         </div>
                                     </div>
@@ -59,7 +60,7 @@ class MyCart extends React.Component {
                                 <b>Total</b>
                             </div>
                             <div>
-                                total price
+                                {this.props.basketProps.amount}
                             </div>
                         </div>
                         <div className="class-checkout-button" onClick={() => { console.log(this.props) }} >
@@ -76,4 +77,4 @@ const mapStateToProps = state => ({
     basketProps: state.basketState
 })
 
-export default connect(mapStateToProps, { getNumbers })(MyCart);
+export default connect(mapStateToProps, { getNumbers,deleteBasket })(MyCart);

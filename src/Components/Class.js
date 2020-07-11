@@ -166,7 +166,7 @@ class ClassDisplay extends React.Component {
     }
 
     addToCart = (item) => {
-        this.props.addBasket(item)
+        this.props.addBasket(item,item.price)
         this.handleClose()
     }
 
