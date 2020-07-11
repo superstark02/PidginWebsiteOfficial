@@ -9,24 +9,26 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case ADD_PRODUCT_BASKET:
-            if(state.products.indexOf(action.payload.title) < 0){
+            var index = state.products.indexOf(action.payload)
+            if(index < 0){
                 state.products.push(action.payload)
                 state.basketNumbers = state.basketNumbers + 1
+                state.cartCost = state.cartCost + action.amount
             }
             
             return {
                 basketNumbers: state.basketNumbers,
                 products: state.products,
-                amount: state.cartCost + action.amount
+                amount: state.cartCost
             }
         case GET_NUMBERS_BASKET:
             return {
                 ...state
             }
         case DELETE_PRODUCT_BASKET:
-            var index = state.products.indexOf(action.payload)
-            if(index>-1){
-                state.products.splice(index,1)
+            var indec = state.products.indexOf(action.payload)
+            if(indec>-1){
+                state.products.splice(indec,1)
                 state.basketNumbers = state.basketNumbers - 1
             }
             return {
