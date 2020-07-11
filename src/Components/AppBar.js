@@ -4,22 +4,28 @@ import './app-bar.css'
 
 import { connect } from 'react-redux'
 import { getNumbers } from '../actions/get-action.js'
+import { Link } from 'react-router-dom'
 
 class MyAppBar extends React.Component {
 
     state = {
-        user:null
+        user: []
     }
 
-    componentDidMount(){
-        const user = firebase.auth().currentUser
-        this.setState(user)
+    getUser = () => {
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                this.setState({user:user})
+            }
+        });
+    }
 
+    componentDidMount() {
         getNumbers();
+        this.getUser()
     }
 
     render() {
-        var user = firebase.auth().currentUser
         return (
             <React.Fragment>
                 <div>
@@ -27,27 +33,33 @@ class MyAppBar extends React.Component {
                         <div>
                             <a href='/' ><img alt="logo" style={{ marginLeft: '50px', marginTop: '10px' }} src="../Images/app_bg.png" width="70px" /></a>
                         </div>
-                        <div style={{display:'flex',alignItems:"center"}} >
-                            {user ? (
-                                <a href="/pidgin/login" >
-                                    <div className="account sideBut" >
-                                        <img src={user.photoURL} alt="user" width="30px" className="user-image" />
-                                    </div>
-                                </a>
-                            ):(
-                                <a href="/pidgin/login" ><button className="sideBut">Sign In</button></a>
-                            )}
-                            <a href="/pidgin/cart">
+                        <div style={{ display: 'flex', alignItems: "center" }} >
+                            {
+                                this.state.user === null ? (
+                                    <a href="/pidgin/login" >
+                                        <div className="sideBut" >
+                                            Sign In
+                                        </div>
+                                    </a>
+                                ) : (
+                                    <a href="/pidgin/login" >
+                                        <div className="account sideBut" >
+                                            <img src={this.state.user.photoURL} alt="" width="30px" className="user-image" />
+                                        </div>
+                                    </a>
+                                )
+                            }
+                            <Link to="/pidgin/cart">
                                 <button className="sideBut">
                                     Cart {
                                         this.props.basketProps.basketNumbers === 0 ? (
                                             ""
-                                        ):(
-                                            ("("+this.props.basketProps.basketNumbers+")")
-                                        )
+                                        ) : (
+                                                ("(" + this.props.basketProps.basketNumbers + ")")
+                                            )
                                     }
                                 </button>
-                            </a>
+                            </Link>
                             <a href="/pidgin/courses"><button className="sideBut">How To Use</button></a>
                             <a href="/pidgin/about-us"><button className="sideBut">About Us</button></a>
                             <a href="/pidgin/contact-us"><button className="sideBut">Contact Us</button></a>
@@ -64,4 +76,4 @@ const mapStateToProps = state => ({
     basketProps: state.basketState
 })
 
-export default connect(mapStateToProps, {getNumbers} )(MyAppBar);
+export default connect(mapStateToProps, { getNumbers })(MyAppBar);

@@ -14,19 +14,21 @@ import Payment from './Pages/payment';
 import { Provider } from 'react-redux'
 import store from './store'
 import MyAppBar from './Components/AppBar'
+import CartPage from './Pages/cart';
 
 export default class App extends React.Component {
   render() {
     return (
       <div>
         <Provider store={store} >
-          <div className="responsive" >
-            <MyAppBar/>
-          </div>
           <Router>
+            <div className="responsive" >
+              <MyAppBar />
+            </div>
             <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/pidgin/about-us' component={AboutUs} />
+              <Route exact path='/pidgin/cart' component={CartPage} />
               <Route exact path='/find-my-class' component={FindMyClass} />
               <Route exact path='/pidgin/help' component={Help} />
               <Route exact path='/pidgin/contact-us' component={ContactUs} />

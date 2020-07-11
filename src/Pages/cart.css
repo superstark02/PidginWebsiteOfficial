@@ -1,0 +1,14 @@
+.cart-container{
+    width: 1000px;
+    min-height: 100vh;
+    margin-top: 120px;
+}
+.cart-items{
+    width: 100%;
+}
+.cart-items-header{
+    background-color: #f5f5f5;
+    padding: 20px;
+    height: 60px;
+    font-size: 15px;
+}
