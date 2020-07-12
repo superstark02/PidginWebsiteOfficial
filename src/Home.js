@@ -201,7 +201,13 @@ class Home extends React.Component {
                 <div className="mobile" >
                     <MappBar />
                     <div style={{ padding: '10px' }} >
-                        <Link to="/pidgin/search" >
+                            <Link to={{
+                                pathname:'/pidgin/search',
+                                state:{
+                                    type:null,
+                                    name:null
+                                }
+                            }} >
                             <div className="search" style={{ width: '100%', marginTop: '20px' }}  >
                                 <FaSearch style={{ marginRight: '10px' }} />
                             Search classes, courses, tuitions..

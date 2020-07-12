@@ -7,7 +7,7 @@
     flex-direction: column;
 }
 .options-card{
-    width: 90%;
+    width: 90vw;
     margin: 10px 0px;
     overflow: hidden;
     border-radius: 10px;

@@ -169,18 +169,8 @@ class SearchView extends React.Component{
         this.state = {
             search:null
         };
-        this.handleChange = this.handleChange.bind(this)
         this.handleClose = this.handleClose.bind(this)
-        this.goBack = this.goBack.bind(this);
     }
-
-    goBack(){
-        this.props.history.goBack();
-      }
-
-    handleChange = (id) => {
-        window.Android.openFragment(id)
-      }
 
     handleClose = () => {
         this.setState({open:false})
@@ -267,7 +257,7 @@ class SearchView extends React.Component{
         }
 
         return(
-            <div style={{backgroundColor:'white',width:'100%'}}>
+            <div style={{backgroundColor:'white',width:'100%',minHeight:"100vh"}}>
                 <div style={{display:'flex', padding:'0px 5px',maxWidth:'100%'}}>
                     <input placeholder={"Search classes, subjects, gyms..."} class='searchInput' value={this.state.search}
                     onChange={this.updateSearch.bind(this)} onSubmit={this.updateSearch.bind(this)}  />
@@ -306,7 +296,7 @@ class SearchView extends React.Component{
                                         )}
                                 </div>
 
-                                <div style={{display:'flex',position:'absolute',zIndex:'50'}} onClick={()=>this.handleChange(classes.id)} >
+                                <div style={{display:'flex',position:'absolute',zIndex:'50'}}  >
                                     <div class='age'>
                                         Age: {classes.age}+
                                     </div>
@@ -317,11 +307,11 @@ class SearchView extends React.Component{
                                 </Link>
                                 <div class='container-search'>
                                     <Link to={"/class/"+classes.id} >
-                                    <div class='name' onClick={()=>this.handleChange(classes.id)}  >{classes.name}</div>
+                                    <div class='name' >{classes.name}</div>
                                     </Link>
                                     <div class='map'>
                                         <div>
-                                            <div><a href={this.state.location}><FaMap size='15'color='#04BFBF'/></a></div>
+                                            <div><a href={classes.location}><FaMap size='15'color='#04BFBF'/></a></div>
                                             <div>Map</div>
                                         </div>
                                     </div>

@@ -16,7 +16,8 @@ import MyCart from '../Log/cart'
 import { connect } from 'react-redux'
 import { addBasket } from '../actions/add-action.js'
 import { FaFemale } from 'react-icons/fa'
-import image from '../Images/alt-image.jpg'
+import ClassCarousel from './carousel'
+import MobileClass from './mClass'
 
 var tick = null
 
@@ -51,7 +52,6 @@ class ClassDisplay extends React.Component {
 
     componentDidMount() {
         var id = this.props.match.params.id
-        this.setState({ id: id })
 
         if(firebase.auth().currentUser){
             this.setState({user:firebase.auth().currentUser})
@@ -90,16 +90,6 @@ class ClassDisplay extends React.Component {
             this.setState({ individual: individual })
             this.setState({ group: group })
             this.setState({ women: women })
-        })
-
-        const images = db.collection("Classes").doc(id).collection("Images")
-        images.get().then(snapshot => {
-            const item = []
-            snapshot.forEach(doc => {
-                const data = doc.data()
-                item.push(data)
-            })
-            this.setState({ images: item })
         })
 
         const elegibility = db.collection("Classes").doc(id).collection("Eligibility")
@@ -141,6 +131,8 @@ class ClassDisplay extends React.Component {
             })
             this.setState({ note: item })
         })
+
+        this.setState({id:id})
 
     }
 
@@ -190,32 +182,7 @@ class ClassDisplay extends React.Component {
         return (
             <div style={{ backgroundColor: "white" }} >
                 <div className="desktop" style={{ paddingTop: "80px", backgroundColor: "white" }} >
-
-                    
-
-                    {
-                        this.state.images !== null && this.state.images.length !== 0 ? (
-                            <div className="carousel" >
-                            {
-                                this.state.images&&
-                                this.state.images.map(item => {
-                                    return <div><img alt="s" src={item.item} className="imageCarousel" /></div>
-                                })
-                            }
-                            </div>
-                        ) : this.state.images === null ? (
-                            <div className = "wrap" style={{height:"200px"}} > Please Wait... </div>
-                        ) : (
-                            <div className="wrap" style={{textAlign:"center"}} >
-                                <div>
-                                    <img alt="" height="300px" src={image} />
-                                    <div>Online Classes Only</div>
-                                </div>
-                            </div>
-                        )
-                    }
-
-
+                    <ClassCarousel id={this.props.match.params.id} />
                     <div className="wrap" style={{ margin: "100px 0px" }} >
                         <div className="class-container" >
                             <div style={{ width: '600px' }} >
@@ -355,8 +322,21 @@ class ClassDisplay extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="mobile" >
+                <div className="mobile" style={{minHeight:"100vh"}} >
                     <MappBar />
+                    <MobileClass 
+                        id={this.props.match.params.id}
+                        images={this.state.images}
+                        eligibility={this.state.eligibility}
+                        courses={this.state.courses}
+                        faculty={this.state.faculty}
+                        note={this.state.note}
+
+                        name={this.state.name}
+                        address={this.state.address}
+                        type={this.state.type}
+                        age={this.state.age}
+                     />
                 </div>
                 <Footer />
 

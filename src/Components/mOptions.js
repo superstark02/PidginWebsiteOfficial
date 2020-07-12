@@ -5,6 +5,7 @@ import women from '../Images/women.jpg'
 import astro from '../Images/astronaut.jpg'
 import find from '../Images/find.jpg'
 import near from '../Images/near.jpg'
+import { Link } from 'react-router-dom'
 
 export default class Options extends React.Component {
     render() {
@@ -12,7 +13,13 @@ export default class Options extends React.Component {
             <React.Fragment>
                 <div className="option-container" >
 
-                    <a href='/pidgin/search' >
+                    <Link to={{
+                        pathname: '/pidgin/search',
+                        state: {
+                            type: null,
+                            name: null
+                        }
+                    }} >
                         <div className="options-card" >
                             <div className="options-overlay" >
                                 Classes Near You
@@ -21,17 +28,33 @@ export default class Options extends React.Component {
                                 <img alt="s" src={near} width="100%" ></img>
                             </div>
                         </div>
-                    </a>
+                    </Link>
 
-                    <div className="options-card" >
-                        <div className="options-overlay" >
-                            Online Classes
+                    <Link to={{
+                        pathname: '/pidgin/search',
+                        state: {
+                            type: 'online',
+                            name: "Online Classes available :"
+                        }
+                    }} >
+                        <div className="options-card" >
+                            <div className="options-overlay" >
+                                Online Classes
                         </div>
-                        <div>
-                            <img alt="s" src={online} width="100%" ></img>
+                            <div>
+                                <img alt="s" src={online} width="100%" ></img>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
 
+
+                    <Link to={{
+                        pathname: '/pidgin/search',
+                        state: {
+                            type: 'individual',
+                            name: "Individual Classes and Courses :"
+                        }
+                    }} ></Link>
                     <div className="options-card" >
                         <div className="options-overlay" >
                             Individual Classes
@@ -41,6 +64,13 @@ export default class Options extends React.Component {
                         </div>
                     </div>
 
+                    <Link to={{
+                        pathname: '/pidgin/search',
+                        state: {
+                            type: 'women',
+                            name: "Classes For Women Only:"
+                        }
+                    }} >
                     <div className="options-card" >
                         <div className="options-overlay" >
                             Classes Only For Women
@@ -49,15 +79,18 @@ export default class Options extends React.Component {
                             <img alt="s" src={women} width="100%" ></img>
                         </div>
                     </div>
+                    </Link>
 
-                    <div className="options-card" >
-                        <div className="options-overlay" >
-                            Unable To Find A Course?
+                    <Link to="/find-my-class" >
+                        <div className="options-card" >
+                            <div className="options-overlay" >
+                                Unable To Find A Course?
                         </div>
-                        <div>
-                            <img alt="s" src={find} width="100%" ></img>
+                            <div>
+                                <img alt="s" src={find} width="100%" ></img>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 </div>
             </React.Fragment>
         )
