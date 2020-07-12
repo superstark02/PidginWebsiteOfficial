@@ -1,8 +1,5 @@
 import React from 'react'
-import { FaUser } from 'react-icons/fa';
-import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
@@ -10,9 +7,7 @@ import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import CreditCardOutlinedIcon from '@material-ui/icons/CreditCardOutlined';
 import PlayCircleOutlineOutlinedIcon from '@material-ui/icons/PlayCircleOutlineOutlined';
-import Button from '@material-ui/core/Button';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
-import { Box } from '@material-ui/core';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 
 
@@ -55,7 +50,6 @@ class HelpPage extends React.Component{
                         <NotificationsNoneIcon fontSize='inherit' color='inherit' style={{color:'grey',marginLeft:'15px'}}/>
                     </ListItemAvatar>
                     <Typography style={{fontSize:'12px'}}>Notifications</Typography>
-                    
                 </ListItem>
 
                 <Typography style={{fontSize:'12px',marginTop:'20px',color:'grey',marginLeft:'15px',marginBottom:'-10px'}}>Team Up</Typography>

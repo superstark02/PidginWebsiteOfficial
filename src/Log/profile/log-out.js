@@ -11,6 +11,7 @@ export class Logout extends Component {
         }).catch(function (error) {
             console.log(error)
         });
+        window.location.reload()
     }
 
     render() {

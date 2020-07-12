@@ -45,6 +45,7 @@ export default class Login extends React.Component {
                 credential: credential
             })
         });
+        window.location.reload()
     }
 
     render() {

@@ -9,13 +9,13 @@ import { Link } from 'react-router-dom'
 class MyAppBar extends React.Component {
 
     state = {
-        user: []
+        user: null
     }
 
     getUser = () => {
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
-                this.setState({user:user})
+                this.setState({ user: user })
             }
         });
     }
@@ -35,16 +35,17 @@ class MyAppBar extends React.Component {
                         </div>
                         <div style={{ display: 'flex', alignItems: "center" }} >
                             {
-                                this.state.user === null ? (
-                                    <a href="/pidgin/login" >
-                                        <div className="sideBut" >
-                                            Sign In
-                                        </div>
-                                    </a>
-                                ) : (
+                                this.state.user !== null ? (
                                     <a href="/pidgin/login" >
                                         <div className="account sideBut" >
                                             <img src={this.state.user.photoURL} alt="" width="30px" className="user-image" />
+                                        </div>
+                                    </a>
+                                    
+                                ) : (
+                                    <a href="/pidgin/login" >
+                                        <div className="sideBut" >
+                                            Sign In
                                         </div>
                                     </a>
                                 )
