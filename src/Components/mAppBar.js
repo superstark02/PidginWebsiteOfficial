@@ -22,6 +22,9 @@ import store from '../Images/store.png'
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import ViewCarouselOutlinedIcon from '@material-ui/icons/ViewCarouselOutlined';
 import ContactSupportOutlinedIcon from '@material-ui/icons/ContactSupportOutlined';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import firebase from '../firebase'
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 function HideOnScroll(props) {
     const { children, window } = props;
@@ -64,6 +67,7 @@ function MappBar(props) {
         bottom: false,
         right: false,
     });
+    const [user,setUser] = React.useState(null)
 
     const toggleDrawer = (anchor, open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -72,6 +76,22 @@ function MappBar(props) {
 
         setState({ ...state, [anchor]: open });
     };
+
+    React.useEffect(()=>{
+        firebase.auth().onAuthStateChanged(user=>{
+            if(user){
+                setUser(user)
+            }
+        })
+    })
+
+    const handleLogout = () => {
+        firebase.auth().signOut().then(function () {
+            console.log("Logged Out")
+        }).catch(function (error) {
+            console.log(error)
+        });
+    }
 
     const list = (anchor) => (
         <div
@@ -82,8 +102,40 @@ function MappBar(props) {
             onClick={toggleDrawer(anchor, false)}
             onKeyDown={toggleDrawer(anchor, false)}
         >
-            <a href='https://play.google.com/store/apps/details?id=com.ds.pidgin' ><img alt='s' src={store} width='100%' /></a>
-            <div style={{padding:'0px 15px'}} >
+            
+            <div style={{padding:'20px 15px'}} >
+                <div>
+                    {
+                        user === null ? (
+                            <a href="/pidgin/login" >
+                            <div style={{display:"flex",width:"100%",alignItems:'center'}} >
+                                <div style={{fontSize:"40px",color:"grey",height:"100%",display:"flex",alignItems:'center',marginRight:"10px"}} >
+                                    <AccountCircleIcon style={{fontSize:'50px'}} />
+                                </div>
+                                <div>
+                                    <button style={{border:"none",outline:"none",padding:"10px 15px",backgroundColor:'#00ff99',color:"white",boxShadow:"0px 0px 5px rgba(0,0,0,0.5)"}} >
+                                        Sign In
+                                    </button>
+                                </div>
+                            </div>
+                            </a>
+                        ) : (
+                            <div style={{display:"flex",width:"100%",alignItems:'center'}} >
+                                <div style={{fontSize:"40px",color:"grey",height:"100%",display:"flex",alignItems:'center',marginRight:"10px"}} >
+                                    <img alt="" src={user.photoURL} width="50px" style={{borderRadius:"50%"}} />
+                                </div>
+                                <div>
+                                    <div style={{fontSize:"17px",fontWeight:'600'}} >
+                                        {user.displayName}
+                                    </div>
+                                    <div style={{fontWeight:'400',fontSize:'13px'}} >
+                                        {user.email}
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    }
+                </div>
                 <List>
                     <ListItem button >
                         <ListItemIcon>{<HomeOutlinedIcon />}</ListItemIcon>
@@ -106,8 +158,19 @@ function MappBar(props) {
                         <ListItemIcon>{<ContactPhoneOutlinedIcon />}</ListItemIcon>
                         <a href="/pidgin/contact-us" ><ListItemText primary='Contact Us' style={{color:'grey'}}  /></a>
                     </ListItem>
+                    {
+                        user !== null ? (
+                            <ListItem button >
+                                <ListItemIcon>{<ExitToAppIcon />}</ListItemIcon>
+                                <ListItemText primary='Logout' style={{color:'grey'}} onClick={handleLogout} />
+                            </ListItem>
+                        ):(
+                            <div></div>
+                        )
+                    }
                 </List>
             </div>
+            <a href='https://play.google.com/store/apps/details?id=com.ds.pidgin' ><img alt='s' src={store} width='100%' /></a>
         </div>
     );
 

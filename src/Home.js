@@ -19,13 +19,10 @@ import { addBasket } from './actions/add-action'
 
 
 class Home extends React.Component {
-    componentDidMount(){
-        console.log(this.props)
-    }
     render() {
         return (
             <div>
-                <div className="desktop" >
+                <div className="desktop">
                     <div className="wrap">
                         <div className="container">
                             <div className="about">

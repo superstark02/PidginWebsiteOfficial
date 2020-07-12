@@ -56,6 +56,35 @@ let options = {
     button: true
 }
 
+let mobileButtonSetting = {
+    placeOn: "middle-inside"
+    , style: {
+        left: {
+            margin: "0px 5px 0px 5px",
+            height: "20px",
+            width: "20px",
+            color: "#929393",
+            background: "rgba(225, 228, 232, 0.8)",
+            borderRadius: "50%"
+        },
+        right: {
+            margin: "10px 5px 0px 5px",
+            height: "20px",
+            width: "20px",
+            color: "#929393",
+            background: "rgba(225, 228, 232, 0.8)",
+            borderRadius: "50%"
+        }
+    }
+};
+
+let mobileSliderBoxStyle = {
+    height: "200px"
+    , width: "100%",
+    backgroundColor: "white",
+    padding: '0px'
+};
+
 export class ClassCarousel extends Component {
 
     state = {
@@ -85,38 +114,78 @@ export class ClassCarousel extends Component {
 
     render() {
         return (
-            <div style={{ marginTop: "100px", backgroundColor: "white" }} >
-                {
-                    this.state.images !== null && this.state.images.length !== 0 ? (
-                        <CarouselSlider
-                            slideItems={this.state.images}
-                            manner={manner}
-                            buttonSetting={buttonSetting}
-                            sliderBoxStyle={sliderBoxStyle}
-                            itemsStyle={itemsStyle}
-                            textBoxStyle={textBoxStyle}
-                            accEle={options}
-                        />
-                    ) : this.state.images === null ? (
-                        <div className="wrap" style={{ height: "200px" }} >
-                            <Loader
-                                type="TailSpin"
-                                color="#043345"
-                                height={60}
-                                width={60}
-                                timeout={3000} //3 secs
+            <div>
+                <div className="desktop" >
+                    <div style={{ marginTop: "100px", backgroundColor: "white" }} >
+                        {
+                            this.state.images !== null && this.state.images.length !== 0 ? (
+                                <CarouselSlider
+                                    slideItems={this.state.images}
+                                    manner={manner}
+                                    buttonSetting={buttonSetting}
+                                    sliderBoxStyle={sliderBoxStyle}
+                                    itemsStyle={itemsStyle}
+                                    textBoxStyle={textBoxStyle}
+                                    accEle={options}
+                                />
+                            ) : this.state.images === null ? (
+                                <div className="wrap" style={{ height: "200px" }} >
+                                    <Loader
+                                        type="TailSpin"
+                                        color="#043345"
+                                        height={60}
+                                        width={60}
+                                        timeout={3000} //3 secs
 
-                            />
-                        </div>
-                    ) : (
-                                <div className="wrap" style={{ textAlign: "center" }} >
-                                    <div>
-                                        <img alt="" height="300px" src={image} />
-                                        <div>Online Classes Only</div>
-                                    </div>
+                                    />
                                 </div>
-                            )
-                }
+                            ) : (
+                                        <div className="wrap" style={{ textAlign: "center" }} >
+                                            <div>
+                                                <img alt="" height="300px" src={image} />
+                                                <div>Online Classes Only</div>
+                                            </div>
+                                        </div>
+                                    )
+                        }
+                    </div>
+                </div>
+
+                <div className='mobile' >
+                    <div style={{backgroundColor: "white" }} >
+                        {
+                            this.state.images !== null && this.state.images.length !== 0 ? (
+                                <CarouselSlider
+                                    slideItems={this.state.images}
+                                    manner={manner}
+                                    buttonSetting={mobileButtonSetting}
+                                    sliderBoxStyle={mobileSliderBoxStyle}
+                                    itemsStyle={itemsStyle}
+                                    textBoxStyle={textBoxStyle}
+                                    accEle={options}
+                                />
+                            ) : this.state.images === null ? (
+                                <div className="wrap" style={{ height: "100px" }} >
+                                    <Loader
+                                        type="TailSpin"
+                                        color="#043345"
+                                        height={30}
+                                        width={30}
+                                        timeout={3000} //3 secs
+
+                                    />
+                                </div>
+                            ) : (
+                                        <div className="wrap" style={{ textAlign: "center" }} >
+                                            <div>
+                                                <img alt="" width="100%" src={image} />
+                                                <div>Online Classes Only</div>
+                                            </div>
+                                        </div>
+                                    )
+                        }
+                    </div>
+                </div>
             </div>
         )
     }

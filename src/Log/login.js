@@ -5,6 +5,8 @@ import './log.css'
 import VerticalTabs from './tabs'
 import google from '.././Images/google.png'
 import { Divider } from '@material-ui/core'
+import MappBar from '../Components/mAppBar'
+import HelpPage from './mobile-profile'
 
 export default class Login extends React.Component {
 
@@ -74,7 +76,23 @@ export default class Login extends React.Component {
 
                     </div>
                     <div className="mobile" >
-
+                        <MappBar/>
+                        <div className="wrap" >
+                            <div className="log-header" >
+                                <div>
+                                    <div className="profile-image profile-image-div" style={{ height: '100%', boxShadow: "none" }} >
+                                        <img alt="" src={this.state.signed.photoURL} className="profile-image" />
+                                    </div>
+                                    <div className="display-name">
+                                        {this.state.signed.displayName}
+                                    </div>
+                                    <div className='display-email' >
+                                        {this.state.signed.email}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <HelpPage/>
                     </div>
                     <Footer/>
                 </div>
@@ -84,7 +102,10 @@ export default class Login extends React.Component {
         return (
             <React.Fragment>
                 <div>
-                    <div className="desktop bg" style={{ marginTop: "90px",height:"100vh"}} >
+                    <div className="mobile" style={{marginBottom:"-90px"}} >
+                        <MappBar/>
+                    </div>
+                    <div className="bg" style={{ marginTop: "90px",height:"100vh"}} >
                         <div className="wrap">
                             <div className="log-container" >
                                 <h1>Sign In</h1>
@@ -101,9 +122,6 @@ export default class Login extends React.Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="mobile" >
-
                     </div>
                     <Footer />
                 </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import './ClassFilter.css'
-import { Link } from 'react-router-dom'
+import { a } from 'react-router-dom'
 import {db} from '../firebase'
 import {FaMap} from 'react-icons/fa'
 import TuneRoundedIcon from '@material-ui/icons/TuneRounded';
@@ -281,7 +281,7 @@ class SearchView extends React.Component{
                         filteredClass.map(classes=>{
                         return(
                             <div class='item' style={{width:'auto'}}>
-                                <Link to={"/class/"+classes.id} >
+                                <a href={"/class/"+classes.id} >
                                 <div class='showImage' >
                                 {classes.i1 ? (
                                     <div class='alternateImg' >
@@ -304,11 +304,11 @@ class SearchView extends React.Component{
                                         {classes.type}
                                     </div>
                                 </div>
-                                </Link>
+                                </a>
                                 <div class='container-search'>
-                                    <Link to={"/class/"+classes.id} >
+                                    <a href={"/class/"+classes.id} >
                                     <div class='name' >{classes.name}</div>
-                                    </Link>
+                                    </a>
                                     <div class='map'>
                                         <div>
                                             <div><a href={classes.location}><FaMap size='15'color='#04BFBF'/></a></div>
@@ -317,7 +317,7 @@ class SearchView extends React.Component{
                                     </div>
                                 </div>
 
-                                    <Link to={"/class/"+classes.id} >
+                                    <a href={"/class/"+classes.id} >
                                     <div class='type'>
                                         {classes.address}
                                     </div>
@@ -325,7 +325,7 @@ class SearchView extends React.Component{
                                     <div class='fees' >
                                         <div>Starting Fees  &#8377;{classes.fees}</div>
                                     </div> 
-                                    </Link>
+                                    </a>
                             </div>
                             )
                         })

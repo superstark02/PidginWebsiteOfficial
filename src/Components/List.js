@@ -26,7 +26,7 @@ export default class MyList extends React.Component {
 
     render() {
         return (
-            <div className='list' >
+            <div style={{width:"1200px"}} >
                 <div className='ribbon' >
                     Found {this.state.length} Pidgin classes around you.
                 </div>

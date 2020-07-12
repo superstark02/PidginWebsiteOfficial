@@ -180,9 +180,9 @@ class ClassDisplay extends React.Component {
             <CheckCircleIcon color="#00d882" />
         </div>
         return (
-            <div style={{ backgroundColor: "white" }} >
-                <div className="desktop" style={{ paddingTop: "80px", backgroundColor: "white" }} >
-                    <ClassCarousel id={this.props.match.params.id} />
+            <div style={{ backgroundColor: "white",paddingTop: "80px", }} >
+                <ClassCarousel id={this.props.match.params.id}/>
+                <div className="desktop" >
                     <div className="wrap" style={{ margin: "100px 0px" }} >
                         <div className="class-container" >
                             <div style={{ width: '600px' }} >
@@ -329,7 +329,7 @@ class ClassDisplay extends React.Component {
                         images={this.state.images}
                         eligibility={this.state.eligibility}
                         courses={this.state.courses}
-                        faculty={this.state.faculty}
+                        qualifications={this.state.faculty}
                         note={this.state.note}
 
                         name={this.state.name}
