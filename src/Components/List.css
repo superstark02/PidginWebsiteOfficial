@@ -12,7 +12,7 @@
     justify-content: space-between;
 }
 .items:hover{
-    box-shadow: 0px 0px 20px #f50057;
+    box-shadow: 0px 0px 10px #f5005648;
 }
 .heading{
     color: #282e34;

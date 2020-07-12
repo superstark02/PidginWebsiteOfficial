@@ -52,7 +52,10 @@ class Home extends React.Component {
                                 }} >
                                     <div className="wrap" style={{height:'40%'}} >
                                         <div className="search-home">
-                                            Search classes, courses, subjects..
+                                            <div style={{backgroundColor:"#00ff99",height:"40px",width:"40px",display:"flex",alignItems:"center",color:"white",justifyContent:'center',fontSize:"18px",marginRight:"10px",borderRadius:'5px 0px 0px 5px'}} >
+                                                <FaSearch/>
+                                            </div>
+                                            <div>Search classes, courses, subjects..</div>
                                         </div>
                                     </div>
                                 </Link>

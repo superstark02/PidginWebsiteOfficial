@@ -141,4 +141,7 @@ h1{
     padding: 5px;
     width: 50%;
     margin: 10px 0px;
+    display: flex;
+    align-items: center;
+    color: grey;
 }

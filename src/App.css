@@ -88,14 +88,17 @@ body{
 
 
 .search-home{
-  padding: 10px;
   letter-spacing: normal;
   width: 80%;
   text-align: left;
   cursor: pointer;
   background-color: white;
   color: grey;
-  box-shadow: 5px 5px 0px #00b6c7;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px black;
 }
 
 Link Link:active Link:visited{

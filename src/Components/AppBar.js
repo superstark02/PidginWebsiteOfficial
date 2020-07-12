@@ -28,7 +28,7 @@ class MyAppBar extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div>
+                <div className="desktop" >
                     <div className="appBar">
                         <div>
                             <a href='/' ><img alt="logo" style={{ marginLeft: '50px', marginTop: '10px' }} src="../Images/app_bg.png" width="70px" /></a>

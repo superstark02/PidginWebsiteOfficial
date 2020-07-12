@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {db} from '../../firebase'
-import image from '../../Images/no-classes.jpg'
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 export class LikedClasses extends Component {
 
@@ -28,9 +28,9 @@ export class LikedClasses extends Component {
 
                             </div>
                         ) : (
-                            <div>
-                                <img alt = "" src = {image} height="500px" />
-                                <div style={{textAlign:"center"}} >
+                            <div style={{textAlign:"center",color:"rgba(128,128,128,0.5)"}} >
+                                <FavoriteBorderIcon style={{fontSize:"200px",color:"rgba(128,128,128,0.5)"}} />
+                                <div>
                                     No Liked Classes Yet
                                 </div>
                             </div>

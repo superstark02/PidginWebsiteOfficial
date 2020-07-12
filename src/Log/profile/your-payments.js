@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {db} from '../../firebase'
-import image from '../../Images/no-classes.jpg'
+import CreditCardIcon from '@material-ui/icons/CreditCard';
 
 export class YourPayments extends Component {
 
@@ -28,9 +28,9 @@ export class YourPayments extends Component {
 
                             </div>
                         ) : (
-                            <div>
-                                <img alt = "" src = {image} height="500px" />
-                                <div style={{textAlign:"center"}} >
+                            <div style={{textAlign:"center",color:"rgba(128,128,128,0.5)"}} >
+                                <CreditCardIcon style={{fontSize:"200px",color:"rgba(128,128,128,0.5)"}} />
+                                <div>
                                     No Payments Yet
                                 </div>
                             </div>

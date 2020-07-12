@@ -7,10 +7,16 @@ import Dialog from '@material-ui/core/Dialog';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import LanguageIcon from '@material-ui/icons/Language';
+import AccessTimeRoundedIcon from '@material-ui/icons/AccessTimeRounded';
+import PersonOutlineRoundedIcon from '@material-ui/icons/PersonOutlineRounded';
+import PeopleOutlineRoundedIcon from '@material-ui/icons/PeopleOutlineRounded';
 
 import MyCart from '../Log/cart'
 import { connect } from 'react-redux'
 import { addBasket } from '../actions/add-action.js'
+import { FaFemale } from 'react-icons/fa'
+import image from '../Images/alt-image.jpg'
 
 var tick = null
 
@@ -181,19 +187,33 @@ class ClassDisplay extends React.Component {
         tick = <div style={{ position: "absolute", bottom: "0", color: "#00d882", margin: "0px 5px" }} >
             <CheckCircleIcon color="#00d882" />
         </div>
-
         return (
             <div style={{ backgroundColor: "white" }} >
                 <div className="desktop" style={{ paddingTop: "80px", backgroundColor: "white" }} >
 
-                    <div className="carousel" >
-                        {
-                            this.state.images&&
-                            this.state.images.map(item => {
-                                return <div><img alt="s" src={item.item} className="imageCarousel" /></div>
-                            })
-                        }
-                    </div>
+                    
+
+                    {
+                        this.state.images !== null && this.state.images.length !== 0 ? (
+                            <div className="carousel" >
+                            {
+                                this.state.images&&
+                                this.state.images.map(item => {
+                                    return <div><img alt="s" src={item.item} className="imageCarousel" /></div>
+                                })
+                            }
+                            </div>
+                        ) : this.state.images === null ? (
+                            <div className = "wrap" style={{height:"200px"}} > Please Wait... </div>
+                        ) : (
+                            <div className="wrap" style={{textAlign:"center"}} >
+                                <div>
+                                    <img alt="" height="300px" src={image} />
+                                    <div>Online Classes Only</div>
+                                </div>
+                            </div>
+                        )
+                    }
 
 
                     <div className="wrap" style={{ margin: "100px 0px" }} >
@@ -214,31 +234,31 @@ class ClassDisplay extends React.Component {
                                         <div style={{ display: 'flex', width: "100%", flexWrap: "wrap" }} >
 
                                             {this.state.time ? (
-                                                <div className="class-feature" >{this.state.time}</div>
+                                                <div className="class-feature" ><AccessTimeRoundedIcon/>{this.state.time}</div>
                                             ) : (
                                                     <div></div>
                                                 )}
 
                                             {this.state.individual ? (
-                                                <div className="class-feature" >Individual</div>
+                                                <div className="class-feature" ><PersonOutlineRoundedIcon/>Individual Classes Available</div>
                                             ) : (
                                                     <div></div>
                                                 )}
 
                                             {this.state.online ? (
-                                                <div className="class-feature" >Online</div>
+                                                <div className="class-feature" ><LanguageIcon/>Online Classes Available</div>
                                             ) : (
                                                     <div></div>
                                                 )}
 
                                             {this.state.group ? (
-                                                <div className="class-feature" >Group</div>
+                                                <div className="class-feature" ><PeopleOutlineRoundedIcon/>Group Classes Available</div>
                                             ) : (
                                                     <div></div>
                                                 )}
 
                                             {this.state.women ? (
-                                                <div className="class-feature" >Women</div>
+                                                <div className="class-feature" ><FaFemale/>Women</div>
                                             ) : (
                                                     <div></div>
                                                 )}

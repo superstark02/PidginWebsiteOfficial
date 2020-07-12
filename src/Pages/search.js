@@ -7,6 +7,9 @@ import SearchView from './mSearch'
 import { Button, Divider } from '@material-ui/core'
 import Chip from '@material-ui/core/Chip';
 import DoneIcon from '@material-ui/icons/Done';
+import { FaSearch } from 'react-icons/fa'
+import exc from '../Images/exclusive.png'
+import trending from '../Images/trending.png'
 
 var filteredClass = null
 var age = null
@@ -154,8 +157,13 @@ export default class Search extends React.Component {
             <div style={{ backgroundColor: '#f3f3f3' }} >
                 <div className="desktop">
                     <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around', paddingBottom: '100px', flexDirection: 'column', alignItems: 'center' }}>
-                        <input className='search-search' placeholder='Search classes, tuition, courses...' onChange={(e) => { this.setState({ search: e.target.value }) }} >
-                        </input>
+                        <div style={{display:"flex",margin:"20px",marginTop:"120px",border:"solid 1px #e2e2e2"}} >
+                            <input className='search-search' placeholder='Search classes, tuition, courses...' onChange={(e) => { this.setState({ search: e.target.value }) }} >
+                            </input>
+                            <div className='search-icon' style={{color:'white',display:"flex",justifyContent:'center',alignItems:'center',fontSize:"18px"}} >
+                                <FaSearch/>
+                            </div>
+                        </div>
                         <div className="body" >
                             <div className="filter" >
                                 <h4>Filters</h4>
@@ -300,7 +308,20 @@ export default class Search extends React.Component {
                                                             </div>
 
                                                             <div className="search-fees" >
-                                                                Starting fees: {item.fees}
+                                                                Starting fees: &#8377;{item.fees}
+                                                            </div>
+                                                        </div>
+                                                        <div className="exclusive-wrap" >
+                                                            <div>
+                                                            {
+                                                                item.exclusive ? (
+                                                                    <div><img alt="" src={exc} height="40px" style={{marginLeft:"-12px",marginTop:"10px"}} /></div>
+                                                                ) : item.trending ? (
+                                                                    <div><img alt="" src={trending} height="40px" style={{marginLeft:"-12px",marginTop:"10px"}} /></div>
+                                                                ) : (
+                                                                    <div></div>
+                                                                )
+                                                            }
                                                             </div>
                                                         </div>
                                                     </div>

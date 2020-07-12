@@ -50,7 +50,7 @@ export default class MyList extends React.Component {
                                     <div style={{ textAlign: 'left' }} >
                                             <div className='heading' >{item.name}</div>
                                             <div style={{ fontSize: '13px', lineHeight: 'normal', margin: '15px 0px', color: 'grey' }} >{item.address}</div>
-                                        <div className='fees' >Staring Fees: {item.fees}</div>
+                                        <div className='fees' >Staring Fees: &#8377;{item.fees}</div>
                                     </div>
                                     <div style={{ display: 'flex', justifyContent: 'space-between', border: 'solid 1px grey', padding: '10px', marginTop: '15px' }} >
                                         <div className='detail' >{item.type}</div>

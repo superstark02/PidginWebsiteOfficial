@@ -1,6 +1,7 @@
 import React from 'react'
 import step from '../Images/steps.png'
 import '../Components/class.css'
+import firebase,{rdb} from '../firebase'
 
 import { connect } from 'react-redux'
 import { getNumbers } from '../actions/get-action.js'
@@ -8,13 +9,19 @@ import { deleteBasket } from '../actions/delete-action'
 
 class MyCart extends React.Component {
     state = {
-        cart: null
+        cart: []
     }
     componentDidMount() {
         getNumbers();
+        
+        firebase.auth().onAuthStateChanged(user=>{
+            if(user){
+                rdb.ref().child("carts").child(user.uid).orderByChild()
+            }
+        })
     }
     render() {
-        if (this.props.basketProps.products.length === 0) {
+        if (this.state.cart.length === 0) {
             return (
                 <div className="sticky" >
                     <div className="grad" >
@@ -33,8 +40,8 @@ class MyCart extends React.Component {
                 <div style={{ padding: "10px", border: "solid 1px grey", borderTop: "none", minHeight: "60vh", borderRadius: "0px 0px 10px 10px", display: "flex", flexDirection: "column", justifyContent: "space-between" }} >
                     <div>
                         {
-                            this.props.basketProps.products &&
-                            this.props.basketProps.products.map(item => {
+                            this.state.cart &&
+                            this.state.cart.map(item => {
                                 return <div className="cart-item" >
                                     <div>
                                         <img src={item.image} alt="s" width="100px" />
@@ -60,10 +67,10 @@ class MyCart extends React.Component {
                                 <b>Total</b>
                             </div>
                             <div>
-                                {this.props.basketProps.amount}
+                                {}
                             </div>
                         </div>
-                        <div className="class-checkout-button" onClick={() => { console.log(this.props) }} >
+                        <div className="class-checkout-button" onClick={() => { console.log(this.state.cart) }} >
                             CHECKOUT
                         </div>
                     </div>

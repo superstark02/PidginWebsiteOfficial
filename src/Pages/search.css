@@ -68,16 +68,13 @@ a:hover {text-decoration: none;}   /* Mouse over link */
 a:active {text-decoration: none;} 
 
 .search-search{
-    width: 900px;
-    margin: 20px;
-    margin-top: 150px;
-    padding: 10px 20px;
+    width: 860px;
+    padding: 0px 20px;
     background-color: white;
-    border: solid 1px #e2e2e2;
-    color: grey;
-    border-radius: 10px;
     font-size: 14px;
     outline: none;
+    height: 40px;
+    border: none;
 }
 .filter-list-item{
     font-size: 13px;
@@ -99,4 +96,19 @@ a:active {text-decoration: none;}
     font-size: 10px;
     color: rgb(150, 150, 150);
     margin-top: 10px;
+}
+.search-icon{
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    background-color: #00ff99;
+}
+.search-icon:hover{
+    background-color: #00b36b;
+}
+.exclusive-wrap{
+    position: absolute;
+    height: 200px;
+    display: flex;
+    align-items: initial;
 }
