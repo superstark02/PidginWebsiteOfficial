@@ -35,7 +35,7 @@ export default class App extends React.Component {
               <Route exact path='/pidgin/help' component={Help} />
               <Route exact path='/pidgin/contact-us' component={ContactUs} />
               <Route exact path='/pidgin/courses' component={Courses} />
-              <Route exact path='/pidgin/search/:id' component={Search} />
+              <Route exact path='/pidgin/search' component={Search} />
               <Route exact path='/pidgin/login' component={Login} />
               <Route exact path='/pidgin/payment' component={Payment} />
               <Route exact path='/class/class-details/:id/:doc' component={CourseDetails} />
