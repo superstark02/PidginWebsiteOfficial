@@ -27,8 +27,6 @@ export default class Search extends React.Component {
     }
 
     componentDidMount() {
-        var type = this.props.location.state.type
-        this.setState({ type: type })
 
         this.clearFilter()
 
@@ -42,10 +40,6 @@ export default class Search extends React.Component {
                 })
                 this.setState({ classes: classes })
             })
-
-        if (this.props.location.state.search != null) {
-            this.setState({ search: this.props.location.state.search })
-        }
     }
 
     clearFilter = () => {
@@ -69,7 +63,7 @@ export default class Search extends React.Component {
         type = null
         filteredClass = this.state.classes
 
-        if (this.props.location.state.name === null && this.state.classes !== null) {
+        /*if (this.props.location.state.name === null && this.state.classes !== null) {
             if (this.state.type === null) {
                 filteredClass = this.state.classes.filter(
                     item =>
@@ -86,7 +80,7 @@ export default class Search extends React.Component {
                         item.type.toLowerCase().indexOf(this.state.type.toLowerCase()) !== -1
                 )
             }
-        }
+        }*/
 
         if (this.state.search !== null) {
             filteredClass = this.state.classes.filter(
@@ -132,7 +126,7 @@ export default class Search extends React.Component {
             />
         }
 
-        if(this.props.location.state.type === 'women' && this.state.classes !== null){
+        /*if(this.props.location.state.type === 'women' && this.state.classes !== null){
             filteredClass = this.state.classes.filter(
                 item =>
                     item.women === true
@@ -151,7 +145,7 @@ export default class Search extends React.Component {
                 item =>
                     item.online === true
             )
-        }
+        }*/
 
         return (
             <div style={{ backgroundColor: '#f3f3f3' }} >
@@ -282,7 +276,7 @@ export default class Search extends React.Component {
 
                             </div>
                             <div>
-                                <h1>{this.props.location.state.name}</h1>
+                                <h1>{this.props.match.params.type}</h1>
                                 <div className="search-list" >
                                     {
                                         filteredClass &&
@@ -336,7 +330,7 @@ export default class Search extends React.Component {
                 </div>
                 <div className="mobile" >
                     <MappBar />
-                    <SearchView />
+                    <SearchView id={this.props.match.params.type} />
                 </div>
                 <Footer />
             </div >

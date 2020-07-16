@@ -30,7 +30,7 @@ export default class Login extends React.Component {
         var provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(provider).then(function (result) {
             // The signed-in user info.
-            //var user = result.user;
+            //var user = result.user;firebase
         }).catch(function (error) {
             // Handle Errors here.
             var errorMessage = error.message;
@@ -45,7 +45,6 @@ export default class Login extends React.Component {
                 credential: credential
             })
         });
-        window.location.reload()
     }
 
     render() {

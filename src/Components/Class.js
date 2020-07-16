@@ -321,8 +321,9 @@ class ClassDisplay extends React.Component {
 
                         </div>
                     </div>
+                    <Footer />
                 </div>
-                <div className="mobile" style={{minHeight:"100vh"}} >
+                <div className="mobile" style={{minHeight:"100vh",backgroundColor:"white"}} >
                     <MappBar />
                     <MobileClass 
                         id={this.props.match.params.id}
@@ -338,7 +339,6 @@ class ClassDisplay extends React.Component {
                         age={this.state.age}
                      />
                 </div>
-                <Footer />
 
                 <Dialog open={this.state.cart_dialog} onClose={this.handleClose} >
                     <div className="dialog" >

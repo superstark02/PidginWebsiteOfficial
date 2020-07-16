@@ -12,7 +12,7 @@ export class MobileClass extends Component {
 
     render() {
         return (
-            <div style={{ backgroundColor: 'white', maxWidth: '100%', width: '100%', marginBottom: "100px" }}>
+            <div style={{ backgroundColor: 'white', maxWidth: '100%', width: '100%', paddingBottom: "100px" }}>
                 <div>
                     <div class='displayTitle'>
                         {this.props.name}
@@ -61,13 +61,7 @@ export class MobileClass extends Component {
                                 <ListItem button style={{ padding: '0px 15px' }} >
                                     <div style={{ display: 'flex', margin: '10px 0px', width: '100%' }} >
                                         <Link
-                                            to={{
-                                                pathname: '/course',
-                                                state: {
-                                                    classId: this.props.id,
-                                                    courseId: course.id,
-                                                }
-                                            }}
+                                            to={'class-details/'+this.props.id+'/'+course.id}
                                             style={{ display: 'flex' }}
                                         >
                                             <div>

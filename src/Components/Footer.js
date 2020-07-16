@@ -2,7 +2,7 @@ import React from 'react'
 import './categories.css'
 import image from '../Images/footer.jpg'
 import { FaInstagram, FaWhatsapp, FaFacebook } from 'react-icons/fa';
-import { Button } from '@material-ui/core';
+import { Button, Divider } from '@material-ui/core';
 
 export default class Footer extends React.Component {
     render() {
@@ -40,6 +40,7 @@ export default class Footer extends React.Component {
                 </div>
 
                 <div className="mobile" >
+                    <Divider/>
                     <div className="footer" >
                         <div className="footerHeading" >
                             Pidgin

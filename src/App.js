@@ -15,6 +15,8 @@ import { Provider } from 'react-redux'
 import store from './store'
 import MyAppBar from './Components/AppBar'
 import CartPage from './Pages/cart';
+import CourseDetails from './Components/course-details';
+import Form from './data/form';
 
 export default class App extends React.Component {
   render() {
@@ -33,9 +35,11 @@ export default class App extends React.Component {
               <Route exact path='/pidgin/help' component={Help} />
               <Route exact path='/pidgin/contact-us' component={ContactUs} />
               <Route exact path='/pidgin/courses' component={Courses} />
-              <Route exact path='/pidgin/search' component={Search} />
+              <Route exact path='/pidgin/search/:id' component={Search} />
               <Route exact path='/pidgin/login' component={Login} />
               <Route exact path='/pidgin/payment' component={Payment} />
+              <Route exact path='/class/class-details/:id/:doc' component={CourseDetails} />
+              <Route exact path='/form/:id' component={Form} />
               <Route exact path='/class/:id' component={ClassDisplay} />
             </Switch>
           </Router>

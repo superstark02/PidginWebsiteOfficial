@@ -264,17 +264,16 @@ class SearchView extends React.Component{
                 </div>
 
                 <div style={{padding:'0px 15px',display:'flex'}} onClick={()=>{this.setState({open:true})}} >
-                <Chip
-                    variant="outlined"
-                    size="small"
-                    icon={<TuneRoundedIcon/>}
-                    label="Filters"
-                    clickable
-                    color="secondary"
-                    style={{marginRight:'10px'}}
-                /> {age} {fees}
+                    <Chip
+                        variant="outlined"
+                        size="small"
+                        icon={<TuneRoundedIcon/>}
+                        label="Filters"
+                        clickable
+                        color="secondary"
+                        style={{marginRight:'10px'}}
+                    /> {age} {fees}
                 </div>
-
                 <div style={{backgroundColor:'white',padding:'5px',width:'100%',maxWidth:'100%'}}> 
                     {
                         filteredClass&&

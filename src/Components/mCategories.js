@@ -37,7 +37,6 @@ class MCategories extends React.Component{
                     TOP CATEGORIES
                 </div>
                 <div class='containerCat' >
-                    
                     <div class='avatarCat' style={{margin:'5px 0px'}} > <Skeleton animation="wave" height={110} variant="rect" width={110} /> </div>
                     <div class='avatarCat' style={{margin:'5px 0px'}} > <Skeleton animation="wave" height={110} variant="rect" width={110} /> </div>
                     <div class='avatarCat' style={{margin:'5px 0px'}} > <Skeleton animation="wave" height={110} variant="rect" width={110} /> </div>
@@ -61,7 +60,7 @@ class MCategories extends React.Component{
                         {   this.state.images&&
                             this.state.images.map((tile) => (
                             <GridListTile key={tile.type} cols={tile.cols || 1}>
-                                <Link to={{pathname:'/search',type:tile.type}} > 
+                                <Link to={{pathname:'pidgin/search/under-construction',type:tile.type}} > 
                                 <div class="w3-container w3-center w3-animate-zoom" style={{padding:'0px'}} >
                                 <img src={tile.image} alt={tile.type}  width='100%' />
                                 </div>
