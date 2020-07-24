@@ -1,5 +1,5 @@
 import React from 'react'
-import firebase,{ db} from '../firebase'
+import firebase, { db, rdb } from '../firebase'
 import './class.css'
 import MappBar from './mAppBar'
 import Footer from './Footer'
@@ -47,14 +47,14 @@ class ClassDisplay extends React.Component {
         cart: [],
         cart_item: null,
 
-        user:true,
+        user: true,
     }
 
     componentDidMount() {
         var id = this.props.match.params.id
 
-        if(firebase.auth().currentUser){
-            this.setState({user:firebase.auth().currentUser})
+        if (firebase.auth().currentUser) {
+            this.setState({ user: firebase.auth().currentUser })
         }
 
         const data = db.collection("Classes").doc(id)
@@ -132,8 +132,7 @@ class ClassDisplay extends React.Component {
             this.setState({ note: item })
         })
 
-        this.setState({id:id})
-
+        this.setState({ id: id })
     }
 
     handleClose = () => {
@@ -164,7 +163,38 @@ class ClassDisplay extends React.Component {
     }
 
     addToCart = (item) => {
-        this.props.addBasket(item,item.price)
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                rdb.ref("carts").child(firebase.auth().currentUser.uid).child(item.title).set({
+                    title: item.title,
+                    image: item.image,
+                    price: parseInt(item.price, 10),
+                    mode: "Offline",
+                })
+            }
+            else {
+                var provider = new firebase.auth.GoogleAuthProvider();
+                firebase.auth().signInWithPopup(provider).then(function (result) {
+                    // The signed-in user info.
+                    //var user = result.user;firebase
+                }).catch(function (error) {
+                    // Handle Errors here.
+                    var errorMessage = error.message;
+                    // The email of the user's account used.
+                    var email = error.email;
+                    // The firebase.auth.AuthCredential type that was used.
+                    var credential = error.credential;
+
+                    db.collection("LoginErrors").doc(email).set(
+                        {
+                            errorMessage: errorMessage,
+                            email: email,
+                            credential: credential
+                        }
+                    )
+                });
+            }
+        })
         this.handleClose()
     }
 
@@ -180,8 +210,8 @@ class ClassDisplay extends React.Component {
             <CheckCircleIcon color="#00d882" />
         </div>
         return (
-            <div style={{ backgroundColor: "white",paddingTop: "80px", }} >
-                <ClassCarousel id={this.props.match.params.id}/>
+            <div style={{ backgroundColor: "white", paddingTop: "80px", }} >
+                <ClassCarousel id={this.props.match.params.id} />
                 <div className="desktop" >
                     <div className="wrap" style={{ margin: "100px 0px" }} >
                         <div className="class-container" >
@@ -201,31 +231,31 @@ class ClassDisplay extends React.Component {
                                         <div style={{ display: 'flex', width: "100%", flexWrap: "wrap" }} >
 
                                             {this.state.time ? (
-                                                <div className="class-feature" ><AccessTimeRoundedIcon/>{this.state.time}</div>
+                                                <div className="class-feature" ><AccessTimeRoundedIcon />{this.state.time}</div>
                                             ) : (
                                                     <div></div>
                                                 )}
 
                                             {this.state.individual ? (
-                                                <div className="class-feature" ><PersonOutlineRoundedIcon/>Individual Classes Available</div>
+                                                <div className="class-feature" ><PersonOutlineRoundedIcon />Individual Classes Available</div>
                                             ) : (
                                                     <div></div>
                                                 )}
 
                                             {this.state.online ? (
-                                                <div className="class-feature" ><LanguageIcon/>Online Classes Available</div>
+                                                <div className="class-feature" ><LanguageIcon />Online Classes Available</div>
                                             ) : (
                                                     <div></div>
                                                 )}
 
                                             {this.state.group ? (
-                                                <div className="class-feature" ><PeopleOutlineRoundedIcon/>Group Classes Available</div>
+                                                <div className="class-feature" ><PeopleOutlineRoundedIcon />Group Classes Available</div>
                                             ) : (
                                                     <div></div>
                                                 )}
 
                                             {this.state.women ? (
-                                                <div className="class-feature" ><FaFemale/>Women</div>
+                                                <div className="class-feature" ><FaFemale />Women</div>
                                             ) : (
                                                     <div></div>
                                                 )}
@@ -263,9 +293,15 @@ class ClassDisplay extends React.Component {
 
                                                             <div style={{ width: "180px", paddingLeft: "10px", maxHeight: "150px", display: "flex", flexDirection: "column", justifyContent: "space-between" }} >
                                                                 <div>{item.title}</div>
-                                                                <div style={{ fontSize: "10px", color: "grey" }} >
-                                                                    Click for more details
+                                                                <div class="dropdown">
+                                                                    <div style={{ fontSize: "10px", color: "grey" }} >
+                                                                        <span>Click for more details</span>
+                                                                        <div class="dropdown-content">
+                                                                            <p>Hello World!</p>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
+                                                                
                                                             </div>
                                                         </div>
 
@@ -316,16 +352,16 @@ class ClassDisplay extends React.Component {
                             </div>
 
                             <div style={{ width: '400px', alignItems: "start" }} className="wrap" >
-                                <MyCart/>
+                                <MyCart />
                             </div>
 
                         </div>
                     </div>
                     <Footer />
                 </div>
-                <div className="mobile" style={{minHeight:"100vh",backgroundColor:"white"}} >
+                <div className="mobile" style={{ minHeight: "100vh", backgroundColor: "white" }} >
                     <MappBar />
-                    <MobileClass 
+                    <MobileClass
                         id={this.props.match.params.id}
                         images={this.state.images}
                         eligibility={this.state.eligibility}
@@ -337,7 +373,7 @@ class ClassDisplay extends React.Component {
                         address={this.state.address}
                         type={this.state.type}
                         age={this.state.age}
-                     />
+                    />
                 </div>
 
                 <Dialog open={this.state.cart_dialog} onClose={this.handleClose} >
@@ -409,7 +445,7 @@ class ClassDisplay extends React.Component {
                             Chose Dates
                         </div>
 
-                        <div className="class-button" onClick={()=>this.addToCart(this.state.cart_item)} style={{ textAlign: "center", padding: "20px", borderTop: "1px solid #00d882" }} >
+                        <div className="class-button" onClick={() => this.addToCart(this.state.cart_item)} style={{ textAlign: "center", padding: "20px", borderTop: "1px solid #00d882" }} >
                             ADD TO CART
                         </div>
                     </div>
@@ -423,4 +459,4 @@ const mapStateToProps = state => ({
     basketProps: state.basketState
 })
 
-export default connect(mapStateToProps, {addBasket} )(ClassDisplay);
+export default connect(mapStateToProps, { addBasket })(ClassDisplay);

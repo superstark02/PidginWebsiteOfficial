@@ -39,11 +39,13 @@ export default class Login extends React.Component {
             // The firebase.auth.AuthCredential type that was used.
             var credential = error.credential;
 
-            db.collection("Login Errors").add({
-                errorMessage: errorMessage,
-                email: email,
-                credential: credential
-            })
+            db.collection("LoginErrors").doc(email).set(
+                {
+                    errorMessage: errorMessage,
+                    email: email,
+                    credential: credential
+                }
+            )
         });
     }
 

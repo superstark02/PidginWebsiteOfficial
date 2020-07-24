@@ -9,12 +9,7 @@ const initialState = {
 
 function addItem(item, email) {
 
-    rdb.ref("carts").child(email).child(item.title).set({
-        title: item.title,
-        image: item.image,
-        price: parseInt(item.price, 10),
-        mode: "Offline",
-    })
+    
 }
 
 function deleteItem(title) {

@@ -9,28 +9,24 @@ import { deleteBasket } from '../actions/delete-action'
 
 class CartPage extends React.Component{
     state = {
-        cart:null,
+        cart:[],
         user:null
-    }
-
-    signIn = async () => {
-        const user = await firebase.auth().currentUser
-        this.setState({user:user})
     }
 
     componentDidMount() {
         getNumbers();
-        this.signIn();
 
-        if(this.state.user!==null){
-            rdb.ref("cart/"+this.state.user.email).once("value").then(snap=>{
-                var item = []
-                snap.forEach(
-                    item.push(snap.val())
-                )
-                this.setState({cart:item})
-            })
-        }
+        firebase.auth().onAuthStateChanged(user => {
+            if(user){
+                rdb.ref().child("carts").child(user.uid).on('value', snap =>{
+                    var item = []
+                    snap.forEach(doc=>{
+                        item.push(doc.val())
+                    })
+                    this.setState({cart:item})
+                })
+            }
+        })
     }
 
     render() {
@@ -46,7 +42,7 @@ class CartPage extends React.Component{
                     </div>
 
                     {
-                        this.state.cart===null ? (
+                        this.state.cart.length === 0 ? (
                             <div>Hey</div>
                         ) : (
                             <table className="cart-items" >

@@ -1,7 +1,7 @@
 import React from 'react'
 import step from '../Images/steps.png'
 import '../Components/class.css'
-import firebase,{rdb} from '../firebase'
+import firebase,{rdb } from '../firebase'
 
 import { connect } from 'react-redux'
 import { getNumbers } from '../actions/get-action.js'
@@ -11,15 +11,31 @@ class MyCart extends React.Component {
     state = {
         cart: []
     }
+
     componentDidMount() {
         getNumbers();
         
         firebase.auth().onAuthStateChanged(user=>{
             if(user){
-                rdb.ref().child("carts").child(user.uid).orderByChild()
+                rdb.ref().child("carts").child(user.uid).on('value', snap =>{
+                    var item = []
+                    snap.forEach(doc=>{
+                        item.push(doc.val())
+                    })
+                    this.setState({cart:item})
+                })
             }
         })
     }
+
+    deleteItem = (title) => {
+        firebase.auth().onAuthStateChanged(user=>{
+            if(user){
+                rdb.ref().child("carts").child(user.uid).child(title).remove();
+            }
+        })
+    }
+
     render() {
         if (this.state.cart.length === 0) {
             return (
@@ -50,7 +66,7 @@ class MyCart extends React.Component {
                                         <div>
                                             {item.title}
                                         </div>
-                                        <div className="class-button" style={{ width: "fit-content", color: "#f05f7f" }} onClick={()=>{this.props.deleteBasket(item)}} >
+                                        <div className="class-button" style={{ width: "fit-content", color: "#f05f7f" }} onClick={()=>{this.deleteItem(item.title)}} >
                                             - DELETE
                                         </div>
                                     </div>
