@@ -1,0 +1,26 @@
+.home-wallpaper{
+    background-image: url(../Images/home-wallpaper.jpg);
+    height: 80vh;
+    background-size: cover;
+}
+.home-overlay{
+    height: 80vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.home-search-input{
+    background-color: rgb(231, 230, 230);
+    margin: 20px 0px;
+    width: 500px;
+    outline: none;
+    border: none;
+    padding: 20px;
+}
+.home-top-card{
+    height: 200px;
+    width: 200px;
+    border: 1px rgb(196, 195, 195) solid;
+    border-radius: 10px;
+}

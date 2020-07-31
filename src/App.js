@@ -24,9 +24,6 @@ export default class App extends React.Component {
       <div>
         <Provider store={store} >
           <Router>
-            <div className="responsive" >
-              <MyAppBar />
-            </div>
             <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/pidgin/about-us' component={AboutUs} />

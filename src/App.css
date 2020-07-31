@@ -6,61 +6,14 @@ body,html{
   line-height: 1.8em;
   color: #202020;
 }
-body{
-  font-family: sans-serif;
-  color: #202020;
-}
-.appBar{
-  position: fixed;
-  top: 0;
-  width: 100%;
-  min-width: 100%;
-  background-color: rgba(255, 255, 255, 1);
-  display: flex;
-  align-items: center;
-  justify-content: space-between; 
-  box-shadow: 0px 0px 10px;
-  margin: 0;
-  z-index: 2;
-}
-.sideBut{
-  border: none;
-  background: none;
-  padding: 10px;
-  border-bottom: solid white 3px;
-  cursor: pointer;
-  outline: none;
-  margin-right: 10px;
-}
-.sideBut:hover{
-  border-bottom: solid black 3px;
-}
 .wrap{
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
-.container{
-  margin-top: 80px;
-  width: 1200px;
-  max-width: 1200px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 500px;
-}
-.about{
-  width: 600px;
-  height: 500px;
-  color: white;
-  background-color: #202020;
-  text-align: center;
-}
-
-.categories{
-  background-attachment: fixed;
-  background-image: url(./Images/bg2.jpg);
+.mobile{
+  display: none;
 }
 
 @media only screen and (max-width:650px) {
@@ -72,34 +25,7 @@ body{
   }
 }
 
-.sideBut{
-  border: none;
-  background: none;
-  padding: 10px;
-  border-bottom: solid white 3px;
-  cursor: pointer;
-  outline: none;
-  font-size: 15px;
-  margin: 0px 15px;
-}
-.sideBut:hover{
-  border-bottom: solid black 3px;
-}
 
-
-.search-home{
-  letter-spacing: normal;
-  width: 80%;
-  text-align: left;
-  cursor: pointer;
-  background-color: white;
-  color: grey;
-  display: flex;
-  align-items: center;
-  height: 40px;
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px black;
-}
 
 Link Link:active Link:visited{
 	-webkit-touch-callout: none; /* iOS Safari */
@@ -118,72 +44,5 @@ a:hover {text-decoration: none;}   /* Mouse over link */
 a:active {text-decoration: none;} 
 
 
-.mobile{
-  display: none;
-}
-
-td{
-  font-size: 13px;
-}
-.home-container{
-  height: 300px;
-  width: 1200px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
 
 
-.flip-box {
-  background-color: transparent;
-  width: 200px;
-  height: 200px;
-  border: 1px solid #f1f1f1;
-  perspective: 1000px;
-  border-radius: 20px;
-  cursor: pointer;
-  color: #202020;
-}
-
-.flip-box-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.flip-box:hover .flip-box-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-box-front, .flip-box-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-radius: 20px;
-}
-.flip-box-front{
-  overflow: hidden;
-  border: solid 1px grey;
-}
-
-.flip-box-back {
-  transform: rotateY(180deg);
-  padding: 0px 20px;
-  text-align: center;
-  border: solid 1px grey;
-  background-color: white;
-  font-size: 12px;
-}
-.home-overlay{
-  width: 100%;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
-  position: absolute;
-  border-radius:0px 0px 20px 20px;
-  bottom: 0;
-}

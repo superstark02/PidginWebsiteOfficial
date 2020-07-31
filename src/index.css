@@ -21,3 +21,8 @@ code {
     font-family: 'FiraSansItalic';
     src: local('FiraSansItalic'), url(./Fonts/ABeeZee-Italic.ttf) format('truetype');
   }
+
+  @font-face {
+    font-family: 'Friendly';
+    src: local('Friendly'), url(./Fonts/Friendly-Schoolmates/Friendly-Schoolmates-Regular.otf) format('truetype');
+  }
