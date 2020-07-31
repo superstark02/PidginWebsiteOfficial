@@ -18,7 +18,6 @@
 .log-header{
     background-image: url(../Images/profile-bg.jpeg);
     background-position: center;
-    background-attachment: fixed;
     width: 1000px;
     display: flex;
     justify-content: center;

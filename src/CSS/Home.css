@@ -23,4 +23,5 @@
     width: 200px;
     border: 1px rgb(196, 195, 195) solid;
     border-radius: 10px;
+    cursor: pointer;
 }

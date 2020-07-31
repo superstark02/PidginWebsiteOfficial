@@ -14,16 +14,12 @@ export default class Login extends React.Component {
         signed: null,
     }
 
-    getUser = () => {
+    componentDidMount() {
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 this.setState({ signed: user })
             }
         })
-    }
-
-    componentDidMount() {
-        this.getUser()
     }
 
     handleLogin = () => {
@@ -53,7 +49,7 @@ export default class Login extends React.Component {
         if (this.state.signed !== null ) {
             return (
                 <div>
-                    <div className="desktop" style={{ margin: "100px 0px"}} >
+                    <div className="desktop">
                         <div className="wrap" >
                             <div className="log-header" >
                                 <div>
@@ -101,33 +97,10 @@ export default class Login extends React.Component {
             )
         }
 
-        return (
-            <React.Fragment>
-                <div>
-                    <div className="mobile" style={{marginBottom:"-90px"}} >
-                        <MappBar/>
-                    </div>
-                    <div className="bg" style={{ marginTop: "90px",height:"100vh"}} >
-                        <div className="wrap">
-                            <div className="log-container" >
-                                <h1>Sign In</h1>
-                                <div className="wrap"style={{height:"100%"}} >
-                                    <div>
-                                        <div style={{marginBottom:"20px",fontSize:"20px",marginTop:"-50px"}} >
-                                            Sign in with Google
-                                        </div>
-                                        <Divider/>
-                                        <button className="login-button" onClick={this.handleLogin} >
-                                            <img alt="" src={google} width="25px" style={{marginRight:"10px",marginBottom:"-5px"}} />Sign In
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <Footer />
-                </div>
-            </React.Fragment>
+        return(
+            <div className="wrap" >
+                Please Wait...
+            </div>
         )
     }
 }

@@ -61,7 +61,7 @@ class MyAppBar extends React.Component {
                 <div className="desktop" >
                     <CssBaseline />
                     <ElevationScroll {...this.props}>
-                        <AppBar style={{backgroundColor:"rgba(0,255,255,0.3)"}} >
+                        <AppBar style={{backgroundColor:"rgba(255,255,255,0.6)"}} >
                             <Toolbar>
                                 <div className="wrap" style={{justifyContent:"space-between", padding:"10px 50px"}} >
                                     <div>

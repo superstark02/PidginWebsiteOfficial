@@ -13,8 +13,6 @@ import PersonOutlineRoundedIcon from '@material-ui/icons/PersonOutlineRounded';
 import PeopleOutlineRoundedIcon from '@material-ui/icons/PeopleOutlineRounded';
 
 import MyCart from '../Log/cart'
-import { connect } from 'react-redux'
-import { addBasket } from '../actions/add-action.js'
 import { FaFemale } from 'react-icons/fa'
 import ClassCarousel from './carousel'
 import MobileClass from './mClass'
@@ -455,8 +453,4 @@ class ClassDisplay extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({
-    basketProps: state.basketState
-})
-
-export default connect(mapStateToProps, { addBasket })(ClassDisplay);
+export default ClassDisplay;

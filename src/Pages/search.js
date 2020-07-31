@@ -8,8 +8,8 @@ import { Button, Divider } from '@material-ui/core'
 import Chip from '@material-ui/core/Chip';
 import DoneIcon from '@material-ui/icons/Done';
 import { FaSearch } from 'react-icons/fa'
-import exc from '../Images/exclusive.png'
-import trending from '../Images/trending.png'
+import MyAppBar from '../Components/AppBar'
+import getCollection from '../Database/getCollection'
 
 var filteredClass = null
 var age = null
@@ -24,6 +24,7 @@ export default class Search extends React.Component {
         minAge: null,
         features: null,
         search: null,
+        top_picks: null
     }
 
     componentDidMount() {
@@ -39,7 +40,14 @@ export default class Search extends React.Component {
                     classes.push(data)
                 })
                 this.setState({ classes: classes })
+
+                if (this.props.match.params.id !== "0") {
+                    this.setState({ search: this.props.match.params.id })
+                }
             })
+        getCollection("ImagesClassesTopPicks").then(snap => {
+            this.setState({ top_picks: snap })
+        })
     }
 
     clearFilter = () => {
@@ -62,25 +70,6 @@ export default class Search extends React.Component {
         fees = null
         type = null
         filteredClass = this.state.classes
-
-        /*if (this.props.location.state.name === null && this.state.classes !== null) {
-            if (this.state.type === null) {
-                filteredClass = this.state.classes.filter(
-                    item =>
-                        item.fees < this.state.minPrice &&
-                        item.age < this.state.minAge
-                )
-            }
-
-            if (this.state.type !== null) {
-                filteredClass = this.state.classes.filter(
-                    item =>
-                        item.fees < this.state.minPrice &&
-                        item.age < this.state.minAge &&
-                        item.type.toLowerCase().indexOf(this.state.type.toLowerCase()) !== -1
-                )
-            }
-        }*/
 
         if (this.state.search !== null) {
             filteredClass = this.state.classes.filter(
@@ -126,36 +115,16 @@ export default class Search extends React.Component {
             />
         }
 
-        /*if(this.props.location.state.type === 'women' && this.state.classes !== null){
-            filteredClass = this.state.classes.filter(
-                item =>
-                    item.women === true
-            )
-        }
-
-        if(this.props.location.state.type === 'individual' && this.state.classes !== null){
-            filteredClass = this.state.classes.filter(
-                item =>
-                    item.individual === true
-            )
-        }
-
-        if(this.props.location.state.type === 'online' && this.state.classes !== null){
-            filteredClass = this.state.classes.filter(
-                item =>
-                    item.online === true
-            )
-        }*/
-
         return (
             <div style={{ backgroundColor: '#f3f3f3' }} >
                 <div className="desktop">
+                    <MyAppBar />
                     <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around', paddingBottom: '100px', flexDirection: 'column', alignItems: 'center' }}>
-                        <div style={{display:"flex",margin:"20px",marginTop:"120px",border:"solid 1px #e2e2e2"}} >
+                        <div style={{ display: "flex", margin: "20px", marginTop: "50px", border: "solid 1px #e2e2e2" }} >
                             <input className='search-search' placeholder='Search classes, tuition, courses...' onChange={(e) => { this.setState({ search: e.target.value }) }} >
                             </input>
-                            <div className='search-icon' style={{color:'white',display:"flex",justifyContent:'center',alignItems:'center',fontSize:"18px"}} >
-                                <FaSearch/>
+                            <div className='search-icon' style={{ color: 'white', display: "flex", justifyContent: 'center', alignItems: 'center', fontSize: "18px" }} >
+                                <FaSearch />
                             </div>
                         </div>
                         <div className="body" >
@@ -182,7 +151,7 @@ export default class Search extends React.Component {
                                     Below 20 years
                             </div>
                                 <div className='filter-list-item' onClick={() => { this.setAge(100) }} >
-                                     Any
+                                    Any
                             </div>
 
 
@@ -223,21 +192,21 @@ export default class Search extends React.Component {
                                 <div className="sub-title-list" >
                                     Hobby
                             </div>
-                            <Divider/>
+                                <Divider />
                                 <div className='filter-list-item' onClick={() => { this.setState({ type: "music" }) }} >
                                     Music
                             </div>
                                 <div className='filter-list-item' onClick={() => { this.setState({ type: "cooking" }) }} >
                                     Cooking
                             </div>
-                            <div className='filter-list-item' onClick={() => { this.setState({ type: "dance" }) }} >
+                                <div className='filter-list-item' onClick={() => { this.setState({ type: "dance" }) }} >
                                     Dance
                             </div>
 
-                            <div className="sub-title-list" >
+                                <div className="sub-title-list" >
                                     Science
                             </div>
-                            <Divider/>
+                                <Divider />
                                 <div className='filter-list-item' onClick={() => { this.setState({ type: "science" }) }} >
                                     Science
                             </div>
@@ -251,21 +220,21 @@ export default class Search extends React.Component {
                                     Chemistry
                             </div>
 
-                            <div className="sub-title-list" >
+                                <div className="sub-title-list" >
                                     Courses
                             </div>
-                            <Divider/>
+                                <Divider />
                                 <div className='filter-list-item' onClick={() => { this.setState({ type: "painting" }) }} >
                                     Painting
                             </div>
-                            <div className='filter-list-item' onClick={() => { this.setState({ type: "sketching" }) }} >
+                                <div className='filter-list-item' onClick={() => { this.setState({ type: "sketching" }) }} >
                                     Sketching
                             </div>
 
-                            <div className="sub-title-list" >
+                                <div className="sub-title-list" >
                                     Language
                             </div>
-                            <Divider/>
+                                <Divider />
                                 <div className='filter-list-item' onClick={() => { this.setState({ type: "japenese" }) }} >
                                     Japenese
                             </div>
@@ -275,6 +244,7 @@ export default class Search extends React.Component {
                             </Button>
 
                             </div>
+
                             <div>
                                 <h1>{this.props.match.params.type}</h1>
                                 <div className="search-list" >
@@ -283,40 +253,103 @@ export default class Search extends React.Component {
                                         filteredClass.map(item => {
                                             return (
                                                 <a href={'/class/' + item.id} >
-                                                    <div className="card-search" >
-                                                        <div style={{ overflowY: 'hidden', overflowX: 'hidden', width: '150px', maxHeight: '200px' }} >
-                                                            {
-                                                                item.i1 ? (
-                                                                    <img alt="s" src={item.i1} width="150px" />
-                                                                ) : (
-                                                                        <img alt="s" src={item.i2} width="150px" />
-                                                                    )
-                                                            }
-                                                        </div>
-                                                        <div className="details" >
-                                                            <div>
-                                                                <h4 style={{ marginBottom: '0px' }} >{item.name}</h4>
-                                                                <div className="search-type" >
-                                                                    {item.type} | Age: {item.age}+
+                                                    <div>
+                                                        <div className="card-search" >
+                                                            <div style={{ display: 'flex' }} >
+                                                                <div style={{ overflowY: 'hidden', overflowX: 'hidden', width: '150px', maxHeight: '200px' }} >
+                                                                    {
+                                                                        item.i1 ? (
+                                                                            <img alt="s" src={item.i1} width="150px" />
+                                                                        ) : (
+                                                                                <img alt="s" src={item.i2} width="150px" />
+                                                                            )
+                                                                    }
+                                                                </div>
+                                                                <div className="details" >
+                                                                    <div>
+                                                                        <div style={{ color: "#043345", fontSize: "25px", margin: "10px 0px", fontWeight: "700" }} >
+                                                                            {item.name}
+                                                                        </div>
+                                                                        <div className="search-type" >
+                                                                            {item.type} | Age: {item.age}+
+                                                                        </div>
+                                                                        <div style={{ maxWidth: '300px', color: "grey", fontSize: "12px", margin: "10px 0px" }} className="search-type" >
+                                                                            {item.address}
+                                                                        </div>
+                                                                        <div style={{ width: "100%", borderTop: "1px dashed grey", margin: "10px 0px" }} ></div>
+                                                                        {
+                                                                            item.individual ? (
+                                                                                <div style={{ width: "100%", padding: "2px", display: "flex" }} >
+                                                                                    <div style={{ width: "150px", textTransform: "uppercase", color: "grey", fontSize: "12px" }} >
+                                                                                        Individual:
+                                                                                    </div>
+                                                                                    <div style={{ fontSize: "12px" }} >
+                                                                                        Individual Classes Available
+                                                                                    </div>
+                                                                                </div>
+                                                                            ) : (
+                                                                                    <div></div>
+                                                                                )
+                                                                        }
+                                                                        {
+                                                                            item.women ? (
+                                                                                <div style={{ width: "100%", padding: "2px", display: "flex" }} >
+                                                                                    <div style={{ width: "150px", textTransform: "uppercase", color: "grey", fontSize: "12px" }} >
+                                                                                        Only For Women:
+                                                                                    </div>
+                                                                                    <div style={{ fontSize: "12px" }}>
+                                                                                        Classes Are Only For Women
+                                                                                    </div>
+                                                                                </div>
+                                                                            ) : (
+                                                                                    <div></div>
+                                                                                )
+                                                                        }
+                                                                        {
+                                                                            item.online ? (
+                                                                                <div style={{ width: "100%", padding: "2px", display: "flex" }} >
+                                                                                    <div style={{ width: "150px", textTransform: "uppercase", color: "grey", fontSize: "12px" }} >
+                                                                                        Online classes:
+                                                                                    </div>
+                                                                                    <div style={{ fontSize: "12px" }}>
+                                                                                        Online Classes Available
+                                                                                    </div>
+                                                                                </div>
+                                                                            ) : (
+                                                                                    <div></div>
+                                                                                )
+                                                                        }
+                                                                        {
+                                                                            item.fees ? (
+                                                                                <div style={{ width: "100%", padding: "2px", display: "flex" }} >
+                                                                                    <div style={{ width: "150px", textTransform: "uppercase", color: "grey", fontSize: "12px" }} >
+                                                                                        Starting Fees:
+                                                                                    </div>
+                                                                                    <div style={{ fontSize: "12px" }}>
+                                                                                        &#8377;{item.fees}
+                                                                                    </div>
+                                                                                </div>
+                                                                            ) : (
+                                                                                    <div></div>
+                                                                                )
+                                                                        }
+                                                                    </div>
                                                                 </div>
                                                             </div>
 
-                                                            <div className="search-fees" >
-                                                                Starting fees: &#8377;{item.fees}
-                                                            </div>
-                                                        </div>
-                                                        <div className="exclusive-wrap" >
-                                                            <div>
-                                                            {
-                                                                item.exclusive ? (
-                                                                    <div><img alt="" src={exc} height="40px" style={{marginLeft:"-12px",marginTop:"10px"}} /></div>
-                                                                ) : item.trending ? (
-                                                                    <div><img alt="" src={trending} height="40px" style={{marginLeft:"-12px",marginTop:"10px"}} /></div>
-                                                                ) : (
-                                                                    <div></div>
-                                                                )
-                                                            }
-                                                            </div>
+                                                            {/*<div className="exclusive-wrap" >
+                                                                <div>
+                                                                    {
+                                                                        item.exclusive ? (
+                                                                            <div><img alt="" src={exc} height="40px" style={{ marginLeft: "-12px", marginTop: "10px" }} /></div>
+                                                                        ) : item.trending ? (
+                                                                            <div><img alt="" src={trending} height="40px" style={{ marginLeft: "-12px", marginTop: "10px" }} /></div>
+                                                                        ) : (
+                                                                                    <div></div>
+                                                                                )
+                                                                    }
+                                                                </div>
+                                                                </div>*/}
                                                         </div>
                                                     </div>
                                                 </a>
@@ -325,6 +358,35 @@ export default class Search extends React.Component {
                                     }
                                 </div>
                             </div>
+
+                            <div style={{ width: "250px", minHeight: "200px" }} >
+                                <div style={{ backgroundColor: 'white', padding: "10px" }} >
+                                    <h2>Top Picks</h2>
+                                </div>
+                                {
+                                    this.state.top_picks &&
+                                    this.state.top_picks.map(item => {
+                                        return (
+                                            <a href={'/class/' + item.id} >
+                                            <div style={{ display: "flex", backgroundColor:"white"}} >
+                                                <div>
+                                                    <img src={item.image} height="100px" alt={item.name} ></img>
+                                                </div>
+                                                <div style={{padding:"10px 5px"}} >
+                                                    <div>
+                                                        <b>{item.name}</b>
+                                                    </div>
+                                                    <div>
+                                                        {item.type}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </a>
+                                        )
+                                    })
+                                }
+                            </div>
+
                         </div>
                     </div>
                 </div>

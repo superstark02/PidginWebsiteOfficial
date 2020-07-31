@@ -3,10 +3,6 @@ import './cart.css'
 import Footer from '../Components/Footer'
 import firebase,{rdb} from '../firebase'
 
-import { connect } from 'react-redux'
-import { getNumbers } from '../actions/get-action.js'
-import { deleteBasket } from '../actions/delete-action'
-
 class CartPage extends React.Component{
     state = {
         cart:[],
@@ -14,7 +10,6 @@ class CartPage extends React.Component{
     }
 
     componentDidMount() {
-        getNumbers();
 
         firebase.auth().onAuthStateChanged(user => {
             if(user){
@@ -97,8 +92,4 @@ class CartPage extends React.Component{
     }
 }
 
-const mapStateToProps = state => ({
-    basketProps: state.basketState
-})
-
-export default connect(mapStateToProps, { getNumbers,deleteBasket })(CartPage);
+export default CartPage;
