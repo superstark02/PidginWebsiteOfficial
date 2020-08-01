@@ -194,18 +194,8 @@ class SearchView extends React.Component{
 
     componentDidMount(){
         this.clearFilter()
-        const data = db.collection('Classes');    
-         data.get()
-          .then(snapshot=>{
-            const images = []
-            snapshot.forEach(doc=>{
-              const data = doc.data()
-              images.push(data)
-            })
-            this.setState({classes:images})
-          })
-
-      }
+        this.setState({classes:this.props.classes})
+    }
 
     updateSearch(event){
         this.setState({search:event.target.value})

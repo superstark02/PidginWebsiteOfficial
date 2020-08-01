@@ -10,7 +10,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import logo from '../Images/app_bg.png'
 import MenuIcon from '@material-ui/icons/Menu';
-import { IconButton } from '@material-ui/core';
+import { IconButton, Button } from '@material-ui/core';
+import '../CSS/Components/App-Bar.css'
+import LogIn from '../Database/logIn'
 
 function ElevationScroll(props) {
     const { children, window } = props;
@@ -46,9 +48,15 @@ class MyAppBar extends React.Component {
     getUser = () => {
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
-                this.setState({ user: user })
+                this.setState({ user: user.displayName })
             }
         });
+    }
+
+    handleLogin = () => {
+        LogIn().then(result=>{
+            this.setState({user:result})
+        })
     }
 
     componentDidMount() {
@@ -58,19 +66,36 @@ class MyAppBar extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className="desktop" >
+                <div className="desktop" style={{marginBottom:"20px"}} >
                     <CssBaseline />
                     <ElevationScroll {...this.props}>
                         <AppBar style={{backgroundColor:"rgba(255,255,255,0.6)"}} >
                             <Toolbar>
-                                <div className="wrap" style={{justifyContent:"space-between", padding:"10px 50px"}} >
+                                <div className="wrap" style={{justifyContent:"space-between", padding:"5px 50px"}} >
                                     <div>
                                         <img src={logo} alt="pidgin" width="70px" height="70px" />
                                     </div>
                                     <div>
-                                        <IconButton>
-                                            <MenuIcon/>
-                                        </IconButton>
+                                        {
+                                            this.state.user === null ? (
+                                                <Button className="app-bar-button" onClick={this.handleLogin} style={{textTransform:"none"}} >
+                                                    Sign In
+                                                </Button>
+                                            ):(
+                                                <Button className="app-bar-button" style={{textTransform:"none"}} >
+                                                    {this.state.user}
+                                                </Button>
+                                            )
+                                        }
+                                        <Button className="app-bar-button" style={{textTransform:"none"}} >
+                                            Help
+                                        </Button>
+                                        <Button className="app-bar-button" style={{textTransform:"none"}} >
+                                            About
+                                        </Button>
+                                        <Button className="app-bar-button" style={{textTransform:"none"}} >
+                                            Contact Us
+                                        </Button>
                                     </div>
                                 </div>
                             </Toolbar>

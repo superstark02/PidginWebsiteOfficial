@@ -113,7 +113,7 @@ function MappBar(props) {
                                     <AccountCircleIcon style={{fontSize:'50px'}} />
                                 </div>
                                 <div>
-                                    <button style={{border:"none",outline:"none",padding:"10px 15px",backgroundColor:'#00ff99',color:"white",boxShadow:"0px 0px 5px rgba(0,0,0,0.5)"}} >
+                                    <button style={{border:"none",outline:"none",padding:"10px 15px",color:"#043540"}} >
                                         Sign In
                                     </button>
                                 </div>
@@ -136,26 +136,26 @@ function MappBar(props) {
                         )
                     }
                 </div>
-                <List>
+                <List style={{textAlign:"center"}} >
                     <ListItem button >
-                        <ListItemIcon>{<HomeOutlinedIcon />}</ListItemIcon>
+                        
                         <a href="/" ><ListItemText primary='Home' style={{color:'grey'}} /></a>
                     </ListItem>
                     <ListItem button >
-                        <ListItemIcon>{<ViewCarouselOutlinedIcon/>}</ListItemIcon>
+                        
                         <a href="/pidgin/courses" ><ListItemText primary='How To Use' style={{color:'grey'}}  /></a>
                     </ListItem>
                     <ListItem button >
-                        <ListItemIcon>{<ContactSupportOutlinedIcon />}</ListItemIcon>
+                        
                         <a href="/pidgin/help" ><ListItemText primary='Help' style={{color:'grey'}}  /></a>
                     </ListItem>
                     <Divider/>
                     <ListItem button >
-                        <ListItemIcon>{<InfoOutlinedIcon />}</ListItemIcon>
+                        
                         <a href="/pidgin/about-us" ><ListItemText primary='About Us' style={{color:'grey'}}  /></a>
                     </ListItem>
                     <ListItem button >
-                        <ListItemIcon>{<ContactPhoneOutlinedIcon />}</ListItemIcon>
+                        
                         <a href="/pidgin/contact-us" ><ListItemText primary='Contact Us' style={{color:'grey'}}  /></a>
                     </ListItem>
                     {

@@ -11,7 +11,6 @@ export default function sortDistance(array, lat, lon){
             }
         }
     }
-	console.log(arr)
     return arr
 }
 

@@ -7,12 +7,13 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import Chip from '@material-ui/core/Chip';
 import { Link } from 'react-router-dom';
 import AddRoundedIcon from '@material-ui/icons/AddRounded';
+import Footer from './Footer';
 
 export class MobileClass extends Component {
 
     render() {
         return (
-            <div style={{ backgroundColor: 'white', maxWidth: '100%', width: '100%', paddingBottom: "100px" }}>
+            <div style={{ backgroundColor: 'white', maxWidth: '100%', width: '100%'}}>
                 <div>
                     <div class='displayTitle'>
                         {this.props.name}
@@ -131,6 +132,7 @@ export class MobileClass extends Component {
                 <div style={{ width: '100%', textAlign: 'center', color: 'lightgrey', fontSize: '10px', marginBottom: '10px' }} >
                     Pidgin
                 </div>
+                <Footer/>
             </div>
         )
     }

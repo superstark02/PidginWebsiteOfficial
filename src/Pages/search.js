@@ -255,7 +255,6 @@ export default class Search extends React.Component {
                             </div>
 
                             <div>
-                                <h1>{this.props.match.params.type}</h1>
                                 <div className="search-list" >
                                     {
                                         filteredClass &&
@@ -401,7 +400,13 @@ export default class Search extends React.Component {
                 </div>
                 <div className="mobile" >
                     <MappBar />
-                    <SearchView id={this.props.match.params.type} />
+                    {
+                        this.state.classes === null ? (
+                            <div>Please Wait..</div>
+                        ) : (
+                            <SearchView id={this.props.match.params.id} classes={this.state.classes} />
+                        )
+                    }
                 </div>
                 <Footer />
             </div >

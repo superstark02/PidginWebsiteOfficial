@@ -11,6 +11,7 @@ import LanguageIcon from '@material-ui/icons/Language';
 import AccessTimeRoundedIcon from '@material-ui/icons/AccessTimeRounded';
 import PersonOutlineRoundedIcon from '@material-ui/icons/PersonOutlineRounded';
 import PeopleOutlineRoundedIcon from '@material-ui/icons/PeopleOutlineRounded';
+import MyAppBar from '../Components/AppBar'
 
 import MyCart from '../Log/cart'
 import { FaFemale } from 'react-icons/fa'
@@ -32,6 +33,7 @@ class ClassDisplay extends React.Component {
         faculty: null,
         note: null,
         cart_dialog: false,
+        location: null,
 
         time: null,
         online: null,
@@ -66,6 +68,7 @@ class ClassDisplay extends React.Component {
             var individual
             var group
             var women
+            var location
 
             name = snapshot.get('name')
             address = snapshot.get('address')
@@ -77,6 +80,7 @@ class ClassDisplay extends React.Component {
             individual = snapshot.get('individual')
             group = snapshot.get('group')
             women = snapshot.get('women')
+            location = snapshot.get("location")
 
             this.setState({ name: name })
             this.setState({ address: address })
@@ -88,6 +92,7 @@ class ClassDisplay extends React.Component {
             this.setState({ individual: individual })
             this.setState({ group: group })
             this.setState({ women: women })
+            this.setState({ location: location })
         })
 
         const elegibility = db.collection("Classes").doc(id).collection("Eligibility")
@@ -208,10 +213,11 @@ class ClassDisplay extends React.Component {
             <CheckCircleIcon color="#00d882" />
         </div>
         return (
-            <div style={{ backgroundColor: "white", paddingTop: "80px", }} >
+            <div style={{ backgroundColor: "white"}} >
+                <MyAppBar/>
                 <ClassCarousel id={this.props.match.params.id} />
                 <div className="desktop" >
-                    <div className="wrap" style={{ margin: "100px 0px" }} >
+                    <div className="wrap" style={{ margin: "10px 0px" }} >
                         <div className="class-container" >
                             <div style={{ width: '600px' }} >
                                 <h1>{this.state.name}</h1>
@@ -221,6 +227,7 @@ class ClassDisplay extends React.Component {
                                 <div style={{ display: 'flex' }} >
                                     <div className="type1" >{this.state.type}</div>
                                     <div className="type1" >Age: {this.state.age}+</div>
+                                    <a href={this.state.location} ><div className="type1" >View On Map</div></a>
                                 </div>
 
                                 <div>

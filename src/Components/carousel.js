@@ -115,8 +115,8 @@ export class ClassCarousel extends Component {
     render() {
         return (
             <div>
-                <div className="desktop" >
-                    <div style={{ marginTop: "100px", backgroundColor: "white" }} >
+                <div className="desktop wrap" >
+                    <div style={{ backgroundColor: "white", width:"70%" }} >
                         {
                             this.state.images !== null && this.state.images.length !== 0 ? (
                                 <CarouselSlider
@@ -152,7 +152,7 @@ export class ClassCarousel extends Component {
                 </div>
 
                 <div className='mobile' >
-                    <div style={{backgroundColor: "white" }} >
+                    <div style={{backgroundColor: "white",marginTop:"100px" }} >
                         {
                             this.state.images !== null && this.state.images.length !== 0 ? (
                                 <CarouselSlider
@@ -176,13 +176,13 @@ export class ClassCarousel extends Component {
                                     />
                                 </div>
                             ) : (
-                                        <div className="wrap" style={{ textAlign: "center" }} >
-                                            <div>
-                                                <img alt="" width="100%" src={image} />
-                                                <div>Online Classes Only</div>
-                                            </div>
-                                        </div>
-                                    )
+                                <div className="wrap" style={{ textAlign: "center" }} >
+                                    <div>
+                                        <img alt="" width="100%" src={image} />
+                                        <div>Online Classes Only</div>
+                                    </div>
+                                </div>
+                            )
                         }
                     </div>
                 </div>
