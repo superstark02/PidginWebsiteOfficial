@@ -13,40 +13,41 @@ import getCollection from './Database/getCollection'
 import getUser from './Database/getUser'
 import firebase, { db } from './firebase'
 import play_store from './Images/store.png'
+import phone from './Images/Phone.png'
 
 const top_cards = [
     {
         name: "Classes Near You",
         img: near,
-        url:"near-you"
+        url: "near-you"
     },
     {
         name: "Online Classes",
         img: online,
-        url:"online"
+        url: "online"
     },
     {
         name: "Classes Only For Women",
         img: women,
-        url:"women"
+        url: "women"
     },
     {
         name: "Individual Classes",
         img: astro,
-        url:"individual"
+        url: "individual"
     },
     {
         name: "Unable To Find",
         img: find,
-        url:"find"
+        url: "find"
     }
 ]
 
 class Home extends React.Component {
     state = {
         categories: null,
-        user:null,
-        search:0,
+        user: null,
+        search: 0,
     }
 
     componentDidMount() {
@@ -54,16 +55,16 @@ class Home extends React.Component {
         getCollection("ImagesClassesTrending").then(snapshot => {
             this.setState({ categories: snapshot })
         })
-        
-        getUser().then(user=>{
-            this.setState({user:user})
+
+        getUser().then(user => {
+            this.setState({ user: user })
         })
     }
 
     handleLogin = () => {
         var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider).then(user=>{
-            this.setState({user:user.user.displayName})
+        firebase.auth().signInWithPopup(provider).then(user => {
+            this.setState({ user: user.user.displayName })
         }).catch(function (error) {
             // Handle Errors here.
             var errorMessage = error.message;
@@ -85,113 +86,112 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                <div className="home-overlay " style={{ color: "white", textAlign: "center" }} >
-                    <div style={{height:"28vh",display:"flex",justifyContent:"flex-end",width:"100%"}} >
-                        <div style={{paddingRight:"15%",paddingTop:"30px"}} >
-                            {
-                                this.state.user === -1 || this.state.user === null ? (
-                                    <Button onClick={this.handleLogin} style={{textTransform:"none",color:"white"}} >Sign In</Button>
-                                ) : (
-                                    <Link to="/pidgin/login" ><Button style={{textTransform:"none",color:"white"}} >{this.state.user}</Button></Link>
-                                )
-                            }
+                <div>
+                    <div className="home-overlay " style={{ color: "white", textAlign: "center" }} >
+                        <div style={{ height: "28vh", display: "flex", justifyContent: "flex-end", width: "100%" }} >
+                            <div style={{ paddingRight: "15%", paddingTop: "30px" }} >
+                                {
+                                    this.state.user === -1 || this.state.user === null ? (
+                                        <Button onClick={this.handleLogin} style={{ textTransform: "none", color: "white" }} >Sign In</Button>
+                                    ) : (
+                                            <Link to="/pidgin/login" ><Button style={{ textTransform: "none", color: "white" }} >{this.state.user}</Button></Link>
+                                        )
+                                }
+                            </div>
                         </div>
-                    </div>
-                    <div className="wrap" >
-                        <div >
-                            <div style={{ fontSize: "80px", fontFamily: "Friendly", marginBottom: "40px" }} >
-                                Pidgin
+                        <div className="wrap" >
+                            <div >
+                                <div style={{ fontSize: "80px", fontFamily: "Friendly", marginBottom: "40px" }} >
+                                    Pidgin
                             </div>
-                            <div style={{ fontSize: "40px", fontWeight: "100", letterSpacing: "1px" }} >
-                                Delivering Education
+                                <div className="delivering-education">
+                                    Delivering Education
                             </div>
-                            <div className="wrap" >
-                                <input 
-                                    className="home-search-input" 
-                                    onChange={(e)=>{this.setState({search:e.target.value})}}
-                                    placeholder="Search classes, courses and more.." />
-                                <div style={{ backgroundColor: "#04BF7B", height: '56px', width: "56px" }} className="wrap" >
-                                    <IconButton onClick={()=>{this.props.history.push("/pidgin/search/"+this.state.search)}} >
-                                        <SearchIcon style={{ color: "white" }} />
-                                    </IconButton>
+                                <div className="wrap" >
+                                    <input
+                                        className="home-search-input"
+                                        onChange={(e) => { this.setState({ search: e.target.value }) }}
+                                        placeholder="Search classes, courses and more.." />
+                                    <div style={{ backgroundColor: "#04BF7B", height: '56px', width: "56px" }} className="wrap" >
+                                        <IconButton onClick={() => { this.props.history.push("/pidgin/search/" + this.state.search) }} >
+                                            <SearchIcon style={{ color: "white" }} />
+                                        </IconButton>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="home-wallpaper" ></div>
+                    <div className="home-wallpaper" ></div>
 
-                <div className="wrap" style={{ margin: "40px 0px" }} >
-                    <div style={{ width: "70%" }} >
-                        <div className="wrap" style={{ justifyContent: "space-around" }} >
-                            {
-                                top_cards.map(item => {
-                                    return (
-                                        <Link to={"pidgin/search/"+item.url} >
-                                        <div className="home-top-card" >
-                                            <div style={{ height: "160px", width: "200px", overflow: "hidden", backgroundImage: "url(" + item.img + ")", backgroundSize: "cover", borderRadius: "10px 10px 0px 0px" }}>
-                                            </div>
-                                            <div style={{ textAlign: "center", fontSize: "13px", marginTop: "5px" }} >
-                                                {item.name}
-                                            </div>
-                                        </div>
-                                        </Link>
-                                    )
-                                })
-                            }
-                        </div>
-
-                        <div style={{ margin: "100px 0px" }} >
-                            <div style={{ fontSize: "40px", marginBottom: "10px" }} >
-                                Categories
-                            </div>
-                            <div>
-                                Explore amazing courses with visionary teachers around you
-                            </div>
-                            <div className="wrap" style={{ flexWrap: "wrap", justifyContent: "left", minHeight: "200px" }} >
+                    <div className="wrap" style={{ margin: "40px 0px" }} >
+                        <div className="home-width-container">
+                            <div className="wrap" style={{ justifyContent: "space-around", flexWrap:"wrap" }} >
                                 {
-                                    this.state.categories &&
-                                    this.state.categories.map(item => {
+                                    top_cards.map(item => {
                                         return (
-                                            <Link to={"pidgin/search/"+item.type} >
-                                            <div className="home-top-card"
-                                                style={{
-                                                    height: "200px",
-                                                    width: "180px",
-                                                    backgroundImage: "url(" + item.image + ")",
-                                                    backgroundSize: "cover",
-                                                    margin: "10px",
-                                                    border: "none"
-                                                }} >
-                                                <div style={{ fontSize: "18px", marginTop: "5px", color: "white", fontWeight: "300", backgroundImage: "linear-gradient(black, rgba(0,0,0,0))", borderRadius: "10px", padding: "10px 20px", margin: "-0.5px", }} >
-                                                    {item.type}
-                                                    <div style={{ fontSize: "13px", color: "white", marginTop: "-5px" }} >
-                                                        See All
+                                            <Link to={"pidgin/search/" + item.url} >
+                                                <div className="home-top-card" >
+                                                    <div className="home-top-card-image" style={{backgroundImage: "url(" + item.img + ")"}}>
+                                                    </div>
+                                                    <div style={{ textAlign: "center", fontSize: "13px", marginTop: "5px" }} >
+                                                        {item.name}
                                                     </div>
                                                 </div>
-                                            </div>
                                             </Link>
                                         )
                                     })
                                 }
                             </div>
+
+                            <div style={{ marginTop: "100px", marginBottom: "50px" }} >
+                                <div style={{ fontSize: "40px", marginBottom: "10px" }} >
+                                    Categories
+                            </div>
+                                <div>
+                                    Explore amazing courses with visionary teachers around you
+                            </div>
+                                <div className="wrap wrap-responsive" style={{ justifyContent: "left", minHeight: "200px" }} >
+                                    {
+                                        this.state.categories &&
+                                        this.state.categories.map(item => {
+                                            return (
+                                                <Link to={"pidgin/search/" + item.type} >
+                                                    <div className="home-top-card"
+                                                        style={{
+                                                            height: "200px",
+                                                            width: "180px",
+                                                            backgroundImage: "url(" + item.image + ")",
+                                                            backgroundSize: "cover",
+                                                            margin: "10px",
+                                                            border: "none"
+                                                        }} >
+                                                        <div style={{ fontSize: "18px", marginTop: "5px", color: "white", fontWeight: "300", backgroundImage: "linear-gradient(black, rgba(0,0,0,0))", borderRadius: "10px", padding: "10px 20px", margin: "-0.5px", }} >
+                                                            {item.type}
+                                                            <div style={{ fontSize: "13px", color: "white", marginTop: "-5px" }} >
+                                                                See All
+                                                    </div>
+                                                        </div>
+                                                    </div>
+                                                </Link>
+                                            )
+                                        })
+                                    }
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="wrap" style={{backgroundColor:"#fcfcfc", justifyContent:"center",marginBottom:"100px"}} >
-                        <div style={{width:'200px', height:"400px", backgroundColor:"grey",margin:"0px 20px"}} >
-
+                    <div className="wrap" style={{ backgroundColor: "#fcfcfc", justifyContent: "center", marginBottom: "100px", flexWrap:"wrap" }} >
+                        <div style={{ margin: "0px 20px" }} >
+                            <img style={{ boxShadow: "0px 0px 20px rgba(0,0,0,0.5)", borderRadius: "25px" }} height="300px" src={phone} aly="app" />
                         </div>
                         <div>
                             <h1>Get the Pidgin App</h1>
-                            <div>
-                                Download From
-                            </div>
                             <div>
                                 <img src={play_store} width="200px" />
                             </div>
                         </div>
                     </div>
+                </div>
                 <Footer />
             </div>
         )

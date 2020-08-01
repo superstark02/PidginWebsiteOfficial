@@ -25,3 +25,44 @@
     border-radius: 10px;
     cursor: pointer;
 }
+.home-top-card-image{
+    height: 160px;
+    width: 200px;
+    overflow: hidden;
+    background-size: cover;
+    border-radius: 10px 10px 0px 0px;
+}
+.delivering-education{
+    font-size: 40px;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+.home-width-container{
+    width: 70%;
+}
+.wrap-responsive{
+    flex-wrap: wrap;
+}
+
+@media only screen and (max-width:1024px) {
+    .delivering-education{
+        font-size: 20px;
+    }
+    .home-search-input{
+        width: 70vw;
+    }
+    .home-top-card{
+        width: 80vw;
+        margin:  10px 0px;
+    }
+    .home-top-card-image{
+        width: 80vw;
+    }
+    .home-width-container{
+        width: 90%;
+    }
+    .wrap-responsive{
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+    }
+}
