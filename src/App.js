@@ -16,6 +16,7 @@ import CourseDetails from './Components/course-details';
 import Form from './data/form';
 
 export default class App extends React.Component {
+
   render() {
     return (
       <div>

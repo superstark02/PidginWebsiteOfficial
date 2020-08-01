@@ -1,5 +1,4 @@
 import React from 'react'
-import MappBar from './Components/mAppBar'
 import Footer from './Components/Footer'
 import { Link } from 'react-router-dom'
 import online from './Images/online.jpg'
@@ -13,6 +12,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import getCollection from './Database/getCollection'
 import getUser from './Database/getUser'
 import firebase, { db } from './firebase'
+import play_store from './Images/store.png'
 
 const top_cards = [
     {
@@ -148,7 +148,7 @@ class Home extends React.Component {
                             <div>
                                 Explore amazing courses with visionary teachers around you
                             </div>
-                            <div className="wrap" style={{ flexWrap: "wrap", justifyContent: "left", minHeight: "500px" }} >
+                            <div className="wrap" style={{ flexWrap: "wrap", justifyContent: "left", minHeight: "200px" }} >
                                 {
                                     this.state.categories &&
                                     this.state.categories.map(item => {
@@ -178,11 +178,17 @@ class Home extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="wrap" style={{backgroundColor:"#fcfcfc",height:"50vh"}} >
-                        <div  >
+                <div className="wrap" style={{backgroundColor:"#fcfcfc", justifyContent:"center",marginBottom:"100px"}} >
+                        <div style={{width:'200px', height:"400px", backgroundColor:"grey",margin:"0px 20px"}} >
+
+                        </div>
+                        <div>
                             <h1>Get the Pidgin App</h1>
                             <div>
                                 Download From
+                            </div>
+                            <div>
+                                <img src={play_store} width="200px" />
                             </div>
                         </div>
                     </div>

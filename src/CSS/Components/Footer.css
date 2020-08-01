@@ -1,0 +1,10 @@
+.footer-table{
+    table-layout: fixed;
+    width: 100%;
+    text-align: left;
+}
+.footer-heading{
+    font-size: 30px;
+    margin: 20px 0px;
+    font-weight: 700;
+}

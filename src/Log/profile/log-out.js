@@ -30,7 +30,6 @@ export class Logout extends Component {
                     </div>
                 </div>
                 <div className="mobile" >
-
                 </div>
             </div>
         )

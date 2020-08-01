@@ -10,6 +10,9 @@ import DoneIcon from '@material-ui/icons/Done';
 import { FaSearch } from 'react-icons/fa'
 import MyAppBar from '../Components/AppBar'
 import getCollection from '../Database/getCollection'
+import sortDistance from '../Logic/sortDistance'
+import getLocation from '../Logic/getLocation'
+import GpsFixedOutlinedIcon from '@material-ui/icons/GpsFixedOutlined';
 
 var filteredClass = null
 var age = null
@@ -39,11 +42,17 @@ export default class Search extends React.Component {
                     const data = doc.data()
                     classes.push(data)
                 })
-                this.setState({ classes: classes })
 
-                if (this.props.match.params.id !== "0") {
-                    this.setState({ search: this.props.match.params.id })
-                }
+                getLocation().then(result => {
+                    var data = sortDistance(classes, result.lat, result.lon)
+
+                    this.setState({ classes: data })
+
+                    if (this.props.match.params.id !== "0") {
+                        this.setState({ search: this.props.match.params.id })
+                    }
+                })
+
             })
         getCollection("ImagesClassesTopPicks").then(snap => {
             this.setState({ top_picks: snap })
@@ -368,19 +377,19 @@ export default class Search extends React.Component {
                                     this.state.top_picks.map(item => {
                                         return (
                                             <a href={'/class/' + item.id} >
-                                            <div style={{ display: "flex", backgroundColor:"white"}} >
-                                                <div>
-                                                    <img src={item.image} height="100px" alt={item.name} ></img>
-                                                </div>
-                                                <div style={{padding:"10px 5px"}} >
+                                                <div style={{ display: "flex", backgroundColor: "white" }} >
                                                     <div>
-                                                        <b>{item.name}</b>
+                                                        <img src={item.image} height="100px" alt={item.name} ></img>
                                                     </div>
-                                                    <div>
-                                                        {item.type}
+                                                    <div style={{ padding: "10px 5px" }} >
+                                                        <div>
+                                                            <b>{item.name}</b>
+                                                        </div>
+                                                        <div>
+                                                            {item.type}
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
                                             </a>
                                         )
                                     })
