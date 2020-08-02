@@ -1,8 +1,7 @@
 import React from 'react'
 import './categories.css'
-import image from '../Images/footer.jpg'
 import { FaInstagram, FaWhatsapp, FaFacebook } from 'react-icons/fa';
-import { Button, Divider } from '@material-ui/core';
+import {  Divider } from '@material-ui/core';
 import '../CSS/Components/Footer.css'
 
 var company = [

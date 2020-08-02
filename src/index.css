@@ -26,3 +26,8 @@ code {
     font-family: 'Friendly';
     src: local('Friendly'), url(./Fonts/Friendly-Schoolmates/Friendly-Schoolmates-Regular.otf) format('truetype');
   }
+
+  @font-face {
+    font-family: 'Defualt';
+    src: local('Defualt'), url(./Fonts/Default-Font/Colombia-Rp0DV.ttf) format('truetype');
+  }
