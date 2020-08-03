@@ -8,7 +8,6 @@ import ContactUs from './Pages/contact-us'
 import Courses from './Pages/use-it-correct';
 import Search from './Pages/search';
 import Help from './Pages/Help';
-import FindMyClass from './Pages/Find-My-Class';
 import Login from './Log/login';
 import Payment from './Pages/payment';
 import CartPage from './Pages/cart';
@@ -24,7 +23,6 @@ export default class App extends React.Component {
             <Route exact path='/' component={Home} />
             <Route exact path='/pidgin/about-us' component={AboutUs} />
             <Route exact path='/pidgin/cart' component={CartPage} />
-            <Route exact path='/find-my-class' component={FindMyClass} />
             <Route exact path='/pidgin/help' component={Help} />
             <Route exact path='/pidgin/contact-us' component={ContactUs} />
             <Route exact path='/pidgin/courses' component={Courses} />

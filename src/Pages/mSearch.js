@@ -1,7 +1,5 @@
 import React from 'react'
 import './ClassFilter.css'
-import { a } from 'react-router-dom'
-import {db} from '../firebase'
 import {FaMap} from 'react-icons/fa'
 import TuneRoundedIcon from '@material-ui/icons/TuneRounded';
 import { Divider, Dialog, IconButton, Button } from '@material-ui/core'

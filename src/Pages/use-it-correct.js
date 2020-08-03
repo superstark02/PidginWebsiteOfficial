@@ -1,5 +1,4 @@
 import React from 'react'
-import './app.css'
 import Footer from '../Components/Footer'
 import MappBar from '../Components/mAppBar'
 import { Divider } from '@material-ui/core'

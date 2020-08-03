@@ -1,17 +1,19 @@
 body,html{
   margin: 0;
   font-size: 16px;
-  font-family: "Lato", sans-serif;
+  font-family: Defualt;
   font-weight: 400;
   line-height: 1.8em;
   color: #202020;
 }
+
 .wrap{
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .mobile{
   display: none;
 }
@@ -35,7 +37,8 @@ Link Link:active Link:visited{
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
 								  supported by Chrome, Edge, Opera and Firefox */
-		text-decoration: none;
+    text-decoration: none;
+    color: inherit;
 }
 
 a{text-decoration: none; color: inherit;}

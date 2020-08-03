@@ -1,3 +1,6 @@
+body,div{
+    font-family: Defualt;
+}
 .home-wallpaper{
     background-image: url(../Images/home-wallpaper.jpg);
     height: 80vh;

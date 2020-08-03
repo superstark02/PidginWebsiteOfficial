@@ -1,6 +1,7 @@
 import React from 'react'
 import './categories.css'
 import { FaInstagram, FaWhatsapp, FaFacebook } from 'react-icons/fa';
+import { Link } from 'react-router-dom'
 import {  Divider } from '@material-ui/core';
 import '../CSS/Components/Footer.css'
 
@@ -8,7 +9,7 @@ var company = [
     {
         company: {
             name: "About Us",
-            url: ""
+            url: "/pidgin/about-us"
         },
         learners: {
             name: "Code Of Conduct",
@@ -44,7 +45,7 @@ var company = [
     {
         company: {
             name: "Contact",
-            url: ""
+            url: "/pidgin/contact-us"
         },
         learners: {
             name: "Mobile App",
@@ -67,9 +68,11 @@ export default class Footer extends React.Component {
             <div style={{ backgroundColor: "#282c35", color: "white" }} >
                 <div className="desktop wrap" style={{ marginTop: "100px" }} >
                     <div style={{ width: "80%" }} >
-                        <div className="footer-heading" >
-                            Pidgin
-                        </div>
+                        <Link to='/' >
+                            <div className="footer-heading" >
+                                Pidgin
+                            </div>
+                        </Link>
                         <table className="footer-table" >
                             <tr style={{ fontSize: "14px", width: "100%" }} >
                                 <td>

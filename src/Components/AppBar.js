@@ -76,6 +76,7 @@ class MyAppBar extends React.Component {
                                         <img src={logo} alt="pidgin" width="70px" height="70px" />
                                     </div>
                                     <div>
+                                        <Link to="/pidgin/login" >
                                         {
                                             this.state.user === null ? (
                                                 <Button className="app-bar-button" onClick={this.handleLogin} style={{textTransform:"none"}} >
@@ -87,15 +88,25 @@ class MyAppBar extends React.Component {
                                                 </Button>
                                             )
                                         }
+                                        </Link>
+                                        <Link to="/" >
                                         <Button className="app-bar-button" style={{textTransform:"none"}} >
                                             Help
                                         </Button>
+                                        </Link>
+
+                                        <Link to="/pidgin/about-us" >
                                         <Button className="app-bar-button" style={{textTransform:"none"}} >
                                             About
                                         </Button>
+                                        </Link>
+                                        
+                                        <Link to="/pidgin/contact-us" >
                                         <Button className="app-bar-button" style={{textTransform:"none"}} >
                                             Contact Us
                                         </Button>
+                                        </Link>
+
                                     </div>
                                 </div>
                             </Toolbar>

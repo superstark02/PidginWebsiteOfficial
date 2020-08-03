@@ -3,8 +3,6 @@ import firebase, { db } from '../firebase'
 import Footer from '../Components/Footer'
 import './log.css'
 import VerticalTabs from './tabs'
-import google from '.././Images/google.png'
-import { Divider } from '@material-ui/core'
 import MappBar from '../Components/mAppBar'
 import HelpPage from './mobile-profile'
 
