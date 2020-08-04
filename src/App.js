@@ -12,6 +12,7 @@ import Login from './Log/login';
 import Payment from './Pages/payment';
 import CartPage from './Pages/cart';
 import CourseDetails from './Components/course-details';
+import FormsForTeachers from './Forms/Forms-For-Teachers';
 
 export default class App extends React.Component {
 
@@ -29,6 +30,7 @@ export default class App extends React.Component {
             <Route exact path='/pidgin/search/:id' component={Search} />
             <Route exact path='/pidgin/login' component={Login} />
             <Route exact path='/pidgin/payment' component={Payment} />
+            <Route exact path='/pidgin/we-support-teachers' component={FormsForTeachers} />
             <Route exact path='/class/class-details/:id/:doc' component={CourseDetails} />
             <Route exact path='/class/:id' component={ClassDisplay} />
           </Switch>

@@ -5,7 +5,6 @@ import '../CSS/Home.css'
 import '../CSS/Pages/About.css'
 import '../CSS/Pages/Contact-Us.css'
 import contact from '../Images/Contact-Us-Page/contact-us.jpg'
-import classroom from '../Images/About-Page/classroom.jpg'
 import MappBar from '../Components/mAppBar'
 import { TextField, Button } from '@material-ui/core'
 
@@ -82,7 +81,7 @@ export default class ContactUs extends Component {
                                         </div>
                                     </div>
                                     <div>
-                                        <img src={contact} className="about-map" />
+                                        <img allt="contact" src={contact} className="about-map" />
                                     </div>
                                 </div>
                                 <div>

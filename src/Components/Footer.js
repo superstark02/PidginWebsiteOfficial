@@ -35,7 +35,7 @@ var company = [
         },
         teachers: {
             name: "Services Provided",
-            url: ""
+            url: "/pidgin/we-support-teachers"
         },
         you: {
             name: "Terms",
