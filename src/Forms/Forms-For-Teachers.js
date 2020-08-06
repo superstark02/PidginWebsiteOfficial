@@ -75,14 +75,6 @@ export default class FormsForTeachers extends Component {
                             </div>
                         </div>
                     </div>
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdMuaBlY5jY2OBQYqXZ6RkpS2MQC3yeKHKOroy2dKAtnE6CJA/viewform?embedded=true" 
-                        width="720" 
-                        height="3895" 
-                        frameborder="0" 
-                        marginheight="0" 
-                        marginwidth="0">
-                        Loading…
-                    </iframe>
                 </div>
                 <Footer />
             </div>
