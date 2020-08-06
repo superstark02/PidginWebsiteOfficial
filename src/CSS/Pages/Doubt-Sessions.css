@@ -8,7 +8,7 @@
     width: 200px;
     height: 280px;
     border-radius: 10px;
-    box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 20px rgba(184,179,180,0.2);
     margin: 40px;
     padding: 0px 20px;
     text-align: center;
@@ -42,6 +42,11 @@
 
 .pidgin-meet-text-field{
     margin: 10px;
+}
+
+.pidgin-meet-content{
+    font-size: 17px;
+    margin-top: 20px;
 }
 
 @media only screen and (max-width:1024px) {

@@ -16,29 +16,29 @@ export class DoubtSessions extends Component {
     state = {
         class: "11th",
         subject: "",
-        subjects_list:[]
+        subjects_list: []
     }
 
     setClass = (classes) => {
-        this.setState({class:classes})
-        
+        this.setState({ class: classes })
+
         switch (classes) {
             case '10th':
-                this.setState({subjects_list:tenth})
+                this.setState({ subjects_list: tenth })
                 console.log(tenth)
                 break;
             case '11th':
-                this.setState({subjects_list:eleventh})
+                this.setState({ subjects_list: eleventh })
                 break;
             case '12th':
-                this.setState({subjects_list:twelveth})
+                this.setState({ subjects_list: twelveth })
                 break;
             default:
                 break;
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.setClass();
     }
 
@@ -67,11 +67,21 @@ export class DoubtSessions extends Component {
                         <h1>
                             Have any problems in understanding?
                         </h1>
-                            Resolve all your problems in concept understandin, questions, and other doubts here for all
+                        <div className="pidgin-meet-content" >
+                            Resolve all your problems in concept understanding, questions, and other doubts here for all
                             subjects. Meet experts in your given subjects and remove all doubts in an hour.
+                            <br/>
+                            <br/>
+                            Teachers with:
+                            <ul>
+                                <li>experience of 5+ years in teaching.</li>
+                                <li>having experience in CBSE and ICSE board examinations.</li>
+                                <li>updated with new teaching methods and syllabus.</li>
+                            </ul>
+                        </div>
 
 
-                        <div className="wrap" style={{flexWrap:"wrap"}} >
+                        <div className="wrap" style={{ flexWrap: "wrap" }} >
                             <div className="pidgin-meet-card-steps" >
                                 <h1>Step 1</h1>
                                 <h2 style={{ color: "#f50057" }} >Book</h2>
@@ -84,7 +94,7 @@ export class DoubtSessions extends Component {
                                 <h1>Step 2</h1>
                                 <h2 style={{ color: "#f50057" }} >Get Link</h2>
                                 <div>
-                                    After booking, you will be provided with a link and time to meet the teacher.
+                                    After booking, get a link for scheduled meeting.
                                 </div>
                             </div>
 
@@ -92,7 +102,7 @@ export class DoubtSessions extends Component {
                                 <h1>Step 3</h1>
                                 <h2 style={{ color: "#f50057" }} >Meet</h2>
                                 <div>
-                                    Meet with teacher through the link provided, on Google meet.
+                                    Meet with teacher and get a summary after your session.
                                 </div>
                             </div>
                         </div>
@@ -124,7 +134,7 @@ export class DoubtSessions extends Component {
                                             helperText="Please select your standard"
                                             color="secondary"
                                             variant="outlined"
-                                            onChange={(e)=>{this.setClass(e.target.value)}}
+                                            onChange={(e) => { this.setClass(e.target.value) }}
                                         >
                                             {classes.map((option) => (
                                                 <MenuItem key={option.value} value={option.value}>
@@ -146,24 +156,24 @@ export class DoubtSessions extends Component {
                                                     variant="outlined"
                                                 >
                                                 </TextField>
-                                            ):(
-                                                <TextField
-                                                    id="standard-select-currency"
-                                                    select
-                                                    label="Select"
-                                                    value={this.state.subject}
-                                                    helperText="Please select your subject"
-                                                    color="secondary"
-                                                    variant="outlined"
-                                                    onChange={(e)=>{this.setState({subject:e.target.value})}}
-                                                >
-                                                    {this.state.subjects_list.map((option) => (
-                                                        <MenuItem key={option.value} value={option.value}>
-                                                            {option.value}
-                                                        </MenuItem>
-                                                    ))}
-                                                </TextField>
-                                            )
+                                            ) : (
+                                                    <TextField
+                                                        id="standard-select-currency"
+                                                        select
+                                                        label="Select"
+                                                        value={this.state.subject}
+                                                        helperText="Please select your subject"
+                                                        color="secondary"
+                                                        variant="outlined"
+                                                        onChange={(e) => { this.setState({ subject: e.target.value }) }}
+                                                    >
+                                                        {this.state.subjects_list.map((option) => (
+                                                            <MenuItem key={option.value} value={option.value}>
+                                                                {option.value}
+                                                            </MenuItem>
+                                                        ))}
+                                                    </TextField>
+                                                )
                                         }
                                     </div>
 
@@ -182,7 +192,7 @@ export class DoubtSessions extends Component {
                                         <Button
                                             variant="contained"
                                             color="secondary"
-                                            style={{margin:'10px'}}
+                                            style={{ margin: '10px' }}
                                         >
                                             SUBMIT
                                         </Button>
@@ -190,6 +200,72 @@ export class DoubtSessions extends Component {
                                 </div>
                             </div>
                         </div>
+
+                        <div className="wrap" >
+                            <div style={{ backgroundColor: "grey", width: "40%", height: "0.5px", margin: "70px 10px" }} ></div>
+                            <h3> OR </h3>
+                            <div style={{ backgroundColor: "grey", width: "40%", height: "0.5px", margin: "70px 10px" }} ></div>
+                        </div>
+
+                        <div>
+                            <h2>
+                                State Your Problems Here
+                            </h2>
+                            <div className="pidgin-meet-content" >
+                                Let us know your question, we will provide the solution with complete explaination within 24 hours.
+                                <ul>
+                                    <li>Solution will be provided in PDF format through Whatsapp.</li>
+                                    <li>Ask Us anytime.</li>
+                                    <li>Get solution within 24 hours.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="wrap" style={{ flexWrap: "wrap" }} >
+                            <div className="pidgin-meet-card" >
+                                <div className="pidgin-meet-card-header" >
+                                    Pidgin MEET
+                                </div>
+                                <h1>Get Solution</h1>
+                                <h2 style={{ color: "#f50057" }} >FREE</h2>
+                                <div>
+                                    Get solution for your question within 24 hr.
+                                </div>
+                            </div>
+
+                            <div className="pidgin-meet-plate" >
+                                <h1>
+                                    Provide Your Question
+                                </h1>
+                                <div className="pidgin-meet-form wrap" style={{ flexWrap: "wrap" }} >
+                                    <div className="pidgin-meet-text-field">
+                                        Upload a question: <input type="file" placeholder="Upload the question" ></input>
+                                    </div>
+
+                                    <div style={{ width: "100%", margin: "0px" }} className="pidgin-meet-text-field">
+                                        <TextField
+                                            id="standard-select-currency"
+                                            color="secondary"
+                                            variant="outlined"
+                                            style={{ width: "100%" }}
+                                            placeholder="Description"
+                                            helperText="Details will be messaged on this number."
+                                        >
+                                        </TextField>
+                                    </div>
+                                    <div classes="wrap" >
+                                        <Button
+                                            variant="contained"
+                                            color="secondary"
+                                            style={{ margin: '10px' }}
+                                        >
+                                            SUBMIT
+                                        </Button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <Footer />
