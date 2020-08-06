@@ -2,6 +2,7 @@
     background-image: url(../../Images/About-Page/about-wallpaper.jpg);
     height: 100vh;
     background-size: cover;
+    background-position: center;
 }
 .about-wallpaper-overlay{
     position: absolute;

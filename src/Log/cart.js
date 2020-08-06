@@ -2,6 +2,7 @@ import React from 'react'
 import step from '../Images/steps.png'
 import '../Components/class.css'
 import firebase,{rdb } from '../firebase'
+import Razorpay from 'razorpay'
 
 class MyCart extends React.Component {
     state = {
@@ -9,6 +10,27 @@ class MyCart extends React.Component {
     }
 
     componentDidMount() {
+        const razorpay = new Razorpay({
+            key_id: 'rzp_test_hTjjOef8p7eYTN',
+            key_secret: 'JWCALceNpTHpdu5utAvbhEb5',
+        })
+        const options = {
+            amount: (500 * 100).toString(),
+            currency:"INR",
+            receipt: "r",
+            payment_capture: 1
+        }
+
+        try {
+            var order_created = []
+            
+            razorpay.orders.create(options, function(err, order) {
+                order_created.push(order)
+              });
+              console.log(order_created)
+        }catch(e){
+            console.log(e)
+        }
         
         firebase.auth().onAuthStateChanged(user=>{
             if(user){
@@ -29,6 +51,11 @@ class MyCart extends React.Component {
                 rdb.ref().child("carts").child(user.uid).child(title).remove();
             }
         })
+    }
+
+    createOrder = () => {
+        var payment = firebase.functions().httpsCallable('payment');
+        payment({amount: 1000, reciept: "This is reciept"})
     }
 
     render() {
