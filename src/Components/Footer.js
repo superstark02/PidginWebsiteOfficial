@@ -27,7 +27,7 @@ var company = [
     {
         company: {
             name: "Careers",
-            url: ""
+            url: "/pidgin/join-us"
         },
         learners: {
             name: "Community",

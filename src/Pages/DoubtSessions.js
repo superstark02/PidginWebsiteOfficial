@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import firebase from '../firebase'
 import MappBar from '../Components/mAppBar'
 import MyAppBar from '../Components/AppBar'
 import '../CSS/Home.css'
@@ -38,6 +39,14 @@ export class DoubtSessions extends Component {
         }
     }
 
+    pay = () => {
+
+        const pay = firebase.functions().httpsCallable('payment');
+        pay({amount:100,receipt:'reciept'}).then(result=>{
+            console.log(result)
+        })
+    }
+
     componentDidMount() {
         this.setClass();
     }
@@ -72,11 +81,11 @@ export class DoubtSessions extends Component {
                             and resolve all your problems ranging from concepts to questions.
                             <br/>
                             <br/>
-                            Teachers with:
+                            Ask your doubts in <b>live individual class</b> with teachers having:
                             <ul>
                                 <li>experience of 5+ years in teaching.</li>
-                                <li>having experience in CBSE and ICSE board examinations.</li>
-                                <li>updated with new teaching methods and syllabus.</li>
+                                <li>experience in CBSE and ICSE board examinations.</li>
+                                <li>updates in new teaching methods and syllabus.</li>
                             </ul>
                         </div>
 
@@ -193,6 +202,7 @@ export class DoubtSessions extends Component {
                                             variant="contained"
                                             color="secondary"
                                             style={{ margin: '10px' }}
+                                            onClick={this.pay}
                                         >
                                             SUBMIT
                                         </Button>

@@ -50,7 +50,7 @@ exports.message = functions.https.onCall((data, context) => {
             })
             .then(message =>{
                 console.log(message.sid)
-                return message;
+                resolve(message)
             }).catch(err=>{
                 reject(err);
             });
