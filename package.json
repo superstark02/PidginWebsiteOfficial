@@ -26,7 +26,8 @@
     "react-spinners-css": "^1.2.2",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "twilio": "^3.48.2"
   },
   "scripts": {
     "start": "react-scripts start",

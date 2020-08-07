@@ -68,8 +68,8 @@ export class DoubtSessions extends Component {
                             Have any problems in understanding?
                         </h1>
                         <div className="pidgin-meet-content" >
-                            Resolve all your problems in concept understanding, questions, and other doubts here for all
-                            subjects. Meet experts in your given subjects and remove all doubts in an hour.
+                            Struggling with doubts? Connect with the best teachers in Delhi NCR 
+                            and resolve all your problems ranging from concepts to questions.
                             <br/>
                             <br/>
                             Teachers with:
