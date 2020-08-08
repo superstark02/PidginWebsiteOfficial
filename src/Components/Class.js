@@ -1,11 +1,12 @@
 import React from 'react'
 import firebase, { db, rdb } from '../firebase'
+import clsx from 'clsx';
 import './class.css'
+import '../CSS/Pages/Class.css'
+import { makeStyles } from '@material-ui/core/styles';
 import MappBar from './mAppBar'
 import Footer from './Footer'
 import Dialog from '@material-ui/core/Dialog';
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
-import ToggleButton from '@material-ui/lab/ToggleButton';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import LanguageIcon from '@material-ui/icons/Language';
 import AccessTimeRoundedIcon from '@material-ui/icons/AccessTimeRounded';
@@ -13,12 +14,74 @@ import PersonOutlineRoundedIcon from '@material-ui/icons/PersonOutlineRounded';
 import PeopleOutlineRoundedIcon from '@material-ui/icons/PeopleOutlineRounded';
 import MyAppBar from '../Components/AppBar'
 
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+
 import MyCart from '../Log/cart'
 import { FaFemale } from 'react-icons/fa'
 import ClassCarousel from './carousel'
 import MobileClass from './mClass'
 
 var tick = null
+
+const useStyles = makeStyles({
+    root: {
+      '&:hover': {
+        backgroundColor: 'transparent',
+      },
+    },
+    icon: {
+      borderRadius: '50%',
+      width: 16,
+      height: 16,
+      boxShadow: 'inset 0 0 0 1px rgba(16,22,26,.2), inset 0 -1px 0 rgba(16,22,26,.1)',
+      backgroundColor: '#f5f8fa',
+      backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,0))',
+      '$root.Mui-focusVisible &': {
+        outline: '2px auto rgba(19,124,189,.6)',
+        outlineOffset: 2,
+      },
+      'input:hover ~ &': {
+        backgroundColor: '#ebf1f5',
+      },
+      'input:disabled ~ &': {
+        boxShadow: 'none',
+        background: 'rgba(206,217,224,.5)',
+      },
+    },
+    checkedIcon: {
+      backgroundColor: '#137cbd',
+      backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))',
+      '&:before': {
+        display: 'block',
+        width: 16,
+        height: 16,
+        backgroundImage: 'radial-gradient(#fff,#fff 28%,transparent 32%)',
+        content: '""',
+      },
+      'input:hover ~ &': {
+        backgroundColor: '#106ba3',
+      },
+    },
+  });
+
+function StyledRadio(props) {
+    const classes = useStyles();
+  
+    return (
+      <Radio
+        className={classes.root}
+        disableRipple
+        color="default"
+        checkedIcon={<span className={clsx(classes.icon, classes.checkedIcon)} />}
+        icon={<span className={classes.icon} />}
+        {...props}
+      />
+    );
+  }
 
 class ClassDisplay extends React.Component {
     state = {
@@ -213,8 +276,8 @@ class ClassDisplay extends React.Component {
             <CheckCircleIcon color="#00d882" />
         </div>
         return (
-            <div style={{ backgroundColor: "white"}} >
-                <MyAppBar/>
+            <div style={{ backgroundColor: "white" }} >
+                <MyAppBar />
                 <ClassCarousel id={this.props.match.params.id} />
                 <div className="desktop" >
                     <div className="wrap" style={{ margin: "10px 0px" }} >
@@ -306,7 +369,7 @@ class ClassDisplay extends React.Component {
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                
+
                                                             </div>
                                                         </div>
 
@@ -382,75 +445,58 @@ class ClassDisplay extends React.Component {
                 </div>
 
                 <Dialog open={this.state.cart_dialog} onClose={this.handleClose} >
-                    <div className="dialog" >
+                    <div className="cart-dialog" >
+                        <div className="cart-title" >
+                            {
+                                this.state.cart_item !== null ? (
+                                    this.state.cart_item.title
+                                ) : (
+                                        ""
+                                    )
+                            }
+                        </div>
+                        <div style={{ width: "100%", backgroundColor: "grey", height: "0.5px", margin: "10px 0px" }} ></div>
+
                         <div>
-                            <p className="cart-heading" >Select the mode:</p>
-                            <ToggleButtonGroup
-                                style={{ display: "flex", justifyContent: "space-evenly", margin: "10px 0px" }}
-                                exclusive
-                                value={this.state.item_mode}
-                                onChange={this.handleMode}
-                            >
-                                <ToggleButton style={{ padding: "0px" }} value="Online" >
-                                    <div className="toggle-button online">
-                                        <div className="button-overlay wrap" >
-                                            Online <br />Classes
-                                        </div>
-                                        {this.state.item_mode === "Online" ? (
-                                            tick
-                                        ) : (<div></div>)}
-                                    </div>
-                                </ToggleButton>
-
-                                <ToggleButton style={{ padding: "0px" }} value="Offline" >
-                                    <div className="toggle-button offline" >
-                                        <div className="button-overlay wrap" >
-                                            Offline <br />Classes
-                                        </div>
-                                        {this.state.item_mode === "Offline" ? (
-                                            tick
-                                        ) : (<div></div>)}
-                                    </div>
-                                </ToggleButton>
-                            </ToggleButtonGroup>
+                            <FormControl component="fieldset">
+                                Mode
+                                <div style={{color:"grey"}} >
+                                    You want classes online or offline ?
+                                </div>
+                                <RadioGroup aria-label="gender" name="gender1">
+                                    <FormControlLabel value="female" control={<Radio />} label={<div style={{fontSize:"13px"}} >Online</div>} />
+                                    <FormControlLabel value="male" control={<Radio />} label={<div style={{fontSize:"13px"}} >Ofline</div>} />
+                                </RadioGroup>
+                            </FormControl>
                         </div>
+
                         <div>
-                            <p className="cart-heading" >Want to learn with group or solo:</p>
-                            <ToggleButtonGroup
-                                exclusive
-                                value={this.state.item_type}
-                                onChange={this.handleType}
-                                style={{ display: "flex", justifyContent: "space-evenly", margin: "10px 0px" }} >
-                                <ToggleButton style={{ padding: "0px" }} value="Group" >
-                                    <div className="toggle-button group">
-                                        <div className="button-overlay wrap" >
-                                            Group <br />Classes
-                                        </div>
-                                        {this.state.item_type === "Group" ? (
-                                            tick
-                                        ) : (<div></div>)}
-                                    </div>
-                                </ToggleButton>
-
-                                <ToggleButton style={{ padding: "0px" }} value="Individual" >
-                                    <div className="toggle-button individual" >
-                                        <div className="button-overlay wrap" >
-                                            Individual <br />Classes
-                                        </div>
-                                        {this.state.item_type === "Individual" ? (
-                                            tick
-                                        ) : (<div></div>)}
-                                    </div>
-                                </ToggleButton>
-
-                            </ToggleButtonGroup>
+                            <FormControl component="fieldset">
+                                Type
+                                <div style={{color:"grey"}} >
+                                    You want to study alone or with group ?
+                                </div>
+                                <RadioGroup aria-label="gender" name="gender1">
+                                    <FormControlLabel value="female" control={<Radio />} label={<div style={{fontSize:"13px"}} >Individual</div>} />
+                                    <FormControlLabel value="male" control={<Radio />} label={<div style={{fontSize:"13px"}} >Group</div>} />
+                                </RadioGroup>
+                            </FormControl>
                         </div>
 
-                        <div style={{ width: "100%", height: "150px", textAlign: "center" }} >
-                            Chose Dates
+                        <div>
+                            <FormControl component="fieldset">
+                                Timings
+                                <div style={{color:"grey"}} >
+                                    What time are you comfortable with?
+                                </div>
+                                <RadioGroup aria-label="gender" name="gender1">
+                                    <FormControlLabel value="female" control={<Radio />} label={<div style={{fontSize:"13px"}} >Online</div>} />
+                                    <FormControlLabel value="male" control={<Radio />} label={<div style={{fontSize:"13px"}} >Ofline</div>} />
+                                </RadioGroup>
+                            </FormControl>
                         </div>
 
-                        <div className="class-button" onClick={() => this.addToCart(this.state.cart_item)} style={{ textAlign: "center", padding: "20px", borderTop: "1px solid #00d882" }} >
+                        <div className="cart-button" onClick={() => this.addToCart(this.state.cart_item)}>
                             ADD TO CART
                         </div>
                     </div>

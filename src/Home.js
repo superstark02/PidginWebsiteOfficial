@@ -19,7 +19,7 @@ const top_cards = [
     {
         name: "Classes Near You",
         img: near,
-        url: "near-you"
+        url: "0"
     },
     {
         name: "Online Classes",

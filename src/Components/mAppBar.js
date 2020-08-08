@@ -16,12 +16,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
-import ContactPhoneOutlinedIcon from '@material-ui/icons/ContactPhoneOutlined';
 import store from '../Images/store.png'
-import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-import ViewCarouselOutlinedIcon from '@material-ui/icons/ViewCarouselOutlined';
-import ContactSupportOutlinedIcon from '@material-ui/icons/ContactSupportOutlined';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import firebase from '../firebase'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';

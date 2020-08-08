@@ -12,7 +12,6 @@ import MyAppBar from '../Components/AppBar'
 import getCollection from '../Database/getCollection'
 import sortDistance from '../Logic/sortDistance'
 import getLocation from '../Logic/getLocation'
-import GpsFixedOutlinedIcon from '@material-ui/icons/GpsFixedOutlined';
 
 var filteredClass = null
 var age = null
@@ -23,8 +22,8 @@ export default class Search extends React.Component {
     state = {
         type: null,
         classes: null,
-        minPrice: null,
-        minAge: null,
+        minPrice: 10000000,
+        minAge: 100,
         features: null,
         search: null,
         top_picks: null
@@ -84,7 +83,7 @@ export default class Search extends React.Component {
             filteredClass = this.state.classes.filter(
                 item =>
                     item.type.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
-                    item.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+                    item.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 
             )
         }
 
@@ -122,6 +121,22 @@ export default class Search extends React.Component {
                 style={{ marginTop: '-5px', marginBottom: '5px' }}
                 onDelete={() => { this.setState({ type: null }) }}
             />
+        }
+
+        if(this.state.minAge<100 || this.state.minPrice<10000000 || this.state.type!==null ){
+            filteredClass = this.state.classes.filter(
+                item =>
+                    parseInt(item.age) > this.state.minAge ||
+                    parseInt(item.fees) > this.state.minPrice
+            )
+        }
+
+        if (this.state.type !== null) {
+            filteredClass = this.state.classes.filter(
+                item =>
+                    item.type.toLowerCase().indexOf(this.state.type.toLowerCase()) !== -1 ||
+                    item.name.toLowerCase().indexOf(this.state.type.toLowerCase()) !== -1 
+            )
         }
 
         return (
@@ -202,13 +217,13 @@ export default class Search extends React.Component {
                                     Hobby
                             </div>
                                 <Divider />
-                                <div className='filter-list-item' onClick={() => { this.setState({ type: "music" }) }} >
+                                <div className='filter-list-item' onClick={() => { this.setState({ type:"music" }) }} >
                                     Music
                             </div>
-                                <div className='filter-list-item' onClick={() => { this.setState({ type: "cooking" }) }} >
+                                <div className='filter-list-item' onClick={() => { this.setState({ type:"cooking"}) }} >
                                     Cooking
                             </div>
-                                <div className='filter-list-item' onClick={() => { this.setState({ type: "dance" }) }} >
+                                <div className='filter-list-item' onClick={() => { this.setState({ type:"dance" }) }} >
                                     Dance
                             </div>
 
@@ -216,16 +231,16 @@ export default class Search extends React.Component {
                                     Science
                             </div>
                                 <Divider />
-                                <div className='filter-list-item' onClick={() => { this.setState({ type: "science" }) }} >
+                                <div className='filter-list-item' onClick={() => { this.setState({ type:"science"}) }} >
                                     Science
                             </div>
-                                <div className='filter-list-item' onClick={() => { this.setState({ type: "maths" }) }} >
+                                <div className='filter-list-item' onClick={() => { this.setState({ type:"maths" }) }} >
                                     Maths
                             </div>
-                                <div className='filter-list-item' onClick={() => { this.setState({ type: "physics" }) }} >
+                                <div className='filter-list-item' onClick={() => { this.setState({ type:"physics"}) }} >
                                     Physics
                             </div>
-                                <div className='filter-list-item' onClick={() => { this.setState({ type: "chemistry" }) }} >
+                                <div className='filter-list-item' onClick={() => { this.setState({ type:"chemistry"}) }} >
                                     Chemistry
                             </div>
 
@@ -233,10 +248,10 @@ export default class Search extends React.Component {
                                     Courses
                             </div>
                                 <Divider />
-                                <div className='filter-list-item' onClick={() => { this.setState({ type: "painting" }) }} >
+                                <div className='filter-list-item' onClick={() => { this.setState({ type:"painting"}) }} >
                                     Painting
                             </div>
-                                <div className='filter-list-item' onClick={() => { this.setState({ type: "sketching" }) }} >
+                                <div className='filter-list-item' onClick={() => { this.setState({ type:"sketching" }) }} >
                                     Sketching
                             </div>
 
@@ -244,7 +259,7 @@ export default class Search extends React.Component {
                                     Language
                             </div>
                                 <Divider />
-                                <div className='filter-list-item' onClick={() => { this.setState({ type: "japenese" }) }} >
+                                <div className='filter-list-item' onClick={() => { this.setState({ type:"japenese" }) }} >
                                     Japenese
                             </div>
 

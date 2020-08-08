@@ -73,7 +73,7 @@ class MyAppBar extends React.Component {
                             <Toolbar>
                                 <div className="wrap" style={{justifyContent:"space-between", padding:"5px 50px"}} >
                                     <div>
-                                        <img src={logo} alt="pidgin" width="70px" height="70px" />
+                                        <Link to='/' ><img src={logo} alt="pidgin" width="70px" height="70px" /></Link>
                                     </div>
                                     <div>
                                         <Link to="/pidgin/login" >
