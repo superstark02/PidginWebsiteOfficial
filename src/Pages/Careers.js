@@ -21,7 +21,7 @@ const team_data = [
     {
         img: marketing,
         title: "Brand & Marketing",
-        description: "We contain the existence of the company among people. We make sure that users are aware about all the offers and services."
+        description: "We have the best people to keep you informed about all our latest offerings and products"
     },
     {
         img: design,

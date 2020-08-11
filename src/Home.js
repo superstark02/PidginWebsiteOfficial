@@ -14,6 +14,8 @@ import getUser from './Database/getUser'
 import firebase, { db } from './firebase'
 import play_store from './Images/store.png'
 import phone from './Images/Phone.png'
+import blogs from './Images/Home/blog-home.jpg'
+import webinar from './Images/Home/home-webinars.jpg'
 
 const top_cards = [
     {
@@ -103,10 +105,10 @@ class Home extends React.Component {
                             <div >
                                 <div style={{ fontSize: "80px", fontFamily: "Friendly", marginBottom: "40px" }} >
                                     Pidgin
-                            </div>
+                                </div>
                                 <div className="delivering-education">
                                     Delivering Education
-                            </div>
+                                </div>
                                 <div className="wrap" >
                                     <input
                                         className="home-search-input"
@@ -125,13 +127,13 @@ class Home extends React.Component {
 
                     <div className="wrap" style={{ margin: "40px 0px" }} >
                         <div className="home-width-container">
-                            <div className="wrap" style={{ justifyContent: "space-around", flexWrap:"wrap" }} >
+                            <div className="wrap" style={{ justifyContent: "space-around", flexWrap: "wrap" }} >
                                 {
                                     top_cards.map(item => {
                                         return (
                                             <Link to={"pidgin/search/" + item.url} >
                                                 <div className="home-top-card" >
-                                                    <div className="home-top-card-image" style={{backgroundImage: "url(" + item.img + ")"}}>
+                                                    <div className="home-top-card-image" style={{ backgroundImage: "url(" + item.img + ")" }}>
                                                     </div>
                                                     <div style={{ textAlign: "center", fontSize: "13px", marginTop: "5px" }} >
                                                         {item.name}
@@ -146,10 +148,10 @@ class Home extends React.Component {
                             <div style={{ marginTop: "100px", marginBottom: "50px" }} >
                                 <div style={{ fontSize: "40px", marginBottom: "10px" }} >
                                     Categories
-                            </div>
+                                </div>
                                 <div>
                                     Explore amazing courses with visionary teachers around you
-                            </div>
+                                </div>
                                 <div className="wrap wrap-responsive" style={{ justifyContent: "left", minHeight: "200px" }} >
                                     {
                                         this.state.categories &&
@@ -169,7 +171,7 @@ class Home extends React.Component {
                                                             {item.type}
                                                             <div style={{ fontSize: "13px", color: "white", marginTop: "-5px" }} >
                                                                 See All
-                                                    </div>
+                                                </div>
                                                         </div>
                                                     </div>
                                                 </Link>
@@ -178,9 +180,33 @@ class Home extends React.Component {
                                     }
                                 </div>
                             </div>
+                            
+                            <div className="wrap" style={{flexWrap:"wrap",margin:"80px 0px"}} >
+                                <div className="home-blogs-workshops" >
+                                    <div style={{ fontSize: "40px", marginBottom: "10px" }} >
+                                        Blogs
+                                    </div>
+                                    <Link to="/pidgin/blogs" >
+                                        <div>
+                                            <img src={blogs} className="home-blogs-workshops-image" alt="blogs" />
+                                        </div>
+                                    </Link>
+                                </div>
+
+                                <div className="home-blogs-workshops" >
+                                    <div style={{ fontSize: "40px", marginBottom: "10px" }} >
+                                        Workshops
+                                    </div>
+                                    <div>
+                                        <img src={webinar} className="home-blogs-workshops-image" alt="workshops" />
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                    <div className="wrap" style={{ backgroundColor: "#fcfcfc", justifyContent: "center", marginBottom: "100px", flexWrap:"wrap" }} >
+
+                    <div className="wrap" style={{ backgroundColor: "#fcfcfc", justifyContent: "center", marginBottom: "100px", flexWrap: "wrap" }} >
                         <div style={{ margin: "0px 20px" }} >
                             <img style={{ boxShadow: "0px 0px 20px rgba(0,0,0,0.5)", borderRadius: "25px" }} height="300px" src={phone} aly="app" />
                         </div>
