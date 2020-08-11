@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import MyAppBar from '../Components/AppBar'
 import '../CSS/Home.css'
-import { blog } from '../Constants/Blogs/How-To-Attempt-JEE'
+import { blog } from '../Constants/Blogs/Blogs'
 import Footer from '../Components/Footer'
 import MappBar from '../Components/mAppBar'
 
