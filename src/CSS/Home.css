@@ -52,15 +52,15 @@ body,div{
     width:50%;
 }
 
-.home-blogs-workshops-image{
+.home-blogs-workshops-image, .home-blogs-workshops-heading-image{
     width: 80%;
     border-radius: 10px;
     margin: 10px 0px;
     cursor: pointer;
 }
 
-.home-blogs-workshops-image:hover{
-    filter: none;
+.home-blogs-workshops-heading-image{
+    width: 50%;
 }
 
 @media only screen and (max-width:1024px) {
@@ -85,6 +85,9 @@ body,div{
         overflow-x: scroll;
     }
     .home-blogs-workshops{
+        width: 100%;
+    }
+    .home-blogs-workshops-heading-image{
         width: 100%;
     }
 }

@@ -1,25 +1,41 @@
 import React, { Component } from 'react'
 import MyAppBar from '../Components/AppBar'
 import '../CSS/Home.css'
-import { how_to_attempt_jee } from '../Constants/Blogs/How-To-Attempt-JEE'
+import { blog } from '../Constants/Blogs/How-To-Attempt-JEE'
 import Footer from '../Components/Footer'
+import MappBar from '../Components/mAppBar'
 
 export class Blog extends Component {
+    state = {
+        index:0
+    }
+    componentDidMount(){
+        this.setState({index:parseInt(this.props.match.params.index)})
+    }
     render() {
         return (
             <div>
                 <MyAppBar />
+                <div className="mobile" >
+                    <MappBar/>
+                </div>
                 <div className="wrap" >
-                    <div className="home-width-container">
-                        <div className="wrap">
-                            <img alt="blog-image" src={how_to_attempt_jee.image} width="50%" />
-                            <div style={{width:"50%"}} >
+                    <div className="home-width-container" style={{margin:"40px 0px"}} >
+                        <div className="wrap" style={{flexWrap:"wrap"}} >
+                            <div className="home-blogs-workshops" >
                                 <h1>
-                                    {how_to_attempt_jee.title}
+                                    {blog[this.state.index].title}
                                 </h1>
+                                <div>
+                                    {blog[this.state.index].author}
+                                </div>
+                                <div>
+                                    {blog[this.state.index].time}
+                                </div>
                             </div>
+                            <img alt="blog-image" className="home-blogs-workshops-heading-image" src={blog[this.state.index].image}/>
                         </div>
-                        {how_to_attempt_jee.content}
+                        {blog[this.state.index].content}
                     </div>
                 </div>
                 <Footer/>
