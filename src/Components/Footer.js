@@ -180,9 +180,9 @@ export default class Footer extends React.Component {
                         Social Media
                         </div>
                     <div style={{ width: '80%', margin: "30px 0px" }} >
-                        <FaWhatsapp color="#FFFFF" size="30px" />
-                        <FaFacebook color="#FFFFF" size="30px" style={{ margin: "0px 5px" }} />
-                        <FaInstagram color="#FFFFF" size="30px" style={{ margin: "0px 5px" }} />
+                        <a href="https://wa.me/+919910197196" ><FaWhatsapp color="#FFFFF" size="30px" /></a>
+                        <a href="https://www.facebook.com/Pidgin-104215741310224/" ><FaFacebook color="#FFFFF" size="30px" style={{ margin: "0px 5px" }} /></a>
+                        <a href="https://www.instagram.com/pidgin2020/" ><FaInstagram color="#FFFFF" size="30px" style={{ margin: "0px 5px" }} /></a>
                     </div>
                     <Divider></Divider>
                     <div style={{ fontSize: "10px", color: "grey", fontWeight: "100", margin: "0px 5px" }} >

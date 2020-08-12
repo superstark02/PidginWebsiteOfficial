@@ -61,6 +61,11 @@ class Home extends React.Component {
         getUser().then(user => {
             this.setState({ user: user })
         })
+
+        var fun = firebase.functions().httpsCallable('payment');
+        fun({amount:200, reciept:"Receipt"}).then(function(result){
+            console.log('output:',result)
+        })
     }
 
     handleLogin = () => {

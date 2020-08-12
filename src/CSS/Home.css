@@ -6,6 +6,7 @@ body,div{
     height: 80vh;
     background-size: cover;
 }
+
 .home-overlay{
     height: 80vh;
     background-color: rgba(0, 0, 0, 0.4);

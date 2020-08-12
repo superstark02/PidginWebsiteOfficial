@@ -142,6 +142,14 @@ function MappBar(props) {
                     </ListItem>
                     <ListItem button >
                         
+                        <a href="/pidgin/blogs" ><ListItemText primary='Blogs' style={{color:'grey'}}  /></a>
+                    </ListItem>
+                    <ListItem button >
+                        
+                        <a href="/pidgin/webinars" ><ListItemText primary='Webinars' style={{color:'grey'}}  /></a>
+                    </ListItem>
+                    <ListItem button >
+                        
                         <a href="/pidgin/help" ><ListItemText primary='Help' style={{color:'grey'}}  /></a>
                     </ListItem>
                     <Divider/>

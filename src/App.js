@@ -16,6 +16,7 @@ import FormsForTeachers from './Forms/Forms-For-Teachers';
 import DoubtSessions from './Pages/DoubtSessions';
 import Careers from './Pages/Careers';
 import Blog from './Pages/Blog'
+import BlogLandingPage from './Pages/Blog-Landing-Page';
 
 export default class App extends React.Component {
 
@@ -36,6 +37,7 @@ export default class App extends React.Component {
             <Route exact path='/pidgin/we-support-teachers' component={FormsForTeachers} />
             <Route exact path='/pidgin/i-need-to-learn' component={DoubtSessions} />
             <Route exact path='/pidgin/join-us' component={Careers} />
+            <Route exact path='/pidgin/blogs/' component={BlogLandingPage} />
             <Route exact path='/pidgin/blogs/:index' component={Blog} />
             <Route exact path='/class/class-details/:id/:doc' component={CourseDetails} />
             <Route exact path='/class/:id' component={ClassDisplay} />
