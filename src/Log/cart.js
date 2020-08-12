@@ -6,7 +6,8 @@ import Razorpay from 'razorpay'
 
 class MyCart extends React.Component {
     state = {
-        cart: []
+        cart: [],
+        total_amount:0,
     }
 
     componentDidMount() {
@@ -40,6 +41,14 @@ class MyCart extends React.Component {
                         item.push(doc.val())
                     })
                     this.setState({cart:item})
+
+                    //getting total amount
+                    var total = 0;
+                    for(var i = 0; i < item.length ; i++){
+                        total = total + item[i].price;
+                    }
+                    this.setState({total_amount:total})
+                    //
                 })
             }
         })
@@ -105,7 +114,7 @@ class MyCart extends React.Component {
                                 <b>Total</b>
                             </div>
                             <div>
-                                {}
+                                &#8377;{this.state.total_amount}
                             </div>
                         </div>
                         <div className="class-checkout-button" onClick={() => { console.log(this.state.cart) }} >

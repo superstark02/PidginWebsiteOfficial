@@ -104,13 +104,15 @@ class ClassDisplay extends React.Component {
         group: null,
         women: null,
 
-        item_mode: "Offline",
-        item_type: "Group",
-
         cart: [],
         cart_item: null,
 
         user: true,
+        total_amount:0,
+
+        mode:"",
+        type:"",
+        time:"",
     }
 
     componentDidMount() {
@@ -210,24 +212,6 @@ class ClassDisplay extends React.Component {
         this.setState({ cart_item: item })
     }
 
-    handleMode = () => {
-        if (this.state.item_mode === "Online") {
-            this.setState({ item_mode: "Offline" })
-        }
-        else {
-            this.setState({ item_mode: "Online" })
-        }
-    }
-
-    handleType = () => {
-        if (this.state.item_type === "Group") {
-            this.setState({ item_type: "Individual" })
-        }
-        else {
-            this.setState({ item_type: "Group" })
-        }
-    }
-
     addToCart = (item) => {
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
@@ -235,8 +219,9 @@ class ClassDisplay extends React.Component {
                     title: item.title,
                     image: item.image,
                     price: parseInt(item.price, 10),
-                    mode: "Offline",
+                    mode: this.state.online,
                 })
+                this.setState({total_amount:this.state.total_amount+parseInt(item.price, 10)})
             }
             else {
                 var provider = new firebase.auth.GoogleAuthProvider();
@@ -420,7 +405,7 @@ class ClassDisplay extends React.Component {
                             </div>
 
                             <div style={{ width: '400px', alignItems: "start" }} className="wrap" >
-                                <MyCart />
+                                <MyCart total_amount={this.state.total_amount} />
                             </div>
 
                         </div>
