@@ -219,7 +219,8 @@ class ClassDisplay extends React.Component {
                     title: item.title,
                     image: item.image,
                     price: parseInt(item.price, 10),
-                    mode: this.state.online,
+                    mode: this.state.mode,
+                    type: this.state.type,
                 })
                 this.setState({total_amount:this.state.total_amount+parseInt(item.price, 10)})
             }
@@ -448,9 +449,9 @@ class ClassDisplay extends React.Component {
                                 <div style={{color:"grey"}} >
                                     You want classes online or offline ?
                                 </div>
-                                <RadioGroup aria-label="gender" name="gender1">
-                                    <FormControlLabel value="female" control={<Radio />} label={<div style={{fontSize:"13px"}} >Online</div>} />
-                                    <FormControlLabel value="male" control={<Radio />} label={<div style={{fontSize:"13px"}} >Ofline</div>} />
+                                <RadioGroup aria-label="gender" name="gender1" value={this.state.mode} onChange={(e)=>{this.setState({mode:e.target.value})}} >
+                                    <FormControlLabel value="Online" control={<Radio />} label={<div style={{fontSize:"13px"}} >Online</div>} />
+                                    <FormControlLabel value="Ofline" control={<Radio />} label={<div style={{fontSize:"13px"}} >Ofline</div>} />
                                 </RadioGroup>
                             </FormControl>
                         </div>
@@ -461,9 +462,9 @@ class ClassDisplay extends React.Component {
                                 <div style={{color:"grey"}} >
                                     You want to study alone or with group ?
                                 </div>
-                                <RadioGroup aria-label="gender" name="gender1">
-                                    <FormControlLabel value="female" control={<Radio />} label={<div style={{fontSize:"13px"}} >Individual</div>} />
-                                    <FormControlLabel value="male" control={<Radio />} label={<div style={{fontSize:"13px"}} >Group</div>} />
+                                <RadioGroup aria-label="gender" name="gender1" value={this.state.type} onChange={(e)=>{this.setState({type:e.target.value})}} >
+                                    <FormControlLabel value="Individual" control={<Radio />} label={<div style={{fontSize:"13px"}} >Individual</div>} />
+                                    <FormControlLabel value="Group" control={<Radio />} label={<div style={{fontSize:"13px"}} >Group</div>} />
                                 </RadioGroup>
                             </FormControl>
                         </div>

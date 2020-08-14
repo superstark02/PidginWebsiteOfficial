@@ -100,6 +100,12 @@ class MyCart extends React.Component {
                                         <div className="class-button" style={{ width: "fit-content", color: "#f05f7f" }} onClick={()=>{this.deleteItem(item.title)}} >
                                             - DELETE
                                         </div>
+                                        <div style={{fontSize:"12px",margin:"10px 0px"}} >
+                                            <b>Mode:</b> {item.mode}
+                                        </div>
+                                        <div style={{fontSize:"12px"}}>
+                                            <b>Type:</b> {item.type}
+                                        </div>
                                     </div>
                                     <div>
                                         &#8377;{item.price}

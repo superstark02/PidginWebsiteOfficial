@@ -3,6 +3,7 @@ import image0 from '../../Images/Blogs/how-to-attempt-jee/how-to-attempt-jee.jpg
 import image1 from '../../Images/Blogs/jee-faqs/jee-faqs.jpg'
 import image2 from '../../Images/Blogs/motivation/blog-motivation.jpg'
 import image3 from '../../Images/Blogs/revision/blogs-revision.jpg'
+import image4 from '../../Images/Blogs/donot-sleep/image4.png'
 
 export const blog = [
     {
@@ -124,6 +125,41 @@ export const blog = [
             <p>Make sure to take enough scheduled breaks and maintain a regular sleep cycle. It is obviously not possible to study for the whole day or night. Since most of the hard work is done by your brain, therefore, you should give it sufficient time to recuperate. Sometimes you will notice that revisiting difficult questions after a break becomes less strenuous. Sufficient rest also keeps you motivated and will make your stay positive during your preparations.7</p>
             <p>You can follow these revision tips the next time you sit down to study. These will help you prepare well and be ready for the exams.</p>
             <p>Stay tuned with BYJU&rsquo;S for more information on JEE syllabus and best books for JEE Mains and Advanced.</p>
+        </div>
+    },
+    {
+        id: 4,
+        title: "How to avoid sleep while studying? Follow these top 10 tips to stay awake and study more",
+        image: image4,
+        author: 'By GURMEET KAUR, Jagran JOSH',
+        time: 'FEB 10, 2020 16:53 IST',
+        content: <div>
+            <p>Here you will know 10 most effective tips to avoid sleep while studying for long hours. You will know how small changes in your study pattern can help you throw away the drowsiness and study properly for long hours.</p>
+            <p>Sleep becomes the biggest hurdle when you have to study for long hours at night to prepare for any important test or exam. It seems like pulling you back from reaching your goal. When you study with a fresh mind in the morning, it becomes really easy to grab the things but at certain periods like in the afternoon and at late night, sleep becomes inevitable as you try to stretch your study hours. Actually, it happens when you are restless. At such times, you are left with two options; first is keeping the books aside and lie down to take rest and second is fighting against the drowsiness to keep yourself awake. But sleeping while studying is too easy, the real deal is to ditch sleep and stay awake.</p>
+            <p>&nbsp;</p>
+            <p><strong>Here, in this article you will get some useful and lucrative tips that you can follow to avoid sleep while studying for long hours.</strong></p>
+            <p><strong>1. Keep your study room well lighted</strong></p>
+            <p>The biggest mistake most of the students make is studying with just a table lamp lit in the whole room due to which a significant portion of the room remains dark, promoting a cosy environment which would eventually make you more tempted to go to that charming bed with dim surroundings. So, to avoid such comfy situation, keep your room bright and well lighted.</p>
+            <p><strong>2. Sit in a chair, not on bed</strong></p>
+            <p>Your sitting position also matters a lot while studying for long hours. Try to seat yourself in a chair with back support and a table in front. It will help you stay active and alert while studying. On the other hand, if you lie on your bed while studying you may get into lazy mode, eventually making you feel sleepy. While sitting on the chair, keep moving your body parts at regular intervals so that you don&rsquo;t go in dormancy.</p>
+            <p><strong><a title="10 Interesting things a student should do when bored" href="http://www.jagranjosh.com/articles/10interestingthingsastudentshoulddowhenbored-1476965816-1">10 Interesting things a student should do when bored</a></strong></p>
+            <p><strong>3. Avoid heavy meals</strong></p>
+            <p>We&rsquo;ve all felt that drowsy feeling that sneaks in after a meal and if you have to study with such snoozing mood than no one can help it. Actually, after having a heavy meal, you are full and relaxed and you are struggling to keep your eyes open.&nbsp;Lethargy that comes after consuming a heavy diet diminishes the retention power. Also, when you feel lazy, you are more likely to hit the bed. But don&rsquo;t think that you will have to go on a starvation to avoid this sluggishness. Instead, you should take your meals early and opt for small meals.</p>
+            <p><strong>4. Drink lots of water</strong></p>
+            <p>Here, water is being recommended not only to keep you hydrated but also to keep you alert. Actually, it&rsquo;s the best trick that most of the students apply while studying. When you drink a considerable quantity of water, you will have to make frequent trips to bathroom for pee, keeping you moving and alert. Moreover, drinking an adequate quantity of water helps to keep the brain well hydrated, increasing its memory and retention power.</p>
+            <p><strong>5. Follow &lsquo;Early to bed, early to rise&rsquo; funda</strong></p>
+            <p>This comes from a famous saying, &ldquo;Early to bed, early to rise makes a man healthy, wealthy and wise&rdquo;. This is absolutely true because if you manage to go to sleep early in night then you will get adequate sleep, waking up to a fresh and energetic day. With a fresh mind you can concentrate on your studies quite well. A fresh mind has a better concentration power to retain an information.</p>
+            <p><strong>6. Take a nap in the afternoon</strong></p>
+            <p>If you have been continuously studying since morning, then an afternoon nap is a must to save your brain from getting exhausted. It would also help you avoid sleep during studying at late night. A short nap is enough to keep you alert keeping the drowsiness away.</p>
+            <p><strong>7. Keep your body parts alert and awake</strong></p>
+            <p>If you keep on studying with the same stagnant position for long hours, then you are more likely to get surrounded by laziness and drowsiness. So, the moment you start feeling sleepy, get up from your chair and move around in your room and stretch your legs and arms. You may study while walking around your room. It has been observed that study while walking, not only helps in avoiding the sleep, but also enhances concentration.</p>
+            <p><strong>8. Read out aloud while studying</strong></p>
+            <p>This trick works really well to keep away the lethargy. It minimizes the chances of falling asleep while studying. It has something to do with listening to your own voice. Try to teach yourself like the teacher explains a topic in the classroom. This will not only help to throw away the drowsiness, but also to improve your learning power.</p>
+            <p><strong>9. Learn by writing</strong></p>
+            <p>If you will keep on reading the text to be learned then it will create a monotonous situation due to which you are more likely to start feeling bored which will ultimately give invitation to sleepiness. To keep the lethargy away, you are advised not to merely be a spectator, but learn by writing so that your brain remains active doing the pen and paper work and recalling the things you have learned.</p>
+            <p><strong>10. Avoid studying difficult topics at night</strong></p>
+            <p>During the night you feel more sluggish if you are solving complex problems or trying to learn the difficult topics. Try to tackle only the light and easy portions of syllabus during night. Leave the tough portions for day time when your body and brain are fresh and active. For the late night study, pick only those topics which are easy, interesting and are your favourite ones.</p>
+            <p>So, dear students, if you want to earn those extra grades by sacrificing your sleep, then the above stated tricks will surely help you&nbsp; to meet your desired academic goals.</p>
         </div>
     }
 ]
