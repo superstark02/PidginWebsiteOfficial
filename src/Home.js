@@ -202,9 +202,11 @@ class Home extends React.Component {
                                     <div style={{ fontSize: "40px", marginBottom: "10px" }} >
                                         Workshops
                                     </div>
-                                    <div>
-                                        <img src={webinar} className="home-blogs-workshops-image" alt="workshops" />
-                                    </div>
+                                    <a href='/pidgin/workshops' >
+                                        <div>
+                                            <img src={webinar} className="home-blogs-workshops-image" alt="workshops" />
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
 

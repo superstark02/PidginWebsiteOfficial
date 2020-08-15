@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import MyAppBar from '../Components/AppBar'
-import Footer from '../Components/Footer'
-import '../CSS/Home.css'
-import '../CSS/Pages/Blog.css'
-import '../CSS/Pages/Careers.css'
-import MappBar from '../Components/mAppBar'
-import {blog} from '../Constants/Blogs/Blogs'
+import MyAppBar from '../../Components/AppBar'
+import Footer from '../../Components/Footer'
+import '../../CSS/Home.css'
+import '../../CSS/Pages/Blog.css'
+import '../../CSS/Pages/Careers.css'
+import MappBar from '../../Components/mAppBar'
+import {blog} from './Blogs'
 
 export default class BlogLandingPage extends Component {
     render() {
