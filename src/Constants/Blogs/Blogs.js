@@ -4,6 +4,7 @@ import image1 from '../../Images/Blogs/jee-faqs/jee-faqs.jpg'
 import image2 from '../../Images/Blogs/motivation/blog-motivation.jpg'
 import image3 from '../../Images/Blogs/revision/blogs-revision.jpg'
 import image4 from '../../Images/Blogs/donot-sleep/image4.png'
+import image5 from '../../Images/Blogs/preparation-tips/tips.jpg'
 
 export const blog = [
     {
@@ -159,6 +160,43 @@ export const blog = [
             <p><strong>10. Avoid studying difficult topics at night</strong></p>
             <p>During the night you feel more sluggish if you are solving complex problems or trying to learn the difficult topics. Try to tackle only the light and easy portions of syllabus during night. Leave the tough portions for day time when your body and brain are fresh and active. For the late night study, pick only those topics which are easy, interesting and are your favourite ones.</p>
             <p>So, dear students, if you want to earn those extra grades by sacrificing your sleep, then the above stated tricks will surely help you&nbsp; to meet your desired academic goals.</p>
+        </div>
+    },
+    {
+        id: 5,
+        title: "How To Prepare For JEE Main 2020, Tips & Tricks",
+        image: image5,
+        author: "KAREN MARWEIN",
+        time: "13-08-2020",
+        content: <div>
+            <p><strong>JEE Main Preparation 2020:</strong>&nbsp;The National Testing Agency (NTA) has postponed the JEE Main April session exams due to COVID-19 pandemic. JEE Main 2020 exam will now be conducted from 1st to 6th September. The recent release of the exam dates has stimulated an urgency in the JEE aspirants to kick start and increase the intensity of their JEE Main preparation for 2020. Every year,&nbsp;<strong>14-15 lakhs</strong>&nbsp;aspiring engineers appear for JEE Main in order to get into the National Institutes of Technology (NITs), Indian Institutes of Information Technology (IIITs) and other Government-funded Technology Institutes (GFTIs). JEE Main is also the preliminary exam for candidates who wish to study in the Indian Institutes of Technology (IITs) through the JEE Advanced. The top&nbsp;<strong>2,50,000 JEE Main candidates</strong>&nbsp;will be eligible to appear for the JEE Advanced.</p>
+            <p>Embibe has come up with a perfect solution for all your queries regarding JEE Main&nbsp;2020&nbsp;Exam. In this post, we are going to discuss the most successful Tips, Tricks &amp; Strategies to make an actionable study plan to crack the JEE Main exam.</p>
+            <p>&nbsp;</p>
+            <h2>JEE Main Preparation 2020</h2>
+            <p>As the JEE 2020 April (September) session exams are approaching, it is time you start preparing for the exams. We have brought JEE Previous Year Papers (2020) to help you in your JEE Preparation. Solving the previous year paper on Embibe will help you understand the difficulty level, syllabus coverage, ideal time for each question, questions involved with multiple concepts, repetitive nature of concepts, etc. Thus, attempt the JEE Previous Year Papers to Become Exam Ready!</p>
+            <h3>How To Prepare For JEE Main&nbsp;2020?</h3>
+            <p>JEE Main is one of the most competitive exams in the country which is why a properly planned JEE Main preparation strategy and a daily routine for JEE Main preparation are required. Here, we shall help you with the best and most effective JEE Main preparation tips, particularly for JEE Main self-study and JEE Main preparation without coaching.</p>
+            <p>Read on to get the best JEE Main preparation strategy and tips.</p>
+            <p>1. Crack important concepts<br />2. Refer to JEE Main best books<br />3. Know the paper pattern<br />4. Time management<br />5. Exam taking strategy<br />6. Personalisation</p>
+            <h3>1. JEE Main Preparation Tips &ndash; Crack Important Concepts</h3>
+            <p>Concepts should be crystal clear in your mind if you want to pump up your JEE Main preparation strategies. Study basic and important concepts thoroughly. Students have managed to score marks close to even 300 with just 3 months in hand! If you have 5-10 months in hand, you can achieve that score provided you are focused and organised. One tool that can help you learn your concepts in a structured way is the&nbsp;<strong>Knowledge Tree</strong>&nbsp;on Embibe.</p>
+            <h3>2. JEE Main Preparation Tips &ndash; JEE Main Best Books</h3>
+            <p>NCERT books should be your best friends during your JEE Main preparation. The following are some of the&nbsp;<strong><a href="https://www.embibe.com/exams/best-books-for-iit-jee/?utm_source=Exams&amp;utm_medium=internal&amp;utm_campaign=Exams_to_PTL" target="_blank" rel="noreferrer noopener">best books for JEE Main</a></strong>&nbsp;preparation out of all JEE Main preparation books:</p>
+            <ol>
+                <li><strong>DC Pandey</strong>&nbsp;and&nbsp;<strong>HC Verma</strong>&nbsp;are your go-to books to build concepts in Physics.</li>
+                <li><strong>SK Goyal</strong>&nbsp;would be ideal for Maths (Algebra). Maths is a scoring subject and if you are referring to this book, you can easily score around 80% here!</li>
+            </ol>
+            <h3>3. JEE Main Preparation Tips &ndash; Know JEE Main Paper Pattern</h3>
+            <p>According to the&nbsp;new&nbsp;<strong><a href="https://www.embibe.com/exams/jee-main-exam-pattern/?utm_source=Exams&amp;utm_medium=internal&amp;utm_campaign=Exams_to_PTL" target="_blank" rel="noreferrer noopener">JEE Main exam pattern</a></strong>, the examination&nbsp;will now be&nbsp;conducted for&nbsp;<strong>three papers</strong>:</p>
+            <ol>
+                <li>Paper 1 for B.Tech / B.E candidates &ndash; A total of&nbsp;75 Multiple Choice Questions on Physics, Chemistry, and Mathematics.</li>
+                <li>Paper 2 for B.Arch &ndash; A total of&nbsp;77 questions &ndash;&nbsp;25 questions from Mathematics, 50 questions from aptitude test and 2 questions from Drawing test.</li>
+                <li>Paper 3 for B. Planning &ndash; comprises a total of 100 questions.</li>
+            </ol>
+            <h3>4. JEE Main Preparation Tips &ndash; Time Management</h3>
+            <p>Investing your time sensibly is the key to cracking any entrance exam. It is necessary to be selective and rigid. Students need to find out the right kind of study materials and spend just the right amount of time practising each topic. Not only are you required to follow an effective timetable, but you also, make use of efficient time management in the entire process of preparation until writing the exam, which is a major deciding factor. You must include time management in your JEE Main preparation plan.</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </div>
     }
 ]
