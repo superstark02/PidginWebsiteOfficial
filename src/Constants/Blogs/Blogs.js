@@ -5,6 +5,7 @@ import image2 from '../../Images/Blogs/motivation/blog-motivation.jpg'
 import image3 from '../../Images/Blogs/revision/blogs-revision.jpg'
 import image4 from '../../Images/Blogs/donot-sleep/image4.png'
 import image5 from '../../Images/Blogs/preparation-tips/tips.jpg'
+import image6 from '../../Images/Blogs/chemistry/chemsitry.jfif'
 
 export const blog = [
     {
@@ -197,6 +198,28 @@ export const blog = [
             <p>Investing your time sensibly is the key to cracking any entrance exam. It is necessary to be selective and rigid. Students need to find out the right kind of study materials and spend just the right amount of time practising each topic. Not only are you required to follow an effective timetable, but you also, make use of efficient time management in the entire process of preparation until writing the exam, which is a major deciding factor. You must include time management in your JEE Main preparation plan.</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
+        </div>
+    },
+    {
+        id: 6,
+        title: "How to memorise chemistry completely for JEE?",
+        image: image6,
+        author: "Rohit Verma | IIT Madras, CSE",
+        time: "25, January, 2017",
+        content: <div>
+            <p class="q-text qu-display--block">First thing is that syllabus of chemistry is huge in JEE. I would suggest you to start with NCERT Chemistry XI &amp; XII &amp; then with the other materials you have.</p>
+            <p class="q-text qu-display--block">Now follow these steps for each topic you want to memorise :-</p>
+            <ul class="q-box">
+                <li class="q-relative">Collect Questions :-&nbsp;Start collecting different questions from the topic which you will be reading soon.</li>
+                <li class="q-relative">Start Reading :-&nbsp;Forget that you need to memorise things. Just simply start reading the topic with the materials that you have with NCERT.</li>
+                <li class="q-relative">Start Solving :-&nbsp;Now this is big time for you, start solving the questions you collected and try to remember the concepts and facts involved.You will not be able to solve all of them.&nbsp;No Worries&nbsp;! because syllabus is huge.</li>
+                <li class="q-relative">Move on to the next topic :-&nbsp;Now do all the above three steps for each topics you are aiming to memorise.</li>
+            </ul>
+            <p class="q-text qu-display--block">Now&nbsp;repeat the process&nbsp;for each topic after an interval of 15 days or 1 month as per your convenience. In intial days you will observe the interval time is big, but as soon as time moves on you yourself will find ease in making the interval time small. After enough number of loops which may take a year or two, very soon you will realise you are doing good in chemistry.</p>
+            <p class="q-text qu-display--block">To boost up your confidence before JEE start solving previous year&rsquo;s questions.&nbsp;Don&rsquo;t worry if you are not able to solve all of them because you already solved enough of them. And if you are able to solve all of them its excellent.</p>
+            <p class="q-text qu-display--block">See many times concepts hit in your brain when you encounter a question involving those respective concepts, so don&rsquo;t worry with the question that whether or not i remember complete chemistry ?</p>
+            <p class="q-text qu-display--block">Got my point, now go and start following. All the best. Thank you for reading :)</p>
+            <p class="q-text qu-display--block">***************Revision is the key for Chemistry****************</p>
         </div>
     }
 ]
