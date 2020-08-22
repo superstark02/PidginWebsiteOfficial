@@ -5,6 +5,21 @@ import firebase, { rdb } from '../firebase'
 import MyAppBar from '../Components/AppBar'
 import MappBar from '../Components/mAppBar'
 
+function loadScript(src) {
+	return new Promise((resolve) => {
+		const script = document.createElement('script')
+		script.src = src
+		script.onload = () => {
+			resolve(true)
+		}
+		script.onerror = () => {
+			resolve(false)
+		}
+		document.body.appendChild(script)
+	})
+}
+
+
 class CartPage extends React.Component {
     state = {
         cart: [],
