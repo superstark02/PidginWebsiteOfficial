@@ -36,7 +36,7 @@ class CartPage extends React.Component {
 			return
 		}
 
-		const data = await fetch('http://localhost:1337/razorpay', { method: 'POST' }).then((t) =>
+		const data = await fetch('http://localhost:4000/pidgin/cart', { method: 'POST' }).then((t) =>
 			t.json()
 		)
 
@@ -49,7 +49,6 @@ class CartPage extends React.Component {
 			order_id: data.id,
 			name: 'Donation',
 			description: 'Thank you for nothing. Please give us some money',
-			image: 'http://localhost:1337/logo.svg',
 			handler: function (response) {
 				alert(response.razorpay_payment_id)
 				alert(response.razorpay_order_id)
@@ -136,7 +135,7 @@ class CartPage extends React.Component {
                             }
                         </table>
                         <div className="wrap" >
-                            <Button>
+                            <Button onClick={this.displayRazorpay} >
                                 Pay
                             </Button>
                         </div>
