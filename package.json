@@ -2,7 +2,6 @@
     "name": "pidgin-website-official",
     "version": "0.1.0",
     "private": true,
-    "proxy": 4000,
     "dependencies": {
         "@brainhubeu/react-carousel": "^1.18.6",
         "@material-ui/core": "^4.10.2",
