@@ -89,6 +89,13 @@ class MyAppBar extends React.Component {
                                             )
                                         }
                                         </Link>
+
+                                        <Link to="/pidgin/cart" >
+                                        <Button className="app-bar-button" style={{textTransform:"none"}} >
+                                            Cart
+                                        </Button>
+                                        </Link>
+
                                         <Link to="/" >
                                         <Button className="app-bar-button" style={{textTransform:"none"}} >
                                             Help

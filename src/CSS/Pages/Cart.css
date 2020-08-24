@@ -4,6 +4,7 @@
 }
 .cart-items{
     width: 100%;
+    text-align: center;
 }
 .cart-items-header{
     background-color: #f5f5f5;

@@ -126,7 +126,7 @@ class CartPage extends React.Component {
                                                 {item.title}
                                             </td>
                                             <td>
-                                                <input defaultValue={1} />
+                                                1
                                             </td>
                                             <td>
                                                 {item.price}
@@ -136,9 +136,9 @@ class CartPage extends React.Component {
                                 })
                             }
                         </table>
-                        <div className="wrap" >
+                        <div className="wrap" style={{margin:"30px"}} >
                             <Button onClick={this.displayRazorpay} >
-                                Pay
+                                Checkout
                             </Button>
                         </div>
                     </div>
