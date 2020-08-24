@@ -128,6 +128,16 @@ class Home extends React.Component {
 
                     <div className="wrap" style={{ margin: "40px 0px" }} >
                         <div className="home-width-container">
+                            <p>
+                                <div style={{ fontSize: "40px", marginBottom: "10px" }}>
+                                    About Us
+                                </div>
+                                <p>
+                                    Here, you can find all types of tuitions and classes. Browse through several options and
+                                    book a trial class for free. <br/>
+                                    It's that simple.
+                                </p>
+                            </p>
                             <div className="wrap" style={{ justifyContent: "space-around", flexWrap: "wrap" }} >
                                 {
                                     top_cards.map(item => {
@@ -181,8 +191,8 @@ class Home extends React.Component {
                                     }
                                 </div>
                             </div>
-                            
-                            <div className="wrap" style={{flexWrap:"wrap",margin:"80px 0px"}} >
+
+                            <div className="wrap" style={{ flexWrap: "wrap", margin: "80px 0px" }} >
                                 <div className="home-blogs-workshops" >
                                     <div style={{ fontSize: "40px", marginBottom: "10px" }} >
                                         Blogs
