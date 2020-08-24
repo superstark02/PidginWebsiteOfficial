@@ -3,6 +3,7 @@ import step from '../Images/steps.png'
 import '../Components/class.css'
 import firebase,{rdb } from '../firebase'
 import Razorpay from 'razorpay'
+import { Link } from 'react-router-dom'
 
 class MyCart extends React.Component {
     state = {
@@ -123,9 +124,11 @@ class MyCart extends React.Component {
                                 &#8377;{this.state.total_amount}
                             </div>
                         </div>
+                        <Link to='/pidgin/cart' >
                         <div className="class-checkout-button" onClick={() => { console.log(this.state.cart) }} >
                             CHECKOUT
                         </div>
+                        </Link>
                     </div>
                 </div>
             </div>

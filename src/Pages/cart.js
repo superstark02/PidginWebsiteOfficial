@@ -46,19 +46,19 @@ class CartPage extends React.Component {
 		const options = {
 			key: "rzp_test_YkaGnE7ZDrAhTW",
 			currency: data.currency,
-			amount: data.amount.toString(),
+			amount: this.state.total_amount*100,
 			order_id: data.id,
-			name: 'Donation',
-			description: 'Thank you for nothing. Please give us some money',
+			name: 'Pidgin',
+			description: '',
 			handler: function (response) {
 				alert(response.razorpay_payment_id)
 				alert(response.razorpay_order_id)
 				alert(response.razorpay_signature)
 			},
 			prefill: {
-				name:"Name",
-				email: 'sdfdsjfh2@ndsfdf.com',
-				phone_number: '9899999999'
+				name: this.state.user.displayName,
+				email: this.state.user.email,
+				phone_number: ''
 			}
 		}
 		const paymentObject = new window.Razorpay(options)
@@ -69,6 +69,7 @@ class CartPage extends React.Component {
 
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
+                this.setState({user:user})
                 rdb.ref().child("carts").child(user.uid).on('value', snap => {
                     var item = []
                     snap.forEach(doc => {

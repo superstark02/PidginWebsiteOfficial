@@ -37,16 +37,6 @@ const team_data = [
 
 export class Careers extends Component {
 
-    sendMail = (title) => {
-        var link = "mailto:ds.techin@gmail.com"
-            + "?bcc=superstark02@gmail.com"
-            + "&subject=" + escape(title)
-            + "&body=<div>I would like to join your team.</div>"
-            ;
-
-        window.location.href = link;
-    }
-
     render() {
         return (
             <div>

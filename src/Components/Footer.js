@@ -52,7 +52,7 @@ var company = [
             url: ""
         },
         teachers: {
-            name: "Custom Website",
+            name: "",
             url: ""
         },
         you: {
