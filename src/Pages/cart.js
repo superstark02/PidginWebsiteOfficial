@@ -37,7 +37,7 @@ class CartPage extends React.Component {
 			return
 		}
 
-		const data = await fetch('http://localhost:4000/pidgin/cart', { method: 'POST' }).then((t) =>
+		const data = await fetch('https://us-central1-pidgin-ds.cloudfunctions.net/payment', { method: 'POST' }).then((t) =>
 			t.json()
 		)
 

@@ -14,6 +14,20 @@ body,html{
   align-items: center;
 }
 
+.standard-input{
+  margin: 10px 0px;
+  padding: 10px;
+  outline: none;
+}
+
+.standard-button{
+  color: white;
+  background-color: #00b6c7;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
 .mobile{
   display: none;
 }

@@ -12,6 +12,12 @@
     flex-direction: column;
     color: white;
 }
+.feedback-wallpaper{
+    background-image: url(../../Images/Feedback/feedback.jpg);
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+}
 .future-of-learning{
     font-size: 30px;
 }
@@ -26,7 +32,7 @@
     font-size: 20px;
 }
 .about-map{
-    border-radius: 30px;
+    border-radius: 10px;
     width: 500px;
 }
 .about-card{

@@ -192,7 +192,7 @@ class Home extends React.Component {
                                 </div>
                             </div>
 
-                            <div className="wrap" style={{ flexWrap: "wrap", margin: "80px 0px" }} >
+                            <div className="wrap" id="community" style={{ flexWrap: "wrap", margin: "80px 0px" }} >
                                 <div className="home-blogs-workshops" >
                                     <div style={{ fontSize: "40px", marginBottom: "10px" }} >
                                         Blogs

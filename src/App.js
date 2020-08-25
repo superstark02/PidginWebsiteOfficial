@@ -19,6 +19,7 @@ import Blog from './Pages/Blog'
 import BlogLandingPage from './Constants/Blogs/Blog-Landing-Page';
 import Workshops from './Constants/Workshops/Workshops'
 import WorkshopsDetails from './Constants/Workshops/WorkshopsDetails';
+import Feedback from './Pages/Feedback';
 
 export default class App extends React.Component {
 
@@ -43,8 +44,10 @@ export default class App extends React.Component {
             <Route exact path='/pidgin/workshops' component={Workshops} />
             <Route exact path='/pidgin/blogs/:index' component={Blog} />
             <Route exact path='/pidgin/workshops/:index' component={WorkshopsDetails} />
+            <Route exact path='/pidgin/feedback' component={Feedback} />
             <Route exact path='/class/class-details/:id/:doc' component={CourseDetails} />
             <Route exact path='/class/:id' component={ClassDisplay} />
+            <Route exact path='*' component={Home} />
           </Switch>
         </Router>
       </div>

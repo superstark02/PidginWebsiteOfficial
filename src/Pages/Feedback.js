@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import MyAppBar from '../Components/AppBar'
+import MappBar from '../Components/mAppBar'
 import Footer from '../Components/Footer'
 import '../CSS/Home.css'
 import '../CSS/Pages/About.css'
 import '../CSS/Pages/Contact-Us.css'
-import contact from '../Images/Contact-Us-Page/contact-us.jpg'
-import MappBar from '../Components/mAppBar'
 import emailjs from 'emailjs-com';
 
-export default class ContactUs extends Component {
+export class Feedback extends Component {
 
     sendMail = (e) => {
         e.preventDefault();
@@ -28,15 +27,14 @@ export default class ContactUs extends Component {
                 <div className="mobile" >
                     <MappBar />
                 </div>
-                <div>
-                    <div className="contact-wallpaper-overlay wrap" >
+                <div className="contact-wallpaper-overlay wrap" >
                         <div>
                             <div className="future-of-learning" >
-                                We Would Love To Here From You
+                                Feedback
                             </div>
                         </div>
                     </div>
-                    <div className="contact-wallpaper" ></div>
+                    <div className="feedback-wallpaper" ></div>
 
                     <div className="wrap" style={{ margin: "40px 0px" }} >
                         <div className="home-width-container" >
@@ -45,18 +43,15 @@ export default class ContactUs extends Component {
                                 <div className="about-content-display" >
                                     <div className="about-text" >
                                         <h1 style={{ fontSize: "40px", marginBottom: "40px" }} >
-                                            We are available 24/7
+                                            Please provide your feedback
                                         </h1>
                                         <form onSubmit={this.sendMail} style={{display:"flex",flexDirection:"column"}} >
                                             <input className="standard-input" name="name" placeholder="Name" required/>
                                             <input className="standard-input" name="email" placeholder="Email" />
                                             <input className="standard-input" name="phone" placeholder="Phone" />
-                                            <textarea style={{minHeight:"100px"}} type="multiline" className="standard-input" name="message" placeholder="Message" required />
+                                            <textarea style={{minHeight:"100px"}} type="multiline" className="standard-input" name="feedback" placeholder="Feedback" required />
                                             <input className="standard-button" type="submit" value="SUBMIT" />
                                         </form>
-                                    </div>
-                                    <div>
-                                        <img allt="contact" src={contact} className="about-map" />
                                     </div>
                                 </div>
                             </div>
@@ -64,9 +59,10 @@ export default class ContactUs extends Component {
                         </div>
                     </div>
 
-                </div>
                 <Footer />
             </div>
         )
     }
 }
+
+export default Feedback

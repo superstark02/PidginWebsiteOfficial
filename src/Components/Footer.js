@@ -31,7 +31,7 @@ var company = [
         },
         learners: {
             name: "Community",
-            url: ""
+            url: "/#community"
         },
         teachers: {
             name: "Services Provided",
@@ -48,8 +48,8 @@ var company = [
             url: "/pidgin/contact-us"
         },
         learners: {
-            name: "Mobile App",
-            url: ""
+            name: "Feedback",
+            url: "/pidgin/feedback"
         },
         teachers: {
             name: "",
