@@ -6,6 +6,8 @@ import image3 from '../../Images/Blogs/revision/blogs-revision.jpg'
 import image4 from '../../Images/Blogs/donot-sleep/image4.png'
 import image5 from '../../Images/Blogs/preparation-tips/tips.jpg'
 import image6 from '../../Images/Blogs/chemistry/chemsitry.jfif'
+import image7 from '../../Images/Blogs/confidence-physics/physics.jpg'
+import image8 from '../../Images/Blogs/revision-11/revision.png'
 
 export const blog = [
     {
@@ -220,6 +222,320 @@ export const blog = [
             <p class="q-text qu-display--block">See many times concepts hit in your brain when you encounter a question involving those respective concepts, so don&rsquo;t worry with the question that whether or not i remember complete chemistry ?</p>
             <p class="q-text qu-display--block">Got my point, now go and start following. All the best. Thank you for reading :)</p>
             <p class="q-text qu-display--block">***************Revision is the key for Chemistry****************</p>
+        </div>
+    },
+    {
+        id: 7,
+        title: 'How do I improve in physics for IIT JEE?',
+        image: image7,
+        author: "DC Pandey, Book Author",
+        time: "Jan 11",
+        content: <div>
+            <p class="q-text qu-display--block">Physics is a subject of concepts.&nbsp;Solving too many problems are not going to help you much. Some of the tips are given below (specially for JEE aspirants. Almost same can be applied for NEET aspirants also):</p>
+            <ol class="q-box">
+                <li class="q-relative">Make your concepts very very strong. There will be hardly 500&ndash;1000 concepts in whole physics. Take one concept and think all possible cases about it. I give you a small example:&nbsp;Normal reaction:&nbsp;what are the important points in it: perpendicular to the surface, towards the surface, equal and opposite acting on two different bodies, just like pressure (or pressure force PA) between two bodies in contact, minimum value is zero where two bodies leave contact with each other, there is some maximum limit also where the weaker body breaks, electromagnetic and component of net contact force in normal direction, work done by normal reaction is not always zero etc. etc.</li>
+            </ol>
+            <p class="q-text qu-display--block">2. Don&rsquo;t miss a single class wherever you are studying.</p>
+            <p class="q-text qu-display--block">3. Your concentration level in the class should be 100%.</p>
+            <p class="q-text qu-display--block">4. Keep only one standard book with you. There are many drawbacks when you keep so many books in front of you. A lot of concepts and problems are usually repeated in different books. So basically you are just wasting your valuable time in similar types of concepts/problems if you are solving different books. You have to cover all chapters in all the subjects. If you have too many books, then what normally you will do is: do one chapter from one book and then repeat the same chapter from the other book. By doing so your course lags and when your exams are near you are disturbed because of incompletion of many chapters.</p>
+            <p class="q-text qu-display--block">5. In one book theory, selection of book is very important. Theory should be to the point. Questions should be relevant and within the syllabus. Number of problems in the book should be neither too less nor too more. If level of IIT-JEE is x then the problems should start from zero level and reach up to 1.25x. There is no need of touching 1.5x level. In complete theory, examples and exercises almost all concepts and types of problems which are normally asked in the examinations should be covered. Level of examples and questions should increase very gradually.</p>
+            <p class="q-text qu-display--block">6. I never say you follow my books. If you are following my books then I have tried my level best to incorporate all above points mentioned in point number 5 in my books. Even if you are following any other book same strategy applies to all.</p>
+            <p class="q-text qu-display--block">7. There are roughly 7000 examples and problems in my all&nbsp;five text book.&nbsp;Some of them are very simple. It would hardly take more than 15 sec. But they are also very important.</p>
+            <p class="q-text qu-display--block">8. If you start preparing for IIT-JEE from class 11th in the month of April then try to complete all five text books till August next year. So you have total 480 days. Per day target is 14.6.</p>
+            <p class="q-text qu-display--block">9. After finishing one chapter in your classes read each and every word of above books and complete your daily target of examples /problems by all means. If your theory part is very clear in your classes then you can leave the theory part. Though all points are usually not covered in the classroom. Some problems/examples will be very simple so that particular day you can increase your numbers and this time you can utilise in tough problems. If you are unable to solve a particular problem, then just mark it and in your free time think over it just like a philosopher. After two three attempts if you are further unable to solve then, just see the solution of it which is given at book end. If you attend all classes, read complete theory, see all examples and solve all problems then I am sure till August month (next year) you will feel very comfortable in Physics. You can&rsquo;t do too many problems. So if you follow the above strategy then don&rsquo;t try any other book/material. Problems in the above books are given in a systematic increasing order of difficulty level. So if you move step by step then you will not feel any difficulty. I assure you that.</p>
+            <p class="q-text qu-display--block">10. From September to first Main Exam of January month keep two more books in front of you.&nbsp;New pattern&nbsp;written by myself and&nbsp;IIT-JEE previous years&rsquo; papers. Try to complete each and every problem of these two books. You can leave the subjective problems of IIT-JEE previous years&rsquo; papers at this stage. If you qualify this stage then in the remaining months complete subjective problems of IIT-JEE previous years&rsquo; papers, an another book written by me&nbsp;Five hundred selected problems of Physics&nbsp;and all logical problems of&nbsp;Irodov. If you can&rsquo;t then repeat those books once again (New pattern and IIT-JEE previous years&rsquo; papers, excluding its subjective problems) and just after the April Mains exam, complete subjective problems of IIT-JEE previous years&rsquo; papers, Five hundred selected problems of Physics. That&rsquo;s it.</p>
+            <p class="q-text qu-display--block">If you follow each and every word of above strategy, then I am sure you will give your best in the exams. And this is very important because due to wrong strategy and doing the things in mismanaged manner most of us don&rsquo;t give our best performance. Your personal talent in physics subject and luck factor at last moment also matters. That is beyond our control and I can&rsquo;t speak about it. Your school studies are also not covered in this message.</p>
+            <p class="q-text qu-display--block">Good Luck Students</p>
+            <p class="q-text qu-display--block">👍👍👍</p>
+        </div>
+    },
+    {
+        id: 8,
+        title: 'How To Revise Class 11 For JEE | Revision Tips For IIT JEE 2019',
+        image: image8,
+        author: "Written byKAREN MARWEIN",
+        time: "19-11-2018",
+        content: <div>
+            <h4>1.&nbsp;How To Revise Class 11 For JEE &ndash;<strong>&nbsp;</strong>Start Early</h4>
+            <p>The best time to start how to revise Class 11 for JEE is immediately after you enter your Class 12. The syllabus is fresh in your head and you can revise everything really quickly. Students, on an average, have revised their entire class 11 syllabus by starting early in just about 2 months!</p>
+            <h4>2. How To Revise Class 11 For JEE &ndash; Prioritise the important chapters</h4>
+            <p>If you haven&rsquo;t started early and been too busy trying to cope with new Class 12 theories and concepts, you would be wise to start revising at least the most important chapters! Read on to get the JEE important chapters so you can start your journey on how to revise Class 11 for JEE.</p>
+            <p>Embibe has broken down the JEE Main Important Chapters from the&nbsp;<a href="https://www.embibe.com/exams/jee-main-syllabus/?utm_source=Exams&amp;utm_medium=internal&amp;utm_campaign=Exams_to_PTL" target="_blank"><strong>JEE Main syllabus</strong></a>&nbsp;into&nbsp;<strong>4 different categories</strong>&nbsp;based on&nbsp;<strong>weightage</strong>&nbsp;and&nbsp;<strong>difficulty level</strong>.</p>
+            <h4>How To Revise Class 11 For JEE &ndash; Chapterwise Weightage &amp; Difficulty Level</h4>
+            <p>We have divided the chapters based on the &lsquo;<strong>weightage&rsquo; (importance to the exam)</strong>&nbsp;vs. the&nbsp;<strong>amount of input (the effort to learn and understand)</strong>&nbsp;required to master them.</p>
+            <p>&nbsp;</p>
+            <table border="2px">
+                <tbody>
+                    <tr>
+                        <td>
+                            <p><strong><u>High Weightage, Low Effort (Easy)</u></strong></p>
+                            <p>&nbsp;These are&nbsp;<em>the most important&nbsp;</em>group of<em>&nbsp;</em>chapters. You must complete these chapters thoroughly</p>
+                        </td>
+                        <td>
+                            <p><strong><u>High Weightage, High Effort (Hard)</u></strong></p>
+                            <p>&nbsp;These are the second most important group of chapters. You will probably have to spend a lot of time on these chapters.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong><u>Low Weightage, Low Effort (Easy)</u></strong></p>
+                            <p>&nbsp;These are the chapters you can do only when you have time left after completing the first two.</p>
+                        </td>
+                        <td>
+                            <p><strong><u>Low Weightage, High Effort (Hard)</u></strong></p>
+                            <p>&nbsp;Forget these chapters! You don&rsquo;t need to worry about them. Focus on the above three types of chapters instead.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>&nbsp;</p>
+            <h4>How To Revise Class 11 For JEE Physics</h4>
+            <table border="2px">
+                <tbody>
+                    <tr>
+                        <td width="212"><strong>&nbsp;Input Required</strong></td>
+                        <td width="212"><strong>High Weightage</strong></td>
+                        <td width="212"><strong>Low Weightage</strong></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="9" width="211"><strong>&nbsp;Low Input</strong></td>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/heat-and-thermodynamics">Heat &amp;</a><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/heat-and-thermodynamics">&nbsp;Thermo</a><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/heat-and-thermodynamics">dynamics</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/heat-and-thermodynamics/heat-transfer/session">Heat Transfer</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/optics/ray-optics/session">Ray Optics</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/mechanics-2/properties-of-matter-and-fluid-mechanics/session">Fluids</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/modern-physics/photoelectric-effect-and-electromagnetic-waves/session">Electromagnetic Waves</a></td>
+                        <td width="211"><a href="https://www.embibe.com/learn/physics/concept-nuclear-physics-7246" target="_blank">Nuclear Physics &amp; X-Rays</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/modern-physics/semiconductors-and-communication-system/session">Semiconductors</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/mechanics-1/work-power-and-energy/session">Work, Energy &amp; Power</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210">Error &amp; Instrument Analysis</td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/mechanics-1/units-and-dimensions/session">Units &amp; Measurements</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/mechanics-2/gravitation/session">Gravitation</a></td>
+                        <td width="211">Dual Nature of Matter &amp; Radiation</td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/optics/wave-optics/session">Wave Optics</a></td>
+                        <td width="211">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/modern-physics/photoelectric-effect-and-electromagnetic-waves/session">Photoelectric Effect</a></td>
+                        <td width="211">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/mechanics-2/oscillations-shm/session">Oscillations</a></td>
+                        <td width="211">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="9" width="211"><strong>&nbsp;High Input</strong></td>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/electricity-and-magnetism/electromagnetic-induction-and-alternating-current/session">Electromagnetic Induction &amp; Alternating Current</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/mechanics-2/circular-motion/session">Circular Motion</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/mechanics-2/rotational-motion/session">Rotation</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/mechanics-2/center-of-mass-and-momentum-conservation-collision/session">Center of Mass &amp; Collisions</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210">Kinematics</td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/modern-physics/semiconductors-and-communication-system/session">Communication Systems</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/electricity-and-magnetism/electrostatics/session">Electrostatics</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/mechanics-1/newton-s-laws-of-motion/session">Laws of Motion</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/electricity-and-magnetism/current-electricity/session">Current Electricity &amp; Capacitors</a></td>
+                        <td width="211">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/mechanics-2/properties-of-matter-and-fluid-mechanics/session">Properties of Matter</a></td>
+                        <td width="211">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/electricity-and-magnetism/magnetic-effects-of-current/session">Magnetic Effects of Current &amp; Magnetism</a></td>
+                        <td width="211">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/modern-physics/atomic-structure-in-modern-physics/session">Bohr&rsquo;s Atomic Model</a></td>
+                        <td width="211">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/physics/mechanical-waves/waves-and-sound/session">Waves &amp; Sound</a></td>
+                        <td width="211">&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h4>How To Revise Class 11 For JEE&nbsp;Chemistry</h4>
+            <table border="2px">
+                <tbody>
+                    <tr>
+                        <td width="212"><strong>&nbsp;Input Required</strong></td>
+                        <td width="212"><strong>High Weightage</strong></td>
+                        <td width="212"><strong>Low Weightage</strong></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="10" width="211"><strong>&nbsp;Low Input</strong></td>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/physical-chemistry/atomic-structure/session">Atomic Structure</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/physical-chemistry/chemical-equilibrium/session">Chemical Equilibrium</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/physical-chemistry/liquid-and-gaseous-state/session">Gaseous &amp; Liquid State</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/physical-chemistry/redox-reactions-and-volumetric-analysis/session">Redox &amp; Volumetric Analysis</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/physical-chemistry/electrochemistry/session">Electrochemistry</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/physical-chemistry/solutions-and-colligative-properties/session">Solutions</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/physical-chemistry/chemical-kinetics/session">Chemical Kinetics</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/inorganic-chemistry/general-principles-and-processes-of-isolation-of-metals-metallurgy/session">Metallurgy</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/physical-chemistry/nuclear-and-surface-chemistry/session">Nuclear &amp; Surface Chemistry</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/inorganic-chemistry/qualitative-inorganic-analysis/session">Qualitative Analysis</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/inorganic-chemistry/chemical-bonding-and-molecular-structure/session">Chemical Bonding</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/organic-chemistry/alkanes-alkenes-and-alkynes-hydrocarbons/session">Hydrocarbons</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/inorganic-chemistry/d-and-f-block-elements/session">d-Block Elements</a></td>
+                        <td width="211">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/inorganic-chemistry/coordination-compounds/session">Co-ordination Compound</a></td>
+                        <td width="211">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/organic-chemistry/haloalkanes/session">Alkyl Halides</a></td>
+                        <td width="211">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="210">Aromatic Compounds</td>
+                        <td width="211">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="9" width="211"><strong>&nbsp;High Input</strong></td>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/physical-chemistry/chemical-thermodynamics/session">Thermodynamics</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/physical-chemistry/some-basic-concepts-of-chemistry-mole-concept/session">Mole Concept</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/inorganic-chemistry/p-block-elements/session">p-Block Elements</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/physical-chemistry/ionic-equilibrium/session">Ionic Equilibrium</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/organic-chemistry/general-organic-chemistry/session">General Organic Chemistry</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/physical-chemistry/solid-state/session">Solid State</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/organic-chemistry/isomerism-of-organic-compounds/session">Isomerism</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/inorganic-chemistry/s-block-elements-alkali-and-alkaline-earth-metals-and-hydrogen/session">s-Block Elements</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/organic-chemistry/carbonyl-compounds-aldehydes-and-ketones/session">Aldehydes and Ketones</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/inorganic-chemistry/classification-of-elements-and-periodicity-in-properties/session">Periodic Classification</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/organic-chemistry/carboxylic-acid-and-its-derivatives/session">Carboxylic Acids &amp; Its Derivatives</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/organic-chemistry/classification-and-nomenclature-of-organic-compounds/session">Classification &amp; Nomenclature</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210">&nbsp;</td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/organic-chemistry/alcohols-and-ethers/session">Alcohol &amp; Ether</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210">&nbsp;</td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/organic-chemistry/amines-and-diazonium-salts/session">Nitrogen Compounds &amp; Aliphatic Amines</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210">&nbsp;</td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/chemistry/organic-chemistry/biomolecules-and-polymers/session">Biomolecules &amp; Polymers</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h4>How To Revise Class 11 For JEE Maths</h4>
+            <table border="2px">
+                <tbody>
+                    <tr>
+                        <td width="212"><strong>&nbsp;Input Required</strong></td>
+                        <td width="212"><strong>High Weightage</strong></td>
+                        <td width="212"><strong>Low Weightage</strong></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="7" width="211"><strong>&nbsp;Low Input</strong></td>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/coordinate-geometry/three-dimensional-geometrical-system/session">3 Dimensional Geometry</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/integral-calculus/differential-equation/session">Differential Equation</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/coordinate-geometry/vector/session">Vectors</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/differential-calculus/differential-coefficient/session">Differentiation</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/algebra/matrices-and-determinants/session">Determinant &amp; Matrices</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/trigonometry/trigonometrical-equations-and-inequations/session">Trigonometric Equation</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/algebra/sequences-and-series-progressions/session">Sequence &amp; Series</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/statistics-and-mathematical-reasoning/statistics/session">Statistics</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/coordinate-geometry/point-and-straight-line/session">Straight Line</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/statistics-and-mathematical-reasoning/mathematical-reasoning/session">Mathematical Logic</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/coordinate-geometry/circle/session">Circle</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/algebra/set-theory-and-relations/session">Set &amp; Relation</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/algebra/probability/session">Probability Distribution (Binomial + Mean &amp; Variance)</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/trigonometry/heights-and-distances/session">Height &amp; Distance</a></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="8" width="211"><strong>&nbsp;High Input</strong></td>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/integral-calculus/definite-integration/session">Definite Integral &amp; Area Under the Curve</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/trigonometry/trigonometrical-ratios-functions-and-identities/session">Trigonometric Ratio &amp; Functions</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/differential-calculus/limits/session">Limits, Continuity &amp; Differentiability</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/trigonometry/properties-of-triangle/session">Properties of Triangle</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/differential-calculus/functions/session">Functions</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/algebra/permutation-and-combination/session">Permutation &amp; Combination</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/differential-calculus/application-of-derivatives/session">Application of Derivatives</a></td>
+                        <td width="211"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/integral-calculus/indefinite-integration/session">Indefinite Integral</a></td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/coordinate-geometry/parabola/session">Conic Sections</a></td>
+                        <td width="211">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/algebra/complex-numbers/session">Complex Number</a></td>
+                        <td width="211">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/algebra/quadratic-equations/session">Quadratic Equation</a></td>
+                        <td width="211">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="210"><a href="https://www.embibe.com/engineering/practice/solve/jee/mathematics/algebra/binomial-theorem/session">Binomial Theorem &amp; M. I.</a></td>
+                        <td width="211">&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h4>3. How To Revise Class 11 For JEE &ndash; Identify connected concepts between 11 and 12</h4>
+            <p>For example, when you&rsquo;re studying 3-Dimensional Geometry and Vectors in Class 12 Maths, you should revise 2-Dimensional Geometry and Complex Numbers from Class 11. Similarly, in Chemistry while studying Solutions in Class 12, you can revise Mole Concept from Class 11.</p>
+            <p>Do not leave any stone unturned to make the best of your JEE Main preparation on how to revise Class 11 for JEE. Remember to solve as many questions as you can during your revision. Regular mock tests will boost your confidence; so, attempt the unlimited free JEE mock tests available</p>
         </div>
     }
 ]

@@ -5,9 +5,12 @@ import '../../CSS/Home.css'
 import '../../CSS/Pages/Blog.css'
 import '../../CSS/Pages/Careers.css'
 import MappBar from '../../Components/mAppBar'
-import {blog} from './Blogs'
+import { blog } from './Blogs'
 
 export default class BlogLandingPage extends Component {
+    componentDidMount() {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+    }
     render() {
         return (
             <div>
@@ -33,7 +36,7 @@ export default class BlogLandingPage extends Component {
                         {
                             blog.map(item => {
                                 return (
-                                    <a href={"/pidgin/blogs/"+item.id} >
+                                    <a href={"/pidgin/blogs/" + item.id} >
                                         <div className="blog-cards" >
                                             <img src={item.image} className="blog-card-image" />
                                             <div>
@@ -54,6 +57,12 @@ export default class BlogLandingPage extends Component {
                         }
                     </div>
                 </div>
+                <ins className="adsbygoogle"
+                    style={{display:"block"}}
+                    data-ad-client="ca-pub-8760620658573585"
+                    data-ad-slot="8128195516"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
                 <Footer />
             </div>
         )

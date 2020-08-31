@@ -18,7 +18,7 @@ export const workshops = [
                 </strong>
                 <p>
                     In this webinar, you will be suggested that how you should prepare for JEE, how you should attempt the exam
-                    and how to prepare for the boards simultaneously.<br /><br/>
+                    and how to prepare for the boards simultaneously.<br /><br />
                     Webinar will be conducted through <strong>Microsoft Teams</strong>.
                     You are requsted to keep your webcams off. You may ask any questions in the comment section.
                 </p>
@@ -29,5 +29,20 @@ export const workshops = [
             height="1600" frameborder="0" marginheight="0" marginwidth="0">
             Loading…
         </iframe>
+    },
+    {
+        id: 1,
+        title: "FREE Classes",
+        author: "",
+        date: "",
+        image: image1,
+        content: <div>
+            <div style={{ margin: "30px" }} >
+
+            </div>
+        </div>,
+        form: <iframe 
+        src="https://docs.google.com/forms/d/e/1FAIpQLSeNUtP4y_Xh2n6JRNdrFR_MuTnq0F7papg-F9cGejdpG2ADOA/viewform?embedded=true" 
+        width="640" height="1600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     }
 ]

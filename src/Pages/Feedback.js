@@ -28,36 +28,36 @@ export class Feedback extends Component {
                     <MappBar />
                 </div>
                 <div className="contact-wallpaper-overlay wrap" >
-                        <div>
-                            <div className="future-of-learning" >
-                                Feedback
+                    <div>
+                        <div className="future-of-learning" >
+                            Feedback
                             </div>
-                        </div>
                     </div>
-                    <div className="feedback-wallpaper" ></div>
+                </div>
+                <div className="feedback-wallpaper" ></div>
 
-                    <div className="wrap" style={{ margin: "40px 0px" }} >
-                        <div className="home-width-container" >
+                <div className="wrap" style={{ margin: "40px 0px" }} >
+                    <div className="home-width-container" >
 
-                            <div className="about-content" >
-                                <div className="about-content-display" >
-                                    <div className="about-text" >
-                                        <h1 style={{ fontSize: "40px", marginBottom: "40px" }} >
-                                            Please provide your feedback
+                        <div className="about-content" >
+                            <div className="about-content-display" >
+                                <div className="about-text" >
+                                    <h1 style={{ fontSize: "40px", marginBottom: "40px" }} >
+                                        Please provide your feedback
                                         </h1>
-                                        <form onSubmit={this.sendMail} style={{display:"flex",flexDirection:"column"}} >
-                                            <input className="standard-input" name="name" placeholder="Name" required/>
-                                            <input className="standard-input" name="email" placeholder="Email" />
-                                            <input className="standard-input" name="phone" placeholder="Phone" />
-                                            <textarea style={{minHeight:"100px"}} type="multiline" className="standard-input" name="feedback" placeholder="Feedback" required />
-                                            <input className="standard-button" type="submit" value="SUBMIT" />
-                                        </form>
-                                    </div>
+                                    <form onSubmit={this.sendMail} style={{ display: "flex", flexDirection: "column" }} >
+                                        <input className="standard-input" name="name" placeholder="Name" required />
+                                        <input className="standard-input" name="email" placeholder="Email" />
+                                        <input className="standard-input" name="phone" placeholder="Phone" />
+                                        <textarea style={{ minHeight: "100px" }} type="multiline" className="standard-input" name="feedback" placeholder="Feedback" required />
+                                        <input className="standard-button" type="submit" value="SUBMIT" />
+                                    </form>
                                 </div>
                             </div>
-
                         </div>
+
                     </div>
+                </div>
 
                 <Footer />
             </div>

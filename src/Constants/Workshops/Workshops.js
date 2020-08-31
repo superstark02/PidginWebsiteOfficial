@@ -58,6 +58,7 @@ export default class BlogLandingPage extends Component {
                         }
                     </div>
                 </div>
+                
                 <Footer />
             </div>
         )
