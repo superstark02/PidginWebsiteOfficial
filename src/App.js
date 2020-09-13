@@ -20,6 +20,7 @@ import BlogLandingPage from './Constants/Blogs/Blog-Landing-Page';
 import Workshops from './Constants/Workshops/Workshops'
 import WorkshopsDetails from './Constants/Workshops/WorkshopsDetails';
 import Feedback from './Pages/Feedback';
+import SchoolDashboard from './SchoolDashboard/SchoolDashboard';
 
 export default class App extends React.Component {
 
@@ -29,6 +30,7 @@ export default class App extends React.Component {
         <Router>
           <Switch>
             <Route exact path='/' component={Home} />
+            <Route exact path='/school-dashboard' component={SchoolDashboard} />
             <Route exact path='/pidgin/about-us' component={AboutUs} />
             <Route exact path='/pidgin/cart' component={CartPage} />
             <Route exact path='/pidgin/help' component={Help} />

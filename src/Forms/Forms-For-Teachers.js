@@ -2,11 +2,23 @@ import React, { Component } from 'react'
 import MyAppBar from '../Components/AppBar'
 import MappBar from '../Components/mAppBar'
 import Footer from '../Components/Footer'
+import firebase from '../firebase'
 import '../CSS/Pages/Contact-Us.css'
 import '../CSS/Pages/About.css'
 import '../CSS/Forms/Forms-For-Teachers.css'
 
 export default class FormsForTeachers extends Component {
+
+    send = (e) => {
+        var message = firebase.functions().httpsCallable('message');
+        message({text: "S"}).then(function(result) {
+            // Read result of the Cloud Function.
+            var sanitizedMessage = result.data.text;
+            console.log("Done")
+            // ...
+          });
+    }
+
     render() {
         return (
             <div>
@@ -24,7 +36,7 @@ export default class FormsForTeachers extends Component {
                 <div className="teachers-forms-wallpaper" ></div>
 
                 <div className="wrap" style={{ flexDirection: "column" }} >
-                <div>
+                    <div>
                         <div className="about-content" >
                             <div className="about-text" >
                                 <h1 style={{ fontSize: "40px" }} >
@@ -67,12 +79,20 @@ export default class FormsForTeachers extends Component {
                                             </div>
                                     </div>
                                 </div>
+
+                                <div style={{ textAlign: "center", fontSize: "20px", margin: "20px 10px" }} >
+                                    We believe that it is a difficult time for the <b style={{ color: "#00b6c7" }}> teachers</b>. <br />
+                                    <b style={{ color: "#00b6c7" }}>Teachers</b> who shape the future of the country.
+                                    So, you just teach. Rest will be done by us.....
+                                </div>
+
+                                <div className="wrap" >
+                                    <a href="https://wa.me/919910197196?text=Hi%20Pidgin%20I%20am%20a%20teacher%20" ></a><button style={{fontSize:"20px",backgroundColor:"#1ebea5",padding:"20px",cursor:"pointer"}} className="standard-button" >
+                                        WhatsApp Us
+                                    </button>
+                                </div>
                             </div>
-                            <div style={{textAlign:"center",fontSize:"20px",margin:"20px 10px"}} >
-                                We believe that it is a difficult time for the <b style={{color:"#00b6c7"}}> teachers</b>. <br/>
-                                <b style={{color:"#00b6c7"}}>Teachers</b> who shape the future of the country.
-                                So, you just teach. Rest will be done by us.....
-                            </div>
+
                         </div>
                     </div>
                 </div>

@@ -52,8 +52,8 @@ var company = [
             url: "/pidgin/feedback"
         },
         teachers: {
-            name: "",
-            url: ""
+            name: "School Dashboard",
+            url: "/school-dashboard"
         },
         you: {
             name: "Security",

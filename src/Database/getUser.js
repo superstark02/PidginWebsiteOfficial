@@ -6,7 +6,7 @@ export default function getUser() {
 
         firebase.auth().onAuthStateChanged(user=>{
             if(user){
-                resolve(user.displayName)
+                resolve(user.uid)
             }
             else{
                 resolve(-1)
