@@ -8,6 +8,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { Button } from '@material-ui/core';
+import { db } from '../firebase';
 
 
 const StyledTableCell = withStyles((theme) => ({
@@ -37,13 +39,29 @@ function createData(name, calories, fat, carbs, protein) {
 export class Home extends Component {
 
     state = {
-        student: null
+        student: null,
     }
 
-    componentDidMount() {
+    getData = () => {
         getSubCollection("UIDS", this.props.uid, "Students").then(snap=>{
             this.setState({student:snap})
         })
+    }
+
+    componentDidMount() {
+        this.getData();
+    }
+
+    handleConfirm = (id) => {
+        db.collection("UIDS").doc(this.props.uid).collection("Students").doc(id).update({
+            confirm: true,
+        })
+    }
+
+    handleDelete = (id,item) => {
+        db.collection("UIDS").doc(this.props.uid).collection("Trash").doc(id).set(item)
+        db.collection("UIDS").doc(this.props.uid).collection("Students").doc(id).delete()
+        this.getData();
     }
 
     render() {
@@ -57,6 +75,7 @@ export class Home extends Component {
                                 <StyledTableCell >First Name</StyledTableCell>
                                 <StyledTableCell >Last Name</StyledTableCell>
                                 <StyledTableCell >DOB</StyledTableCell>
+                                <StyledTableCell ></StyledTableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -77,6 +96,14 @@ export class Home extends Component {
                                             <StyledTableCell >
                                                 {item.dob}
                                             </StyledTableCell>
+                                            <StyledTableCell >
+                                                <Button variant="contained" onClick={()=>{this.handleConfirm(item.id)}} color="primary" disabled={disableButton(item.confirm)} >
+                                                    CONFIRM
+                                                </Button>
+                                                <Button onClick={()=>{this.handleDelete(item.id,item)}}>
+                                                    DELETE
+                                                </Button>
+                                            </StyledTableCell>
                                         </StyledTableRow>
                                     )
                                 })
@@ -90,3 +117,12 @@ export class Home extends Component {
 }
 
 export default Home
+
+function disableButton(confirmed){
+    if(confirmed){
+        return true
+    }
+    else{
+        return false
+    }
+}

@@ -133,7 +133,7 @@ export class SchoolDashboard extends Component {
                                     <Unseen />
                                 </TabPanel>
                                 <TabPanel value={this.state.value} index={4}>
-                                    <Removed />
+                                    <Removed uid={this.state.uid} />
                                 </TabPanel>
                             </div>
                         </div>
