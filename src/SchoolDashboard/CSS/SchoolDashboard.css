@@ -1,0 +1,10 @@
+.tab{
+    text-transform: none;
+    text-align: left;
+}
+.MuiTab-wrapper{
+    text-transform: none;
+    text-align: left;
+    width: 100%;
+    font-family: inherit;
+}

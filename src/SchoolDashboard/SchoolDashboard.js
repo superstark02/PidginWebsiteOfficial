@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './CSS/SchoolDashboard.css'
 import MyAppBar from '../Components/AppBar'
 import Footer from '../Components/Footer'
 import getUser from '../Database/getUser'
@@ -66,10 +67,12 @@ export class SchoolDashboard extends Component {
     state = {
         school: null,
         value: 0,
+        uid: null
     }
 
     componentDidMount() {
         getUser().then(uid => {
+            this.setState({ uid: uid })
             getDoc("UIDS", uid.toString()).then(snap => {
                 this.setState({ school: snap })
             })
@@ -85,23 +88,24 @@ export class SchoolDashboard extends Component {
             <div>
                 <MyAppBar />
 
-                <div style={{ display: "flex" }} >
-                    <Tabs
-                        orientation="vertical"
-                        indicatorColor="primary"
-                        value={this.state.value}
-                        onChange={this.handleChange}
-                        aria-label="Vertical tabs example"
-                    >
-                        <Tab label="Home" {...a11yProps(0)} />
-                        <Tab label="Payments" {...a11yProps(1)} />
-                        <Tab label="Seen" {...a11yProps(2)} />
-                        <Tab label="Unseen" {...a11yProps(2)} />
-                        <Tab label="Trash" {...a11yProps(2)} />
-                    </Tabs>
-                    <div>
-                        {
-                            this.state.school !== null ? (
+                {
+                    this.state.school !== null ? (
+                        <div style={{ display: "flex" }} >
+                            <Tabs
+                                orientation="vertical"
+                                indicatorColor="primary"
+                                value={this.state.value}
+                                onChange={this.handleChange}
+                                aria-label="Vertical tabs example"
+                                style={{ width: "250px", minHeight: "70vh", boxShadow: "0px 0px 10px rgba(0,0,0,0.2)", marginBottom: "-100px", marginTop: "-80px", paddingTop: "100px" }}
+                            >
+                                <Tab className="tab" style={{ fontFamily: "inherit" }} label="Home" {...a11yProps(0)} />
+                                <Tab className="tab" style={{ fontFamily: "inherit" }} label="Payments" {...a11yProps(1)} />
+                                <Tab className="tab" style={{ fontFamily: "inherit" }} label="Seen" {...a11yProps(2)} />
+                                <Tab className="tab" style={{ fontFamily: "inherit" }} label="Unseen" {...a11yProps(2)} />
+                                <Tab className="tab" style={{ fontFamily: "inherit" }} label="Trash" {...a11yProps(2)} />
+                            </Tabs>
+                            <div>
                                 <div className="wrap" >
                                     <div style={{ width: "1024px" }} >
                                         <div style={{ display: "flex", alignItems: "center", margin: "0px 20px" }} >
@@ -116,27 +120,27 @@ export class SchoolDashboard extends Component {
                                         </div>
                                     </div>
                                 </div>
-                            ) : (
-                                    <div></div>
-                                )
-                        }
-                        <TabPanel value={this.state.value} index={0}>
-                            <Home/>
-                        </TabPanel>
-                        <TabPanel value={this.state.value} index={1}>
-                            <Payments/>
-                        </TabPanel>
-                        <TabPanel value={this.state.value} index={2}>
-                            <Seen/>
-                        </TabPanel>
-                        <TabPanel value={this.state.value} index={2}>
-                            <Unseen/>
-                        </TabPanel>
-                        <TabPanel value={this.state.value} index={2}>
-                            <Removed/>
-                        </TabPanel>
-                    </div>
-                </div>
+                                <TabPanel value={this.state.value} index={0}>
+                                    <Home uid={this.state.uid} />
+                                </TabPanel>
+                                <TabPanel value={this.state.value} index={1}>
+                                    <Payments />
+                                </TabPanel>
+                                <TabPanel value={this.state.value} index={2}>
+                                    <Seen />
+                                </TabPanel>
+                                <TabPanel value={this.state.value} index={3}>
+                                    <Unseen />
+                                </TabPanel>
+                                <TabPanel value={this.state.value} index={4}>
+                                    <Removed />
+                                </TabPanel>
+                            </div>
+                        </div>
+                    ) : (
+                        <div></div>
+                    )
+                }
 
                 <Footer />
             </div>
