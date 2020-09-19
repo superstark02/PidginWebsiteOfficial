@@ -16,6 +16,7 @@ import play_store from './Images/store.png'
 import phone from './Images/Phone.png'
 import blogs from './Images/Home/blog-home.jpg'
 import webinar from './Images/Home/home-webinars.jpg'
+import phone_form from './Images/Home/phone-common-form.png'
 
 const top_cards = [
     {
@@ -126,15 +127,41 @@ class Home extends React.Component {
                     </div>
                     <div className="home-wallpaper" ></div>
 
-                    <div className="wrap" style={{ margin: "40px 0px" }} >
+                    <div className="wrap" style={{ margin: "30px 0px" }} >
                         <div className="home-width-container">
+
+                            <div style={{ display: "flex", margin: "50px 0px", backgroundColor: "#14BCCC", height: "240px" }} >
+                                <div style={{ width: "auto" }} >
+                                    <img width="180px" style={{ filter: "drop-shadow(5px -10px 5px rgba(0,0,0,0.3))", marginTop: "-30px" }} src={phone_form} />
+                                </div>
+                                <div style={{ padding: "20px 30px", color: "white" }} >
+                                    <div>
+                                        Introducing
+                                    </div>
+                                    <div style={{ fontSize: "40px" }}>
+                                        Common Admission Form
+                                    </div>
+                                    <p>
+                                        Fill one form, submit to several schools. Browse through several schools at one place.
+                                        See there details like fees, admission procedure, images and much more.
+                                    </p>
+                                    <div>
+                                        <Link>
+                                            <button className="standard-button" style={{ backgroundColor: "#05F283" }} >
+                                                TAKE ME THERE
+                                            </button>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+
                             <p>
                                 <div style={{ fontSize: "40px", marginBottom: "10px" }}>
                                     About Us
                                 </div>
                                 <p>
                                     Here, you can find all types of tuitions and classes. Browse through several options and
-                                    book a trial class for free. <br/>
+                                    book a trial class for free. <br />
                                     It's that simple.
                                 </p>
                             </p>
