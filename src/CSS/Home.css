@@ -64,6 +64,19 @@ body,div{
     width: 50%;
 }
 
+.common-form-banner{
+    display: flex;
+    margin: 50px 0px;
+    background-color: #14BCCC;
+    height: 240px;
+}
+
+.common-form-image{
+    width: 180px;
+    filter: drop-shadow(5px -10px 5px rgba(0,0,0,0.3));
+    margin-top: -30px;
+}
+
 @media only screen and (max-width:1024px) {
     .delivering-education{
         font-size: 20px;
@@ -90,5 +103,11 @@ body,div{
     }
     .home-blogs-workshops-heading-image{
         width: 100%;
+    }
+    .common-form-banner{
+        height: auto;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
 }

@@ -130,15 +130,15 @@ class Home extends React.Component {
                     <div className="wrap" style={{ margin: "30px 0px" }} >
                         <div className="home-width-container">
 
-                            <div style={{ display: "flex", margin: "50px 0px", backgroundColor: "#14BCCC", height: "240px" }} >
+                            <div className="common-form-banner" >
                                 <div style={{ width: "auto" }} >
-                                    <img width="180px" style={{ filter: "drop-shadow(5px -10px 5px rgba(0,0,0,0.3))", marginTop: "-30px" }} src={phone_form} />
+                                    <img className="common-form-image" src={phone_form} />
                                 </div>
                                 <div style={{ padding: "20px 30px", color: "white" }} >
                                     <div>
                                         Introducing
                                     </div>
-                                    <div style={{ fontSize: "40px" }}>
+                                    <div style={{ fontSize: "40px",lineHeight:"normal" }}>
                                         Common Admission Form
                                     </div>
                                     <p>
@@ -146,7 +146,7 @@ class Home extends React.Component {
                                         See there details like fees, admission procedure, images and much more.
                                     </p>
                                     <div>
-                                        <Link>
+                                        <Link to="/schools-near-me" >
                                             <button className="standard-button" style={{ backgroundColor: "#05F283" }} >
                                                 TAKE ME THERE
                                             </button>
