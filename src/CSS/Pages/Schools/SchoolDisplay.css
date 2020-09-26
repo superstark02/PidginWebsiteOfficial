@@ -1,0 +1,9 @@
+.images-container{
+    display: flex;
+    overflow-x: scroll;
+    height: 50vh;
+}
+
+.school-display-container{
+    width: 1024px;
+}
