@@ -146,11 +146,11 @@ class Home extends React.Component {
                                         See there details like fees, admission procedure, images and much more.
                                     </p>
                                     <div>
-                                        <Link to="/schools-near-me" >
+                                        <a href="/schools-near-me" >
                                             <button className="standard-button" style={{ backgroundColor: "#05F283" }} >
                                                 TAKE ME THERE
                                             </button>
-                                        </Link>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
