@@ -5,5 +5,57 @@
 }
 
 .school-display-container{
-    width: 1024px;
+    padding: 10px;
+    width: 700px;
+}
+
+.features-item{
+    width: 32%;
+    color: #B1C0DD;
+    text-align: center;
+    margin: 8px 0px;
+    font-size: 17px;
+}
+.features-caption{
+    font-size: 10px;
+    color: #B1C0DD;
+}
+
+.school-footer{
+    color: grey;
+    font-size: 9px;
+    text-align: center;
+    padding: 10px;
+    width: 93%;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+.school-display-button{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 10px 0px;
+}
+
+.timings{
+    width: 100%;
+    background-color: #617ea3;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    font-size: 11px;
+    justify-content: space-between;
+}
+
+.add-to-list{
+    padding: 20px;
+    height: fit-content;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    margin: 20px 50px;
+    position: sticky;
+    top: 100px;
+    border-radius: 10px;
 }
