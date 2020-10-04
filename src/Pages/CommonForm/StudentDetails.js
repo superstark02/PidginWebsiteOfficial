@@ -141,11 +141,11 @@ export class StudentDetails extends Component {
                             <div style={{ width: "23%" }} >
                                 <div>
                                     <label>
-                                        Pin-Code
+                                        Country
                                     </label>
                                 </div>
                                 <div>
-                                    <input className="standard-input" name="student-name" style={{ width: "100%" }} placeholder="Pincode" ></input>
+                                    <input className="standard-input" name="student-name" style={{ width: "100%" }} placeholder="Country" ></input>
                                 </div>
                             </div>
                         </div>
@@ -199,11 +199,11 @@ export class StudentDetails extends Component {
                                 </div>
                                 <div className="wrap" style={{ justifyContent: "flex-start" }} >
                                     <div>
-                                        <input type="radio" id="male" name="gender" value="male" />
+                                        <input type="radio" id="male" name="staff" value="yes-staff" />
                                         <label for="male">Yes</label>
                                     </div>
                                     <div>
-                                        <input type="radio" id="female" name="gender" value="female" />
+                                        <input type="radio" id="female" name="staff" value="no-staff" />
                                         <label for="female">No</label>
                                     </div>
                                 </div>
@@ -215,11 +215,11 @@ export class StudentDetails extends Component {
                                 </div>
                                 <div className="wrap" style={{ justifyContent: "flex-start" }} >
                                     <div>
-                                        <input type="radio" id="male" name="gender" value="male" />
+                                        <input type="radio" id="male" name="orphan" value="orphan-yes" />
                                         <label for="male">Yes</label>
                                     </div>
                                     <div>
-                                        <input type="radio" id="female" name="gender" value="female" />
+                                        <input type="radio" id="female" name="orphan" value="orphan-no" />
                                         <label for="female">No</label>
                                     </div>
                                 </div>
@@ -231,19 +231,19 @@ export class StudentDetails extends Component {
                                 </div>
                                 <div className="wrap" style={{ justifyContent: "flex-start" }} >
                                     <div>
-                                        <input type="radio" id="male" name="gender" value="male" />
+                                        <input type="radio" id="male" name="category" value="category-general" />
                                         <label for="male">General</label>
                                     </div>
                                     <div>
-                                        <input type="radio" id="female" name="gender" value="female" />
+                                        <input type="radio" id="female" name="category" value="category-sc" />
                                         <label for="female">SC</label>
                                     </div>
                                     <div>
-                                        <input type="radio" id="female" name="gender" value="female" />
+                                        <input type="radio" id="female" name="category" value="category-st" />
                                         <label for="female">ST</label>
                                     </div>
                                     <div>
-                                        <input type="radio" id="female" name="gender" value="female" />
+                                        <input type="radio" id="female" name="category" value="category-obc" />
                                         <label for="female">OBC</label>
                                     </div>
                                 </div>

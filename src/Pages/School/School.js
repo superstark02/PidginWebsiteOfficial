@@ -14,7 +14,7 @@ export class School extends Component {
                 <div className="mobile" >
                     <MappBar/>
                 </div>
-                <div className="wrap" style={{alignItems:"flex-start"}} >
+                <div className="wrap" style={{alignItems:"flex-start",marginTop:"30px"}} >
                     <SchoolFilter/>
                     <SchoolList/>
                     <Tuitions/>

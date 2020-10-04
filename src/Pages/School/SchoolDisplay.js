@@ -300,6 +300,7 @@ export class SchoolDisplay extends Component {
                                                                             <Table aria-label="customized table">
                                                                                 <TableBody>
                                                                                     {
+                                                                                        item.dates&&
                                                                                         item.dates.map(item => {
                                                                                             return (
                                                                                                 <StyledTableRow>
@@ -335,6 +336,7 @@ export class SchoolDisplay extends Component {
                                                         this.state.school_points &&
                                                         this.state.school_points.map(item => {
                                                             return (
+                                                                item.points&&
                                                                 item.points.map(points => {
                                                                     return (
                                                                         <StyledTableRowPoints>

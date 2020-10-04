@@ -3,6 +3,8 @@ import getCollection from '../../Database/getCollection'
 import '../../CSS/Components/Schools/SchoolList.css'
 import { FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import form from '../../Images/School/form.jpg'
+import list from '../../Images/School/list.jpg'
 
 export class SchoolList extends Component {
 
@@ -26,6 +28,20 @@ export class SchoolList extends Component {
                         <FaSearch />
                     </div>
                 </div>
+
+                <div className="image-container" style={{display:"flex"}} >
+                    <div>
+                        <Link to="/form/dummy" >
+                            <img src={form} className="image-top" style={{borderRadius:"5px"}} />
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to="/selected-schools">
+                            <img src={list}  className="image-top"  style={{borderRadius:"5px"}} />
+                        </Link>
+                    </div>
+                </div>
+
                 {
                     this.state.schools !== null ? (
                         this.state.schools.map(item => {
@@ -33,7 +49,9 @@ export class SchoolList extends Component {
                                 <Link to={"/school/"+item.id} >
                                     <div className="school-item" >
                                         <div style={{ display: "flex" }} >
-                                            <img src={item.logo} width="20%" ></img>
+                                            <div className="logo-container wrap" >
+                                                <img src={item.logo} className="list-logo"></img>
+                                            </div>
                                             <div style={{ marginLeft: "20px" }} >
                                                 <div style={{ fontSize: "20px", fontWeight: "800" }} >
                                                     {item.name}

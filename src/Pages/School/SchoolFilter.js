@@ -1,117 +1,72 @@
 import { Button, Divider } from '@material-ui/core'
 import React, { Component } from 'react'
 
+const classes = ["Nursery", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th"]
+const region = ["North West", "North East", "South East", "Sout West", "Any"]
+const board = ["CBSE", "ICSE"]
+const fees = ["Range-1", "Range-2", "Range-3", "Any"]
+
 export class SchoolFilter extends Component {
     render() {
         return (
-            <div>
+            <div className="desktop" >
                 <div className="filter" >
                     <h4>Filters</h4>
 
                     <div className="filter-list-head" >
-                        Age
+                        Class Applying For:
                             </div>
-                    <div className='filter-list-item' onClick={() => { this.setAge(5) }} >
-                        Below 5 years
-                            </div>
-                    <div className='filter-list-item' onClick={() => { this.setAge(10) }} >
-                        Below 10 years
-                            </div>
-                    <div className='filter-list-item' onClick={() => { this.setAge(13) }} >
-                        Below 13 years
-                            </div>
-                    <div className='filter-list-item' onClick={() => { this.setAge(16) }} >
-                        Below 16 years
-                            </div>
-                    <div className='filter-list-item' onClick={() => { this.setAge(20) }} >
-                        Below 20 years
-                            </div>
-                    <div className='filter-list-item' onClick={() => { this.setAge(100) }} >
-                        Any
-                            </div>
+                    {
+                        classes.map(item => {
+                            return (
+                                <div className='filter-list-item' onClick={() => { this.setAge(item) }} >
+                                    {item}
+                                </div>
+                            )
+                        })
+                    }
 
 
                     <div className="filter-list-head" >
-                        Price
+                        Region
                             </div>
-                    <div className='filter-list-item' onClick={() => { this.setPrice(1000) }} >
-                        From &#8377;1000
-                            </div>
-                    <div className='filter-list-item' onClick={() => { this.setPrice(2000) }} >
-                        From &#8377;2000
-                            </div>
-                    <div className='filter-list-item' onClick={() => { this.setPrice(3000) }} >
-                        From &#8377;3000
-                            </div>
-                    <div className='filter-list-item' onClick={() => { this.setPrice(4000) }} >
-                        From &#8377;4000
-                            </div>
-                    <div className='filter-list-item' onClick={() => { this.setPrice(5000) }} >
-                        From &#8377;5000
-                            </div>
-                    <div className='filter-list-item' onClick={() => { this.setPrice(6000) }} >
-                        From &#8377;6000
-                            </div>
-                    <div className="filter-list-item" onClick={() => { this.setPrice(7000) }} >
-                        From &#8377;7000
-                            </div>
-                    <div className="filter-list-item" onClick={() => { this.setPrice(10000000) }} >
-                        Any
-                            </div>
+                    {
+                        region.map(item => {
+                            return (
+                                <div className='filter-list-item' onClick={() => { this.setPrice(item) }} >
+                                    {item}
+                                </div>
+                            )
+                        })
+                    }
 
                     <div className="filter-list-head" >
-                        Type
-                            </div>
+                        Board
+                    </div>
 
-                    <div className="sub-title-list" >
-                        Hobby
-                            </div>
-                    <Divider />
-                    <div className='filter-list-item' onClick={() => { this.setState({ type: "music" }) }} >
-                        Music
-                            </div>
-                    <div className='filter-list-item' onClick={() => { this.setState({ type: "cooking" }) }} >
-                        Cooking
-                            </div>
-                    <div className='filter-list-item' onClick={() => { this.setState({ type: "dance" }) }} >
-                        Dance
-                            </div>
+                    {
+                        board.map(item => {
+                            return (
+                                <div className='filter-list-item' onClick={() => { this.setPrice(1000) }} >
+                                    {item}
+                                </div>
+                            )
+                        })
+                    }
+                    
+                    <div className="filter-list-head" >
+                        Fees
+                    </div>
 
-                    <div className="sub-title-list" >
-                        Science
-                            </div>
-                    <Divider />
-                    <div className='filter-list-item' onClick={() => { this.setState({ type: "science" }) }} >
-                        Science
-                            </div>
-                    <div className='filter-list-item' onClick={() => { this.setState({ type: "maths" }) }} >
-                        Maths
-                            </div>
-                    <div className='filter-list-item' onClick={() => { this.setState({ type: "physics" }) }} >
-                        Physics
-                            </div>
-                    <div className='filter-list-item' onClick={() => { this.setState({ type: "chemistry" }) }} >
-                        Chemistry
-                            </div>
-
-                    <div className="sub-title-list" >
-                        Courses
-                            </div>
-                    <Divider />
-                    <div className='filter-list-item' onClick={() => { this.setState({ type: "painting" }) }} >
-                        Painting
-                            </div>
-                    <div className='filter-list-item' onClick={() => { this.setState({ type: "sketching" }) }} >
-                        Sketching
-                            </div>
-
-                    <div className="sub-title-list" >
-                        Language
-                            </div>
-                    <Divider />
-                    <div className='filter-list-item' onClick={() => { this.setState({ type: "japenese" }) }} >
-                        Japenese
-                            </div>
+                    {
+                        fees.map(item => {
+                            return (
+                                <div className='filter-list-item' onClick={() => { this.setPrice(1000) }} >
+                                    {item}
+                                </div>
+                            )
+                        })
+                    }
 
                     <Button disableElevation variant="contained" color="secondary" style={{ fontSize: '10px', marginTop: '20px' }} onClick={this.clearFilter} >
                         Clear Filters

@@ -6,3 +6,41 @@
     margin: 20px;
     background-color: white;
 }
+
+.image-top{
+    width: 280px;
+}
+
+.image-container{
+    justify-content: space-between;
+    margin: 0px 20px;
+    width: 600px;
+}
+
+.logo-container{
+    width: 80px;
+}
+
+.list-logo{
+    width: 100%;
+}
+
+@media only screen and (max-width:650px) {
+    .school-item{
+        width: 90%;
+        margin: 0px;
+        padding: 10px;
+    }
+    .image-top{
+        width: 40vw;
+    }
+    .image-container{
+        justify-content: space-evenly;
+        margin: 0px;
+        width: 100%;
+    }
+    .logo-container{
+        width: 90px;
+        align-items: flex-start;
+    }
+  }

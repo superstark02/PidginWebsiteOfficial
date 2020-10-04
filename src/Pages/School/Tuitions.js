@@ -12,7 +12,7 @@ export class Tuitions extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="desktop" >
                 <div style={{ width: "250px", minHeight: "200px" }} >
                     <div style={{ backgroundColor: 'white', padding: "10px" }} >
                         <h2>Tuitions</h2>

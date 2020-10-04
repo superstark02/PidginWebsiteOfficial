@@ -24,6 +24,7 @@ import SchoolDashboard from './SchoolDashboard/SchoolDashboard';
 import School from './Pages/School/School';
 import SchoolDisplay from './Pages/School/SchoolDisplay';
 import CommonFormDummy from './Pages/CommonForm/CommonFormDummy';
+import SelectedSchools from './Pages/School/SelectedSchools';
 
 export default class App extends React.Component {
 
@@ -56,6 +57,7 @@ export default class App extends React.Component {
 
             <Route exact path="/schools-near-me" component={School}/>
             <Route exact path="/school/:id" component={SchoolDisplay}/>
+            <Route exact path="/selected-schools" component={SelectedSchools}/>
 
             <Route exact path='/class/:id' component={ClassDisplay} />
             <Route exact path='*' component={Home} />
