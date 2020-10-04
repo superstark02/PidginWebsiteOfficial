@@ -16,7 +16,15 @@ import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import addToList from '../../Database/addDoc'
 
+import MuiAlert from '@material-ui/lab/Alert';
+import Snackbar from '@material-ui/core/Snackbar';
+
+
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const StyledTableCell = withStyles((theme) => ({
     body: {
@@ -85,7 +93,17 @@ export class SchoolDisplay extends Component {
         school_images: null,
         school_admissions: null,
         school_points: null,
-        more_info: null
+        more_info: null,
+        open_snackbar: false
+    }
+
+    handleAdd = () => {
+        var id = "YlTSGgoJG2R8Ii5qqnkXXd7gzSa2"
+        if (id) {
+            addToList("Users", id, this.state.school).then(result => {
+                this.setState({ open_snackbar: true })
+            })
+        }
     }
 
     componentDidMount() {
@@ -201,7 +219,7 @@ export class SchoolDisplay extends Component {
                                                     </div>
                                                     <div className="features-caption">
                                                         Pool
-                                                </div>
+                                                    </div>
                                                 </div>
                                                 <div className="features-item" >
                                                     <div>
@@ -209,7 +227,7 @@ export class SchoolDisplay extends Component {
                                                     </div>
                                                     <div className="features-caption">
                                                         Robotics Lab
-                                                </div>
+                                                    </div>
                                                 </div>
                                                 <div className="features-item" >
                                                     <div>
@@ -269,7 +287,7 @@ export class SchoolDisplay extends Component {
                                                                             id="panel1a-header"
                                                                         >
                                                                             Procedure
-                                                        </AccordionSummary>
+                                                                        </AccordionSummary>
                                                                         <AccordionDetails>
                                                                             <Table aria-label="customized table">
                                                                                 <TableBody>
@@ -300,7 +318,7 @@ export class SchoolDisplay extends Component {
                                                                             <Table aria-label="customized table">
                                                                                 <TableBody>
                                                                                     {
-                                                                                        item.dates&&
+                                                                                        item.dates &&
                                                                                         item.dates.map(item => {
                                                                                             return (
                                                                                                 <StyledTableRow>
@@ -336,7 +354,7 @@ export class SchoolDisplay extends Component {
                                                         this.state.school_points &&
                                                         this.state.school_points.map(item => {
                                                             return (
-                                                                item.points&&
+                                                                item.points &&
                                                                 item.points.map(points => {
                                                                     return (
                                                                         <StyledTableRowPoints>
@@ -447,9 +465,9 @@ export class SchoolDisplay extends Component {
                                     </div>
 
                                     <div className="add-to-list" >
-                                        <div style={{display:"flex"}} >
+                                        <div style={{ display: "flex" }} >
                                             <div>
-                                                <img src={this.state.school.logo} style={{marginRight:"10px"}} width="50px" />
+                                                <img src={this.state.school.logo} style={{ marginRight: "10px" }} width="50px" />
                                             </div>
                                             <div>
                                                 <h4>
@@ -457,7 +475,7 @@ export class SchoolDisplay extends Component {
                                                 </h4>
                                             </div>
                                         </div>
-                                        <div style={{display:"flex",justifyContent:"space-between",margin:"10px 0px"}} >
+                                        <div style={{ display: "flex", justifyContent: "space-between", margin: "10px 0px" }} >
                                             <div>
                                                 Form - Fees
                                             </div>
@@ -466,7 +484,7 @@ export class SchoolDisplay extends Component {
                                             </div>
                                         </div>
                                         <div className="wrap" >
-                                            <button className="standard-button" style={{borderRadius:"5px",marginTop:"20px",width:"100%"}} >
+                                            <button className="standard-button" onClick={this.handleAdd} style={{ borderRadius: "5px", marginTop: "20px", width: "100%" }} >
                                                 Add To List
                                             </button>
                                         </div>
@@ -483,6 +501,13 @@ export class SchoolDisplay extends Component {
                             <div className="wrap" style={{ minHeight: "100vh" }} >Please Wait</div>
                         )
                 }
+
+                <Snackbar open={this.state.open_snackbar} autoHideDuration={3000} onClose={this.handleCloseSnackbar}>
+                    <Alert onClose={this.handleCloseSnackbar} severity="success">
+                        Added To Cart!
+                    </Alert>
+                </Snackbar>
+
                 <Footer />
             </div>
         )

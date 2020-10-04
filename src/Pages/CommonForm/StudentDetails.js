@@ -2,11 +2,17 @@ import React, { Component } from 'react'
 import '../../CSS/Pages/Schools/CommonForm.css'
 
 export class StudentDetails extends Component {
+
+    save_form = (e) => {
+        this.props.change(1)
+        
+    }
+
     render() {
         return (
             <div>
                 <div>
-                    <form onSubmit={()=>{this.props.change(1)}} >
+                    <form onSubmit={(e)=>{this.save_form(e)}} >
                         <h3>Particulars of Child</h3>
                         <input className="standard-input" name="student-name" style={{ width: "100%" }} placeholder="Name Of the Student" ></input>
 
@@ -285,7 +291,7 @@ export class StudentDetails extends Component {
 
                         </div>
                         <div>
-                            <input type="submit" value="NEXT" className="standard-button" style={{ backgroundColor: "#2196f3" }} ></input>
+                            <input type="submit" value="SAVE" className="standard-button" style={{ backgroundColor: "#2196f3" }} ></input>
                         </div>
                     </form>
                 </div>

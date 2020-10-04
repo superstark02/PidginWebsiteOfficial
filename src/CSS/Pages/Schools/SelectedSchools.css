@@ -24,3 +24,31 @@
     width: 93%;
     display: flex;
 }
+
+.pay-button{
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 17px;
+    border: none;
+    outline: none;
+    background-color: #35baf6;
+    color: white;
+    border-radius: 5px;
+    bottom: 0px;
+    width: 500px;
+    margin-bottom: 30px;
+}
+
+.logo-container{
+    width: 80px;
+}
+
+.list-logo{
+    width: 100%;
+}
+
+.cart-total{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+}

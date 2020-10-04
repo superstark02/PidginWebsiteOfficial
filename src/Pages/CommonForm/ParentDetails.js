@@ -26,7 +26,7 @@ export class ParentDetails extends Component {
                     <input className="standard-input" name="student-name" style={{ width: "50%" }} placeholder="Father" ></input>
                     <input className="standard-input" name="student-name" style={{ width: "50%" }} placeholder="Mother" ></input>
 
-                    <input type="submit" value="NEXT" className="standard-button" style={{ backgroundColor: "#2196f3" }} ></input>
+                    <input type="submit" value="SAVE" className="standard-button" style={{ backgroundColor: "#2196f3" }} ></input>
                 </form>
             </div>
         )
