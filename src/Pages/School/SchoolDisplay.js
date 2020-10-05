@@ -5,8 +5,8 @@ import MappBar from '../../Components/mAppBar'
 import '../../CSS/Pages/Schools/SchoolDisplay.css'
 import getDoc from '../../Database/getDoc'
 import getSubCollection from '../../Database/getSubCollection'
-import { FaStoreAlt, FaSwimmingPool, FaSnowflake, FaRobot, FaSkating } from 'react-icons/fa';
-import EventNoteOutlinedIcon from '@material-ui/icons/EventNoteOutlined';
+import { FaStoreAlt, FaSwimmingPool, FaSnowflake, FaRobot, FaSkating, FaBook, FaDesktop, FaUtensils, FaVolleyballBall } from 'react-icons/fa';
+
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -94,15 +94,19 @@ export class SchoolDisplay extends Component {
         school_admissions: null,
         school_points: null,
         more_info: null,
-        open_snackbar: false
+        open_snackbar: false,
+        fail_snackbar: false,
     }
 
     handleAdd = () => {
         var id = "YlTSGgoJG2R8Ii5qqnkXXd7gzSa2"
-        if (id) {
+        if (id && this.state.school.admission) {
             addToList("Users", id, this.state.school).then(result => {
                 this.setState({ open_snackbar: true })
             })
+        }
+        else {
+            this.setState({ fail_snackbar: true })
         }
     }
 
@@ -191,52 +195,146 @@ export class SchoolDisplay extends Component {
                                             <div style={{ width: "80%", display: "flex", flexWrap: "wrap", marginBottom: "10px", boxShadow: "0px 0px 10px #617ea369", borderRadius: "5px" }} >
                                                 <div className="features-item" >
                                                     <div>
-                                                        CBSE
-                                                </div>
+                                                        {this.state.school.features.board}
+                                                    </div>
                                                     <div className="features-caption" >
                                                         Board
-                                                </div>
-                                                </div>
-                                                <div className="features-item" >
-                                                    <div>
-                                                        <FaSnowflake />
-                                                    </div>
-                                                    <div className="features-caption" >
-                                                        AC
-                                                </div>
-                                                </div>
-                                                <div className="features-item" >
-                                                    <div>
-                                                        <FaStoreAlt />
-                                                    </div>
-                                                    <div className="features-caption">
-                                                        Canteen
-                                                </div>
-                                                </div>
-                                                <div className="features-item" >
-                                                    <div>
-                                                        <FaSwimmingPool />
-                                                    </div>
-                                                    <div className="features-caption">
-                                                        Pool
                                                     </div>
                                                 </div>
-                                                <div className="features-item" >
-                                                    <div>
-                                                        <FaRobot />
-                                                    </div>
-                                                    <div className="features-caption">
-                                                        Robotics Lab
-                                                    </div>
-                                                </div>
-                                                <div className="features-item" >
-                                                    <div>
-                                                        <FaSkating />
-                                                    </div>
-                                                    <div className="features-caption">
-                                                        Skating Arena
-                                                 </div>
-                                                </div>
+                                                {
+                                                    this.state.school.features.ac ? (
+                                                        <div className="features-item" >
+                                                            <div>
+                                                                <FaSnowflake />
+                                                            </div>
+                                                            <div className="features-caption" >
+                                                                AC
+                                                            </div>
+                                                        </div>
+                                                    ) : (
+                                                            <div></div>
+                                                        )
+                                                }
+
+                                                {
+                                                    this.state.school.features.canteen ? (
+                                                        <div className="features-item" >
+                                                            <div>
+                                                                <FaStoreAlt />
+                                                            </div>
+                                                            <div className="features-caption">
+                                                                Canteen
+                                                            </div>
+                                                        </div>
+                                                    ) : (
+                                                            <div></div>
+                                                        )
+                                                }
+
+                                                {
+                                                    this.state.school.features.pool ? (
+                                                        <div className="features-item" >
+                                                            <div>
+                                                                <FaSwimmingPool />
+                                                            </div>
+                                                            <div className="features-caption">
+                                                                Pool
+                                                            </div>
+                                                        </div>
+                                                    ) : (
+                                                            <div></div>
+                                                        )
+                                                }
+
+                                                {
+                                                    this.state.school.features.robtics ? (
+                                                        <div className="features-item" >
+                                                            <div>
+                                                                <FaRobot />
+                                                            </div>
+                                                            <div className="features-caption">
+                                                                Robotics Lab
+                                                            </div>
+                                                        </div>
+                                                    ) : (
+                                                            <div></div>
+                                                        )
+                                                }
+
+                                                {
+                                                    this.state.school.features.lunch ? (
+                                                        <div className="features-item" >
+                                                            <div>
+                                                                <FaUtensils />
+                                                            </div>
+                                                            <div className="features-caption">
+                                                                Lunch
+                                                            </div>
+                                                        </div>
+                                                    ) : (
+                                                            <div></div>
+                                                        )
+                                                }
+
+                                                {
+                                                    this.state.school.features.library ? (
+                                                        <div className="features-item" >
+                                                            <div>
+                                                                <FaBook />
+                                                            </div>
+                                                            <div className="features-caption">
+                                                                Library
+                                                            </div>
+                                                        </div>
+                                                    ) : (
+                                                            <div></div>
+                                                        )
+                                                }
+
+                                                {
+                                                    this.state.school.features.computer_labs ? (
+                                                        <div className="features-item" >
+                                                            <div>
+                                                                <FaDesktop />
+                                                            </div>
+                                                            <div className="features-caption">
+                                                                Computer Labs
+                                                            </div>
+                                                        </div>
+                                                    ) : (
+                                                            <div></div>
+                                                        )
+                                                }
+
+                                                {
+                                                    this.state.school.features.sports ? (
+                                                        <div className="features-item" >
+                                                            <div>
+                                                                <FaVolleyballBall />
+                                                            </div>
+                                                            <div className="features-caption">
+                                                                Sports Field
+                                                            </div>
+                                                        </div>
+                                                    ) : (
+                                                            <div></div>
+                                                        )
+                                                }
+
+                                                {
+                                                    this.state.school.features.skating ? (
+                                                        <div className="features-item" >
+                                                            <div>
+                                                                <FaSkating />
+                                                            </div>
+                                                            <div className="features-caption">
+                                                                Skating Arena
+                                                            </div>
+                                                        </div>
+                                                    ) : (
+                                                            <div></div>
+                                                        )
+                                                }
                                             </div>
                                         </div>
 
@@ -258,7 +356,7 @@ export class SchoolDisplay extends Component {
                                                                             id="panel1a-header"
                                                                         >
                                                                             Seats
-                                                        </AccordionSummary>
+                                                                        </AccordionSummary>
                                                                         <AccordionDetails>
                                                                             <Table aria-label="customized table">
                                                                                 <TableBody>
@@ -477,10 +575,28 @@ export class SchoolDisplay extends Component {
                                         </div>
                                         <div style={{ display: "flex", justifyContent: "space-between", margin: "10px 0px" }} >
                                             <div>
+                                                Admission Status
+                                            </div>
+                                            <div>
+                                                {
+                                                    this.state.school.admission ? (
+                                                        <div className="admission-open" >
+                                                            OPEN
+                                                        </div>
+                                                    ) : (
+                                                            <div className="admission-closed" >
+                                                                CLOSED
+                                                            </div>
+                                                        )
+                                                }
+                                            </div>
+                                        </div>
+                                        <div style={{ display: "flex", justifyContent: "space-between", margin: "10px 0px" }} >
+                                            <div>
                                                 Form - Fees
                                             </div>
                                             <div>
-                                                {this.state.school.fees}
+                                                &#8377;{this.state.school.fees}
                                             </div>
                                         </div>
                                         <div className="wrap" >
@@ -504,7 +620,13 @@ export class SchoolDisplay extends Component {
 
                 <Snackbar open={this.state.open_snackbar} autoHideDuration={3000} onClose={this.handleCloseSnackbar}>
                     <Alert onClose={this.handleCloseSnackbar} severity="success">
-                        Added To Cart!
+                        Added To List!
+                    </Alert>
+                </Snackbar>
+
+                <Snackbar open={this.state.fail_snackbar} autoHideDuration={3000} onClose={this.handleCloseSnackbar}>
+                    <Alert onClose={this.handleCloseSnackbar} severity="error">
+                        Sorry Admissions Closed
                     </Alert>
                 </Snackbar>
 

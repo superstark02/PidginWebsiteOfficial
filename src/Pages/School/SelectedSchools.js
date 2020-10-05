@@ -13,8 +13,8 @@ export class SelectedSchools extends Component {
     state = {
         list: null,
         total: 0,
-        tax:0,
-        id:""
+        tax: 0,
+        id: ""
     }
 
     getData = () => {
@@ -23,26 +23,26 @@ export class SelectedSchools extends Component {
         getSubCollection("Users", id, "List").then(snap => {
             this.setState({ list: snap })
 
-            var i = 0, total = 0,tax = 0;
-            for(i;i<snap.length;i++){
+            var i = 0, total = 0, tax = 0;
+            for (i; i < snap.length; i++) {
                 total = total + parseInt(snap[i].fees)
-                tax = tax + parseInt(snap[i].fees)*0.2
+                tax = tax + parseInt(snap[i].fees) * 0.2
             }
-            this.setState({tax:tax})
-            this.setState({total:total})
+            this.setState({ tax: tax })
+            this.setState({ total: total })
         })
     }
 
     remove_item = (id, school_id) => {
-        deleteDoc("Users",id,"List",school_id).then(snap=>{
-            if(snap===1){
+        deleteDoc("Users", id, "List", school_id).then(snap => {
+            if (snap === 1) {
                 this.getData()
             }
         })
     }
 
     componentDidMount() {
-        this.setState({id:"YlTSGgoJG2R8Ii5qqnkXXd7gzSa2"})
+        this.setState({ id: "YlTSGgoJG2R8Ii5qqnkXXd7gzSa2" })
         this.getData()
     }
 
@@ -52,7 +52,7 @@ export class SelectedSchools extends Component {
                 <AppBar />
 
                 <div className="wrap" >
-                    <div style={{ maxWidth: "1024px" }} >
+                    <div style={{ maxWidth: "1024px", width: "100%" }} >
                         <div className="common-form-check wrap" >
                             <div style={{ width: "93%" }} >
                                 Go To Form
@@ -61,9 +61,9 @@ export class SelectedSchools extends Component {
                                         Want to check Admission Form last time?
                                     </div>
                                     <div style={{ color: "#35baf6", width: "auto" }} className="wrap" >
-                                       <Link to="/form/dummy" >
+                                        <Link to="/form/dummy" >
                                             VIEW FORM
-                                       </Link> 
+                                       </Link>
                                     </div>
                                 </div>
 
@@ -92,14 +92,14 @@ export class SelectedSchools extends Component {
                                             <div className="logo-container wrap" >
                                                 <img src={item.logo} className="list-logo"></img>
                                             </div>
-                                            <div style={{width:"100%",marginLeft:"20px"}} >
+                                            <div style={{ width: "100%", marginLeft: "20px" }} >
                                                 <div>
                                                     {item.name}
                                                 </div>
                                                 <div className="selected-school-adress" >
                                                     {item.address}
                                                 </div>
-                                                <div onClick={()=>{this.remove_item(this.state.id,item.id)}} className="selected-school-adress" style={{ fontSize: "12px", color: "#f73378", fontFamily: "inherit", cursor:"pointer" }} >
+                                                <div onClick={() => { this.remove_item(this.state.id, item.id) }} className="selected-school-adress" style={{ fontSize: "12px", color: "#f73378", fontFamily: "inherit", cursor: "pointer" }} >
                                                     REMOVE
                                                 </div>
                                             </div>
@@ -111,62 +111,64 @@ export class SelectedSchools extends Component {
                                 })
                             }
 
-                            <div className="list-item" style={{ margin: "0px", padding: "0px" }} >
-                                <div>
-                                    <div className="selected-school-adress" style={{ color: "#04BFBF" }} >
-                                        Item Total
+                            <div className="wrap" style={{flexDirection:"column"}} >
+                                    <div className="list-item" style={{ margin: "0px", padding: "0px" }} >
+                                        <div>
+                                            <div className="selected-school-adress" style={{ color: "#04BFBF" }} >
+                                                Item Total
+                                            </div>
+                                        </div>
+                                        <div className="selected-school-adress" style={{ color: "#04BFBF" }} >
+                                            &#8377;{this.state.total}
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="selected-school-adress" style={{ color: "#04BFBF" }} >
-                                    &#8377;{this.state.total}
-                                </div>
-                            </div>
 
-                            <div className="list-item" style={{ margin: "0px", padding: "0px" }} >
-                                <div>
-                                    <div className="selected-school-adress" style={{ color: "#04BFBF" }} >
-                                        Taxes {"&"} charges
+                                    <div className="list-item" style={{ margin: "0px", padding: "0px" }} >
+                                        <div>
+                                            <div className="selected-school-adress" style={{ color: "#04BFBF" }} >
+                                                Taxes {"&"} charges
+                                            </div>
+                                        </div>
+                                        <div className="selected-school-adress" style={{ color: "#04BFBF" }} >
+                                            &#8377;{this.state.tax}
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="selected-school-adress" style={{ color: "#04BFBF" }} >
-                                    &#8377;{this.state.tax}
-                                </div>
-                            </div>
 
-                            <div style={{ height: "0.5px", borderTop: "dashed 1px grey", width: "93%", marginTop: "20px" }} ></div>
+                                    <div style={{ height: "0.5px", borderTop: "dashed 1px grey", width: "93%", marginTop: "20px" }} ></div>
 
-                            <div className="cart-total" >
-                                <div>
-                                    Grand Total:
-                                </div>
-                                <div style={{paddingRight:"30px"}} >
-                                    &#8377;{this.state.tax+this.state.total}
-                                </div>
-                            </div>
-
-                            <div className="pnp-bill" >
-                                <div style={{ marginRight: "5px", marginTop: "2px" }} >
-                                    <CheckCircleOutlineRoundedIcon style={{ color: "#91ff35" }} />
-                                </div>
-                                <div>
-                                    <div>
-                                        Your data is secured
+                                    <div className="cart-total" >
+                                        <div>
+                                            Grand Total:
+                                        </div>
+                                        <div>
+                                            &#8377;{this.state.tax + this.state.total}
+                                        </div>
                                     </div>
-                                    <div className="selected-school-adress" >
-                                        The information provided by you is encrypted. It will not be read, shared or edited by the company.
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div style={{ width: "93%", display: "flex" }} >
-                                <div>
-                                    <FormGroup>
-                                        <FormControlLabel
-                                            control={<Checkbox name="checkedA" color="primary" />}
-                                            label="I approve the information provided for the form."
-                                        />
-                                    </FormGroup>
-                                </div>
+                                    <div className="pnp-bill" >
+                                        <div style={{ marginRight: "5px", marginTop: "2px" }} >
+                                            <CheckCircleOutlineRoundedIcon style={{ color: "#91ff35" }} />
+                                        </div>
+                                        <div>
+                                            <div>
+                                                Your data is secured
+                                            </div>
+                                            <div className="selected-school-adress" >
+                                                The information provided by you is encrypted. It will not be read, shared or edited by the company.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div style={{ width: "93%", display: "flex" }} >
+                                        <div>
+                                            <FormGroup>
+                                                <FormControlLabel
+                                                    control={<Checkbox name="checkedA" color="primary" />}
+                                                    label="I approve the information provided for the form."
+                                                />
+                                            </FormGroup>
+                                        </div>
+                                    </div>
                             </div>
 
                             <div className="wrap" >

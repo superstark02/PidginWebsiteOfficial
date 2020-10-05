@@ -25,11 +25,22 @@
     width: 100%;
 }
 
+.admission-open{
+    color: #f50057;
+    font-weight: 700;
+}
+
+.admission-closed{
+    color: #2196f3;
+    font-weight: 700;
+}
+
 @media only screen and (max-width:650px) {
     .school-item{
-        width: 90%;
+        width: 100%;
         margin: 0px;
         padding: 10px;
+        margin: 10px 0px;
     }
     .image-top{
         width: 40vw;

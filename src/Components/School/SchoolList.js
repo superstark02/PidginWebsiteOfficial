@@ -52,7 +52,7 @@ export class SchoolList extends Component {
                                             <div className="logo-container wrap" >
                                                 <img src={item.logo} className="list-logo"></img>
                                             </div>
-                                            <div style={{ marginLeft: "20px" }} >
+                                            <div style={{ marginLeft: "20px",width:"100%" }} >
                                                 <div style={{ fontSize: "20px", fontWeight: "800" }} >
                                                     {item.name}
                                                 </div>
@@ -60,12 +60,32 @@ export class SchoolList extends Component {
                                                     {item.address}
                                                 </div>
                                                 <div style={{ backgroundColor: "rgba(0,0,0,0.2)", height: "0.5px", margin: "20px 0px" }} ></div>
-                                                <div>
-                                                    ADMISSIONS:
-                                            </div>
-                                                <div>
-                                                    REGISTERATION FEES:
-                                            </div>
+                                                <div style={{display:"flex", justifyContent:"space-between"}}  >
+                                                    <div>
+                                                        ADMISSIONS:
+                                                    </div>
+                                                    <div style={{width:"50%"}} >
+                                                        {
+                                                            item.admission ? (
+                                                                <div className="admission-open" >
+                                                                    OPEN
+                                                                </div>
+                                                            ) : (
+                                                                <div className="admission-closed" >
+                                                                    CLOSED
+                                                                </div>
+                                                            )
+                                                        }
+                                                    </div>
+                                                </div>
+                                                <div style={{display:"flex", justifyContent:"space-between"}} >
+                                                    <div>
+                                                        REGISTERATION FEES:
+                                                    </div>
+                                                    <div style={{width:"50%"}} >
+                                                        &#8377;{item.fees}
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -73,7 +93,7 @@ export class SchoolList extends Component {
                             )
                         })
                     ) : (
-                            <div>Please Wait</div>
+                            <div className="wrap" >Please Wait</div>
                         )
                 }
             </div>
