@@ -15,3 +15,32 @@ export default function getUser() {
 
     });
 }
+
+export function getUserUID() {
+    return new Promise((resolve, reject) => {
+        firebase.auth().onAuthStateChanged(user=>{
+            if(user){
+                resolve(user.uid)
+            }
+            else{
+                resolve(-1)
+            }
+        })
+
+    });
+}
+
+export function getUserEmail() {
+    return new Promise((resolve, reject) => {
+
+        firebase.auth().onAuthStateChanged(user=>{
+            if(user){
+                resolve(user.email)
+            }
+            else{
+                resolve(-1)
+            }
+        })
+
+    });
+}

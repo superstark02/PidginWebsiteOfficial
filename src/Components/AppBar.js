@@ -2,7 +2,6 @@ import React from 'react'
 import firebase from '../firebase'
 import './app-bar.css'
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 import AppBar from '@material-ui/core/AppBar';
@@ -90,17 +89,17 @@ class MyAppBar extends React.Component {
                                         }
                                         </Link>
 
-                                        <Link to="/pidgin/cart" >
+                                        {/*<Link to="/pidgin/cart" >
                                         <Button className="app-bar-button" style={{textTransform:"none"}} >
                                             Cart
                                         </Button>
-                                        </Link>
+                                        </Link>*/}
 
-                                        <Link to="/" >
+                                        {/*<Link to="/" >
                                         <Button className="app-bar-button" style={{textTransform:"none"}} >
                                             Help
                                         </Button>
-                                        </Link>
+                                        </Link>*/}
 
                                         <Link to="/pidgin/about-us" >
                                         <Button className="app-bar-button" style={{textTransform:"none"}} >

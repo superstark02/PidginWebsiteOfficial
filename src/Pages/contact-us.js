@@ -47,13 +47,39 @@ export default class ContactUs extends Component {
                                         <h1 style={{ fontSize: "40px", marginBottom: "40px" }} >
                                             We are available 24/7
                                         </h1>
-                                        <form onSubmit={this.sendMail} style={{display:"flex",flexDirection:"column"}} >
-                                            <input className="standard-input" name="name" placeholder="Name" required/>
+                                        <form onSubmit={this.sendMail} style={{ display: "flex", flexDirection: "column" }} >
+                                            <input className="standard-input" name="name" placeholder="Name" required />
                                             <input className="standard-input" name="email" placeholder="Email" />
                                             <input className="standard-input" name="phone" placeholder="Phone" />
-                                            <textarea style={{minHeight:"100px"}} type="multiline" className="standard-input" name="message" placeholder="Message" required />
+                                            <textarea style={{ minHeight: "100px" }} type="multiline" className="standard-input" name="message" placeholder="Message" required />
                                             <input className="standard-button" type="submit" value="SUBMIT" />
                                         </form>
+                                        <div>
+                                            <h3>Contact Details</h3>
+                                            <h5>
+                                                Phone ( Helpline )
+                                            </h5>
+                                            <div>
+                                                +91 99101 97196
+                                            </div>
+                                            <div>
+                                                +91 98189 87870
+                                            </div>
+
+                                            <h5>
+                                                Email
+                                            </h5>
+                                            <div>
+                                                pidgin2020@gmail.com
+                                            </div>
+
+                                            <h5>
+                                                Adress ( Rohini Branch )
+                                            </h5>
+                                            <div>
+                                                74, Pocket-12, <br></br> Sector-24,Rohini <br></br> Delhi 110085
+                                            </div>
+                                        </div>
                                     </div>
                                     <div>
                                         <img allt="contact" src={contact} className="about-map" />

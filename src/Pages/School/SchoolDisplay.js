@@ -20,6 +20,9 @@ import addToList from '../../Database/addDoc'
 
 import MuiAlert from '@material-ui/lab/Alert';
 import Snackbar from '@material-ui/core/Snackbar';
+import { getUserUID } from '../../Database/getUser'
+import { Link } from 'react-router-dom'
+import LogIn from '../../Database/logIn'
 
 
 function Alert(props) {
@@ -100,14 +103,27 @@ export class SchoolDisplay extends Component {
 
     handleAdd = () => {
         var id = "YlTSGgoJG2R8Ii5qqnkXXd7gzSa2"
-        if (id && this.state.school.admission) {
-            addToList("Users", id, this.state.school).then(result => {
-                this.setState({ open_snackbar: true })
-            })
-        }
-        else {
-            this.setState({ fail_snackbar: true })
-        }
+        getUserUID().then(result => {
+            console.log(result)
+            if (result !== -1 && this.state.school.admission) {
+                addToList("Users", result, this.state.school).then(s => {
+                    this.setState({ open_snackbar: true })
+                })
+            }
+            else if(result === -1){
+                LogIn().then(result=>{
+                    if (this.state.school.admission) {
+                        addToList("Users", result, this.state.school).then(s => {
+                            this.setState({ open_snackbar: true })
+                        })
+                    }
+                });
+            }
+            else {
+                this.setState({ fail_snackbar: true })
+            }
+        })
+
     }
 
     componentDidMount() {
@@ -532,7 +548,7 @@ export class SchoolDisplay extends Component {
                                                 this.state.more_info &&
                                                 this.state.more_info.map(i => {
                                                     return (
-                                                        <div style={{ boxShadow: "0px 0px 10px #617ea369", borderRadius: "5px" }} >
+                                                        <div style={{ boxShadow: "0px 0px 10px #617ea369", borderRadius: "5px", margin:"20px 0px" }} >
                                                             <div style={{ padding: "15px 10px", color: "white", backgroundColor: "#242429", borderRadius: "5px" }} >
                                                                 {i.title}
                                                             </div>
@@ -599,6 +615,14 @@ export class SchoolDisplay extends Component {
                                                 &#8377;{this.state.school.fees}
                                             </div>
                                         </div>
+
+                                        <Link to="/selected-schools" >
+                                            <div className="wrap" >
+                                                <button className="standard-button" style={{ borderRadius: "5px", marginTop: "20px", width: "100%", backgroundColor: "white", color: "#00b6c7", border: "solid 1px #00b6c7" }} >
+                                                    Go to List
+                                                </button>
+                                            </div>
+                                        </Link>
                                         <div className="wrap" >
                                             <button className="standard-button" onClick={this.handleAdd} style={{ borderRadius: "5px", marginTop: "20px", width: "100%" }} >
                                                 Add To List
@@ -609,7 +633,7 @@ export class SchoolDisplay extends Component {
 
 
                                 <div className="school-footer" >
-                                    Pidgin 2020 trusted by {this.state.school.name}.
+                                    The information my be incorrect. This is a demo website.
                                 </div>
                             </div>
                         </div>

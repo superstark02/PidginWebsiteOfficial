@@ -37,8 +37,16 @@ export class About extends Component {
                                         <h1 style={{ fontSize: "40px" }} >
                                             Who Are We
                                         </h1>
-                                        Pidgin is a company which provides all the tuitions, hobby classes, home tutors around you
-                                        on a single app. We provide you all the information of a class and it's courses. <br />
+                                        Pidgin is a company which provides
+
+                                        a <strong>Common Admission Form</strong> to parents. Where, parents can browse through various schools. Fill 
+                                        a single admission form and submit to several schools at once. <br/><br/>
+                                        
+                                        {/*All the tuitions, hobby classes, home tutors around you
+                                        on a single app. We provide you all the information of a class and it's courses. <br /><br />*/}
+
+                                        
+
                                     </div>
                                     <div>
                                         <img src={map} className="about-map" />
@@ -46,10 +54,10 @@ export class About extends Component {
                                 </div>
                             </div>
 
-                            <div className="about-content" >
+                            {/*<div className="about-content" >
                                 <div className="about-text" >
                                     <h1 style={{ fontSize: "40px" }} >
-                                        How we help teachers
+                                        Features
                                         </h1>
                                     <div className="help-teachers" style={{display:"flex", justifyContent:"space-evenly"}} >
 
@@ -89,18 +97,21 @@ export class About extends Component {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>*/}
 
                             <div className="about-content" >
                                 <div className="about-content-display" >
                                     <div className="about-text" >
                                         <h1 style={{ fontSize: "40px" }} >
-                                            Our goal is to make every existing course <br />available for you
+                                            Our goal is your convenience
                                         </h1>
-                                        We work for providing you options for the ways of learning.
+                                        {/*We work for providing you options for the ways of learning.
                                         We keep a check on the prices provided and ensure he quality of taching methods.<br />
                                         We ensure that you have every information of the teacher and institute which helps you to
-                                        chose your teacher.
+                                        chose your teacher.*/}
+                                        We work for your convenience. We ake sure that the schools receives your common admission form.
+                                        We keep ourselves up at nights so that you face no problem at all while filling and submitting forms 
+                                        through us.
                                     </div>
                                     <div>
                                         <img src={classroom} className="about-map" />

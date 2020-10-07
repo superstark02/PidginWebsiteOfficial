@@ -18,6 +18,11 @@ import blogs from './Images/Home/blog-home.jpg'
 import webinar from './Images/Home/home-webinars.jpg'
 import phone_form from './Images/Home/phone-common-form.png'
 
+import browse from './Images/Home/magnifying.jpg'
+import clock from './Images/Home/clock.jpg'
+import form from './Images/Home/form.jpg'
+import app from './Images/Home/app.png'
+
 const top_cards = [
     {
         name: "Classes Near You",
@@ -138,7 +143,7 @@ class Home extends React.Component {
                                     <div>
                                         Introducing
                                     </div>
-                                    <div style={{ fontSize: "40px",lineHeight:"normal" }}>
+                                    <div style={{ fontSize: "40px", lineHeight: "normal" }}>
                                         Common Admission Form
                                     </div>
                                     <p>
@@ -155,7 +160,58 @@ class Home extends React.Component {
                                 </div>
                             </div>
 
-                            <p>
+                            <div className="about-content" >
+                                <div className="about-text" >
+                                    <div style={{ fontSize: "40px", marginBottom: "10px" }} >
+                                        Features
+                                    </div>
+                                    <div className="help-teachers" style={{ display: "flex", justifyContent: "space-evenly" }} >
+
+                                        <div className="about-card" >
+                                            <h4>Browse Schools</h4>
+                                            <div>
+                                                <img src={browse} width="100%" style={{borderRadius:"10px"}} />
+                                            </div>
+                                            <div>
+                                                Search schools basis various filters & sort them basis name & school fee.
+                                            </div>
+                                        </div>
+
+                                        <div className="about-card" >
+                                            <h4>Fill Form Once</h4>
+                                            <div>
+                                                <img src={form} width="100%" style={{borderRadius:"10px"}} />
+                                            </div>
+                                            <div>
+                                                Save time fill only single admission form for all schools.
+                                            </div>
+                                        </div>
+
+                                        <div className="about-card" >
+                                            <h4>Save Time</h4>
+                                            <div>
+                                                <img src={clock} width="100%" style={{borderRadius:"10px"}} />
+                                            </div>
+                                            <div>
+                                                No travelling, no visiting to different schools. Submit documents online.
+                                            </div>
+                                        </div>
+
+                                        <div className="about-card" >
+                                            <h4>Get Information</h4>
+                                            <div>
+                                                <img src={app} width="100%" style={{borderRadius:"10px"}} />
+                                            </div>
+                                            <div>
+                                                Get all information regarding any school at one place. Admission dates, fees,
+                                                procedure etc.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/*<p>
                                 <div style={{ fontSize: "40px", marginBottom: "10px" }}>
                                     About Us
                                 </div>
@@ -217,7 +273,7 @@ class Home extends React.Component {
                                         })
                                     }
                                 </div>
-                            </div>
+                            </div>*/}
 
                             <div className="wrap" id="community" style={{ flexWrap: "wrap", margin: "80px 0px" }} >
                                 <div className="home-blogs-workshops" >

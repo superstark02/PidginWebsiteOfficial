@@ -42,6 +42,11 @@ export class SchoolList extends Component {
                     </div>
                 </div>
 
+                
+                <div className="wrap school-footer" style={{margin:"10px 0px"}} >
+                    This is just a demo of the website. Please do not assume any information mentioned about the schools correct.
+                </div>
+
                 {
                     this.state.schools !== null ? (
                         this.state.schools.map(item => {
