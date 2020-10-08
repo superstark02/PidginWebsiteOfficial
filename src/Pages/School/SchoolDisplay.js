@@ -77,7 +77,8 @@ const StyledTableCellMoreInfo = withStyles((theme) => ({
     body: {
         fontSize: "inherit",
         padding: "6px 10px",
-        fontFamily: "inherit"
+        fontFamily: "inherit",
+        width:"auto"
     },
 }))(TableCell);
 

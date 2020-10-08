@@ -7,6 +7,7 @@ import SchoolFilter from './SchoolFilter'
 import Tuitions from './Tuitions'
 
 export class School extends Component {
+
     render() {
         return (
             <div>
@@ -16,7 +17,7 @@ export class School extends Component {
                 </div>
                 <div className="wrap" style={{alignItems:"flex-start",marginTop:"30px"}} >
                     <SchoolFilter/>
-                    <SchoolList/>
+                    <SchoolList id={this.props.match.params.id} />
                     <Tuitions/>
                 </div>
                 <Footer/>

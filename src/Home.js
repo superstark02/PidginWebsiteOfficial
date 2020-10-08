@@ -120,9 +120,9 @@ class Home extends React.Component {
                                     <input
                                         className="home-search-input"
                                         onChange={(e) => { this.setState({ search: e.target.value }) }}
-                                        placeholder="Search classes, courses and more.." />
+                                        placeholder="Search schools..." />
                                     <div style={{ backgroundColor: "#04BF7B", height: '56px', width: "56px" }} className="wrap" >
-                                        <IconButton onClick={() => { this.props.history.push("/pidgin/search/" + this.state.search) }} >
+                                        <IconButton onClick={() => { this.props.history.push("/schools-near-me/" + this.state.search) }} >
                                             <SearchIcon style={{ color: "white" }} />
                                         </IconButton>
                                     </div>
@@ -308,9 +308,11 @@ class Home extends React.Component {
                         </div>
                         <div>
                             <h1>Get the Pidgin App</h1>
-                            <div>
-                                <img src={play_store} width="200px" />
-                            </div>
+                            <a href="https://play.google.com/store/apps/details?id=com.ds.pidgin" >
+                                <div>
+                                    <img src={play_store} width="200px" />
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>

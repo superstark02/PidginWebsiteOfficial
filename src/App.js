@@ -55,7 +55,7 @@ export default class App extends React.Component {
 
             <Route exact path="/form/dummy" component={CommonFormDummy}/>
 
-            <Route exact path="/schools-near-me" component={School}/>
+            <Route exact path="/schools-near-me/:id" component={School}/>
             <Route exact path="/school/:id" component={SchoolDisplay}/>
             <Route exact path="/selected-schools" component={SelectedSchools}/>
 

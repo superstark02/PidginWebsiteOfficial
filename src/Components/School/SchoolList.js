@@ -6,19 +6,34 @@ import { Link } from 'react-router-dom'
 import form from '../../Images/School/form.jpg'
 import list from '../../Images/School/list.jpg'
 
+
+var filteredClass = null
+
 export class SchoolList extends Component {
 
     state = {
-        schools: null
+        schools: null,
+        search: "0",
     }
 
     componentDidMount() {
+        if(this.props.id !== "0"){
+            this.setState({search:this.props.id})
+        }
         getCollection("Schools").then(snap => {
             this.setState({ schools: snap })
         })
     }
 
     render() {
+        filteredClass = this.state.schools
+        if (this.state.search !== "0" && this.state.schools !== null) {
+            filteredClass = this.state.schools.filter(
+                item =>
+                    item.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 
+            )
+        }
+
         return (
             <div>
                 <div style={{ display: "flex", margin: "20px", border: "solid 1px #e2e2e2", marginTop: "0px" }} >
@@ -48,8 +63,8 @@ export class SchoolList extends Component {
                 </div>
 
                 {
-                    this.state.schools !== null ? (
-                        this.state.schools.map(item => {
+                    filteredClass !== null ? (
+                        filteredClass.map(item => {
                             return (
                                 <Link to={"/school/"+item.id} >
                                     <div className="school-item" >

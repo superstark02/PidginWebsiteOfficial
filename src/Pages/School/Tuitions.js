@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import getCollection from '../../Database/getCollection'
+import store from '../../Images/store.png'
+import pidgin from '../../Images/app_bg.png'
 
 export class Tuitions extends Component {
     state = {
@@ -13,7 +15,20 @@ export class Tuitions extends Component {
     render() {
         return (
             <div className="desktop" >
-                <div style={{ width: "250px", minHeight: "200px" }} >
+                <div  style={{ width: "250px", minHeight: "200px",backgroundColor: 'white', padding: "10px", textAlign:"center"  }}  >
+                    <h2>
+                        Download Pidgin App NOW
+                    </h2>
+                    <a href="https://play.google.com/store/apps/details?id=com.ds.pidgin" >
+                        <div>
+                            <img src={pidgin} width="100%" />
+                        </div>
+                        <div>
+                            <img src={store} width="100%" />
+                        </div>
+                    </a>
+                </div>
+                {/*<div style={{ width: "250px", minHeight: "200px" }} >
                     <div style={{ backgroundColor: 'white', padding: "10px" }} >
                         <h2>Tuitions</h2>
                     </div>
@@ -39,7 +54,7 @@ export class Tuitions extends Component {
                             )
                         })
                     }
-                </div>
+                </div>*/}
             </div>
         )
     }
