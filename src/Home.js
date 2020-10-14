@@ -122,9 +122,16 @@ class Home extends React.Component {
                                         onChange={(e) => { this.setState({ search: e.target.value }) }}
                                         placeholder="Search schools..." />
                                     <div style={{ backgroundColor: "#04BF7B", height: '56px', width: "56px" }} className="wrap" >
-                                        <IconButton onClick={() => { this.props.history.push("/schools-near-me/" + this.state.search) }} >
-                                            <SearchIcon style={{ color: "white" }} />
-                                        </IconButton>
+                                        <Link to={{
+                                            state: {
+                                                search: this.state.search
+                                            },
+                                            pathname: "/schools-near-me"
+                                        }} >
+                                            <IconButton >
+                                                <SearchIcon style={{ color: "white" }} />
+                                            </IconButton>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -151,11 +158,16 @@ class Home extends React.Component {
                                         See there details like fees, admission procedure, images and much more.
                                     </p>
                                     <div>
-                                        <a href="/schools-near-me" >
+                                        <Link to={{
+                                            state: {
+                                                search: "0"
+                                            },
+                                            pathname: "/schools-near-me"
+                                        }}  >
                                             <button className="standard-button" style={{ backgroundColor: "#05F283" }} >
                                                 TAKE ME THERE
                                             </button>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -170,7 +182,7 @@ class Home extends React.Component {
                                         <div className="about-card" >
                                             <h4>Browse Schools</h4>
                                             <div>
-                                                <img src={browse} width="100%" style={{borderRadius:"10px"}} />
+                                                <img src={browse} width="100%" style={{ borderRadius: "10px" }} />
                                             </div>
                                             <div>
                                                 Search schools basis various filters & sort them basis name & school fee.
@@ -180,7 +192,7 @@ class Home extends React.Component {
                                         <div className="about-card" >
                                             <h4>Fill Form Once</h4>
                                             <div>
-                                                <img src={form} width="100%" style={{borderRadius:"10px"}} />
+                                                <img src={form} width="100%" style={{ borderRadius: "10px" }} />
                                             </div>
                                             <div>
                                                 Save time fill only single admission form for all schools.
@@ -190,7 +202,7 @@ class Home extends React.Component {
                                         <div className="about-card" >
                                             <h4>Save Time</h4>
                                             <div>
-                                                <img src={clock} width="100%" style={{borderRadius:"10px"}} />
+                                                <img src={clock} width="100%" style={{ borderRadius: "10px" }} />
                                             </div>
                                             <div>
                                                 No travelling, no visiting to different schools. Submit documents online.
@@ -200,7 +212,7 @@ class Home extends React.Component {
                                         <div className="about-card" >
                                             <h4>Get Information</h4>
                                             <div>
-                                                <img src={app} width="100%" style={{borderRadius:"10px"}} />
+                                                <img src={app} width="100%" style={{ borderRadius: "10px" }} />
                                             </div>
                                             <div>
                                                 Get all information regarding any school at one place. Admission dates, fees,

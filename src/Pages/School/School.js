@@ -17,7 +17,7 @@ export class School extends Component {
                 </div>
                 <div className="wrap" style={{alignItems:"flex-start",marginTop:"30px"}} >
                     <SchoolFilter/>
-                    <SchoolList id={this.props.match.params.id} />
+                    <SchoolList id={this.props.location.state.search} />
                     <Tuitions/>
                 </div>
                 <Footer/>

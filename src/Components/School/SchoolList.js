@@ -37,7 +37,7 @@ export class SchoolList extends Component {
         return (
             <div>
                 <div style={{ display: "flex", margin: "20px", border: "solid 1px #e2e2e2", marginTop: "0px" }} >
-                    <input style={{ width: "100%" }} className='search-search' placeholder='Search schools...' onChange={(e) => { this.setState({ search: e.target.value }) }} >
+                    <input style={{ width: "100%" }} value={this.state.search} className='search-search' placeholder='Search schools...' onChange={(e) => { this.setState({ search: e.target.value }) }} >
                     </input>
                     <div className='search-icon' style={{ color: 'white', display: "flex", justifyContent: 'center', alignItems: 'center', fontSize: "18px" }} >
                         <FaSearch />
