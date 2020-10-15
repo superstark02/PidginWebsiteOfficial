@@ -36,7 +36,21 @@ export class Documents extends Component {
 
                         <div className="doc-div">
                             <div>
-                                <label>Parent’s ID Proof</label>
+                                <label>Medical Health Certificate</label>
+                            </div>
+                            <input type="file" />
+                        </div>
+
+                        <div className="doc-div">
+                            <div>
+                                <label>Proof Of Sibling Present In Selected Schools, if applicable</label>
+                            </div>
+                            <input type="file" />
+                        </div>
+
+                        <div className="doc-div">
+                            <div>
+                                <label>Proof Of Parent Alumini, if applicable</label>
                             </div>
                             <input type="file" />
                         </div>
