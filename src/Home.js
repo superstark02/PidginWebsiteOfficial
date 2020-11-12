@@ -287,6 +287,18 @@ class Home extends React.Component {
                                 </div>
                             </div>*/}
 
+                            <div style={{ fontSize: "40px", marginBottom: "10px" }} >
+                                Our Services For Teachers
+                            </div>
+                            <div className="wrap" id="community" style={{ flexWrap: "wrap"}} >
+                                <div>
+                                    If you conduct tuition classes then we are for you. We are about providing services 
+                                    like accounts, management and IT for your tuition classes.
+                                    <br/>
+                                    Some of the services include:
+                                </div>
+                            </div>
+
                             <div className="wrap" id="community" style={{ flexWrap: "wrap", margin: "80px 0px" }} >
                                 <div className="home-blogs-workshops" >
                                     <div style={{ fontSize: "40px", marginBottom: "10px" }} >
@@ -319,6 +331,9 @@ class Home extends React.Component {
                             <img style={{ boxShadow: "0px 0px 20px rgba(0,0,0,0.5)", borderRadius: "25px" }} height="300px" src={phone} aly="app" />
                         </div>
                         <div>
+                            <div>
+                                You can apply to schools from the app as well.
+                            </div>
                             <h1>Get the Pidgin App</h1>
                             <a href="https://play.google.com/store/apps/details?id=com.ds.pidgin" >
                                 <div>

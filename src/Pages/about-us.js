@@ -35,9 +35,9 @@ export class About extends Component {
                                 <div className="about-content-display" >
                                     <div className="about-text" >
                                         <h1 style={{ fontSize: "40px" }} >
-                                            Who Are We
+                                            Common Admission Forms
                                         </h1>
-                                        Pidgin is a company which provides
+                                        Pidgin provides
 
                                         a <strong>Common Admission Form</strong> to parents. Where, parents can browse through various schools. Fill 
                                         a single admission form and submit to several schools at once. <br/><br/>

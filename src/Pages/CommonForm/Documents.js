@@ -50,7 +50,7 @@ export class Documents extends Component {
 
                         <div className="doc-div">
                             <div>
-                                <label>Proof Of Parent Alumini, if applicable</label>
+                                <label>Proof Of Parent Alumnus, if applicable</label>
                             </div>
                             <input type="file" />
                         </div>

@@ -31,10 +31,10 @@ export class ParentDetails extends Component {
                     <input className="standard-input" name="student-name" style={{ width: "50%" }} placeholder="Father" ></input>
                     <input className="standard-input" name="student-name" style={{ width: "50%" }} placeholder="Mother" ></input>
 
-                    <h3 style={{ width: "100%" }} >Alumni Details </h3>
+                    <h3 style={{ width: "100%" }} >Alumnus Details </h3>
                     <div style={{margin:"20px 0px"}} >
                         <div>
-                            <label><b>Parent Is Alumini In Any Of The Selected Schools</b></label>
+                            <label><b>Parent Is Alumnus In Any Of The Selected Schools</b></label>
                         </div>
                         <div className="wrap" style={{ justifyContent: "flex-start" }} >
                             <div>
