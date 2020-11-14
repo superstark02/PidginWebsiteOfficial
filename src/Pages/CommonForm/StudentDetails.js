@@ -1,24 +1,36 @@
 import React, { Component } from 'react'
 import '../../CSS/Pages/Schools/CommonForm.css'
+import axios from "axios";
 
 export class StudentDetails extends Component {
 
-    save_form = (e) => {
-        this.props.change(1)
-    }
-
     state = {
         sibling: false,
-        transport: false
+        transport: false,
+        name:"Name"
+    }
+
+    submitHandler = () => {
+        axios.post("https://us-central1-pidgin-ds.cloudfunctions.net").then(result=>{
+            console.log(result);
+        }).catch(error=>{
+            console.log(error)
+        })
+    }
+
+    constructor(){
+        super();
+
+
     }
 
     render() {
         return (
             <div>
                 <div>
-                    <form onSubmit={(e) => { this.save_form(e) }} >
+                    <form method="POST" onSubmit={this.submitHandler} >
                         <h3>Particulars of Child</h3>
-                        <input className="standard-input" name="student-name" style={{ width: "100%" }} placeholder="Name Of the Student" ></input>
+                        <input className="standard-input" name="name" style={{ width: "100%" }} placeholder="Name Of the Student" ></input>
 
                         <div className="wrap" style={{ justifyContent: "space-evenly", flexWrap: "wrap" }} >
                             <div style={{ width: "33%" }} >

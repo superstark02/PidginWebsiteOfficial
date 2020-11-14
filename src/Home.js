@@ -287,18 +287,6 @@ class Home extends React.Component {
                                 </div>
                             </div>*/}
 
-                            <div style={{ fontSize: "40px", marginBottom: "10px" }} >
-                                Our Services For Teachers
-                            </div>
-                            <div className="wrap" id="community" style={{ flexWrap: "wrap"}} >
-                                <div>
-                                    If you conduct tuition classes then we are for you. We are about providing services 
-                                    like accounts, management and IT for your tuition classes.
-                                    <br/>
-                                    Some of the services include:
-                                </div>
-                            </div>
-
                             <div className="wrap" id="community" style={{ flexWrap: "wrap", margin: "80px 0px" }} >
                                 <div className="home-blogs-workshops" >
                                     <div style={{ fontSize: "40px", marginBottom: "10px" }} >
