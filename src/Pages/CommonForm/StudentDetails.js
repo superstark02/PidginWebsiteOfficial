@@ -8,51 +8,51 @@ export class StudentDetails extends Component {
     state = {
         sibling: false,
         transport: false,
-        name:"Name",
+        name: "Name",
         form_data: "",
     }
 
     submitHandler = () => {
         var pro_url = "https://us-central1-pidgin-ds.cloudfunctions.net";
         var dev_url = "http://localhost:5000/form/dummy";
-        axios.post(dev_url).then(result=>{
+        axios.post(dev_url).then(result => {
             console.log(result);
-        }).catch(error=>{
+        }).catch(error => {
             console.log(error)
         })
     }
 
     handleChecked = (data) => {
-        if(data==="yes"){
+        if (data === "yes") {
             return true;
         }
-        else{
+        else {
             return false
         }
     }
 
     handleNotChecked = (data) => {
-        if(data==="no"){
+        if (data === "no") {
             return true;
         }
-        else{
+        else {
             return false
         }
     }
 
-    handleCategory = (name,data) => {
-        if(data===name){
+    handleCategory = (name, data) => {
+        if (data === name) {
             return true;
         }
-        else{
+        else {
             return false
         }
     }
 
-    constructor(){
+    constructor() {
         super();
-        getFormData("uid", "Name").then(result=>{
-            this.setState({form_data:result});
+        getFormData("uid", "Name").then(result => {
+            this.setState({ form_data: result });
         })
     }
 
@@ -73,9 +73,9 @@ export class StudentDetails extends Component {
                                     </label>
                                 </div>
                                 <div>
-                                    <select className="standard-input" style={{ width: "80%" }} defaultValue={this.state.form_data.class} name="class">
-                                        <option selected value="Nursery">Nursery</option>
-                                        <option value="Pre-Primary">Primary</option>
+                                    <select className="standard-input" style={{ width: "80%" }} name="classA">
+                                        <option value="Nursery">Nursery</option>
+                                        <option selected={this.state.form_data.class === "Pre-Primary" ? true : false} value="Pre-Primary">Pre-Primary</option>
                                         <option value="1st">1st</option>
                                     </select>
                                 </div>
@@ -89,9 +89,9 @@ export class StudentDetails extends Component {
                                 </div>
                                 <div>
                                     <select className="standard-input" style={{ width: "80%" }} name="gender" defaultValue={this.state.form_data.gender} >
-                                        <option value="volvo">Male</option>
-                                        <option value="saab">Female</option>
-                                        <option value="fiat">Other</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
                                     </select>
                                 </div>
                             </div>
@@ -282,30 +282,6 @@ export class StudentDetails extends Component {
 
                             <div>
                                 <div>
-                                    <label><b>Category</b></label>
-                                </div>
-                                <div className="wrap" style={{ justifyContent: "flex-start" }} >
-                                    <div>
-                                        <input type="radio" name="category" value="General" defaultChecked={()=>{this.handleCategory("General",this.state.form_data.category)}} />
-                                        <label for="category">General</label>
-                                    </div>
-                                    <div>
-                                        <input type="radio" name="category" value="category-sc" defaultChecked={()=>{this.handleCategory("category-sc", this.state.form_data.category)}} />
-                                        <label for="category-sc">SC</label>
-                                    </div>
-                                    <div>
-                                        <input type="radio" name="category" value="category-st" defaultChecked={()=>{this.handleCategory("category-st", this.state.form_data.category)}} />
-                                        <label for="category-st">ST</label>
-                                    </div>
-                                    <div>
-                                        <input type="radio" name="category" value="category-obc" defaultChecked={()=>{this.handleCategory("category-obc", this.state.form_data.category)}} />
-                                        <label for="category-obc">OBC</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div>
                                     <label><b>Student Undergoing Any Treatment</b></label>
                                 </div>
                                 <div className="wrap" style={{ justifyContent: "flex-start" }} >
@@ -326,18 +302,17 @@ export class StudentDetails extends Component {
                                 </div>
                                 <div className="wrap" style={{ justifyContent: "flex-start" }} >
                                     <div>
-                                        <input type="radio" onChange={(e)=>{this.setState({transport:e.target.value})}} name="schoolTransport" value="yes" defaultChecked={this.state.form_data.schoolTransport} />
+                                        <input type="radio" onChange={(e) => { this.setState({ transport: e.target.value }) }} name="schoolTransport" value="yes" defaultChecked={this.state.form_data.schoolTransport} />
                                         <label for="yes">Yes</label>
                                     </div>
                                     <div>
-                                        <input type="radio" id="female" onChange={(e)=>{this.setState({transport:e.target.value})}} name="schoolTransport" value={null} defaultChecked={!this.state.form_data.schoolTransport} />
+                                        <input type="radio" id="female" onChange={(e) => { this.setState({ transport: e.target.value }) }} name="schoolTransport" value={null} defaultChecked={!this.state.form_data.schoolTransport} />
                                         <label for="no">No</label>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
-
 
                         {
                             this.state.transport === "yes" ? (
@@ -354,11 +329,26 @@ export class StudentDetails extends Component {
                                     </div>
                                 </div>
                             ) : (
-                                <div>
+                                    <div>
 
-                                </div>
-                            )
+                                    </div>
+                                )
                         }
+
+                        <div>
+                            <div>
+                                <label><b>Category</b></label>
+                            </div>
+
+                            <div>
+                                <select className="standard-input" style={{ width: "80%" }} name="category">
+                                    <option selected={this.state.form_data.category === "Nursery" ? true : false} value="Nursery">General</option>
+                                    <option selected={this.state.form_data.category === "SC" ? true : false} value="SC">SC</option>
+                                    <option selected={this.state.form_data.category === "ST" ? true : false} value="ST">ST</option>
+                                    <option selected={this.state.form_data.category === "OBS" ? true : false} value="OBS">OBC</option>
+                                </select>
+                            </div>
+                        </div>
 
                         <h3 style={{ width: "100%" }} >Sibling Details</h3>
                         <div style={{ margin: "20px 0px" }} >
@@ -367,11 +357,11 @@ export class StudentDetails extends Component {
                             </div>
                             <div className="wrap" style={{ justifyContent: "flex-start" }} >
                                 <div>
-                                    <input type="radio" onChange={(e) => { this.setState({ sibling: e.target.value })}} name="sibling" value="yes" defaultChecked={()=>{this.handleChecked(this.state.form_data.sibling)}} />
+                                    <input type="radio" onChange={(e) => { this.setState({ sibling: e.target.value }) }} name="sibling" value="yes" defaultChecked={() => { this.handleChecked(this.state.form_data.sibling) }} />
                                     <label for="yes">Yes</label>
                                 </div>
                                 <div>
-                                    <input type="radio" id="female" onChange={(e) => { this.setState({ sibling: e.target.value })}} name="sibling" value="no" defaultChecked={()=>{this.handleNotChecked(this.state.form_data.sibling)}} />
+                                    <input type="radio" id="female" onChange={(e) => { this.setState({ sibling: e.target.value }) }} name="sibling" value="no" defaultChecked={() => { this.handleNotChecked(this.state.form_data.sibling) }} />
                                     <label for="no">No</label>
                                 </div>
                             </div>
