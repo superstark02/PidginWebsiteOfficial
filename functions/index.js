@@ -6,7 +6,8 @@ const firebase = require("firebase");
 const pdf = require('html-pdf');
 const cors = require('cors');
 const pdfTemplate = require('./Documents');
-const sgMail = require('@sendgrid/mail')
+const sgMail = require('@sendgrid/mail');
+const fs = require("fs");
 
 //Firebase init
 firebase.initializeApp({
@@ -27,49 +28,60 @@ app.use(bodyParser.json())
 app.set('view engine', 'html');
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 const port = process.env.PORT || 5000;
-app.listen(port, () => { console.log("Listening at 5000") })
+app.listen(port, () => { console.log("Listening at " + port) })
 
 
-//form data process
-app.post('/form/dummy', urlencodedParser, function (req, res) {
-  /*
+//form data saving
+app.post('/student', urlencodedParser, function (req, res) {
+
   //data saving
-  db.collection('FormUsers').doc("uid").collection("Forms").doc("Name").set(req.body).then(result => {
-    res.sendFile(path.join(__dirname + '/Pages/DataSaved.html'));
+  db.collection('FormUsers').doc(req.body.uid).collection("Forms").doc(req.body.part).set(req.body).then(result => {
+    console.log(result);
   })
+
+  res.sendFile(path.join(__dirname + '/Pages/DataSaved.html'));
+})
+
+//final step
+app.post('/send', urlencodedParser, function (req, res) {
 
   //creating pdf
   pdf.create(pdfTemplate(req.body), {}).toFile(req.body.name + '-Form.pdf', (err) => {
     if (err) {
+      //mailing the form
+      pathToAttachment = `${__dirname}/${req.body.name}-Form.pdf`;
+      attachment = fs.readFileSync(pathToAttachment).toString("base64");
+      sgMail.setApiKey("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")
+      const msg = {
+        to: 'sarthak2200032@gmail.com ', // Change to your recipient
+        from: 'mail@pidgin.online', // Change to your verified sender
+        bcc: 'ds.techin@gmail.com',
+        subject: 'Testing Mail With Attachment',
+        text: 'This is an automated mail from Pidgin Website.',
+        html: '<strong>This is an automated mail from Pidgin Website.</strong>',
+        attachments: [
+          {
+            content: attachment,
+            filename: "Form.pdf",
+            type: "application/pdf",
+            disposition: "attachment"
+          }
+        ]
+      }
+      sgMail
+        .send(msg).catch(err => {
+          console.log(err);
+        });
+
       res.send(Promise.reject());
     }
-
     res.send(Promise.resolve());
-  })*/
-
-  //mailing the form
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-  const msg = {
-    to: 'ds.techin@gmail.com', // Change to your recipient
-    from: 'mail@pidgin.online', // Change to your verified sender
-    subject: 'Test',
-    text: 'and easy to do anywhere, even with Node.js',
-    html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-  }
-  sgMail
-    .send(msg)
-    .then(() => {
-      console.log('Email sent')
-    })
-    .catch((error) => {
-      console.error(error)
-    })
-    res.sendFile(path.join(__dirname + '/Pages/DataSaved.html'));
+  })
 })
 
-app.get('/fetch-pdf', (req, res) => {
+app.get('/common_form', (req, res) => {
   //download pdf
-  res.sendFile(`${__dirname}/result.pdf`)
+  res.sendFile(`${__dirname}/Form.pdf`)
 })
 
 //extra function
@@ -78,4 +90,5 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
   response.send("Hello from Firebase!");
 });
 
-
+exports.backend = functions.https.onRequest(app);
+module.exports = router;

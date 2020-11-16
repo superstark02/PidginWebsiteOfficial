@@ -2,11 +2,14 @@ import firebase from '../firebase'
 
 export default function getUser() {
     return new Promise((resolve, reject) => {
-        var data
 
         firebase.auth().onAuthStateChanged(user=>{
             if(user){
-                resolve(user.displayName)
+                resolve({
+                    name:user.displayName,
+                    uid: user.uid,
+                    email: user.email
+                })
             }
             else{
                 resolve(-1)

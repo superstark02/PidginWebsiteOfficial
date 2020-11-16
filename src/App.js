@@ -53,7 +53,7 @@ export default class App extends React.Component {
             <Route exact path='/pidgin/feedback' component={Feedback} />
             <Route exact path='/class/class-details/:id/:doc' component={CourseDetails} />
 
-            <Route exact path="/form/dummy" component={CommonFormDummy}/>
+            <Route exact path="/common_form" component={CommonFormDummy}/>
 
             <Route exact path="/schools-near-me" component={School}/>
             <Route exact path="/school/:id" component={SchoolDisplay}/>

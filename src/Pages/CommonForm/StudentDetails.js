@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../../CSS/Pages/Schools/CommonForm.css'
 import axios from "axios";
 import getFormData from '../../Database/getFormData'
+import getUser from '../../Database/getUser';
 
 export class StudentDetails extends Component {
 
@@ -10,11 +11,16 @@ export class StudentDetails extends Component {
         transport: false,
         name: "Name",
         form_data: "",
+        user: null,
+        uid: ""
     }
 
-    submitHandler = () => {
-        var pro_url = "https://us-central1-pidgin-ds.cloudfunctions.net";
-        var dev_url = "http://localhost:5000/form/dummy";
+    submitHandler = (event) => {
+        console.log(event)
+        event.preventDefault();
+        var pro_url = "https://us-central1-pidgin-ds.cloudfunctions.net/backend/form";
+        var dev_url = "http://localhost:5000/common_form";
+
         axios.post(dev_url).then(result => {
             console.log(result);
         }).catch(error => {
@@ -51,8 +57,18 @@ export class StudentDetails extends Component {
 
     constructor() {
         super();
-        getFormData("uid", "Name").then(result => {
-            this.setState({ form_data: result });
+        getUser().then(data => {
+            if (data === -1) {
+                window.alert("Please sign in");
+            }
+            if (data) {
+                this.setState({ user: data });
+                this.setState({uid: data.uid})
+
+                getFormData(data.uid, "student").then(result => {
+                    this.setState({ form_data: result });
+                })
+            }
         })
     }
 
@@ -60,8 +76,9 @@ export class StudentDetails extends Component {
         return (
             <div>
                 <div>
-                    <form method="POST" onSubmit={this.submitHandler} >
-                        <input type="hidden" name="uid" value={"uid"} defaultValue="uid" />
+                    <form action="http://localhost:5000/student" method="POST" >
+                        <input type="hidden" name="uid" value={this.state.uid} defaultValue="uid" />
+                        <input type="hidden" name="part" value="student" />
                         <h3>Particulars of Child</h3>
                         <input className="standard-input" name="name" style={{ width: "100%" }} placeholder="Name Of the Student" value={this.state.form_data.name} ></input>
 
@@ -357,11 +374,11 @@ export class StudentDetails extends Component {
                             </div>
                             <div className="wrap" style={{ justifyContent: "flex-start" }} >
                                 <div>
-                                    <input type="radio" onChange={(e) => { this.setState({ sibling: e.target.value }) }} name="sibling" value="yes" defaultChecked={() => { this.handleChecked(this.state.form_data.sibling) }} />
+                                    <input type="radio" onChange={(e) => { this.setState({ sibling: e.target.value }) }} name="sibling" value="yes" defaultChecked={this.state.form_data.sibling} />
                                     <label for="yes">Yes</label>
                                 </div>
                                 <div>
-                                    <input type="radio" id="female" onChange={(e) => { this.setState({ sibling: e.target.value }) }} name="sibling" value="no" defaultChecked={() => { this.handleNotChecked(this.state.form_data.sibling) }} />
+                                    <input type="radio" id="female" onChange={(e) => { this.setState({ sibling: e.target.value }) }} name="sibling" value="no" defaultChecked={!this.state.form_data.sibling} />
                                     <label for="no">No</label>
                                 </div>
                             </div>
@@ -410,6 +427,7 @@ export class StudentDetails extends Component {
 
                         <div>
                             <input type="submit" value="SAVE" className="standard-button" style={{ backgroundColor: "#2196f3" }} ></input>
+                            <button className="standard-button" style={{ backgroundColor: "#2196f3", marginLeft:"10px" }}  onClick={() => { this.props.change(1) }} >NEXT</button>
                         </div>
                     </form>
                 </div>

@@ -65,7 +65,6 @@ export class Documents extends Component {
 
                     
                     <div>
-                        <input type="submit" value="SAVE" className="standard-button" style={{ backgroundColor: "rgba(0,0,0,0.2)",marginRight:"20px" }} ></input>
                         <input type="submit" value="SUBMIT" className="standard-button" style={{ backgroundColor: "#2196f3" }} ></input>
                     </div>
                 </form>

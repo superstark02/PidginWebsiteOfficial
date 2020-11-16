@@ -46,7 +46,7 @@ export class SchoolList extends Component {
 
                 <div className="image-container" style={{display:"flex"}} >
                     <div>
-                        <Link to="/form/dummy" >
+                        <Link to="/common_form" >
                             <img src={form} className="image-top" style={{borderRadius:"5px"}} />
                         </Link>
                     </div>
