@@ -13,6 +13,7 @@ import MyAppBar from '../../Components/AppBar'
 import StudentDetails from './StudentDetails';
 import ParentDetails from './ParentDetails';
 import Documents from './Documents';
+import getUser from '../../Database/getUser';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -76,11 +77,11 @@ export default function CommonFormDummy() {
 
             <div className="wrap" >
                 <div style={{ width: "1024px" }} >
-                    <h1 style={{margin:"50px 10px"}} >
-                        Dummy Admission Form
+                    <h1 style={{margin:"50px 10px", marginBottom:"5px"}} >
+                        Common Admission Form
                     </h1>
 
-                    <AppBar position="static" color="default">
+                    <AppBar position="relative" color="default" style={{marginTop:"50px"}} >
                         <Tabs
                             value={value}
                             onChange={handleChange}
@@ -106,7 +107,7 @@ export default function CommonFormDummy() {
                             <ParentDetails change={handleChangeIndex} />
                         </TabPanel>
                         <TabPanel value={value} index={2} dir={theme.direction}>
-                            <Documents/>
+                            <Documents />
                         </TabPanel>
                     </SwipeableViews>
                 </div>

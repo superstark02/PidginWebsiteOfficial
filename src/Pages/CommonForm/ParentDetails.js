@@ -15,12 +15,12 @@ export class ParentDetails extends Component {
         super();
         getUser().then(data => {
             if (data === -1) {
-                window.alert("Please sign in");
+                
             }
-            if (data) {
-                this.setState({uid: data.uid})
+            else if (data) {
+                this.setState({ uid: data.uid })
 
-                getFormData(data.uid, "parents").then(result => {
+                getFormData(data.uid, "student").then(result => {
                     this.setState({ form_data: result });
                 })
             }
@@ -30,6 +30,16 @@ export class ParentDetails extends Component {
     render() {
         return (
             <div>
+
+                {
+                    this.state.uid === "" ? (
+                        <h6 style={{ margin: "0px 0px", color: "#f50057" }} >
+                            Please sign-in for saving and submitting the form.
+                        </h6>
+                    ) : (
+                        <div></div>
+                    )
+                }
                 <form method="POST" action="http://localhost:5000/student" >
                     <input type="hidden" name="uid" value={this.state.uid} defaultValue="uid" />
                     <input type="hidden" name="part" value="parents" />

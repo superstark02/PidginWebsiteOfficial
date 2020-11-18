@@ -8,6 +8,18 @@ const cors = require('cors');
 const pdfTemplate = require('./Documents');
 const sgMail = require('@sendgrid/mail');
 const fs = require("fs");
+const multer = require('multer');
+
+//multer
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'Uploads/');
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  }
+})
+const upload = multer({ storage: storage })
 
 //Firebase init
 firebase.initializeApp({
@@ -45,38 +57,53 @@ app.post('/student', urlencodedParser, function (req, res) {
 //final step
 app.post('/send', urlencodedParser, function (req, res) {
 
-  //creating pdf
-  pdf.create(pdfTemplate(req.body), {}).toFile(req.body.name + '-Form.pdf', (err) => {
-    if (err) {
-      //mailing the form
-      pathToAttachment = `${__dirname}/${req.body.name}-Form.pdf`;
-      attachment = fs.readFileSync(pathToAttachment).toString("base64");
-      sgMail.setApiKey("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")
-      const msg = {
-        to: 'sarthak2200032@gmail.com ', // Change to your recipient
-        from: 'mail@pidgin.online', // Change to your verified sender
-        bcc: 'ds.techin@gmail.com',
-        subject: 'Testing Mail With Attachment',
-        text: 'This is an automated mail from Pidgin Website.',
-        html: '<strong>This is an automated mail from Pidgin Website.</strong>',
-        attachments: [
-          {
-            content: attachment,
-            filename: "Form.pdf",
-            type: "application/pdf",
-            disposition: "attachment"
-          }
-        ]
-      }
-      sgMail
-        .send(msg).catch(err => {
-          console.log(err);
-        });
+  //get data and form json for the pdf
+  var formData = null;
+  var student = null;
+  var parent = null;
 
-      res.send(Promise.reject());
-    }
-    res.send(Promise.resolve());
-  })
+  /*db.collection('FormUsers').doc(req.body.uid).collection("Forms").doc("student")
+    .get()
+    .then(snapshot => {
+      if (snapshot.exists) {
+        db.collection('FormUsers').doc(req.body.uid).collection("Forms").doc("parents")
+          .get()
+          .then(snapshot1 => {
+            if (snapshot1.exists) {
+              parent = snapshot1.data()
+
+              student = snapshot.data()
+
+              formData = Object.assign(student, parent);
+
+              //creating pdf
+              /*
+              pdf.create(pdfTemplate(formData), {}).toFile(formData.name + '-Form.pdf', (err) => {
+                if (err) {
+                  res.send(Promise.reject());
+                }
+              })
+            }
+
+          })
+      }
+    })*/
+
+  //mailing the form
+  sgMail.setApiKey("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")
+  const msg = {
+    to: 'superstark02@gmail.com', // Change to your recipient
+    from: 'mail@pidgin.online', // Change to your verified sender
+    subject: 'Pidgin - Your Common Admission Form',
+    text: 'This is an automated mail from Pidgin Website.',
+    html: '<strong>This is an automated mail from Pidgin Website.</strong>',
+  }
+  sgMail
+    .send(msg).catch(err => {
+      console.log(err);
+    });
+
+  res.sendFile(`${__dirname}/Pages/DataSaved.html`)
 })
 
 app.get('/common_form', (req, res) => {

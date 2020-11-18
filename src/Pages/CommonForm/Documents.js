@@ -1,23 +1,41 @@
 import React, { Component } from 'react'
 import '../../CSS/Pages/Schools/CommonForm.css'
+import getUser from '../../Database/getUser';
 
 export class Documents extends Component {
+
+    state = {
+        uid: "",
+    }
+
+    constructor(){
+        super();
+        getUser().then(data => {
+            if (data === -1) {
+                
+            }
+            else if (data) {
+                this.setState({uid: data.uid})
+            }
+        })
+    }
     render() {
         return (
             <div>
-                <form>
+                <form method="POST" action="http://localhost:5000/send" >
+                    <input type="hidden" name="uid" value={this.state.uid} defaultValue="uid" />
                     <div>
                         <div className="doc-div" >
                             <div>
                                 <label>Passport-Size Photo</label>
                             </div>
-                            <input type="file" />
+                            <input type="file" name="photo" />
                         </div>
                         <div className="doc-div">
                             <div>
                                 <label>Birth Certificate</label>
                             </div>
-                            <input type="file" />
+                            <input type="file" name="birthCertificate" />
                         </div>
                         <div className="doc-div">
                             <div>

@@ -59,11 +59,10 @@ export class StudentDetails extends Component {
         super();
         getUser().then(data => {
             if (data === -1) {
-                window.alert("Please sign in");
+                
             }
-            if (data) {
-                this.setState({ user: data });
-                this.setState({uid: data.uid})
+            else if (data) {
+                this.setState({ uid: data.uid })
 
                 getFormData(data.uid, "student").then(result => {
                     this.setState({ form_data: result });
@@ -76,6 +75,15 @@ export class StudentDetails extends Component {
         return (
             <div>
                 <div>
+                    {
+                        this.state.uid === "" || this.state.uid === -1 ? (
+                            <h6 style={{ margin: "0px 0px", color: "#f50057" }} >
+                                Please sign-in for saving and submitting the form.
+                            </h6>
+                        ) : (
+                                <div></div>
+                            )
+                    }
                     <form action="http://localhost:5000/student" method="POST" >
                         <input type="hidden" name="uid" value={this.state.uid} defaultValue="uid" />
                         <input type="hidden" name="part" value="student" />
@@ -427,7 +435,7 @@ export class StudentDetails extends Component {
 
                         <div>
                             <input type="submit" value="SAVE" className="standard-button" style={{ backgroundColor: "#2196f3" }} ></input>
-                            <button className="standard-button" style={{ backgroundColor: "#2196f3", marginLeft:"10px" }}  onClick={() => { this.props.change(1) }} >NEXT</button>
+                            <button className="standard-button" style={{ backgroundColor: "#2196f3", marginLeft: "10px" }} onClick={() => { this.props.change(1) }} >NEXT</button>
                         </div>
                     </form>
                 </div>

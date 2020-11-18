@@ -103,7 +103,7 @@ class Home extends React.Component {
                                     this.state.user === -1 || this.state.user === null ? (
                                         <Button onClick={this.handleLogin} style={{ textTransform: "none", color: "white" }} >Sign In</Button>
                                     ) : (
-                                            <Link to="/pidgin/login" ><Button style={{ textTransform: "none", color: "white" }} >{this.state.user}</Button></Link>
+                                            <Link to="/pidgin/login" ><Button style={{ textTransform: "none", color: "white" }} >{this.state.user.name}</Button></Link>
                                         )
                                 }
                             </div>
