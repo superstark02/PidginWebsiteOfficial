@@ -40,7 +40,7 @@ export class ParentDetails extends Component {
                         <div></div>
                     )
                 }
-                <form method="POST" action="http://localhost:5000/student" >
+                <form method="POST" action="https://us-central1-pidgin-ds.cloudfunctions.net/backend/student" >
                     <input type="hidden" name="uid" value={this.state.uid} defaultValue="uid" />
                     <input type="hidden" name="part" value="parents" />
                     <h3 >Particulars of Parents</h3>

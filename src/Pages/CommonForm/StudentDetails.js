@@ -21,7 +21,7 @@ export class StudentDetails extends Component {
         var pro_url = "https://us-central1-pidgin-ds.cloudfunctions.net/backend/form";
         var dev_url = "http://localhost:5000/common_form";
 
-        axios.post(dev_url).then(result => {
+        axios.post(pro_url).then(result => {
             console.log(result);
         }).catch(error => {
             console.log(error)
@@ -84,7 +84,7 @@ export class StudentDetails extends Component {
                                 <div></div>
                             )
                     }
-                    <form action="http://localhost:5000/student" method="POST" >
+                    <form action="https://us-central1-pidgin-ds.cloudfunctions.net/backend/student" method="POST" >
                         <input type="hidden" name="uid" value={this.state.uid} defaultValue="uid" />
                         <input type="hidden" name="part" value="student" />
                         <h3>Particulars of Child</h3>

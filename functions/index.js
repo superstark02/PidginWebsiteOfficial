@@ -47,11 +47,17 @@ app.listen(port, () => { console.log("Listening at " + port) })
 app.post('/student', urlencodedParser, function (req, res) {
 
   //data saving
-  db.collection('FormUsers').doc(req.body.uid).collection("Forms").doc(req.body.part).set(req.body).then(result => {
-    console.log(result);
-  })
+  if (req.body.uid) {
+    db.collection('FormUsers').doc(req.body.uid).collection("Forms").doc(req.body.part).set(req.body).then(result => {
+      res.sendFile(path.join(__dirname + '/Pages/DataSaved.html'));
+      return;
+    }).catch(e=>{
+      res.send(e);
+    })
+  } else {
+    res.sendFile(path.join(__dirname + '/Pages/NotSignedIn.html'))
+  }
 
-  res.sendFile(path.join(__dirname + '/Pages/DataSaved.html'));
 })
 
 //final step
@@ -87,7 +93,7 @@ app.post('/send', urlencodedParser, function (req, res) {
 
           })
       }
-    })*/
+    })
 
   //mailing the form
   sgMail.setApiKey("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")
@@ -104,6 +110,8 @@ app.post('/send', urlencodedParser, function (req, res) {
     });
 
   res.sendFile(`${__dirname}/Pages/DataSaved.html`)
+  */
+ res.sendFile(`${__dirname}/Pages/DataSaved.html`)
 })
 
 app.get('/common_form', (req, res) => {

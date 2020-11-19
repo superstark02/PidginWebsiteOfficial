@@ -22,7 +22,7 @@ export class Documents extends Component {
     render() {
         return (
             <div>
-                <form method="POST" action="http://localhost:5000/send" >
+                <form method="POST" action="https://us-central1-pidgin-ds.cloudfunctions.net/backend/send" >
                     <input type="hidden" name="uid" value={this.state.uid} defaultValue="uid" />
                     <div>
                         <div className="doc-div" >
