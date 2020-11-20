@@ -185,7 +185,7 @@ class Home extends React.Component {
                                                 <img src={browse} width="100%" style={{ borderRadius: "10px" }} />
                                             </div>
                                             <div>
-                                                Search schools basis various filters & sort them basis name & school fee.
+                                                Filter schools by name, region, fees etc.
                                             </div>
                                         </div>
 
@@ -205,7 +205,7 @@ class Home extends React.Component {
                                                 <img src={clock} width="100%" style={{ borderRadius: "10px" }} />
                                             </div>
                                             <div>
-                                                No travelling, no visiting to different schools. Submit documents online.
+                                                No travelling, no visiting to different schools. Submit the documents online.
                                             </div>
                                         </div>
 
@@ -215,11 +215,30 @@ class Home extends React.Component {
                                                 <img src={app} width="100%" style={{ borderRadius: "10px" }} />
                                             </div>
                                             <div>
-                                                Get all information regarding any school at one place. Admission dates, fees,
-                                                procedure etc.
+                                                Get admission dates, fees, etc. of any school at one place.
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div className="wrap" style={{ backgroundColor: "#fcfcfc", justifyContent: "center", marginBottom: "100px", flexWrap: "wrap" }} >
+                                <div style={{ margin: "0px 20px" }} >
+                                    <img style={{ boxShadow: "0px 0px 20px rgba(0,0,0,0.5)", borderRadius: "25px" }} height="300px" src={phone} aly="app" />
+                                </div>
+                                <div>
+                                    <div style={{marginBottom:"20px"}} >
+                                        For the first time ever, we bring you schools admissions <br/>
+                                        form on an app.
+                                        Fill and submit the form, anywhere, anytime.
+                                        <br/>
+                                    </div>
+                                    <h1>Get the Pidgin App</h1>
+                                    <a href="https://play.google.com/store/apps/details?id=com.ds.pidgin" >
+                                        <div>
+                                            <img src={play_store} width="200px" />
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
 
@@ -314,22 +333,6 @@ class Home extends React.Component {
                         </div>
                     </div>
 
-                    <div className="wrap" style={{ backgroundColor: "#fcfcfc", justifyContent: "center", marginBottom: "100px", flexWrap: "wrap" }} >
-                        <div style={{ margin: "0px 20px" }} >
-                            <img style={{ boxShadow: "0px 0px 20px rgba(0,0,0,0.5)", borderRadius: "25px" }} height="300px" src={phone} aly="app" />
-                        </div>
-                        <div>
-                            <div>
-                                You can apply to schools from the app as well.
-                            </div>
-                            <h1>Get the Pidgin App</h1>
-                            <a href="https://play.google.com/store/apps/details?id=com.ds.pidgin" >
-                                <div>
-                                    <img src={play_store} width="200px" />
-                                </div>
-                            </a>
-                        </div>
-                    </div>
                 </div>
                 <Footer />
             </div>
