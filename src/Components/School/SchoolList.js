@@ -25,12 +25,18 @@ export class SchoolList extends Component {
         })
     }
 
+    componentDidUpdate(){
+        
+    }
+
     render() {
         filteredClass = this.state.schools
         if (this.state.search !== "0" && this.state.schools !== null) {
             filteredClass = this.state.schools.filter(
                 item =>
-                    item.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 
+                    item.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
+                    item.fees.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
+                    item.board.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 
             )
         }
 

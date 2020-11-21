@@ -19,7 +19,7 @@ export class SchoolFilter extends Component {
                     {
                         classes.map(item => {
                             return (
-                                <div className='filter-list-item' onClick={() => { this.setAge(item) }} >
+                                <div className='filter-list-item' onClick={() => { this.props.setFilter(item) }} >
                                     {item}
                                 </div>
                             )
@@ -33,7 +33,7 @@ export class SchoolFilter extends Component {
                     {
                         region.map(item => {
                             return (
-                                <div className='filter-list-item' onClick={() => { this.setPrice(item) }} >
+                                <div className='filter-list-item' onClick={() => { this.props.setFilter(item) }} >
                                     {item}
                                 </div>
                             )
@@ -47,7 +47,7 @@ export class SchoolFilter extends Component {
                     {
                         board.map(item => {
                             return (
-                                <div className='filter-list-item' onClick={() => { this.setPrice(1000) }} >
+                                <div className='filter-list-item' onClick={() => { this.props.setFilter(item) }} >
                                     {item}
                                 </div>
                             )
@@ -61,7 +61,7 @@ export class SchoolFilter extends Component {
                     {
                         fees.map(item => {
                             return (
-                                <div className='filter-list-item' onClick={() => { this.setPrice(1000) }} >
+                                <div className='filter-list-item' onClick={() => { this.props.setFilter(item) }} >
                                     {item}
                                 </div>
                             )

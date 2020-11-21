@@ -8,6 +8,21 @@ import Tuitions from './Tuitions'
 
 export class School extends Component {
 
+    state = {
+        search: ""
+    }
+
+    constructor(){
+        super();
+        if(this.props){
+            this.setState({search:this.props.location.state.search});
+        }
+    }
+
+    handleFilter = (e) => {
+        this.setState({search:e});
+    }
+
     render() {
         return (
             <div>
@@ -16,8 +31,8 @@ export class School extends Component {
                     <MappBar/>
                 </div>
                 <div className="wrap" style={{alignItems:"flex-start",marginTop:"30px"}} >
-                    <SchoolFilter/>
-                    <SchoolList id={this.props.location.state.search} />
+                    <SchoolFilter setFilter={this.handleFilter} />
+                    <SchoolList id={this.state.search} />
                     <Tuitions/>
                 </div>
                 <Footer/>
