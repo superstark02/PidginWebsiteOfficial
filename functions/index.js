@@ -123,15 +123,16 @@ app.post('/send', urlencodedParser, function (req, res) {
 
   res.sendFile(`${__dirname}/Pages/DataSaved.html`)
   */
-  res.sendFile(`${__dirname}/Pages/DataSaved.html`)
+  res.redirect('http://localhost:3000/selected-schools')
 })
+
 
 app.post('/final-pay', [parseUrl, parseJson], (req, res) => {
 
   // Route for making payment
   var paymentDetails = {
-    amount: "100",
-    customerId: "Dipit Sharma",
+    amount: req.body.total,
+    customerId: "dipitsharma",
     customerEmail: "superstark02@gmmail.com",
     customerPhone: "9910197196"
   }
@@ -147,7 +148,7 @@ app.post('/final-pay', [parseUrl, parseJson], (req, res) => {
     params['ORDER_ID'] = 'TEST_' + new Date().getTime();
     params['CUST_ID'] = paymentDetails.customerId;
     params['TXN_AMOUNT'] = paymentDetails.amount;
-    params['CALLBACK_URL'] = 'http://localhost:3000/payment-failed';
+    params['CALLBACK_URL'] = 'http://localhost:3000/';
     params['EMAIL'] = paymentDetails.customerEmail;
     params['MOBILE_NO'] = paymentDetails.customerPhone;
 

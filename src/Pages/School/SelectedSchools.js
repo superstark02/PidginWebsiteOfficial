@@ -24,7 +24,7 @@ export class SelectedSchools extends Component {
 
     getData = () => {
         var id = "YlTSGgoJG2R8Ii5qqnkXXd7gzSa2"
-        //var id = window.Android.getUid()
+        
         getSubCollection("Users", this.state.id, "List").then(snap => {
             this.setState({ list: snap })
 
@@ -209,11 +209,14 @@ export class SelectedSchools extends Component {
                                                             </div>
                                                         </div>
 
-                                                        <div className="wrap" >
-                                                            <button className="pay-button" >
-                                                                PAY & SUBMIT
-                                                            </button>
-                                                        </div>
+                                                        <form method="POST" action="http://localhost:5000/final-pay" style={{width:"100%"}} >
+                                                            <input type="hidden" name="total" value={this.state.tax + this.state.total} />
+                                                            <div className="wrap" >
+                                                                <button type="submit" className="pay-button" >
+                                                                    PAY & SUBMIT
+                                                                </button>
+                                                            </div>
+                                                        </form>
 
                                                         <div style={{ height: "60px" }} ></div>
 
