@@ -10,9 +10,10 @@ const sgMail = require('@sendgrid/mail');
 const fs = require("fs");
 const multer = require('multer');
 const Paytm = require('paytmchecksum');
+const qs = require("querystring");
+const checksum_lib = require('./PayTm/checksum');
+const config = require('./PayTm/config');
 
-//paytm checksum
-var PaytmChecksum = require("./PayTm/checksum");
 
 //multer
 var storage = multer.diskStorage({
@@ -25,6 +26,7 @@ var storage = multer.diskStorage({
 })
 const upload = multer({ storage: storage })
 
+
 //Firebase init
 firebase.initializeApp({
   apiKey: 'AIzaSyCYoIBWm4Hw6kCP1P6jPWvqgJsXQdFmuPM',
@@ -33,11 +35,16 @@ firebase.initializeApp({
 });
 var db = firebase.firestore();
 
+
 //express init
 const app = express();
 const router = express.Router();
 
+
 //app init
+const parseUrl = express.urlencoded({ extended: false });
+const parseJson = express.json({ extended: false });
+
 app.use(cors());
 app.use('/', router);
 app.use(bodyParser.json())
@@ -63,6 +70,7 @@ app.post('/student', urlencodedParser, function (req, res) {
   }
 
 })
+
 
 //final step
 app.post('/send', urlencodedParser, function (req, res) {
@@ -118,16 +126,16 @@ app.post('/send', urlencodedParser, function (req, res) {
   res.sendFile(`${__dirname}/Pages/DataSaved.html`)
 })
 
-app.post('/final-pay', (req, res) => {
+app.post('/final-pay', [parseUrl, parseJson], (req, res) => {
 
   // Route for making payment
-
   var paymentDetails = {
-    amount: req.body.amount,
-    customerId: req.body.name,
-    customerEmail: req.body.email,
-    customerPhone: req.body.phone
+    amount: "100",
+    customerId: "Dipit Sharma",
+    customerEmail: "superstark02@gmmail.com",
+    customerPhone: "9910197196"
   }
+
   if (!paymentDetails.amount || !paymentDetails.customerId || !paymentDetails.customerEmail || !paymentDetails.customerPhone) {
     res.status(400).send('Payment failed')
   } else {
@@ -139,7 +147,7 @@ app.post('/final-pay', (req, res) => {
     params['ORDER_ID'] = 'TEST_' + new Date().getTime();
     params['CUST_ID'] = paymentDetails.customerId;
     params['TXN_AMOUNT'] = paymentDetails.amount;
-    params['CALLBACK_URL'] = 'http://localhost:3000/callback';
+    params['CALLBACK_URL'] = 'http://localhost:3000/payment-failed';
     params['EMAIL'] = paymentDetails.customerEmail;
     params['MOBILE_NO'] = paymentDetails.customerPhone;
 
