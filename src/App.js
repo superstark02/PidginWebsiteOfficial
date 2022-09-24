@@ -25,6 +25,7 @@ import School from './Pages/School/School';
 import SchoolDisplay from './Pages/School/SchoolDisplay';
 import CommonFormDummy from './Pages/CommonForm/CommonFormDummy';
 import SelectedSchools from './Pages/School/SelectedSchools';
+import CollegePredictor from './Pages/CollegePredictor/CollegePredictor';
 
 export default class App extends React.Component {
 
@@ -51,6 +52,7 @@ export default class App extends React.Component {
             <Route exact path='/pidgin/blogs/:index' component={Blog} />
             <Route exact path='/pidgin/workshops/:index' component={WorkshopsDetails} />
             <Route exact path='/pidgin/feedback' component={Feedback} />
+            <Route exact path='/pidgin/college-predictor' component={CollegePredictor} />
             <Route exact path='/class/class-details/:id/:doc' component={CourseDetails} />
 
             <Route exact path="/common_form" component={CommonFormDummy}/>
